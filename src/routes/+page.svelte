@@ -1,26 +1,32 @@
 <script>
-	import Hero from './Hero.svelte';
-	import HowtoUse from './HowtoUse.svelte';
-	import LinguisticDemo from './LinguisticDemo.svelte';
-	import { psi } from '$lib/design/psi';
-	import Tech from './Tech.svelte';
-	import ContactUs from './ContactUs.svelte';
+	import icoGlyphs from 'icoglyphs';
+	import IcoglyphDisplay from './_components/IcoglyphDisplay.svelte';
 
-	let windowHeight = $state(0);
+	let showPrivate = false;
 
-	let minSectionHeight = $derived(windowHeight / psi + 'px');
+	const allPathKeys = [];
 
-	// $inspect(minSectionHeight);
+	for (const icoGlyphName in icoGlyphs.library().svgData) {
+		if (showPrivate || !icoGlyphName.startsWith('_')) {
+			allPathKeys.push(icoGlyphName);
+		}
+	}
+
+	// $inspect(icoGlyphsNameArray);
 </script>
 
-<svelte:window bind:innerHeight={windowHeight} />
+<div id="main">
+	{#each allPathKeys as pathKeys}
+		<IcoglyphDisplay icoGlyphName={pathKeys} />
+	{/each}
+</div>
 
-<Hero {minSectionHeight} />
-
-<LinguisticDemo {minSectionHeight} />
-
-<HowtoUse {minSectionHeight} />
-
-<Tech {minSectionHeight} />
-
-<ContactUs {minSectionHeight} />
+<style>
+	#main {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		height: 100%;
+		width: 100%;
+	}
+</style>

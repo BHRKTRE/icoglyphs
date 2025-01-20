@@ -1,6 +1,6 @@
 <script>
-	import Footer from './Footer.svelte';
-	import NavBar from './NavBar.svelte';
+	import Footer from './_layoutComponents/Footer.svelte';
+	import NavBar from './_layoutComponents/NavBar.svelte';
 	import { psi } from '$lib/design/psi';
 
 	let { children } = $props();

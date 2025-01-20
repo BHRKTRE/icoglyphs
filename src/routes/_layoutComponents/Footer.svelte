@@ -1,4 +1,4 @@
-<div id="footer-container">
+<!-- <div id="footer-container">
 	<h3>footer</h3>
 	<p>licence</p>
 	<p>GitHubLink</p>
@@ -6,4 +6,4 @@
 </div>
 
 <style>
-</style>
+</style> -->
