@@ -1,25 +1,27 @@
 <script>
 	import icoGlyphs from 'icoglyphs';
-	import IcoglyphDisplay from './_components/IcoglyphDisplay.svelte';
+	import IcoGlyphLinked from '../lib/components/clickable/IcoGlyphLinked.svelte';
+	import globalVar from '../lib/globalVar.svelte.js';
 
 	let showPrivate = false;
 
 	const allPathKeys = [];
 
 	for (const icoGlyphName in icoGlyphs.library().svgData) {
-		if (showPrivate || !icoGlyphName.startsWith('_')) {
-			allPathKeys.push(icoGlyphName);
-		}
+		allPathKeys.push(icoGlyphName);
 	}
 
-	// $inspect(icoGlyphsNameArray);
+	// $inspect(globalVar);
 </script>
 
 <div id="main">
 	{#each allPathKeys as pathKeys}
-		<IcoglyphDisplay icoGlyphName={pathKeys} />
+		<IcoGlyphLinked icoGlyphName={pathKeys} />
 	{/each}
 </div>
+<button onclick={globalVar.showPrivateIcoGlyph.togglePrivateIcoGlyph}
+	><h3>Toggle showPrivateIcoGlyph</h3></button
+>
 
 <style>
 	#main {
