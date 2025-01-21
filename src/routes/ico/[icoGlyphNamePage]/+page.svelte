@@ -1,8 +1,18 @@
 <script>
 	import icoGlyphs from 'icoglyphs';
+	import IcoGlyphLinked from '$lib/components/clickable/IcoGlyphLinked.svelte';
+
 	let { data } = $props();
 
-	// $inspect(data);
+	const allPathKeys = [];
+
+	for (const icoGlyphName in icoGlyphs.library().svgData[data.name].path) {
+		allPathKeys.push(icoGlyphName);
+	}
+
+	export const namePageOf = $state(data.name);
+
+	// $inspect(nameOf);
 </script>
 
 <main>
@@ -11,11 +21,18 @@
 			<path d={icoGlyphs.getPath(data.name)} />
 		</svg>
 	</div>
+
+	<div id="subIcoGlyphsDisplay">
+		{#each allPathKeys as pathKeys}
+			<IcoGlyphLinked icoGlyphName={data.name} icoGlyphSubName={pathKeys} />
+		{/each}
+	</div>
 </main>
 
 <style>
 	main {
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
