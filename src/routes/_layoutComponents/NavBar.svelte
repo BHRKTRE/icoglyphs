@@ -1,5 +1,5 @@
 <div id="navbar-container">
-	<a href="/"><h3>home</h3></a>
+	<a href="/"><h3>K</h3></a>
 </div>
 
 <style>

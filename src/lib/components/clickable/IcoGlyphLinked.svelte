@@ -3,28 +3,28 @@
 	import { goto } from '$app/navigation';
 	import globlaVar from '$lib/globalVar.svelte.js';
 
-	let { icoGlyphName, icoGlyphSubName } = $props();
+	let { icoGlyphCat, icoGlyphName } = $props();
 
-	const link = icoGlyphSubName ? `/ico/${icoGlyphName}/${icoGlyphSubName}` : `/ico/${icoGlyphName}`;
+	const link = icoGlyphName ? `/ico/${icoGlyphCat}/${icoGlyphName}` : `/ico/${icoGlyphCat}`;
 
-	const ariaLabel = `Navigate to ${icoGlyphName} page`;
+	const ariaLabel = `Navigate to ${icoGlyphCat} page`;
 
-	// $inspect(icoGlyphSubName);
-	// globlaVar.showPrivateIcoGlyph.value || !icoGlyphName.startsWith('_')
+	// $inspect(icoGlyphName);
+	// globlaVar.showPrivateIcoGlyph.value || !icoGlyphCat.startsWith('_')
 </script>
 
-{#if icoGlyphSubName}
-	{#if globlaVar.showPrivateIcoGlyph.value || !icoGlyphSubName.startsWith('_')}
+{#if icoGlyphName}
+	{#if globlaVar.showPrivateIcoGlyph.value || !icoGlyphName.startsWith('_')}
 		<button onclick={() => goto(link)} aria-label={ariaLabel} class="icoglyphContainer">
-			<svg {...icoGlyphs.getSvgAttributes(icoGlyphName)}>
-				<path d={icoGlyphs.getPath(icoGlyphName, icoGlyphSubName)} />
+			<svg {...icoGlyphs.getSvgAttributes(icoGlyphCat)}>
+				<path d={icoGlyphs.getPath(icoGlyphCat, icoGlyphName)} />
 			</svg>
 		</button>
 	{/if}
-{:else if globlaVar.showPrivateIcoGlyph.value || !icoGlyphName.startsWith('_')}
+{:else if globlaVar.showPrivateIcoGlyph.value || !icoGlyphCat.startsWith('_')}
 	<button onclick={() => goto(link)} aria-label={ariaLabel} class="icoglyphContainer">
-		<svg {...icoGlyphs.getSvgAttributes(icoGlyphName)}>
-			<path d={icoGlyphs.getPath(icoGlyphName)} />
+		<svg {...icoGlyphs.getSvgAttributes(icoGlyphCat)}>
+			<path d={icoGlyphs.getPath(icoGlyphCat)} />
 		</svg>
 	</button>
 {/if}

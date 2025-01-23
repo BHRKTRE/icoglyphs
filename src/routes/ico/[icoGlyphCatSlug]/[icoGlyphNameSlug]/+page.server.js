@@ -3,19 +3,19 @@ import icoGlyphs from 'icoglyphs';
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
-	// Extraire 'fullscreen' et 'icoGlyphPage' depuis l'URL.
-	const { icoGlyphNamePage, icoGlyphPage } = params;
+	// Extraire 'fullscreen' et 'icoGlyphName' depuis l'URL.
+	const { icoGlyphCatSlug, icoGlyphNameSlug } = params;
 
 	// Vérifier si la catégorie existe dans les données.
-	const icoGlyphKey = Object.keys(icoGlyphs.library().svgData[icoGlyphNamePage]?.path || {}).find(
-		(key) => key === icoGlyphPage
+	const icoGlyphKey = Object.keys(icoGlyphs.library().svgData[icoGlyphCatSlug]?.path || {}).find(
+		(key) => key === icoGlyphNameSlug
 	);
 
 	// Construire les données de l'icoGlyph si la clé est trouvée.
 	const icoGlyphData = icoGlyphKey
 		? {
 				name: icoGlyphKey,
-				...icoGlyphs.library().svgData[icoGlyphNamePage].path[icoGlyphKey]
+				...icoGlyphs.library().svgData[icoGlyphCatSlug].path[icoGlyphKey]
 			}
 		: null;
 

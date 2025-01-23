@@ -7,25 +7,25 @@
 
 	const allPathKeys = [];
 
-	const subNamePage = $page.params.icoGlyphNamePage;
+	const icoGlyphCatSlug = $page.params.icoGlyphCatSlug;
 
-	for (const icoGlyphName in icoGlyphs.library().svgData[subNamePage].path) {
-		allPathKeys.push(icoGlyphName);
+	for (const icoGlyphCat in icoGlyphs.library().svgData[icoGlyphCatSlug].path) {
+		allPathKeys.push(icoGlyphCat);
 	}
 
-	// $inspect(data);
+	// $inspect(allPathKeys);
 </script>
 
 <main>
 	<div class="icoglyph-container">
-		<svg {...icoGlyphs.getSvgAttributes(subNamePage)}>
-			<path d={icoGlyphs.getPath(subNamePage, data.name)} />
+		<svg {...icoGlyphs.getSvgAttributes(icoGlyphCatSlug)}>
+			<path d={icoGlyphs.getPath(icoGlyphCatSlug, data.name)} />
 		</svg>
 	</div>
 
 	<div id="subIcoGlyphsDisplay">
 		{#each allPathKeys as pathKeys}
-			<IcoGlyphLinked icoGlyphName={subNamePage} icoGlyphSubName={pathKeys} />
+			<IcoGlyphLinked icoGlyphCat={icoGlyphCatSlug} icoGlyphName={pathKeys} />
 		{/each}
 	</div>
 </main>
@@ -42,7 +42,6 @@
 	.icoglyph-container {
 		width: 100%;
 		height: 100%;
-
 		border: rgb(141, 116, 116) 1px solid;
 		margin: 5px;
 		border-radius: 5%;

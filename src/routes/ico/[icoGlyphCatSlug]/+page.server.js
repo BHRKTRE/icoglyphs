@@ -4,7 +4,7 @@ import icoGlyphs from 'icoglyphs';
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
 	const icoGlyphKey = Object.keys(icoGlyphs.library().svgData).find(
-		(key) => key === params.icoGlyphNamePage
+		(key) => key === params.icoGlyphCatSlug
 	);
 
 	const icoGlyphData = { name: icoGlyphKey, ...icoGlyphs.library().svgData[icoGlyphKey] };
@@ -13,5 +13,5 @@ export async function load({ params }) {
 		return icoGlyphData;
 	}
 
-	error(404, 'IcoGlyph not found');
+	error(404);
 }
