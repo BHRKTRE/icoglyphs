@@ -25,7 +25,9 @@
 
 	<div id="subIcoGlyphsDisplay">
 		{#each allPathKeys as pathKeys}
-			<IcoGlyphLinked icoGlyphCat={icoGlyphCatSlug} icoGlyphName={pathKeys} />
+			{#if pathKeys !== data.name}
+				<IcoGlyphLinked icoGlyphCat={icoGlyphCatSlug} icoGlyphName={pathKeys} />
+			{/if}
 		{/each}
 	</div>
 </main>

@@ -10,7 +10,6 @@
 	const ariaLabel = `Navigate to ${icoGlyphCat} page`;
 
 	// $inspect(icoGlyphName);
-	// globlaVar.showPrivateIcoGlyph.value || !icoGlyphCat.startsWith('_')
 </script>
 
 {#if icoGlyphName}
