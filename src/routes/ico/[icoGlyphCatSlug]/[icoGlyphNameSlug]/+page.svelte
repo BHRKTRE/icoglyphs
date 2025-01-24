@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 	import CopySvgButton from '$lib/components/button/CopySvgButton.svelte';
 	import DownLoadSvgButton from '$lib/components/button/DownLoadSvgButton.svelte';
+	import DownLoadPngButton from '$lib/components/button/DownLoadPngButton.svelte';
 
 	let { data } = $props();
 
@@ -27,6 +28,7 @@
 
 	<CopySvgButton icoGlyphCat={icoGlyphCatSlug} icoGlyphName={data.name} />
 	<DownLoadSvgButton icoGlyphCat={icoGlyphCatSlug} icoGlyphName={data.name} />
+	<DownLoadPngButton icoGlyphCat={icoGlyphCatSlug} icoGlyphName={data.name} />
 
 	<div id="subIcoGlyphsDisplay">
 		{#each allPathKeys as pathKeys}
