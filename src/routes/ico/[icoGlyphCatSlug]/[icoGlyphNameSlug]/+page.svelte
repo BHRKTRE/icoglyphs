@@ -2,6 +2,8 @@
 	import icoGlyphs from 'icoglyphs';
 	import IcoGlyphLinked from '$lib/components/clickable/IcoGlyphLinked.svelte';
 	import { page } from '$app/stores';
+	import CopySvgButton from '$lib/components/button/CopySvgButton.svelte';
+	import DownLoadSvgButton from '$lib/components/button/DownLoadSvgButton.svelte';
 
 	let { data } = $props();
 
@@ -22,6 +24,9 @@
 			<path d={icoGlyphs.getPath(icoGlyphCatSlug, data.name)} />
 		</svg>
 	</div>
+
+	<CopySvgButton icoGlyphCat={icoGlyphCatSlug} icoGlyphName={data.name} />
+	<DownLoadSvgButton icoGlyphCat={icoGlyphCatSlug} icoGlyphName={data.name} />
 
 	<div id="subIcoGlyphsDisplay">
 		{#each allPathKeys as pathKeys}
