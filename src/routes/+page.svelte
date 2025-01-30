@@ -5,12 +5,10 @@
 
 	const allPathKeys = [];
 
-	for (const icoGlyphCat in icoGlyphs.library().svgData) {
-		const paths = icoGlyphs.library().svgData[icoGlyphCat].path;
+	for (const icoGlyphName in icoGlyphs.library().svgData) {
+		const paths = icoGlyphs.library().svgData[icoGlyphName].path;
 
-		const firstPathKey = Object.keys(paths)[0];
-
-		allPathKeys.push({ icoGlyphCat, icoGlyphName: firstPathKey });
+		allPathKeys.push({ icoGlyphName });
 	}
 
 	// $inspect(allPathKeys);
@@ -18,7 +16,7 @@
 
 <main>
 	{#each allPathKeys as pathKeys}
-		<IcoGlyphLinked icoGlyphCat={pathKeys.icoGlyphCat} icoGlyphName={pathKeys.icoGlyphName} />
+		<IcoGlyphLinked icoGlyphName={pathKeys.icoGlyphName} />
 	{/each}
 </main>
 <button onclick={globalVar.showPrivateIcoGlyph.togglePrivateIcoGlyph}

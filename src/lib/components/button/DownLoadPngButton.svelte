@@ -1,7 +1,7 @@
 <script>
 	import icoGlyphs from 'icoglyphs';
 
-	let { icoGlyphCat, icoGlyphName } = $props();
+	let { icoGlyphName } = $props();
 
 	let SvgAttributes = $state({
 		xmlns: 'http://www.w3.org/2000/svg',
@@ -28,7 +28,7 @@
 			style="${Object.entries(svgStyle)
 				.map(([key, value]) => `${key}:${value}`)
 				.join(';')}">
-			<path d='${icoGlyphs.getPath(icoGlyphCat, icoGlyphName)}' />
+			<path d='${icoGlyphs.getPath(icoGlyphName)}' />
 		</svg>`;
 
 	function downloadPng() {

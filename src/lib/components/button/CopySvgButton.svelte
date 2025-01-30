@@ -1,10 +1,10 @@
 <script>
 	import icoGlyphs from 'icoglyphs';
 
-	let { icoGlyphCat, icoGlyphName } = $props();
+	let { icoGlyphName } = $props();
 
 	function copySvgToClipBoard() {
-		const svgText = icoGlyphs.getCompletSVG(icoGlyphCat, icoGlyphName);
+		const svgText = icoGlyphs.getCompletSVG(icoGlyphName);
 
 		navigator.clipboard.writeText(svgText);
 	}

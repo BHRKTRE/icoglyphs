@@ -10,30 +10,24 @@
 
 	const allPathKeys = [];
 
-	const icoGlyphCatSlug = $page.params.icoGlyphCatSlug;
-
-	for (const icoGlyphCat in icoGlyphs.library().svgData[icoGlyphCatSlug].path) {
-		allPathKeys.push(icoGlyphCat);
-	}
-
-	// $inspect(allPathKeys);
+	$inspect(data.metadata);
 </script>
 
 <main>
 	<div class="icoglyph-container">
-		<svg {...icoGlyphs.getSvgAttributes(icoGlyphCatSlug)}>
-			<path d={icoGlyphs.getPath(icoGlyphCatSlug, data.name)} />
+		<svg {...icoGlyphs.getSvgAttributes(data.name)}>
+			<path d={icoGlyphs.getPath(data.name)} />
 		</svg>
 	</div>
 
-	<CopySvgButton icoGlyphCat={icoGlyphCatSlug} icoGlyphName={data.name} />
-	<DownLoadSvgButton icoGlyphCat={icoGlyphCatSlug} icoGlyphName={data.name} />
-	<DownLoadPngButton icoGlyphCat={icoGlyphCatSlug} icoGlyphName={data.name} />
+	<CopySvgButton icoGlyphName={data.name} />
+	<DownLoadSvgButton icoGlyphName={data.name} />
+	<DownLoadPngButton icoGlyphName={data.name} />
 
 	<div id="subIcoGlyphsDisplay">
 		{#each allPathKeys as pathKeys}
 			{#if pathKeys !== data.name}
-				<IcoGlyphLinked icoGlyphCat={icoGlyphCatSlug} icoGlyphName={pathKeys} />
+				<IcoGlyphLinked icoGlyphName={pathKeys} />
 			{/if}
 		{/each}
 	</div>
