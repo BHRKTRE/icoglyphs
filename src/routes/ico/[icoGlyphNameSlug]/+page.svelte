@@ -1,16 +1,28 @@
 <script>
 	import icoGlyphs from 'icoglyphs';
 	import IcoGlyphLinked from '$lib/components/clickable/IcoGlyphLinked.svelte';
-	import { page } from '$app/stores';
 	import CopySvgButton from '$lib/components/button/CopySvgButton.svelte';
 	import DownLoadSvgButton from '$lib/components/button/DownLoadSvgButton.svelte';
 	import DownLoadPngButton from '$lib/components/button/DownLoadPngButton.svelte';
 
 	let { data } = $props();
 
+	// Display all the icoGlyphs that have the same categories as the current icoGlyph
 	const allPathKeys = [];
+	Object.keys(icoGlyphs.library().svgData).forEach((key) => {
+		if (
+			icoGlyphs.library().svgData[key].metadata &&
+			icoGlyphs
+				.library()
+				.svgData[
+					key
+				].metadata.categories.some((category) => data.metadata.categories.includes(category))
+		) {
+			allPathKeys.push(key);
+		}
+	});
 
-	$inspect(data.metadata);
+	$inspect(allPathKeys);
 </script>
 
 <main>

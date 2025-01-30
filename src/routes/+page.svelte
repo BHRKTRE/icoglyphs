@@ -5,13 +5,24 @@
 
 	const allPathKeys = [];
 
-	for (const icoGlyphName in icoGlyphs.library().svgData) {
-		const paths = icoGlyphs.library().svgData[icoGlyphName].path;
+	// Display all the icoGlyphs for each category or if no category is defined
+	const categoriesUsed = new Set();
 
-		allPathKeys.push({ icoGlyphName });
+	for (const icoGlyphName in icoGlyphs.library().svgData) {
+		const icoGlyphData = icoGlyphs.library().svgData[icoGlyphName];
+		const categories = icoGlyphData.metadata?.categories;
+
+		if (categories) {
+			if (categories.some((category) => !categoriesUsed.has(category))) {
+				categories.forEach((category) => categoriesUsed.add(category));
+				allPathKeys.push({ icoGlyphName });
+			}
+		} else {
+			allPathKeys.push({ icoGlyphName });
+		}
 	}
 
-	// $inspect(allPathKeys);
+	// $inspect(categoriesUsed);
 </script>
 
 <main>
