@@ -10,14 +10,8 @@
 	// Display all the icoGlyphs that have the same categories as the current icoGlyph
 	const allPathKeys = [];
 	Object.keys(icoGlyphs.library().svgData).forEach((key) => {
-		if (
-			icoGlyphs.library().svgData[key].metadata &&
-			icoGlyphs
-				.library()
-				.svgData[
-					key
-				].metadata.categories.some((category) => data.metadata.categories.includes(category))
-		) {
+		const metadata = icoGlyphs.library().svgData[key].metadata;
+		if (metadata?.categories?.some((category) => data?.metadata?.categories?.includes(category))) {
 			allPathKeys.push(key);
 		}
 	});

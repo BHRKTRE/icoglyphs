@@ -22,19 +22,51 @@
 		}
 	}
 
+	// SearchBar
+	let query = '';
+
+	const search = () => {
+		console.log('Recherche pour :', query);
+		// Ajoutez ici la logique pour gérer la recherche
+	};
+
 	// $inspect(categoriesUsed);
 </script>
 
 <main>
-	{#each allPathKeys as pathKeys}
-		<IcoGlyphLinked icoGlyphName={pathKeys.icoGlyphName} />
-	{/each}
+	<input
+		id="searchBar"
+		type="text"
+		bind:value={query}
+		placeholder="Rechercher..."
+		oninput={search}
+	/>
+	<button onclick={globalVar.showPrivateIcoGlyph.togglePrivateIcoGlyph}
+		><h3>Toggle showPrivateIcoGlyph</h3></button
+	>
+	<div id="icoGlyphsContainer">
+		{#each allPathKeys as pathKeys}
+			<IcoGlyphLinked icoGlyphName={pathKeys.icoGlyphName} />
+		{/each}
+	</div>
 </main>
-<button onclick={globalVar.showPrivateIcoGlyph.togglePrivateIcoGlyph}
-	><h3>Toggle showPrivateIcoGlyph</h3></button
->
 
 <style>
+	#searchBar {
+		width: 100%;
+		background: var(--b2);
+		padding: 5px 10px;
+		border-radius: var(--br);
+	}
+
+	#icoGlyphsContainer {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		height: 100%;
+		width: 100%;
+	}
+
 	main {
 		display: flex;
 		flex-direction: row;
