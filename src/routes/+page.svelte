@@ -3,34 +3,44 @@
 	import IcoGlyphLinked from '$lib/components/clickable/IcoGlyphLinked.svelte';
 	import globalVar from '$lib/globalVar.svelte.js';
 
-	const allPathKeys = [];
+	let query = $state('');
+	let filteredIcoGlyphs = $state([]);
 
-	// Display all the icoGlyphs for each category or if no category is defined
-	const categoriesUsed = new Set();
+	const getDefaultIcoGlyphs = () => {
+		const categoriesUsed = new Set();
+		return Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
+			if (!globalVar.showPrivateIcoGlyph.value && icoGlyphName.startsWith('_')) return false;
 
-	for (const icoGlyphName in icoGlyphs.library().svgData) {
-		const icoGlyphData = icoGlyphs.library().svgData[icoGlyphName];
-		const categories = icoGlyphData.metadata?.categories;
-
-		if (categories) {
-			if (categories.some((category) => !categoriesUsed.has(category))) {
-				categories.forEach((category) => categoriesUsed.add(category));
-				allPathKeys.push({ icoGlyphName });
+			const { metadata } = icoGlyphs.library().svgData[icoGlyphName];
+			if (metadata?.categories?.some((cat) => !categoriesUsed.has(cat))) {
+				metadata.categories.forEach((cat) => categoriesUsed.add(cat));
+				return true;
 			}
-		} else {
-			allPathKeys.push({ icoGlyphName });
-		}
-	}
-
-	// SearchBar
-	let query = '';
-
-	const search = () => {
-		console.log('Recherche pour :', query);
-		// Ajoutez ici la logique pour gérer la recherche
+			return !metadata?.categories;
+		});
 	};
 
-	// $inspect(categoriesUsed);
+	const search = () => {
+		const lowerQuery = query.trim().toLowerCase();
+		const queryWords = lowerQuery.split(/\s+/); // Découpe en mots
+
+		filteredIcoGlyphs = lowerQuery
+			? Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
+					if (!globalVar.showPrivateIcoGlyph.value && icoGlyphName.startsWith('_')) return false;
+
+					const { metadata } = icoGlyphs.library().svgData[icoGlyphName];
+					const iconText = icoGlyphName.toLowerCase();
+					const iconTags = (metadata?.tags ?? []).map((tag) => tag.toLowerCase());
+
+					// Vérifie que TOUS les mots sont présents dans le nom ou les tags
+					return queryWords.every(
+						(word) => iconText.includes(word) || iconTags.some((tag) => tag.includes(word))
+					);
+				})
+			: getDefaultIcoGlyphs();
+	};
+
+	filteredIcoGlyphs = getDefaultIcoGlyphs();
 </script>
 
 <main>
@@ -38,15 +48,22 @@
 		id="searchBar"
 		type="text"
 		bind:value={query}
-		placeholder="Rechercher..."
+		placeholder="Search icoGlyphs"
 		oninput={search}
 	/>
-	<button onclick={globalVar.showPrivateIcoGlyph.togglePrivateIcoGlyph}
-		><h3>Toggle showPrivateIcoGlyph</h3></button
+
+	<button
+		onclick={() => {
+			globalVar.showPrivateIcoGlyph.togglePrivateIcoGlyph();
+			search();
+		}}
 	>
+		<h3>Toggle showPrivateIcoGlyph</h3>
+	</button>
+
 	<div id="icoGlyphsContainer">
-		{#each allPathKeys as pathKeys}
-			<IcoGlyphLinked icoGlyphName={pathKeys.icoGlyphName} />
+		{#each filteredIcoGlyphs as icoGlyphName}
+			<IcoGlyphLinked {icoGlyphName} />
 		{/each}
 	</div>
 </main>

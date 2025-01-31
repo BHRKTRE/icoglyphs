@@ -5,15 +5,15 @@
 
 	let { icoGlyphName } = $props();
 
-	const link = `/ico/${icoGlyphName}`;
-
-	const ariaLabel = `Navigate to ${icoGlyphName} page`;
-
 	// $inspect(icoGlyphName);
 </script>
 
 {#if globlaVar.showPrivateIcoGlyph.value || !icoGlyphName.startsWith('_')}
-	<button onclick={() => goto(link)} aria-label={ariaLabel} class="icoglyphContainer">
+	<button
+		onclick={() => goto(`/ico/${icoGlyphName}`)}
+		aria-label={`Navigate to ${icoGlyphName} page`}
+		class="icoglyphContainer"
+	>
 		<svg {...icoGlyphs.getSvgAttributes(icoGlyphName)}>
 			<path d={icoGlyphs.getPath(icoGlyphName)} />
 		</svg>

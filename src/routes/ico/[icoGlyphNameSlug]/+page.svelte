@@ -16,7 +16,7 @@
 		}
 	});
 
-	$inspect(allPathKeys);
+	// $inspect(allPathKeys);
 </script>
 
 <main>
