@@ -1,5 +1,5 @@
 <script>
-	import icoGlyphs from 'icoglyphs';
+	import icoGlyphs from '$lib/index.js';
 	import IcoGlyphLinked from '$lib/components/clickable/IcoGlyphLinked.svelte';
 	import CopySvgButton from '$lib/components/button/CopySvgButton.svelte';
 	import DownLoadSvgButton from '$lib/components/button/DownLoadSvgButton.svelte';

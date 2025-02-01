@@ -1,14 +1,14 @@
 <script>
-	import icoGlyphs from 'icoglyphs';
+	import icoGlyphs from '$lib/index.js';
 	import { goto } from '$app/navigation';
-	import globlaVar from '$lib/globalVar.svelte.js';
+	import globalVarFront from '$lib/globalVarFront.svelte.js';
 
 	let { icoGlyphName } = $props();
 
 	// $inspect(icoGlyphName);
 </script>
 
-{#if globlaVar.showPrivateIcoGlyph.value || !icoGlyphName.startsWith('_')}
+{#if globalVarFront.showPrivateIcoGlyph.value || !icoGlyphName.startsWith('_')}
 	<button
 		onclick={() => goto(`/ico/${icoGlyphName}`)}
 		aria-label={`Navigate to ${icoGlyphName} page`}

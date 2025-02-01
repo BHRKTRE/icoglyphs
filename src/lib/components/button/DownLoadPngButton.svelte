@@ -1,5 +1,5 @@
 <script>
-	import icoGlyphs from 'icoglyphs';
+	import icoGlyphs from '$lib/index.js';
 
 	let { icoGlyphName } = $props();
 

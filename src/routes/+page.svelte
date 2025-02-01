@@ -1,7 +1,7 @@
 <script>
-	import icoGlyphs from 'icoglyphs';
+	import icoGlyphs from '$lib/index.js';
 	import IcoGlyphLinked from '$lib/components/clickable/IcoGlyphLinked.svelte';
-	import globalVar from '$lib/globalVar.svelte.js';
+	import globalVarFront from '$lib/globalVarFront.svelte.js';
 
 	let query = $state('');
 	let filteredIcoGlyphs = $state([]);
@@ -9,7 +9,7 @@
 	const getDefaultIcoGlyphs = () => {
 		const categoriesUsed = new Set();
 		return Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
-			if (!globalVar.showPrivateIcoGlyph.value && icoGlyphName.startsWith('_')) return false;
+			if (!globalVarFront.showPrivateIcoGlyph.value && icoGlyphName.startsWith('_')) return false;
 
 			const { metadata } = icoGlyphs.library().svgData[icoGlyphName];
 			if (metadata?.categories?.some((cat) => !categoriesUsed.has(cat))) {
@@ -26,7 +26,8 @@
 
 		filteredIcoGlyphs = lowerQuery
 			? Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
-					if (!globalVar.showPrivateIcoGlyph.value && icoGlyphName.startsWith('_')) return false;
+					if (!globalVarFront.showPrivateIcoGlyph.value && icoGlyphName.startsWith('_'))
+						return false;
 
 					const { metadata } = icoGlyphs.library().svgData[icoGlyphName];
 					const iconText = icoGlyphName.toLowerCase();
@@ -54,7 +55,7 @@
 
 	<button
 		onclick={() => {
-			globalVar.showPrivateIcoGlyph.togglePrivateIcoGlyph();
+			globalVarFront.showPrivateIcoGlyph.togglePrivateIcoGlyph();
 			search();
 		}}
 	>
