@@ -3,7 +3,12 @@
 	import { goto } from '$app/navigation';
 	import globalVarFront from '$lib/globalVarFront.svelte.js';
 
-	let { icoGlyphName } = $props();
+	let { icoGlyphName, size = 'medium' } = $props();
+
+	let dimensions = {
+		small: 60,
+		medium: 150
+	};
 
 	// $inspect(icoGlyphName);
 </script>
@@ -13,6 +18,7 @@
 		onclick={() => goto(`/ico/${icoGlyphName}`)}
 		aria-label={`Navigate to ${icoGlyphName} page`}
 		class="icoglyphContainer"
+		style={`width: ${dimensions[size]}px; height: ${dimensions[size]}px;`}
 	>
 		<svg {...icoGlyphs.getSvgAttributes(icoGlyphName)}>
 			<path d={icoGlyphs.getPath(icoGlyphName)} />
@@ -27,9 +33,6 @@
 		fill: none;
 	}
 	.icoglyphContainer {
-		width: 150px;
-		height: 150px;
-
 		margin: 5px;
 		border-radius: 5%;
 	}

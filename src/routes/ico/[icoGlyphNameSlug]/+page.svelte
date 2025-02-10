@@ -4,6 +4,7 @@
 	import CopySvgButton from '$lib/components/button/CopySvgButton.svelte';
 	import DownLoadSvgButton from '$lib/components/button/DownLoadSvgButton.svelte';
 	import DownLoadPngButton from '$lib/components/button/DownLoadPngButton.svelte';
+	import anime from 'animejs';
 
 	let { data } = $props();
 
@@ -15,6 +16,34 @@
 			allPathKeys.push(key);
 		}
 	});
+
+	// main icoGlyphs animation
+
+	let readyToAnimate = $state(false);
+
+	function animationOnMouseEnter(d) {
+		if (readyToAnimate) {
+			anime({
+				targets: '#icoglyph-container path',
+				d: icoGlyphs.getPath(d),
+				duration: 700,
+				easing: 'easeInOutQuad'
+			});
+		}
+	}
+
+	function animationOnMouseLeave() {
+		anime({
+			targets: '#icoglyph-container path',
+			d: icoGlyphs.getPath(data.name),
+			duration: 700,
+			easing: 'easeInOutQuad'
+		});
+
+		if (!readyToAnimate) {
+			readyToAnimate = true;
+		}
+	}
 
 	// $inspect(allPathKeys);
 </script>
@@ -35,7 +64,16 @@
 	<div id="subIcoGlyphsDisplay">
 		{#each allPathKeys as pathKeys}
 			{#if pathKeys !== data.name}
-				<IcoGlyphLinked icoGlyphName={pathKeys} />
+				<!-- svelte-ignore a11y_no_static_element_interactions -->
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<div
+					onmouseenter={() => animationOnMouseEnter(pathKeys)}
+					onmouseleave={animationOnMouseLeave}
+					class="animableSet"
+					onclick={() => (readyToAnimate = false)}
+				>
+					<IcoGlyphLinked icoGlyphName={pathKeys} size="small" />
+				</div>
 			{/if}
 		{/each}
 	</div>
