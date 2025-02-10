@@ -11,6 +11,6 @@
 		height: 50px;
 	}
 	#navbar-container h3 {
-		color: rgb(233, 208, 208);
+		color: var(--t1);
 	}
 </style>

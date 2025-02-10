@@ -23,14 +23,13 @@
 <style>
 	svg {
 		stroke-width: 3px;
-		stroke: rgb(233, 208, 208);
+		stroke: var(--t1);
 		fill: none;
 	}
 	.icoglyphContainer {
 		width: 150px;
 		height: 150px;
 
-		border: rgb(141, 116, 116) 2px solid;
 		margin: 5px;
 		border-radius: 5%;
 	}

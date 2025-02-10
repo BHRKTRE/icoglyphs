@@ -20,15 +20,17 @@
 </script>
 
 <main>
-	<div class="icoglyph-container">
+	<div id="icoglyph-container">
 		<svg {...icoGlyphs.getSvgAttributes(data.name)}>
 			<path d={icoGlyphs.getPath(data.name)} />
 		</svg>
 	</div>
 
-	<CopySvgButton icoGlyphName={data.name} />
-	<DownLoadSvgButton icoGlyphName={data.name} />
-	<DownLoadPngButton icoGlyphName={data.name} />
+	<div id="buttonContainer">
+		<CopySvgButton icoGlyphName={data.name} />
+		<DownLoadSvgButton icoGlyphName={data.name} />
+		<DownLoadPngButton icoGlyphName={data.name} />
+	</div>
 
 	<div id="subIcoGlyphsDisplay">
 		{#each allPathKeys as pathKeys}
@@ -48,11 +50,26 @@
 		width: 100%;
 	}
 
-	.icoglyph-container {
+	#subIcoGlyphsDisplay {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	#buttonContainer {
+		margin: 10px;
+		gap: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	#icoglyph-container {
 		width: 100%;
 		height: 100%;
-		border: rgb(141, 116, 116) 1px solid;
+		border: var(--b2) 3px solid;
 		margin: 5px;
-		border-radius: 5%;
+		border-radius: var(--br);
+		max-width: 500px;
 	}
 </style>

@@ -54,12 +54,14 @@
 	/>
 
 	<button
+		style="margin: 10px 0;"
+		class="text-button"
 		onclick={() => {
 			globalVarFront.showPrivateIcoGlyph.togglePrivateIcoGlyph();
 			search();
 		}}
 	>
-		<h3>Toggle showPrivateIcoGlyph</h3>
+		<h5>Toggle showPrivateIcoGlyph</h5>
 	</button>
 
 	<div id="icoGlyphsContainer">
@@ -76,11 +78,16 @@
 		padding: 5px 10px;
 		border-radius: var(--br);
 	}
+	#searchBar::placeholder {
+		color: var(--t1);
+		opacity: 0.5;
+	}
 
 	#icoGlyphsContainer {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+		justify-content: center;
 		height: 100%;
 		width: 100%;
 	}

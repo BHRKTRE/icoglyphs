@@ -47,15 +47,15 @@ p {
 body,
 body[data-color-mode='dark'] {
 	/* backgroud color */
-	--b1: #030008;
+	--b1: #424649;
 	/* backgroud color opacity*/
-	--b1o3: rgba(3, 0, 8, 0.3);
+	--b1o3: rgba(255, 255, 255, 0.384);
 	/* b1 light var */
-	--b2: #16131d;
+	--b2: #ffffff1f;
 	/* mostly for tooltips */
-	--b3: #717181;
+	--b3: #ffffff42;
 	/* text & T color */
-	--t1: #fbfffd;
+	--t1: #e4ebf3;
 	/* peps color */
 	--x1: blue;
 }
@@ -83,6 +83,14 @@ body[data-color-mode='red'] {
 
 /* GLOBAL SETTINGS */
 
+:root {
+	/* Border radius */
+	--br: 8px;
+
+	/* Border width */
+	--borderWidth: 2px;
+}
+
 body {
 	background: var(--b1);
 }
@@ -97,14 +105,6 @@ ul {
 	padding-inline-start: 0;
 }
 
-:root {
-	/* Border radius */
-	--br: 8px;
-
-	/* Border width */
-	--borderWidth: 2px;
-}
-
 svg {
 	stroke: var(--t1);
 	stroke-linejoin: round;
@@ -117,17 +117,21 @@ svg {
 button {
 	margin: 0;
 	padding: 0;
-	border: var(--br);
-	background: none;
+	background: var(--b2);
 	font: inherit;
 	color: inherit;
 	cursor: pointer;
+	border: none;
+	transition: 500ms;
+}
+
+button:hover {
+	background: var(--b3);
 }
 
 .text-button {
-	border: var(--t1) 2px solid;
 	padding: 5px 10px;
-	border-radius: 5%;
+	border-radius: var(--br);
 }
 
 input[type='text'] {
