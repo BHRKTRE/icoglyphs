@@ -21,6 +21,10 @@
 
 	let readyToAnimate = $state(false);
 
+	setTimeout(() => {
+		readyToAnimate = true;
+	}, 1000);
+
 	function animationOnMouseEnter(d) {
 		if (readyToAnimate) {
 			anime({

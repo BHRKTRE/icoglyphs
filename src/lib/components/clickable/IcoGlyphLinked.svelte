@@ -5,7 +5,7 @@
 
 	let { icoGlyphName, size = 'medium' } = $props();
 
-	let dimensions = {
+	const dimensions = {
 		small: 60,
 		medium: 150
 	};
