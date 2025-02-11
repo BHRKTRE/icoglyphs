@@ -24,9 +24,24 @@
 		<div class="param-section">
 			<h3>Color mode</h3>
 			<div class="param-button-container">
-				<button onclick={() => {}} class="text-button"><h5>Light</h5></button>
-				<button onclick={() => {}} class="text-button"><h5>Grey</h5></button>
-				<button onclick={() => {}} class="text-button"><h5>Dark</h5></button>
+				<button
+					onclick={() => {
+						globalVarFront.colorMode.changeColorMode('light');
+					}}
+					class="text-button"><h5>Light</h5></button
+				>
+				<button
+					onclick={() => {
+						globalVarFront.colorMode.changeColorMode('grey');
+					}}
+					class="text-button"><h5>Grey</h5></button
+				>
+				<button
+					onclick={() => {
+						globalVarFront.colorMode.changeColorMode('dark');
+					}}
+					class="text-button"><h5>Dark</h5></button
+				>
 			</div>
 		</div>
 	</div>

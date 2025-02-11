@@ -8,7 +8,6 @@
 			"content": "Understand the meaning behind each icon and how to use them correctly.",
 			"icons": [
 				{
-					"id": "home",
 					"name": "Home",
 					"description": "Represents the homepage or main screen in an application.",
 					"usage_recommendations": [
@@ -18,7 +17,6 @@
 					"visual_example": "https://docs.iconlibrary.com/icons/home.png"
 				},
 				{
-					"id": "search",
 					"name": "Search",
 					"description": "Indicates search functionality.",
 					"usage_recommendations": [

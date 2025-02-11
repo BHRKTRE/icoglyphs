@@ -22,15 +22,38 @@ const togglePrivateIcoGlyph = () => {
 };
 
 /**
+ * Changes the color mode of the application and persists the selection in localStorage.
+ *
+ * @param {string} color - The name of the selected color mode (e.g., "light", "dark", "grey").
+ */
+const changeColorMode = (color) => {
+	// Save the selected color mode to localStorage for persistence.
+	localStorage.setItem('colorMode', JSON.stringify(color));
+
+	// Apply the selected color mode to the document body attribute.
+	document.body.setAttribute('data-color-mode', color);
+};
+
+/**
+ * Global application state object.
+ *
  * @typedef {Object} GlobalVar
  * @property {Object} showPrivateIcoGlyph - Contains the state and related methods for `showPrivateIcoGlyph`.
  * @property {boolean} showPrivateIcoGlyph.value - Indicates whether "private icoGlyph" mode is enabled.
  * @property {Function} showPrivateIcoGlyph.togglePrivateIcoGlyph - Toggles the value of `showPrivateIcoGlyph`.
+ * @property {Object} colorMode - Contains the method to change the application's color mode.
+ * @property {Function} colorMode.changeColorMode - Updates the color mode and stores the preference.
+ *    Possible values: 'grey' (default), 'dark', 'light'.
  */
 let globalVar = $state({
 	showPrivateIcoGlyph: {
 		value: showPrivateIcoGlyphValue,
 		togglePrivateIcoGlyph: togglePrivateIcoGlyph
+	},
+	colorMode: {
+		// The initial value could be retrieved from localStorage if needed.
+		// value: 'grey',
+		changeColorMode: changeColorMode
 	}
 });
 
