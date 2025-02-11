@@ -45,7 +45,7 @@ p {
 
 /* COLORS MODE */
 body,
-body[data-color-mode='dark'] {
+body[data-color-mode='grey'] {
 	/* backgroud color */
 	--b1: #424649;
 	/* backgroud color opacity*/
@@ -60,24 +60,32 @@ body[data-color-mode='dark'] {
 	--x1: blue;
 }
 body[data-color-mode='light'] {
-	--b1: #d4d4d4;
-	--b1o3: rgba(3, 0, 8, 0.3);
-
-	--b2: #030008;
-	--b3: #37313f;
-
-	--t1: #08924d;
+	/* backgroud color */
+	--b1: #d9dbdd;
+	/* backgroud color opacity*/
+	--b1o3: rgba(255, 255, 255, 0.384);
+	/* b1 light var */
+	--b2: #ffffff1f;
+	/* mostly for tooltips */
+	--b3: #ffffff42;
+	/* text & T color */
+	--t1: #e4ebf3;
+	/* peps color */
 	--x1: blue;
 }
 
-body[data-color-mode='red'] {
-	--b1: #bb4747;
-	--b1o3: rgba(3, 0, 8, 0.3);
-
-	--b2: #030008;
-	--b3: #37313f;
-
-	--t1: #14020d;
+body[data-color-mode='dark'] {
+	/* backgroud color */
+	--b1: #141516;
+	/* backgroud color opacity*/
+	--b1o3: rgba(255, 255, 255, 0.384);
+	/* b1 light var */
+	--b2: #ffffff1f;
+	/* mostly for tooltips */
+	--b3: #ffffff42;
+	/* text & T color */
+	--t1: #e4ebf3;
+	/* peps color */
 	--x1: blue;
 }
 
