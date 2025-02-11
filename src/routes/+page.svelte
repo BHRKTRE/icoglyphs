@@ -53,17 +53,6 @@
 		oninput={search}
 	/>
 
-	<button
-		style="margin: 10px 0;"
-		class="text-button"
-		onclick={() => {
-			globalVarFront.showPrivateIcoGlyph.togglePrivateIcoGlyph();
-			search();
-		}}
-	>
-		<h5>Toggle showPrivateIcoGlyph</h5>
-	</button>
-
 	<div id="icoGlyphsContainer">
 		{#each filteredIcoGlyphs as icoGlyphName}
 			<IcoGlyphLinked {icoGlyphName} />
@@ -77,6 +66,7 @@
 		background: var(--b2);
 		padding: 5px 10px;
 		border-radius: var(--br);
+		margin-bottom: 1rem;
 	}
 	#searchBar::placeholder {
 		color: var(--t1);

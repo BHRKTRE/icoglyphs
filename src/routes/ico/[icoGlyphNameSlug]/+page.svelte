@@ -23,7 +23,7 @@
 
 	setTimeout(() => {
 		readyToAnimate = true;
-	}, 1000);
+	}, 500);
 
 	function animationOnMouseEnter(d) {
 		if (readyToAnimate) {
