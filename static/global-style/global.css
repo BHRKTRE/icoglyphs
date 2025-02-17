@@ -28,7 +28,9 @@ h4 {
 	font-weight: 300;
 }
 
-h5 {
+h5,
+span,
+label {
 	color: var(--t1);
 	font-family: var(--typo1);
 	font-weight: 500;
@@ -113,14 +115,14 @@ ul {
 	padding-inline-start: 0;
 }
 
-svg {
+/* svg {
 	stroke: var(--t1);
 	stroke-linejoin: round;
 	stroke-linecap: round;
 	stroke-width: 0.4rem;
 	stroke-opacity: 1;
 	fill: none;
-}
+} */
 
 button {
 	margin: 0;

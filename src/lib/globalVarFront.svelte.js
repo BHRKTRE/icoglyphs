@@ -35,6 +35,30 @@ const changeColorMode = (color) => {
 };
 
 /**
+ * IcoGlyphs style
+ *
+ * @param {object} -
+ */
+// let localStorageHere = localStorage.getItem('icoGlyphsUserStyle') ? true : false;
+
+// console.log(localStorage.getItem('icoGlyphsUserStyle'));
+
+let icoGlyphStyles = $state({
+	stroke: '#777777',
+	// stroke: 'var(--t1)',
+	'stroke-linejoin': 'round',
+	'stroke-linecap': 'round',
+	'stroke-width': '6px',
+	'stroke-opacity': 1,
+	fill: 'none'
+});
+
+function setSvgUserStyleLocalStorage(e, key) {
+	icoGlyphStyles[key] = e.target.value;
+	localStorage.setItem('icoGlyphsUserStyle', JSON.stringify(icoGlyphStyles));
+}
+
+/**
  * Global application state object.
  *
  * @typedef {Object} GlobalVar
@@ -54,6 +78,10 @@ let globalVar = $state({
 		// The initial value could be retrieved from localStorage if needed.
 		// value: 'grey',
 		changeColorMode: changeColorMode
+	},
+	icoGlyphUserSettings: {
+		style: icoGlyphStyles,
+		setLocalStorage: setSvgUserStyleLocalStorage
 	}
 });
 

@@ -37,6 +37,7 @@ export async function GET({ url }) {
 	try {
 		const methods = {
 			path: icoGlyphs.getPath,
+			// /api?name=arrow_right&get=path
 			attributes: icoGlyphs.getSvgAttributes,
 			style: icoGlyphs.getIcoGlyphDefaultStyle,
 			'full-svg': icoGlyphs.getCompletSVG,

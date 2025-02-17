@@ -10,7 +10,7 @@
 		medium: 150
 	};
 
-	// $inspect(icoGlyphName);
+	// $inspect(globalVarFront.icoGlyphStyles);
 </script>
 
 {#if globalVarFront.showPrivateIcoGlyph.value || !icoGlyphName.startsWith('_')}
@@ -20,18 +20,16 @@
 		class="icoglyphContainer"
 		style={`width: ${dimensions[size]}px; height: ${dimensions[size]}px;`}
 	>
-		<svg {...icoGlyphs.getSvgAttributes(icoGlyphName)}>
+		<svg
+			{...globalVarFront.icoGlyphUserSettings.style}
+			{...icoGlyphs.getSvgAttributes(icoGlyphName)}
+		>
 			<path d={icoGlyphs.getPath(icoGlyphName)} />
 		</svg>
 	</button>
 {/if}
 
 <style>
-	svg {
-		stroke-width: 3px;
-		stroke: var(--t1);
-		fill: none;
-	}
 	.icoglyphContainer {
 		margin: 5px;
 		border-radius: 5%;

@@ -4,7 +4,9 @@
 	import CopySvgButton from '$lib/components/button/CopySvgButton.svelte';
 	import DownLoadSvgButton from '$lib/components/button/DownLoadSvgButton.svelte';
 	import DownLoadPngButton from '$lib/components/button/DownLoadPngButton.svelte';
+	import SvgStyler from '$lib/components/SvgStyler.svelte';
 	import anime from 'animejs';
+	import globalVarFront from '$lib/globalVarFront.svelte.js';
 
 	let { data } = $props();
 
@@ -49,12 +51,12 @@
 		}
 	}
 
-	// $inspect(allPathKeys);
+	// $inspect('front', globalVarFront.icoGlyphUserSettings.style);
 </script>
 
 <main>
 	<div id="icoglyph-container">
-		<svg {...icoGlyphs.getSvgAttributes(data.name)}>
+		<svg {...globalVarFront.icoGlyphUserSettings.style} {...icoGlyphs.getSvgAttributes(data.name)}>
 			<path d={icoGlyphs.getPath(data.name)} />
 		</svg>
 	</div>
@@ -64,6 +66,7 @@
 		<DownLoadSvgButton icoGlyphName={data.name} />
 		<DownLoadPngButton icoGlyphName={data.name} />
 	</div>
+	<SvgStyler />
 
 	<div id="subIcoGlyphsDisplay">
 		{#each allPathKeys as pathKeys}
