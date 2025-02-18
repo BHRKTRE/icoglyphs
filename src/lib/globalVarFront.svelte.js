@@ -1,4 +1,3 @@
-import { browser } from '$app/environment';
 import { applySvgUserStyles } from '$lib/design/applySvgUserStyles.svelte.js';
 
 /**
@@ -25,6 +24,20 @@ const togglePrivateIcoGlyph = () => {
 };
 
 /**
+ * Psi ratio
+ */
+const a = 1 / 2;
+const b = Math.sqrt(69) / 18;
+
+const term1 = Math.cbrt(a + b);
+const term2 = Math.cbrt(a - b);
+
+const psiValue = term1 + term2;
+
+// 1.3247179572447458
+const psi = psiValue;
+
+/**
  * Changes the color mode of the application and persists the selection in localStorage.
  *
  * @param {string} color - The name of the selected color mode (must be : "light", "dark", "grey").
@@ -41,17 +54,8 @@ const changeColorMode = (color) => {
 /**
  * IcoGlyphs User Custom Style
  *
- * @param {object} -
  */
-let savedStyle = $state();
 let icoGlyphUserCustomStyles = $state({});
-
-if (browser) {
-	if (savedStyle) {
-		savedStyle = localStorage.getItem('icoGlyphsUserStyle');
-		icoGlyphUserCustomStyles = JSON.parse(savedStyle);
-	}
-}
 
 /**
  * Global application state object.
@@ -76,7 +80,8 @@ let globalVar = $state({
 	},
 	icoGlyphUserSettings: {
 		style: icoGlyphUserCustomStyles
-	}
+	},
+	psi: psi
 });
 
 // Export the global state so it can be used across the application.

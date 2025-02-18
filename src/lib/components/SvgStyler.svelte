@@ -1,9 +1,8 @@
 <script>
 	import globalVarFront from '$lib/globalVarFront.svelte.js';
-	import { browser } from '$app/environment';
-	import { onMount } from 'svelte';
+	import { applySvgUserStyles } from '$lib/design/applySvgUserStyles.svelte.js';
 
-	let backgroundNone = $state(false);
+	let importStyleInSvg = $state(false);
 
 	function actualiseLocalStorage() {
 		localStorage.setItem(
@@ -12,7 +11,25 @@
 		);
 	}
 
-	// $inspect(getComputedStyle(document.documentElement).getPropertyValue('--t1'));
+	function resetStyle() {
+		localStorage.removeItem('icoGlyphsUserStyle');
+		applySvgUserStyles();
+	}
+
+	const strokeTypes = ['round', 'bevel', 'miter'];
+
+	function changeStrokeType() {
+		let currentType = globalVarFront.icoGlyphUserSettings.style['stroke-linejoin'];
+		let currentIndex = strokeTypes.indexOf(currentType);
+
+		let nextIndex = (currentIndex + 1) % strokeTypes.length;
+		globalVarFront.icoGlyphUserSettings.style['stroke-linejoin'] = strokeTypes[nextIndex];
+		globalVarFront.icoGlyphUserSettings.style['stroke-linecap'] = strokeTypes[nextIndex];
+
+		actualiseLocalStorage();
+	}
+
+	// $inspect(importStyleInSvg);
 </script>
 
 <div class="svg-styler-container">
@@ -26,33 +43,34 @@
 		/>
 	</div>
 	<div class="mod-color-container">
-		<label for="stroke-size">Stroke size</label><input
+		<label for="stroke-size"
+			>Stroke size : {globalVarFront.icoGlyphUserSettings.style['stroke-width']}</label
+		><input
 			id="stroke-size"
 			class="color-input"
+			bind:value={globalVarFront.icoGlyphUserSettings.style['stroke-width']}
+			oninput={actualiseLocalStorage}
+			min="0"
+			max="16"
+			step="0.4"
 			type="range"
 		/>
 	</div>
+	<button onclick={changeStrokeType} class="text-button">
+		Stroke style :
+		{globalVarFront.icoGlyphUserSettings.style['stroke-linejoin']}
+	</button>
+
 	<div class="mod-color-container">
-		<label for="stroke-color">Background color</label><input
-			min="0"
-			max="10"
-			step="0.5"
-			value="2"
-			id="stroke-color"
+		<label for="toggle-import-style">Import style</label><input
+			id="toggle-import-style"
 			class="color-input"
 			type="checkbox"
-			bind:checked={backgroundNone}
+			bind:checked={importStyleInSvg}
 		/>
 	</div>
-	{#if backgroundNone}
-		<div class="mod-color-container">
-			<label for="background-color">BackGround</label><input
-				id="background-color"
-				class="color-input"
-				type="color"
-			/>
-		</div>
-	{/if}
+
+	<button onclick={resetStyle} class="text-button">Reset style</button>
 </div>
 
 <style>

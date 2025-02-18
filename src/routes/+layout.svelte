@@ -1,12 +1,12 @@
 <script>
 	import Footer from './_layoutComponents/Footer.svelte';
 	import NavBar from './_layoutComponents/NavBar.svelte';
-	import { psi } from '$lib/design/psi';
+	import globalVarFront from '$lib/globalVarFront.svelte.js';
 	import { onMount } from 'svelte';
 	import { applySvgUserStyles } from '$lib/design/applySvgUserStyles.svelte.js';
 
 	onMount(() => {
-		applySvgUserStyles(); // Appel correct de la fonction
+		applySvgUserStyles();
 	});
 
 	// $inspect(globalVarFront.icoGlyphUserSettings.style);
@@ -15,7 +15,7 @@
 
 	let windowWidth = $state(0);
 
-	let sideMargin = $derived(windowWidth / Math.pow(psi, 10) + 'px');
+	let sideMargin = $derived(windowWidth / Math.pow(globalVarFront.psi, 10) + 'px');
 
 	// $inspect(sideMargin);
 </script>

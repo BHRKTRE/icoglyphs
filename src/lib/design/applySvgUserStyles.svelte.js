@@ -18,9 +18,10 @@ export function applySvgUserStyles() {
 			stroke: strokeColorDependOfMode[colorMode],
 			'stroke-linejoin': 'round',
 			'stroke-linecap': 'round',
-			'stroke-width': '6px',
+			'stroke-width': 6,
 			'stroke-opacity': 1,
-			fill: 'none'
+			fill: 'none',
+			background: '#000000'
 		};
 	}
 }

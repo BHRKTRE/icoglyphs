@@ -30,7 +30,8 @@ h4 {
 
 h5,
 span,
-label {
+label,
+.text-button {
 	color: var(--t1);
 	font-family: var(--typo1);
 	font-weight: 500;
