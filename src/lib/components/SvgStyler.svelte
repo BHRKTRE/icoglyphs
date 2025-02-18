@@ -1,7 +1,18 @@
 <script>
 	import globalVarFront from '$lib/globalVarFront.svelte.js';
+	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 
 	let backgroundNone = $state(false);
+
+	function actualiseLocalStorage() {
+		localStorage.setItem(
+			'icoGlyphsUserStyle',
+			JSON.stringify(globalVarFront.icoGlyphUserSettings.style)
+		);
+	}
+
+	// $inspect(getComputedStyle(document.documentElement).getPropertyValue('--t1'));
 </script>
 
 <div class="svg-styler-container">
@@ -11,7 +22,7 @@
 			class="color-input"
 			type="color"
 			bind:value={globalVarFront.icoGlyphUserSettings.style.stroke}
-			oninput={(e) => globalVarFront.icoGlyphUserSettings.setLocalStorage(e, 'stroke')}
+			oninput={actualiseLocalStorage}
 		/>
 	</div>
 	<div class="mod-color-container">

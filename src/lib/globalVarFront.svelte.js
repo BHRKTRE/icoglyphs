@@ -1,3 +1,6 @@
+import { browser } from '$app/environment';
+import { applySvgUserStyles } from '$lib/design/applySvgUserStyles.svelte.js';
+
 /**
  * Retrieves the initial value of `showPrivateIcoGlyph` from localStorage.
  * If the key doesn't exist or the code is executed server-side, defaults to `false`.
@@ -24,7 +27,7 @@ const togglePrivateIcoGlyph = () => {
 /**
  * Changes the color mode of the application and persists the selection in localStorage.
  *
- * @param {string} color - The name of the selected color mode (e.g., "light", "dark", "grey").
+ * @param {string} color - The name of the selected color mode (must be : "light", "dark", "grey").
  */
 const changeColorMode = (color) => {
 	// Save the selected color mode to localStorage for persistence.
@@ -32,30 +35,22 @@ const changeColorMode = (color) => {
 
 	// Apply the selected color mode to the document body attribute.
 	document.body.setAttribute('data-color-mode', color);
+	applySvgUserStyles();
 };
 
 /**
- * IcoGlyphs style
+ * IcoGlyphs User Custom Style
  *
  * @param {object} -
  */
-// let localStorageHere = localStorage.getItem('icoGlyphsUserStyle') ? true : false;
+let savedStyle = $state();
+let icoGlyphUserCustomStyles = $state({});
 
-// console.log(localStorage.getItem('icoGlyphsUserStyle'));
-
-let icoGlyphStyles = $state({
-	stroke: '#777777',
-	// stroke: 'var(--t1)',
-	'stroke-linejoin': 'round',
-	'stroke-linecap': 'round',
-	'stroke-width': '6px',
-	'stroke-opacity': 1,
-	fill: 'none'
-});
-
-function setSvgUserStyleLocalStorage(e, key) {
-	icoGlyphStyles[key] = e.target.value;
-	localStorage.setItem('icoGlyphsUserStyle', JSON.stringify(icoGlyphStyles));
+if (browser) {
+	if (savedStyle) {
+		savedStyle = localStorage.getItem('icoGlyphsUserStyle');
+		icoGlyphUserCustomStyles = JSON.parse(savedStyle);
+	}
 }
 
 /**
@@ -80,8 +75,7 @@ let globalVar = $state({
 		changeColorMode: changeColorMode
 	},
 	icoGlyphUserSettings: {
-		style: icoGlyphStyles,
-		setLocalStorage: setSvgUserStyleLocalStorage
+		style: icoGlyphUserCustomStyles
 	}
 });
 
