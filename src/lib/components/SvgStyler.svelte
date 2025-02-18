@@ -16,8 +16,11 @@
 		applySvgUserStyles();
 	}
 
+	/**
+	 * Stroke types settings
+	 *
+	 */
 	const strokeTypes = ['round', 'bevel', 'miter'];
-
 	function changeStrokeType() {
 		let currentType = globalVarFront.icoGlyphUserSettings.style['stroke-linejoin'];
 		let currentIndex = strokeTypes.indexOf(currentType);

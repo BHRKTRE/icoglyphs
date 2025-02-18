@@ -7,7 +7,7 @@
 
 	const dimensions = {
 		small: 60,
-		medium: 150
+		medium: 130
 	};
 
 	// $inspect(globalVarFront.icoGlyphStyles);

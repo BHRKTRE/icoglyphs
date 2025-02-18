@@ -67,6 +67,9 @@ let icoGlyphUserCustomStyles = $state({});
  * @property {Object} colorMode - Contains the method to change the application's color mode.
  * @property {Function} colorMode.changeColorMode - Updates the color mode and stores the preference.
  *    Possible values: 'grey' (default), 'dark', 'light'.
+ * @property {object} icoGlyphUserSettings
+ * * @property {object} style
+ * @property {number} Psi value
  */
 let globalVar = $state({
 	showPrivateIcoGlyph: {
