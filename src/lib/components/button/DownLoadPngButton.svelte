@@ -1,35 +1,22 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
+	import { derived } from 'svelte/store';
+	import globalVarFront from '$lib/globalVarFront.svelte.js';
 
 	let { icoGlyphName } = $props();
 
-	let SvgAttributes = $state({
-		xmlns: 'http://www.w3.org/2000/svg',
-		viewBox: '-50 -50 100 100',
-		focusable: false,
-		'data-icoGlyph': icoGlyphName,
-		role: 'img'
-	});
+	let SvgAttributes = $derived(icoGlyphs.getSvgAttributes(icoGlyphName));
 
-	let svgStyle = $state({
-		stroke: 'black',
-		'stroke-linejoin': 'round',
-		'stroke-linecap': 'round',
-		'stroke-width': '0.4rem',
-		'stroke-opacity': 1,
-		fill: 'none'
-	});
-
-	const completSvg = `
+	let completSvg = $derived(`
 		<svg 
 			${Object.entries(SvgAttributes)
 				.map(([key, value]) => `${key}="${value}"`)
 				.join(' ')}
-			style="${Object.entries(svgStyle)
+			style="${Object.entries(globalVarFront.icoGlyphUserSettings.style)
 				.map(([key, value]) => `${key}:${value}`)
 				.join(';')}">
 			<path d='${icoGlyphs.getPath(icoGlyphName)}' />
-		</svg>`;
+		</svg>`);
 
 	function downloadPng() {
 		// Create an offscreen canvas

@@ -4,7 +4,7 @@ const readAndUpdateJSON = require('./utils/fileUtils/readAndUpdateJSON'); // Imp
 /**
  * Adds a new IcoGlyph to the JSON data.
  *
- * @param {Object} glyphData - Data of the element to add. Parameters can be partial (default values will be used).
+ * @param {object} glyphData - Data of the element to add. Parameters can be partial (default values will be used).
  */
 async function addNewIcoGlyph(glyphData) {
 	return readAndUpdateJSON(async (jsonData) => {

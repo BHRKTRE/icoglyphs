@@ -1,27 +1,19 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
+	import globalVarFront from '$lib/globalVarFront.svelte.js';
 
 	let { icoGlyphName } = $props();
 
-	let SvgAttributes = $state({
-		xmlns: 'http://www.w3.org/2000/svg',
-		viewBox: '-50 -50 100 100',
-		focusable: false, // ?
-		'data-icoGlyph': icoGlyphName,
-		role: 'img'
+	let svgStyle = $derived.by(() => {
+		if (globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload === true) {
+			return globalVarFront.icoGlyphUserSettings.style;
+		} else {
+			return '';
+		}
 	});
 
-	let svgStyle = $state({
-		stroke: 'black',
-		'stroke-linejoin': 'round',
-		'stroke-linecap': 'round',
-		'stroke-width': '0.4rem',
-		'stroke-opacity': 1,
-		fill: 'none'
-	});
-
-	const completSvg = `	<svg 
-    ${Object.entries(SvgAttributes)
+	let completSvg = $derived(`	<svg 
+    ${Object.entries(icoGlyphs.getSvgAttributes(icoGlyphName))
 			.map(([key, value]) => `${key}="${value}"`)
 			.join(' ')}   
     ${Object.entries(svgStyle)
@@ -29,7 +21,7 @@
 			.join(' ')}>
     
 			<path d='${icoGlyphs.getPath(icoGlyphName)}' />
-		</svg>`;
+		</svg>`);
 
 	function downloadSvg() {
 		const blob = new Blob([completSvg], { type: 'image/svg+xml' });

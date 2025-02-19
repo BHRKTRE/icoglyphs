@@ -27,7 +27,7 @@
 		actualiseLocalStorage('icoGlyphsUserStyle', globalVarFront.icoGlyphUserSettings.style);
 	}
 
-	$inspect(globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload);
+	// $inspect(globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload);
 </script>
 
 <div class="svg-styler-container">
@@ -62,7 +62,7 @@
 	</button>
 
 	<div class="mod-color-container">
-		<label for="toggle-import-style">Import style</label><input
+		<label for="toggle-import-style">Import style (SVG only)</label><input
 			id="toggle-import-style"
 			class="color-input"
 			type="checkbox"

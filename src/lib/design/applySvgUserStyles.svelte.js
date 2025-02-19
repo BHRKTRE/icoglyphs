@@ -20,8 +20,7 @@ export function applySvgUserStyles() {
 			'stroke-linecap': 'round',
 			'stroke-width': 6,
 			'stroke-opacity': 1,
-			fill: 'none',
-			background: '#000000'
+			fill: 'none'
 		};
 	}
 
