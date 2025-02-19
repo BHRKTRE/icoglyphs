@@ -61,12 +61,12 @@ let useStyleForSvgDownload = $state(true);
 /**
  * Global application state object.
  *
- * @typedef {Object} GlobalVar
- * @property {Object} showPrivateIcoGlyph - Contains the state and related methods for `showPrivateIcoGlyph`.
+ * @typedef {object} GlobalVar
+ * @property {object} showPrivateIcoGlyph - Contains the state and related methods for `showPrivateIcoGlyph`.
  * @property {boolean} showPrivateIcoGlyph.value - Indicates whether "private icoGlyph" mode is enabled.
- * @property {Function} showPrivateIcoGlyph.togglePrivateIcoGlyph - Toggles the value of `showPrivateIcoGlyph`.
- * @property {Object} colorMode - Contains the method to change the application's color mode.
- * @property {Function} colorMode.changeColorMode - Updates the color mode and stores the preference.
+ * @property {function} showPrivateIcoGlyph.togglePrivateIcoGlyph - Toggles the value of `showPrivateIcoGlyph`.
+ * @property {object} colorMode - Contains the method to change the application's color mode.
+ * @property {function} colorMode.changeColorMode - Updates the color mode and stores the preference.
  *    Possible values: 'grey' (default), 'dark', 'light'.
  * @property {object} icoGlyphUserSettings
  * * @property {object} style

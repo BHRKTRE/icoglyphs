@@ -6,7 +6,7 @@ const { rl, closeReadLine } = require('./readLine');
  * Error handling function
  * _________________________
  *
- * @param {Error} err - The error to handle.
+ * @param {error} err - The error to handle.
  */
 function handleError(err) {
 	console.error('Error:', err);
@@ -65,7 +65,7 @@ async function writeJSON(jsonData) {
 
 /**
  * Reads a JSON file and returns the data as an object.
- * @returns {Promise<object>} - The data from the JSON file.
+ * @returns {promise<object>} - The data from the JSON file.
  */
 async function readJSON() {
 	try {
@@ -79,7 +79,7 @@ async function readJSON() {
 
 /**
  * Reads and updates the JSON file using the provided update function.
- * @param {Function} updateFunction - The function that updates the JSON data.
+ * @param {function} updateFunction - The function that updates the JSON data.
  */
 async function readAndUpdateJSON(updateFunction) {
 	try {

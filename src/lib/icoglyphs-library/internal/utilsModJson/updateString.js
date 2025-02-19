@@ -4,10 +4,10 @@ const readAndUpdateJSON = require('./utils/fileUtils/readAndUpdateJSON'); // Imp
  * Add, Replace, or Delete a Note or Description
  * _________________________
  *
- * @param {String} glyphName - The name of the icoGlyph to update.
- * @param {String} newNote - The new note or description to add or replace.
+ * @param {string} glyphName - The name of the icoGlyph to update.
+ * @param {string} newNote - The new note or description to add or replace.
  * @param {"devNote", "userNote", "description", "publicName"} noteType - The type of note to modify.
- * @param {String} action - The action to perform: "add", "replace", or "delete".
+ * @param {string} action - The action to perform: "add", "replace", or "delete".
  */
 async function updateString(glyphName, newNote, noteType, action) {
 	const validNoteTypes = ['devNote', 'userNote', 'description', 'publicName'];
