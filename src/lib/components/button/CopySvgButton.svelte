@@ -25,12 +25,9 @@
 
 	function copySvgToClipBoard() {
 		navigator.clipboard.writeText(completSvg);
-		console.log(completSvg);
 	}
 
 	const ariaLabel = `Copy the SVG to clipboard.`;
-
-	$inspect(globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload);
 </script>
 
 <button class="text-button" aria-label={ariaLabel} onclick={copySvgToClipBoard}>
@@ -38,4 +35,7 @@
 </button>
 
 <style>
+	button {
+		width: 100%;
+	}
 </style>

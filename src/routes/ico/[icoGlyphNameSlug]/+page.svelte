@@ -99,22 +99,25 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		gap: var(--spacingMedium);
+		padding: var(--spacingMedium);
 	}
 
 	#buttonContainer {
-		margin: 10px;
-		gap: 10px;
+		margin: var(--spacingMedium) 0;
+		gap: var(--spacingMedium);
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: space-between;
+		width: 100%;
+		max-width: var(--maxWidthMedium);
 	}
 
 	#icoglyph-container {
 		width: 100%;
 		height: 100%;
-		border: var(--b2) 3px solid;
-		margin: 5px;
+		border: var(--b2) var(--borderWidthMedium) solid;
 		border-radius: var(--br);
-		max-width: 500px;
+		max-width: var(--maxWidthMedium);
 	}
 </style>

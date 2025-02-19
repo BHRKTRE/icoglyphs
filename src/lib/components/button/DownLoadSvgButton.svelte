@@ -43,3 +43,9 @@
 <button class="text-button" aria-label={ariaLabel} onclick={downloadSvg}>
 	<h3>Download SVG</h3>
 </button>
+
+<style>
+	button {
+		width: 100%;
+	}
+</style>

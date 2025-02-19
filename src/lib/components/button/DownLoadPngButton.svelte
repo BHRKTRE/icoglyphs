@@ -63,3 +63,9 @@
 <button class="text-button" aria-label={ariaLabel} onclick={downloadPng}>
 	<h3>Download PNG</h3>
 </button>
+
+<style>
+	button {
+		width: 100%;
+	}
+</style>
