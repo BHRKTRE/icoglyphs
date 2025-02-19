@@ -49,69 +49,57 @@ p {
 /* COLORS MODE */
 body,
 body[data-color-mode='grey'] {
-	/* background color */
-	--b1: #424649;
-	/* background color opacity*/
-	--b1o3: rgba(19, 17, 17, 0.322);
-	/* b1 light var */
-	--b2: #ffffff1f;
-	/* mostly for tooltips */
-	--b3: #ffffff42;
+	/* back color */
+	--back-color: 161, 168, 171;
 	/* text & T color */
-	--t1: #e4ebf3;
-	/* peps color */
-	--x1: blue;
+	--front-color: 247, 245, 245;
 }
 body[data-color-mode='light'] {
-	/* background color */
-	--b1: #d9dbdd;
-	/* background color opacity*/
-	--b1o3: rgba(255, 255, 255, 0.384);
-	/* b1 light var */
-	--b2: #ffffff1f;
-	/* mostly for tooltips */
-	--b3: #ffffff42;
+	/* back color */
+	--back-color: 247, 245, 245;
 	/* text & T color */
-	--t1: #0c0f13;
-	/* peps color */
-	--x1: blue;
+	--front-color: 10, 9, 9;
 }
 
 body[data-color-mode='dark'] {
-	/* background color */
-	--b1: #141516;
-	/* background color opacity*/
-	--b1o3: rgba(19, 17, 17, 0.322);
-	/* b1 light var */
-	--b2: #ffffff1f;
-	/* mostly for tooltips */
-	--b3: #ffffff42;
+	/* back color */
+	--back-color: 5, 5, 5;
 	/* text & T color */
-	--t1: #e4ebf3;
-	/* peps color */
-	--x1: blue;
+	--front-color: 247, 245, 245;
 }
 
+body {
+	/* Colors */
+	/* background opaque*/
+	--b1: rgb(var(--back-color));
+	/* background opacity 1*/
+	--b2: rgba(var(--front-color), 0.1);
+	/* background opacity 2*/
+	--b3: rgba(var(--front-color), 0.7);
+	/* text color */
+	--t1: rgb(var(--front-color));
+	/*  */
+	--t2: rgba(var(--back-color), 0.5);
+
+	/* Set the body background color */
+	background: var(--b1);
+}
 /* GLOBAL SETTINGS */
 
 :root {
 	/* Border radius */
-	--br: 8px;
+	--border-radius: 8px;
 
 	/* Border */
-	--borderWidthMedium: 3px;
-	--borderWidthSmall: 2px;
+	--border-width-medium: 3px;
+	--border-width-small: 2px;
 
 	/* Max width for medium-sized elements */
-	--maxWidthMedium: 500px;
+	--max-width-medium: 500px;
 
 	/* Spacing for margins, padding, gaps etc...*/
-	--spacingMedium: 10px;
-	--spacingSmall: 5px;
-}
-
-body {
-	background: var(--b1);
+	--spacing-medium: 10px;
+	--spacing-small: 5px;
 }
 
 * {
@@ -146,17 +134,17 @@ button {
 	cursor: pointer;
 	border: none;
 	transition: 200ms;
-	border: var(--borderWidthSmall) solid transparent;
+	border: var(--border-width-small) solid transparent;
 }
 
 .hover-border {
 	transition: 200ms;
-	border: var(--borderWidthSmall) solid transparent;
+	border: var(--border-width-small) solid transparent;
 }
 
 button:hover,
 .hover-border:hover {
-	border: var(--borderWidthSmall) solid var(--b3);
+	border: var(--border-width-small) solid var(--b3);
 }
 
 button:active {
@@ -165,8 +153,8 @@ button:active {
 
 .text-button {
 	background: var(--b2);
-	padding: var(--spacingSmall) var(--spacingMedium);
-	border-radius: var(--br);
+	padding: var(--spacing-small) var(--spacing-medium);
+	border-radius: var(--border-radius);
 }
 
 input[type='text'] {
@@ -174,7 +162,7 @@ input[type='text'] {
 	border: none;
 	outline: none;
 	background: none;
-	border-radius: var(--br);
+	border-radius: var(--border-radius);
 	color: var(--t1);
 	font-size: 0.9rem;
 	font-family: var(--typo1);
@@ -182,7 +170,7 @@ input[type='text'] {
 
 /* CONTAINER */
 .basic-container {
-	border-radius: var(--br);
+	border-radius: var(--border-radius);
 	background: var(--b2);
 }
 
@@ -225,11 +213,11 @@ input[type='range']::-webkit-slider-thumb {
 	background: none;
 	border-radius: 100%;
 	margin-top: -3px;
-	border: var(--borderWidthMedium) solid var(--t1);
+	border: var(--border-width-medium) solid var(--t1);
 }
 
 input[type='range']::-moz-range-thumb {
-	border: var(--borderWidthMedium) solid var(--t1); /*Removes extra border that FF applies*/
+	border: var(--border-width-medium) solid var(--t1); /*Removes extra border that FF applies*/
 	border-radius: 100%;
 	background: none;
 	height: var(--thumb-width);
@@ -243,10 +231,10 @@ input[type='color'] {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	background: none;
-	border: var(--borderWidthMedium) solid var(--b2);
+	border: var(--border-width-medium) solid var(--b2);
 	cursor: pointer;
 	padding: 0;
-	border-radius: var(--br);
+	border-radius: var(--border-radius);
 }
 
 /* *:focus {

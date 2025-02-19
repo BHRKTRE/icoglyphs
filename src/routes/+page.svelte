@@ -65,7 +65,7 @@
 		width: 100%;
 		background: var(--b2);
 		padding: 5px 10px;
-		border-radius: var(--br);
+		border-radius: var(--border-radius);
 		margin-bottom: 1rem;
 	}
 	#searchBar::placeholder {
@@ -80,7 +80,7 @@
 		justify-content: center;
 		height: 100%;
 		width: 100%;
-		gap: var(--spacingMedium);
+		gap: var(--spacing-medium);
 	}
 
 	main {

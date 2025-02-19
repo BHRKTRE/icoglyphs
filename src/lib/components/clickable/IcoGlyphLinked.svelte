@@ -31,6 +31,6 @@
 
 <style>
 	.icoglyphContainer {
-		border-radius: var(--br);
+		border-radius: var(--border-radius);
 	}
 </style>

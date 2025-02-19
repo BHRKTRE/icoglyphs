@@ -62,7 +62,7 @@
 		justify-content: center;
 		margin: 1rem;
 		border: solid 1px var(--t1);
-		border-radius: var(--br);
+		border-radius: var(--border-radius);
 		padding: 1rem;
 		width: 100%;
 		gap: 1rem;

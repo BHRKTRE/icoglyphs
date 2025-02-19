@@ -99,25 +99,25 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: var(--spacingMedium);
-		padding: var(--spacingMedium);
+		gap: var(--spacing-medium);
+		padding: var(--spacing-medium);
 	}
 
 	#buttonContainer {
-		margin: var(--spacingMedium) 0;
-		gap: var(--spacingMedium);
+		margin: var(--spacing-medium) 0;
+		gap: var(--spacing-medium);
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 		width: 100%;
-		max-width: var(--maxWidthMedium);
+		max-width: var(--max-width-medium);
 	}
 
 	#icoglyph-container {
 		width: 100%;
 		height: 100%;
-		border: var(--b2) var(--borderWidthMedium) solid;
-		border-radius: var(--br);
-		max-width: var(--maxWidthMedium);
+		border: var(--b2) var(--border-width-medium) solid;
+		border-radius: var(--border-radius);
+		max-width: var(--max-width-medium);
 	}
 </style>
