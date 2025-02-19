@@ -40,7 +40,7 @@ export async function GET({ url }) {
 			// /api?name=arrow_right&get=path
 			attributes: icoGlyphs.getSvgAttributes,
 			style: icoGlyphs.getIcoGlyphDefaultStyle,
-			'full-svg': icoGlyphs.getCompletSVG,
+			'full-svg': icoGlyphs.getCompleteSvg,
 			default: icoGlyphs.library
 		};
 

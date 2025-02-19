@@ -1,9 +1,6 @@
-const path = require("path");
+const path = require('path');
 
 // Define the path to icoGlyphsLibrary.json
-const pathOficoGlyphsLibrary = path.resolve(
-  __dirname,
-  "../../../../icoGlyphsLibrary.json"
-);
+const pathOfIcoGlyphsLibrary = path.resolve(__dirname, '../../../../icoGlyphsLibrary.json');
 
-module.exports = pathOficoGlyphsLibrary;
+module.exports = pathOfIcoGlyphsLibrary;

@@ -4,7 +4,7 @@
 	let { icoGlyphName } = $props();
 
 	function copySvgToClipBoard() {
-		const svgText = icoGlyphs.getCompletSVG(icoGlyphName);
+		const svgText = icoGlyphs.getCompleteSvg(icoGlyphName);
 
 		navigator.clipboard.writeText(svgText);
 	}

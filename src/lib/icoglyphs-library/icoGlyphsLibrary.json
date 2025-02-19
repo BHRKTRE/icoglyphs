@@ -1,224 +1,216 @@
 {
-  "svgData": {
-    "_arrow_cap_right": {
-      "path": "M 15 -20 L 35 0 L 15 20"
-    },
-    "_arrow_cap_top": {
-      "path": "M -20 -15 L 0 -35 L 20 -15"
-    },
-    "_arrow_cap_left": {
-      "path": "M -15 -20 L -35 0 L -15 20"
-    },
-    "_arrow_cap_bottom": {
-      "path": "M -20 15 L 0 35 L 20 15"
-    },
-    "_arrow_cap_bottom_left": {
-      "path": "M 5 25 L -25 25 L -25 -5"
-    },
-    "_arrow_cap_bottom_right": {
-      "path": "M -5 25 L 25 25 L 25 -5"
-    },
-    "_arrow_cap_top_left": {
-      "path": "M 5 -25 L -25 -25 L -25 5"
-    },
-    "_arrow_cap_top_right": {
-      "path": "M -5 -25 L 25 -25 L 25 5"
-    },
-    "_arrow_cap_right_reverse": {
-      "path": "M 15 -20 L -6 0 L 15 20"
-    },
-    "_arrow_cap_left_reverse": {
-      "path": "M -15 -20 L 5 0 L -15 20"
-    },
-    "_arrow_cap_top_reverse": {
-      "path": "M -20 -15 L 0 5 L 20 -15"
-    },
-    "_arrow_cap_bottom_reverse": {
-      "path": "M -20 15 L 0 -5 L 20 15"
-    },
-    "_arrow_cap_bottom_left_reverse": {
-      "path": "M 5 25 L 5 -5 L -25 -5"
-    },
-    "_arrow_cap_bottom_right_reverse": {
-      "path": "M -5 25 L -5 -5 L 25 -5"
-    },
-    "_arrow_cap_top_left_reverse": {
-      "path": "M 5 -25 L 5 5 L -25 5"
-    },
-    "_arrow_cap_top_right_reverse": {
-      "path": "M -5 -25 L -5 5 L 25 5"
-    },
-    "_line_horizontal_left_to_right": {
-      "path": "M 35 0 L -35 0"
-    },
-    "_line_vertical_top_to_bottom": {
-      "path": "M 0 -35 L 0 35"
-    },
-    "_line_vertical_bottom_to_top": {
-      "path": "M 0 35 L 0 -35"
-    },
-    "_line_diagonal_top_left_to_bottom_right": {
-      "path": "M -25 -25 L 25 25"
-    },
-    "_line_diagonal_top_right_to_bottom_left": {
-      "path": "M 25 -25 L -25 25"
-    },
-    "_line_diagonal_bottom_right_to_top_left": {
-      "path": "M 25 25 L -25 -25"
-    },
-    "_line_diagonal_bottom_left_to_top_right": {
-      "path": "M -25 25 L 25 -25"
-    },
-    "_circle_dot_center": {
-      "path": "M 0 -5 A 1 1 0 0 0 0 5 A 1 1 0 0 0 0 -5"
-    },
-    "_circle_dot_left": {
-      "path": "M -15 -5 A 1 1 0 0 0 -15 5 A 1 1 0 0 0 -15 -5"
-    },
-    "_circle_dot_right": {
-      "path": "M 15 -5 A 1 1 0 0 0 15 5 A 1 1 0 0 0 15 -5"
-    },
-    "_circle_dot_top": {
-      "path": "M 0 -20 A 1 1 0 0 0 0 -10 A 1 1 0 0 0 0 -20"
-    },
-    "_circle_dot_bottom": {
-      "path": "M 0 10 A 1 1 0 0 0 0 20 A 1 1 0 0 0 0 10"
-    },
-    "_circle_dot_top_left": {
-      "path": "M -15 -20 A 1 1 0 0 0 -15 -10 A 1 1 0 0 0 -15 -20"
-    },
-    "_circle_dot_top_right": {
-      "path": "M 15 -20 A 1 1 0 0 0 15 -10 A 1 1 0 0 0 15 -20"
-    },
-    "_circle_dot_bottom_left": {
-      "path": "M -15 10 A 1 1 0 0 0 -15 20 A 1 1 0 0 0 -15 10"
-    },
-    "_circle_dot_bottom_right": {
-      "path": "M 15 10 A 1 1 0 0 0 15 20 A 1 1 0 0 0 15 10"
-    },
-    "_circle_medium_center": {
-      "path": "M 0 -10 A 1 1 0 0 0 0 10 A 1 1 0 0 0 0 -10"
-    },
-    "_circle_medium_left": {
-      "path": "M -25 -10 A 1 1 0 0 0 -25 10 A 1 1 0 0 0 -25 -10"
-    },
-    "_circle_medium_right": {
-      "path": "M 25 -10 A 1 1 0 0 0 25 10 A 1 1 0 0 0 25 -10"
-    },
-    "_circle_medium_top": {
-      "path": "M 0 -35 A 1 1 0 0 0 0 -15 A 1 1 0 0 0 0 -35"
-    },
-    "_circle_medium_bottom": {
-      "path": "M 0 15 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 15"
-    },
-    "_circle_medium_top_left": {
-      "path": "M -25 -35 A 1 1 0 0 0 -25 -15 A 1 1 0 0 0 -25 -35"
-    },
-    "_circle_medium_top_right": {
-      "path": "M 25 -35 A 1 1 0 0 0 25 -15 A 1 1 0 0 0 25 -35"
-    },
-    "_circle_medium_bottom_left": {
-      "path": "M -25 15 A 1 1 0 0 0 -25 35 A 1 1 0 0 0 -25 15"
-    },
-    "_circle_medium_bottom_right": {
-      "path": "M 25 15 A 1 1 0 0 0 25 35 A 1 1 0 0 0 25 15"
-    },
-    "_circle_large_center": {
-      "path": "M 0 -35 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 -35"
-    },
-    "arrow_right": {
-      "path": [["_line_horizontal_right_to_left", "_arrow_cap_right"]],
-      "metadata": {
-        "tags": ["direction", "time"],
-        "publicName": "right arrow",
-        "categories": ["Arrow"]
-      }
-    },
-    "arrow_left": {
-      "path": [["_line_horizontal_left_to_right", "_arrow_cap_left"]],
-      "metadata": {
-        "categories": ["Arrow"],
-        "publicName": "left arrow"
-      }
-    },
-    "arrow_top": {
-      "path": [["_line_vertical_bottom_to_top", "_arrow_cap_top"]],
-      "metadata": {
-        "categories": ["Arrow"],
-        "publicName": "top arrow"
-      }
-    },
-    "arrow_bottom": {
-      "path": [["_line_vertical_top_to_bottom", "_arrow_cap_bottom"]],
-      "metadata": {
-        "categories": ["Arrow"],
-        "publicName": "bottom arrow"
-      }
-    },
-    "arrow_bottom_left": {
-      "path": [
-        ["_line_diagonal_top_right_to_bottom_left", "_arrow_cap_bottom_left"]
-      ],
-      "metadata": {
-        "categories": ["Arrow"],
-        "publicName": "bottom left arrow"
-      }
-    },
-    "arrow_top_left": {
-      "path": [
-        ["_line_diagonal_bottom_right_to_top_left", "_arrow_cap_top_left"]
-      ],
-      "metadata": {
-        "categories": ["Arrow"],
-        "publicName": "top left arrow"
-      }
-    },
-    "arrow_top_right": {
-      "path": [
-        ["_line_diagonal_bottom_left_to_top_right", "_arrow_cap_top_right"]
-      ],
-      "metadata": {
-        "categories": ["Arrow"],
-        "publicName": "top right arrow"
-      }
-    },
-    "arrow_bottom_right": {
-      "path": [
-        ["_line_diagonal_top_left_to_bottom_right", "_arrow_cap_bottom_right"]
-      ],
-      "metadata": {
-        "categories": ["Arrow"],
-        "publicName": "bottom right arrow"
-      }
-    },
-    "yes": {
-      "path": ["_line_vertical_top_to_bottom"],
-      "metadata": {
-        "tags": ["confirm", "yes", "accept"],
-        "categories": ["Validation"]
-      }
-    },
-    "no": {
-      "path": ["_line_horizontal_right_to_left"],
-      "metadata": {
-        "tags": ["no", "denied"],
-        "categories": ["Validation"]
-      }
-    },
-    "under": {
-      "path": ["_line_horizontal_right_to_left", "_circle_medium_bottom"],
-      "metadata": {
-        "categories": ["Position"]
-      }
-    },
-    "over": {
-      "path": ["_line_horizontal_right_to_left", "_circle_medium_top"],
-      "metadata": {
-        "categories": ["Position"]
-      }
-    },
-    "_line_horizontal_right_to_left": {
-      "path": "M -35 0 L 35 0"
-    }
-  }
+	"svgData": {
+		"_arrow_cap_right": {
+			"path": "M 15 -20 L 35 0 L 15 20"
+		},
+		"_arrow_cap_top": {
+			"path": "M -20 -15 L 0 -35 L 20 -15"
+		},
+		"_arrow_cap_left": {
+			"path": "M -15 -20 L -35 0 L -15 20"
+		},
+		"_arrow_cap_bottom": {
+			"path": "M -20 15 L 0 35 L 20 15"
+		},
+		"_arrow_cap_bottom_left": {
+			"path": "M 5 25 L -25 25 L -25 -5"
+		},
+		"_arrow_cap_bottom_right": {
+			"path": "M -5 25 L 25 25 L 25 -5"
+		},
+		"_arrow_cap_top_left": {
+			"path": "M 5 -25 L -25 -25 L -25 5"
+		},
+		"_arrow_cap_top_right": {
+			"path": "M -5 -25 L 25 -25 L 25 5"
+		},
+		"_arrow_cap_right_reverse": {
+			"path": "M 15 -20 L -6 0 L 15 20"
+		},
+		"_arrow_cap_left_reverse": {
+			"path": "M -15 -20 L 5 0 L -15 20"
+		},
+		"_arrow_cap_top_reverse": {
+			"path": "M -20 -15 L 0 5 L 20 -15"
+		},
+		"_arrow_cap_bottom_reverse": {
+			"path": "M -20 15 L 0 -5 L 20 15"
+		},
+		"_arrow_cap_bottom_left_reverse": {
+			"path": "M 5 25 L 5 -5 L -25 -5"
+		},
+		"_arrow_cap_bottom_right_reverse": {
+			"path": "M -5 25 L -5 -5 L 25 -5"
+		},
+		"_arrow_cap_top_left_reverse": {
+			"path": "M 5 -25 L 5 5 L -25 5"
+		},
+		"_arrow_cap_top_right_reverse": {
+			"path": "M -5 -25 L -5 5 L 25 5"
+		},
+		"_line_horizontal_left_to_right": {
+			"path": "M 35 0 L -35 0"
+		},
+		"_line_vertical_top_to_bottom": {
+			"path": "M 0 -35 L 0 35"
+		},
+		"_line_vertical_bottom_to_top": {
+			"path": "M 0 35 L 0 -35"
+		},
+		"_line_diagonal_top_left_to_bottom_right": {
+			"path": "M -25 -25 L 25 25"
+		},
+		"_line_diagonal_top_right_to_bottom_left": {
+			"path": "M 25 -25 L -25 25"
+		},
+		"_line_diagonal_bottom_right_to_top_left": {
+			"path": "M 25 25 L -25 -25"
+		},
+		"_line_diagonal_bottom_left_to_top_right": {
+			"path": "M -25 25 L 25 -25"
+		},
+		"_circle_dot_center": {
+			"path": "M 0 -5 A 1 1 0 0 0 0 5 A 1 1 0 0 0 0 -5"
+		},
+		"_circle_dot_left": {
+			"path": "M -15 -5 A 1 1 0 0 0 -15 5 A 1 1 0 0 0 -15 -5"
+		},
+		"_circle_dot_right": {
+			"path": "M 15 -5 A 1 1 0 0 0 15 5 A 1 1 0 0 0 15 -5"
+		},
+		"_circle_dot_top": {
+			"path": "M 0 -20 A 1 1 0 0 0 0 -10 A 1 1 0 0 0 0 -20"
+		},
+		"_circle_dot_bottom": {
+			"path": "M 0 10 A 1 1 0 0 0 0 20 A 1 1 0 0 0 0 10"
+		},
+		"_circle_dot_top_left": {
+			"path": "M -15 -20 A 1 1 0 0 0 -15 -10 A 1 1 0 0 0 -15 -20"
+		},
+		"_circle_dot_top_right": {
+			"path": "M 15 -20 A 1 1 0 0 0 15 -10 A 1 1 0 0 0 15 -20"
+		},
+		"_circle_dot_bottom_left": {
+			"path": "M -15 10 A 1 1 0 0 0 -15 20 A 1 1 0 0 0 -15 10"
+		},
+		"_circle_dot_bottom_right": {
+			"path": "M 15 10 A 1 1 0 0 0 15 20 A 1 1 0 0 0 15 10"
+		},
+		"_circle_medium_center": {
+			"path": "M 0 -10 A 1 1 0 0 0 0 10 A 1 1 0 0 0 0 -10"
+		},
+		"_circle_medium_left": {
+			"path": "M -25 -10 A 1 1 0 0 0 -25 10 A 1 1 0 0 0 -25 -10"
+		},
+		"_circle_medium_right": {
+			"path": "M 25 -10 A 1 1 0 0 0 25 10 A 1 1 0 0 0 25 -10"
+		},
+		"_circle_medium_top": {
+			"path": "M 0 -35 A 1 1 0 0 0 0 -15 A 1 1 0 0 0 0 -35"
+		},
+		"_circle_medium_bottom": {
+			"path": "M 0 15 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 15"
+		},
+		"_circle_medium_top_left": {
+			"path": "M -25 -35 A 1 1 0 0 0 -25 -15 A 1 1 0 0 0 -25 -35"
+		},
+		"_circle_medium_top_right": {
+			"path": "M 25 -35 A 1 1 0 0 0 25 -15 A 1 1 0 0 0 25 -35"
+		},
+		"_circle_medium_bottom_left": {
+			"path": "M -25 15 A 1 1 0 0 0 -25 35 A 1 1 0 0 0 -25 15"
+		},
+		"_circle_medium_bottom_right": {
+			"path": "M 25 15 A 1 1 0 0 0 25 35 A 1 1 0 0 0 25 15"
+		},
+		"_circle_large_center": {
+			"path": "M 0 -35 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 -35"
+		},
+		"arrow_right": {
+			"path": [["_line_horizontal_right_to_left", "_arrow_cap_right"]],
+			"metadata": {
+				"tags": ["direction", "time"],
+				"publicName": "right arrow",
+				"categories": ["Arrow"]
+			}
+		},
+		"arrow_left": {
+			"path": [["_line_horizontal_left_to_right", "_arrow_cap_left"]],
+			"metadata": {
+				"categories": ["Arrow"],
+				"publicName": "left arrow"
+			}
+		},
+		"arrow_top": {
+			"path": [["_line_vertical_bottom_to_top", "_arrow_cap_top"]],
+			"metadata": {
+				"categories": ["Arrow"],
+				"publicName": "top arrow"
+			}
+		},
+		"arrow_bottom": {
+			"path": [["_line_vertical_top_to_bottom", "_arrow_cap_bottom"]],
+			"metadata": {
+				"categories": ["Arrow"],
+				"publicName": "bottom arrow"
+			}
+		},
+		"arrow_bottom_left": {
+			"path": [["_line_diagonal_top_right_to_bottom_left", "_arrow_cap_bottom_left"]],
+			"metadata": {
+				"categories": ["Arrow"],
+				"publicName": "bottom left arrow"
+			}
+		},
+		"arrow_top_left": {
+			"path": [["_line_diagonal_bottom_right_to_top_left", "_arrow_cap_top_left"]],
+			"metadata": {
+				"categories": ["Arrow"],
+				"publicName": "top left arrow"
+			}
+		},
+		"arrow_top_right": {
+			"path": [["_line_diagonal_bottom_left_to_top_right", "_arrow_cap_top_right"]],
+			"metadata": {
+				"categories": ["Arrow"],
+				"publicName": "top right arrow"
+			}
+		},
+		"arrow_bottom_right": {
+			"path": [["_line_diagonal_top_left_to_bottom_right", "_arrow_cap_bottom_right"]],
+			"metadata": {
+				"categories": ["Arrow"],
+				"publicName": "bottom right arrow"
+			}
+		},
+		"yes": {
+			"path": ["_line_vertical_top_to_bottom"],
+			"metadata": {
+				"tags": ["confirm", "yes", "accept"],
+				"categories": ["Validation"]
+			}
+		},
+		"no": {
+			"path": ["_line_horizontal_right_to_left"],
+			"metadata": {
+				"tags": ["no", "denied"],
+				"categories": ["Validation"]
+			}
+		},
+		"under": {
+			"path": ["_line_horizontal_right_to_left", "_circle_medium_bottom"],
+			"metadata": {
+				"categories": ["Position"]
+			}
+		},
+		"over": {
+			"path": ["_line_horizontal_right_to_left", "_circle_medium_top"],
+			"metadata": {
+				"categories": ["Position"]
+			}
+		},
+		"_line_horizontal_right_to_left": {
+			"path": "M -35 0 L 35 0"
+		}
+	}
 }

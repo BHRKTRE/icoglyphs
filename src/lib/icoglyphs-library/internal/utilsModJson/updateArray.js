@@ -1,4 +1,4 @@
-const readAndUpdateJSON = require("./utils/fileUtils/readAndUpdateJSON"); // Import of the centralized function
+const readAndUpdateJSON = require('./utils/fileUtils/readAndUpdateJSON'); // Import of the centralized function
 
 /**
  * Update Tags
@@ -9,50 +9,42 @@ const readAndUpdateJSON = require("./utils/fileUtils/readAndUpdateJSON"); // Imp
  * @param {String} type - The type of element to add: "tags".
  */
 async function updateArray(glyphName, array, type, action) {
-  if (!Array.isArray(array)) {
-    console.error("Error: Elements must be in an array.");
-    return;
-  }
-  const validTypes = ["tags"];
-  if (!validTypes.includes(type)) {
-    console.error(`Error: The type "${type}" is invalid.`);
-    return;
-  }
+	if (!Array.isArray(array)) {
+		console.error('Error: Elements must be in an array.');
+		return;
+	}
+	const validTypes = ['tags'];
+	if (!validTypes.includes(type)) {
+		console.error(`Error: The type "${type}" is invalid.`);
+		return;
+	}
 
-  await readAndUpdateJSON(async (jsonData) => {
-    const glyph = jsonData.svgData[glyphName];
+	await readAndUpdateJSON(async (jsonData) => {
+		const glyph = jsonData.svgData[glyphName];
 
-    // Check if the glyph exists
-    if (!glyph) {
-      console.error(
-        `Error: The icoGlyph with the name "${glyphName}" does not exist.`
-      );
-      return;
-    }
+		// Check if the glyph exists
+		if (!glyph) {
+			console.error(`Error: The icoGlyph with the name "${glyphName}" does not exist.`);
+			return;
+		}
 
-    const existingArray = glyph.metadata[type] || [];
-    let updatedArray;
+		const existingArray = glyph.metadata[type] || [];
+		let updatedArray;
 
-    // Add or remove based on the action
-    if (action === "add") {
-      updatedArray = [...new Set([...existingArray, ...array])];
-    } else if (action === "remove") {
-      updatedArray = existingArray.filter((item) => !array.includes(item));
-    } else {
-      console.error(
-        `Error: Action "${action}" is invalid. Use "add" or "remove".`
-      );
-      return;
-    }
+		// Add or remove based on the action
+		if (action === 'add') {
+			updatedArray = [...new Set([...existingArray, ...array])];
+		} else if (action === 'remove') {
+			updatedArray = existingArray.filter((item) => !array.includes(item));
+		} else {
+			console.error(`Error: Action "${action}" is invalid. Use "add" or "remove".`);
+			return;
+		}
 
-    // Update the array in the metadata
-    glyph.metadata[type] = updatedArray;
-    console.log(
-      `Elements have been successfully ${
-        action === "add" ? "added" : "removed"
-      }.`
-    );
-  });
+		// Update the array in the metadata
+		glyph.metadata[type] = updatedArray;
+		console.log(`Elements have been successfully ${action === 'add' ? 'added' : 'removed'}.`);
+	});
 }
 
 /**
@@ -67,19 +59,19 @@ async function updateArray(glyphName, array, type, action) {
  */
 
 const optionsForPushingInArray = {
-  icoGlyphName: "3",
+	icoGlyphName: '3',
 
-  keysToPush: ["frontier"],
+	keysToPush: ['frontier'],
 
-  arrayTypesToPush: "tags",
+	arrayTypesToPush: 'tags',
 
-  action: "add",
+	action: 'add'
 };
 
 /** @function - Add these keywords */
 updateArray(
-  optionsForPushingInArray.icoGlyphName,
-  optionsForPushingInArray.keysToPush,
-  optionsForPushingInArray.arrayTypesToPush,
-  optionsForPushingInArray.action
+	optionsForPushingInArray.icoGlyphName,
+	optionsForPushingInArray.keysToPush,
+	optionsForPushingInArray.arrayTypesToPush,
+	optionsForPushingInArray.action
 );

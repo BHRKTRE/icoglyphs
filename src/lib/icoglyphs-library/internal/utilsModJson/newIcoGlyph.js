@@ -1,5 +1,5 @@
-const icoGlyphConstructor = require("./utils/icoGlyphConstructor"); // Import of the IcoGlyph class
-const readAndUpdateJSON = require("./utils/fileUtils/readAndUpdateJSON"); // Import of the centralized function
+const icoGlyphConstructor = require('./utils/icoGlyphConstructor'); // Import of the IcoGlyph class
+const readAndUpdateJSON = require('./utils/fileUtils/readAndUpdateJSON'); // Import of the centralized function
 
 /**
  * Adds a new IcoGlyph to the JSON data.
@@ -7,22 +7,20 @@ const readAndUpdateJSON = require("./utils/fileUtils/readAndUpdateJSON"); // Imp
  * @param {Object} glyphData - Data of the element to add. Parameters can be partial (default values will be used).
  */
 async function addNewIcoGlyph(glyphData) {
-  return readAndUpdateJSON(async (jsonData) => {
-    const newGlyph = new icoGlyphConstructor(glyphData);
+	return readAndUpdateJSON(async (jsonData) => {
+		const newGlyph = new icoGlyphConstructor(glyphData);
 
-    // Check if the glyph already exists
-    if (jsonData.svgData.hasOwnProperty(newGlyph.name)) {
-      console.error(
-        `Err: An icoGlyph with the name "${newGlyph.name}" already exists.`
-      );
-      return;
-    }
+		// Check if the glyph already exists
+		if (jsonData.svgData.hasOwnProperty(newGlyph.name)) {
+			console.error(`Err: An icoGlyph with the name "${newGlyph.name}" already exists.`);
+			return;
+		}
 
-    // Add the new glyph to the JSON data
-    jsonData.svgData[newGlyph.name] = newGlyph.toJSON();
+		// Add the new glyph to the JSON data
+		jsonData.svgData[newGlyph.name] = newGlyph.toJSON();
 
-    console.log(`New element "${newGlyph.name}" added.`);
-  });
+		console.log(`New element "${newGlyph.name}" added.`);
+	});
 }
 
 /**
@@ -48,23 +46,23 @@ async function addNewIcoGlyph(glyphData) {
  */
 
 const newIcoGlyph = {
-  name: "1",
-  path: "M -35 0 L 35 0",
-  metadata: {
-    // tags: ["under", "behind"],
-    // categories: ["Under"],
-    // publicName: "bot right arrow",
-    //
-    // author: "L",
-    // description: "",
-    // notes: {
-    // userNote: "",
-    // devNote: "",
-    // },
-  },
-  spec: {
-    // viewBox: "0 0 90 100",
-  },
+	name: '1',
+	path: 'M -35 0 L 35 0',
+	metadata: {
+		// tags: ["under", "behind"],
+		// categories: ["Under"],
+		// publicName: "bot right arrow",
+		//
+		// author: "L",
+		// description: "",
+		// notes: {
+		// userNote: "",
+		// devNote: "",
+		// },
+	},
+	spec: {
+		// viewBox: "0 0 90 100",
+	}
 };
 /** @function */
 addNewIcoGlyph(newIcoGlyph);

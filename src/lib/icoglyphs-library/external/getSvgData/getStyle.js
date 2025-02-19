@@ -3,15 +3,15 @@
  * @returns {object} The default style to set in the SVG header.
  */
 function getIcoGlyphDefaultStyle() {
-  return {
-    fill: "none",
-    stroke: "currentColor",
-    "stroke-width": 3,
-    "stroke-linecap": "round",
-    "stroke-linejoin": "round",
-    width: "100%",
-    height: "100%",
-  };
+	return {
+		fill: 'none',
+		stroke: 'currentColor',
+		'stroke-width': 3,
+		'stroke-linecap': 'round',
+		'stroke-linejoin': 'round',
+		width: '100%',
+		height: '100%'
+	};
 }
 
 export default getIcoGlyphDefaultStyle;

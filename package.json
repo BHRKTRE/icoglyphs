@@ -1,37 +1,37 @@
 {
-  "name": "icoglyphs-website",
-  "version": "0.0.1",
-  "type": "module",
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "npm run build && wrangler pages dev",
-    "format": "prettier --write .",
-    "lint": "prettier --check . && eslint .",
-    "test:unit": "vitest",
-    "test": "npm run test:unit -- --run",
-    "deploy": "npm run build && wrangler pages deploy"
-  },
-  "devDependencies": {
-    "@sveltejs/adapter-auto": "^3.3.1",
-    "@sveltejs/adapter-cloudflare": "^4.8.0",
-    "@sveltejs/kit": "^2.12.1",
-    "@sveltejs/vite-plugin-svelte": "^5.0.2",
-    "@types/eslint": "^9.6.1",
-    "eslint": "^9.17.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-svelte": "^2.46.1",
-    "globals": "^15.13.0",
-    "prettier": "^3.4.2",
-    "prettier-plugin-svelte": "^3.3.2",
-    "svelte": "^5.14.2",
-    "vite": "^6.0.3",
-    "vitest": "^2.1.8",
-    "wrangler": "^3.96.0"
-  },
-  "dependencies": {
-    "@jridgewell/sourcemap-codec": "^1.5.0",
-    "@rollup/plugin-inject": "^5.0.5",
-    "animejs": "^3.2.2"
-  }
+	"name": "icoglyphs-website",
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "npm run build && wrangler pages dev",
+		"format": "prettier --write .",
+		"lint": "prettier --check . && eslint .",
+		"test:unit": "vitest",
+		"test": "npm run test:unit -- --run",
+		"deploy": "npm run build && wrangler pages deploy"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^3.3.1",
+		"@sveltejs/adapter-cloudflare": "^4.8.0",
+		"@sveltejs/kit": "^2.12.1",
+		"@sveltejs/vite-plugin-svelte": "^5.0.2",
+		"@types/eslint": "^9.6.1",
+		"eslint": "^9.17.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.46.1",
+		"globals": "^15.13.0",
+		"prettier": "^3.4.2",
+		"prettier-plugin-svelte": "^3.3.2",
+		"svelte": "^5.14.2",
+		"vite": "^6.0.3",
+		"vitest": "^2.1.8",
+		"wrangler": "^3.96.0"
+	},
+	"dependencies": {
+		"@jridgewell/sourcemap-codec": "^1.5.0",
+		"@rollup/plugin-inject": "^5.0.5",
+		"animejs": "^3.2.2"
+	}
 }

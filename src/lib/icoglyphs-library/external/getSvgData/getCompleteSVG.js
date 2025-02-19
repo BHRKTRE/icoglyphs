@@ -9,7 +9,7 @@ import getSvgAttributes from './getSvgAttributes';
  * @param {string} [version] - The version of the icoGlyph (optional).
  * @returns {string} The complete SVG markup.
  */
-function getCompletSVG(icoGlyphName, version) {
+function getCompleteSvg(icoGlyphName, version) {
 	const icoGlyph = searchIcoGlyph(icoGlyphName);
 	if (!icoGlyph) return;
 
@@ -26,4 +26,4 @@ function getCompletSVG(icoGlyphName, version) {
   </svg>`;
 }
 
-export default getCompletSVG;
+export default getCompleteSvg;

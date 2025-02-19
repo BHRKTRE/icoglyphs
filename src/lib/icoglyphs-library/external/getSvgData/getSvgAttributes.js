@@ -1,4 +1,4 @@
-import searchIcoGlyph from "../searchIcoGlyph";
+import searchIcoGlyph from '../searchIcoGlyph';
 
 /**
  * @dev In some cases, it is necessary to convert the object to a string.
@@ -6,26 +6,24 @@ import searchIcoGlyph from "../searchIcoGlyph";
  * @returns {object} The attributes to set in the SVG header.
  */
 function getSvgAttributes(icoGlyphName) {
-  const icoGlyph = searchIcoGlyph(icoGlyphName);
-  if (!icoGlyph) return;
+	const icoGlyph = searchIcoGlyph(icoGlyphName);
+	if (!icoGlyph) return;
 
-  // const ariaLabel = icoGlyph.metadata.publicName
-  //   ? icoGlyph.metadata.publicName
-  //   : icoGlyphName;
+	// const ariaLabel = icoGlyph.metadata.publicName
+	//   ? icoGlyph.metadata.publicName
+	//   : icoGlyphName;
 
-  const viewBox =
-    !icoGlyph.spec || !icoGlyph.spec.viewBox
-      ? "-50 -50 100 100"
-      : icoGlyph.spec.viewBox;
+	const viewBox =
+		!icoGlyph.spec || !icoGlyph.spec.viewBox ? '-50 -50 100 100' : icoGlyph.spec.viewBox;
 
-  return {
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: viewBox,
-    focusable: false, // ?
-    "data-icoGlyph": icoGlyphName,
-    role: "img",
-    // "aria-label": ariaLabel,
-  };
+	return {
+		xmlns: 'http://www.w3.org/2000/svg',
+		viewBox: viewBox,
+		focusable: false, // ?
+		'data-icoGlyph': icoGlyphName,
+		role: 'img'
+		// "aria-label": ariaLabel,
+	};
 }
 
 export default getSvgAttributes;
