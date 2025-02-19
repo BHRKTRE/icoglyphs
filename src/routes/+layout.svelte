@@ -5,8 +5,12 @@
 	import { onMount } from 'svelte';
 	import { applySvgUserStyles } from '$lib/design/applySvgUserStyles.svelte.js';
 
+	// make animation for waiting for the page to be ready
+	let readyToDisplay = $state(false);
+
 	onMount(() => {
 		applySvgUserStyles();
+		readyToDisplay = true;
 	});
 
 	// $inspect(globalVarFront.icoGlyphUserSettings.style);
@@ -22,10 +26,12 @@
 
 <svelte:window bind:innerWidth={windowWidth} />
 
-<NavBar />
+{#if readyToDisplay}
+	<NavBar />
 
-<div style="margin: 0 {sideMargin};" id="page-wrapper">
-	{@render children?.()}
-</div>
+	<div style="margin: 0 {sideMargin};" id="page-wrapper">
+		{@render children?.()}
+	</div>
 
-<Footer />
+	<Footer />
+{/if}

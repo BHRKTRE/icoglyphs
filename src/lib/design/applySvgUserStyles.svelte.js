@@ -24,4 +24,10 @@ export function applySvgUserStyles() {
 			background: '#000000'
 		};
 	}
+
+	const useStyleForSvgDownload = localStorage.getItem('useStyleForSvgDownload');
+	if (useStyleForSvgDownload) {
+		globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload = JSON.parse(useStyleForSvgDownload);
+		console.log(useStyleForSvgDownload);
+	}
 }

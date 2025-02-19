@@ -56,6 +56,7 @@ const changeColorMode = (color) => {
  *
  */
 let icoGlyphUserCustomStyles = $state({});
+let useStyleForSvgDownload = $state(true);
 
 /**
  * Global application state object.
@@ -82,7 +83,8 @@ let globalVar = $state({
 		changeColorMode: changeColorMode
 	},
 	icoGlyphUserSettings: {
-		style: icoGlyphUserCustomStyles
+		style: icoGlyphUserCustomStyles,
+		useStyleForSvgDownload: useStyleForSvgDownload
 	},
 	psi: psi
 });

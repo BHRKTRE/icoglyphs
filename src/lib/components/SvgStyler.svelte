@@ -2,13 +2,8 @@
 	import globalVarFront from '$lib/globalVarFront.svelte.js';
 	import { applySvgUserStyles } from '$lib/design/applySvgUserStyles.svelte.js';
 
-	let importStyleInSvg = $state(false);
-
-	function actualiseLocalStorage() {
-		localStorage.setItem(
-			'icoGlyphsUserStyle',
-			JSON.stringify(globalVarFront.icoGlyphUserSettings.style)
-		);
+	function actualiseLocalStorage(storageName, value) {
+		localStorage.setItem(storageName, JSON.stringify(value));
 	}
 
 	function resetStyle() {
@@ -29,10 +24,10 @@
 		globalVarFront.icoGlyphUserSettings.style['stroke-linejoin'] = strokeTypes[nextIndex];
 		globalVarFront.icoGlyphUserSettings.style['stroke-linecap'] = strokeTypes[nextIndex];
 
-		actualiseLocalStorage();
+		actualiseLocalStorage('icoGlyphsUserStyle', globalVarFront.icoGlyphUserSettings.style);
 	}
 
-	// $inspect(importStyleInSvg);
+	$inspect(globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload);
 </script>
 
 <div class="svg-styler-container">
@@ -42,7 +37,8 @@
 			class="color-input"
 			type="color"
 			bind:value={globalVarFront.icoGlyphUserSettings.style.stroke}
-			oninput={actualiseLocalStorage}
+			oninput={() =>
+				actualiseLocalStorage('icoGlyphsUserStyle', globalVarFront.icoGlyphUserSettings.style)}
 		/>
 	</div>
 	<div class="mod-color-container">
@@ -52,7 +48,8 @@
 			id="stroke-size"
 			class="color-input"
 			bind:value={globalVarFront.icoGlyphUserSettings.style['stroke-width']}
-			oninput={actualiseLocalStorage}
+			oninput={() =>
+				actualiseLocalStorage('icoGlyphsUserStyle', globalVarFront.icoGlyphUserSettings.style)}
 			min="0"
 			max="16"
 			step="0.4"
@@ -69,7 +66,12 @@
 			id="toggle-import-style"
 			class="color-input"
 			type="checkbox"
-			bind:checked={importStyleInSvg}
+			onchange={() =>
+				actualiseLocalStorage(
+					'useStyleForSvgDownload',
+					globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload
+				)}
+			bind:checked={globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload}
 		/>
 	</div>
 
