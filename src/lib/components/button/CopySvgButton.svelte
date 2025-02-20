@@ -31,7 +31,7 @@
 </script>
 
 <button class="text-button" aria-label={ariaLabel} onclick={copySvgToClipBoard}>
-	<h3>Copy SVG to Clipboard</h3>
+	Copy SVG to Clipboard
 </button>
 
 <style>

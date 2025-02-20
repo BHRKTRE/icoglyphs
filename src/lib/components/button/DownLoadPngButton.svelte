@@ -60,9 +60,7 @@
 	const ariaLabel = `Download the PNG file.`;
 </script>
 
-<button class="text-button" aria-label={ariaLabel} onclick={downloadPng}>
-	<h3>Download PNG</h3>
-</button>
+<button class="text-button" aria-label={ariaLabel} onclick={downloadPng}> Download PNG </button>
 
 <style>
 	button {

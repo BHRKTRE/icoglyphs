@@ -28,7 +28,7 @@
 	}
 
 	let inputWidth = $derived(100 / globalVarFront.psi + '%');
-	// $inspect(inputWidth);
+	$inspect(100 / globalVarFront.psi ** 7);
 </script>
 
 <div class="svg-styler-container">

@@ -177,7 +177,7 @@
 			}
 		},
 		"arrow_bottom_right": {
-			"path": [["_line_diagonal_top_left_to_bottom_right", "_arrow_cap_bottom_right"]],
+			"path": ["_line_diagonal_top_left_to_bottom_right", "_arrow_cap_bottom_right"],
 			"metadata": {
 				"categories": ["Arrow"],
 				"publicName": "bottom right arrow"

@@ -40,9 +40,7 @@
 	const ariaLabel = `Download the SVG file.`;
 </script>
 
-<button class="text-button" aria-label={ariaLabel} onclick={downloadSvg}>
-	<h3>Download SVG</h3>
-</button>
+<button class="text-button" aria-label={ariaLabel} onclick={downloadSvg}> Download SVG </button>
 
 <style>
 	button {

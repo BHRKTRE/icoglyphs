@@ -50,20 +50,21 @@ p {
 body,
 body[data-color-mode='grey'] {
 	/* back color */
-	--back-color: 161, 168, 171;
+	--back-color: 77, 90, 97;
+	/* --back-color: 101, 111, 138; */
 	/* text & T color */
-	--front-color: 247, 245, 245;
+	--front-color: 232, 233, 235;
 }
 body[data-color-mode='light'] {
 	/* back color */
-	--back-color: 247, 245, 245;
+	--back-color: 232, 233, 235;
 	/* text & T color */
-	--front-color: 10, 9, 9;
+	--front-color: 22, 27, 30;
 }
 
 body[data-color-mode='dark'] {
 	/* back color */
-	--back-color: 5, 5, 5;
+	--back-color: 22, 27, 30;
 	/* text & T color */
 	--front-color: 247, 245, 245;
 }
@@ -73,13 +74,13 @@ body {
 	/* background opaque*/
 	--b1: rgb(var(--back-color));
 	/* background opacity 1*/
-	--b2: rgba(var(--front-color), 0.1);
+	--b2: rgba(var(--front-color), 0.1396);
 	/* background opacity 2*/
-	--b3: rgba(var(--front-color), 0.7);
+	--b3: rgba(var(--front-color), 0.7548);
 	/* text color */
 	--t1: rgb(var(--front-color));
 	/*  */
-	--t2: rgba(var(--back-color), 0.5);
+	--t2: rgba(var(--back-color), 0.7548);
 
 	/* Set the body background color */
 	background: var(--b1);
