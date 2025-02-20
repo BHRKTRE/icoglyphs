@@ -1,6 +1,6 @@
-const fs = require('fs').promises;
-const pathOfIcoGlyphsLibrary = require('./pathOfIcoGlyphsLibrary');
-const { rl, closeReadLine } = require('./readLine');
+import fs from 'fs/promises';
+import pathOfIcoGlyphsLibrary from './pathOfIcoGlyphsLibrary.js';
+import { rl, closeReadLine } from './readLine.js';
 
 /**
  * Error handling function
@@ -97,4 +97,4 @@ async function readAndUpdateJSON(updateFunction) {
 	}
 }
 
-module.exports = readAndUpdateJSON;
+export default readAndUpdateJSON;

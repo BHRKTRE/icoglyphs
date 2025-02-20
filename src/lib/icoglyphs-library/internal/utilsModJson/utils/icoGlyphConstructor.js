@@ -53,4 +53,4 @@ class icoGlyphConstructor {
 	}
 }
 
-module.exports = icoGlyphConstructor;
+export default icoGlyphConstructor;

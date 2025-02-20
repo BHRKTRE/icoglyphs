@@ -1,5 +1,5 @@
-const readAndUpdateJSON = require('./utils/fileUtils/readAndUpdateJSON'); // Import of the centralized function
-const { askForConfirmation } = require('./utils/fileUtils/readLine');
+import readAndUpdateJSON from './utils/fileUtils/readAndUpdateJSON.js'; // Import of the centralized function
+import { askForConfirmation } from './utils/fileUtils/readLine.js';
 
 /**
  *

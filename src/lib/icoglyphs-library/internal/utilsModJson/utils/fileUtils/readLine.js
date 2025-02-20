@@ -1,5 +1,4 @@
-const fs = require('fs').promises;
-const readline = require('readline');
+import readline from 'readline';
 
 // Create a readline interface for user input
 const rl = readline.createInterface({
@@ -23,4 +22,4 @@ function closeReadLine() {
 	}
 }
 
-module.exports = { rl, closeReadLine, askForConfirmation };
+export { rl, closeReadLine, askForConfirmation };

@@ -127,7 +127,7 @@
 			"path": "M 0 -35 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 -35"
 		},
 		"arrow_right": {
-			"path": [["_line_horizontal_right_to_left", "_arrow_cap_right"]],
+			"path": ["_line_horizontal_right_to_left", "_arrow_cap_right"],
 			"metadata": {
 				"tags": ["direction", "time"],
 				"publicName": "right arrow",
@@ -135,42 +135,42 @@
 			}
 		},
 		"arrow_left": {
-			"path": [["_line_horizontal_left_to_right", "_arrow_cap_left"]],
+			"path": ["_line_horizontal_left_to_right", "_arrow_cap_left"],
 			"metadata": {
 				"categories": ["Arrow"],
 				"publicName": "left arrow"
 			}
 		},
 		"arrow_top": {
-			"path": [["_line_vertical_bottom_to_top", "_arrow_cap_top"]],
+			"path": ["_line_vertical_bottom_to_top", "_arrow_cap_top"],
 			"metadata": {
 				"categories": ["Arrow"],
 				"publicName": "top arrow"
 			}
 		},
 		"arrow_bottom": {
-			"path": [["_line_vertical_top_to_bottom", "_arrow_cap_bottom"]],
+			"path": ["_line_vertical_top_to_bottom", "_arrow_cap_bottom"],
 			"metadata": {
 				"categories": ["Arrow"],
 				"publicName": "bottom arrow"
 			}
 		},
 		"arrow_bottom_left": {
-			"path": [["_line_diagonal_top_right_to_bottom_left", "_arrow_cap_bottom_left"]],
+			"path": ["_line_diagonal_top_right_to_bottom_left", "_arrow_cap_bottom_left"],
 			"metadata": {
 				"categories": ["Arrow"],
 				"publicName": "bottom left arrow"
 			}
 		},
 		"arrow_top_left": {
-			"path": [["_line_diagonal_bottom_right_to_top_left", "_arrow_cap_top_left"]],
+			"path": ["_line_diagonal_bottom_right_to_top_left", "_arrow_cap_top_left"],
 			"metadata": {
 				"categories": ["Arrow"],
 				"publicName": "top left arrow"
 			}
 		},
 		"arrow_top_right": {
-			"path": [["_line_diagonal_bottom_left_to_top_right", "_arrow_cap_top_right"]],
+			"path": ["_line_diagonal_bottom_left_to_top_right", "_arrow_cap_top_right"],
 			"metadata": {
 				"categories": ["Arrow"],
 				"publicName": "top right arrow"

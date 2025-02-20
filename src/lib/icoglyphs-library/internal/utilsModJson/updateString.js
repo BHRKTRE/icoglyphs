@@ -1,4 +1,4 @@
-const readAndUpdateJSON = require('./utils/fileUtils/readAndUpdateJSON'); // Import of the centralized function
+import readAndUpdateJSON from './utils/fileUtils/readAndUpdateJSON.js'; // Import of the centralized function
 
 /**
  * Add, Replace, or Delete a Note or Description

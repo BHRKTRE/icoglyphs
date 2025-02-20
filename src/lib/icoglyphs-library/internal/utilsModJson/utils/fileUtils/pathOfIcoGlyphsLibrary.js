@@ -1,6 +1,9 @@
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Define the path to icoGlyphsLibrary.json
+// Définir le chemin vers icoGlyphsLibrary.json
 const pathOfIcoGlyphsLibrary = path.resolve(__dirname, '../../../../icoGlyphsLibrary.json');
 
-module.exports = pathOfIcoGlyphsLibrary;
+export default pathOfIcoGlyphsLibrary;

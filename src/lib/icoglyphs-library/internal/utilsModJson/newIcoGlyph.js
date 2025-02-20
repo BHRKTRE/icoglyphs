@@ -1,5 +1,5 @@
-const icoGlyphConstructor = require('./utils/icoGlyphConstructor'); // Import of the IcoGlyph class
-const readAndUpdateJSON = require('./utils/fileUtils/readAndUpdateJSON'); // Import of the centralized function
+import icoGlyphConstructor from './utils/icoGlyphConstructor.js'; // Import of the IcoGlyph class
+import readAndUpdateJSON from './utils/fileUtils/readAndUpdateJSON.js'; // Import of the centralized function
 
 /**
  * Adds a new IcoGlyph to the JSON data.
@@ -47,7 +47,7 @@ async function addNewIcoGlyph(glyphData) {
 
 const newIcoGlyph = {
 	name: '1',
-	path: 'M -35 0 L 35 0',
+	path: ['yes', 'no'],
 	metadata: {
 		// tags: ["under", "behind"],
 		// categories: ["Under"],
