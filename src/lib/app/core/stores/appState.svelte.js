@@ -1,4 +1,4 @@
-import { applySvgUserStyles } from '$lib/design/applySvgUserStyles.svelte.js';
+import { applySvgUserStyles } from '$lib/app/core/utils/applySvgUserStyles.svelte.js';
 
 /**
  * Retrieves the initial value of `showPrivateIcoGlyph` from localStorage.
@@ -17,25 +17,11 @@ const showPrivateIcoGlyphValue =
  */
 const togglePrivateIcoGlyph = () => {
 	// Flip the current value of `showPrivateIcoGlyph`.
-	globalVar.showPrivateIcoGlyph.value = !globalVar.showPrivateIcoGlyph.value;
+	appState.showPrivateIcoGlyph.value = !appState.showPrivateIcoGlyph.value;
 
 	// Save the updated value to localStorage.
-	localStorage.setItem('showPrivateIcoGlyph', JSON.stringify(globalVar.showPrivateIcoGlyph.value));
+	localStorage.setItem('showPrivateIcoGlyph', JSON.stringify(appState.showPrivateIcoGlyph.value));
 };
-
-/**
- * Psi ratio
- */
-const a = 1 / 2;
-const b = Math.sqrt(69) / 18;
-
-const term1 = Math.cbrt(a + b);
-const term2 = Math.cbrt(a - b);
-
-const psiValue = term1 + term2;
-
-// 1.3247179572447458
-const psi = psiValue;
 
 /**
  * Changes the color mode of the application and persists the selection in localStorage.
@@ -61,7 +47,7 @@ let useStyleForSvgDownload = $state(true);
 /**
  * Global application state object.
  *
- * @typedef {object} GlobalVar
+ * @typedef {object} appState
  * @property {object} showPrivateIcoGlyph - Contains the state and related methods for `showPrivateIcoGlyph`.
  * @property {boolean} showPrivateIcoGlyph.value - Indicates whether "private icoGlyph" mode is enabled.
  * @property {function} showPrivateIcoGlyph.togglePrivateIcoGlyph - Toggles the value of `showPrivateIcoGlyph`.
@@ -70,9 +56,8 @@ let useStyleForSvgDownload = $state(true);
  *    Possible values: 'grey' (default), 'dark', 'light'.
  * @property {object} icoGlyphUserSettings
  * * @property {object} style
- * @property {number} Psi value
  */
-let globalVar = $state({
+let appState = $state({
 	showPrivateIcoGlyph: {
 		value: showPrivateIcoGlyphValue,
 		togglePrivateIcoGlyph: togglePrivateIcoGlyph
@@ -85,9 +70,8 @@ let globalVar = $state({
 	icoGlyphUserSettings: {
 		style: icoGlyphUserCustomStyles,
 		useStyleForSvgDownload: useStyleForSvgDownload
-	},
-	psi: psi
+	}
 });
 
 // Export the global state so it can be used across the application.
-export default globalVar;
+export default appState;

@@ -50,7 +50,7 @@ p {
 body,
 body[data-color-mode='grey'] {
 	/* back color */
-	--back-color: 77, 90, 97;
+	--back-color: 99, 103, 115;
 	/* --back-color: 101, 111, 138; */
 	/* text & T color */
 	--front-color: 232, 233, 235;

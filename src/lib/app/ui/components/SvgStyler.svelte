@@ -1,6 +1,7 @@
 <script>
-	import globalVarFront from '$lib/globalVarFront.svelte.js';
-	import { applySvgUserStyles } from '$lib/design/applySvgUserStyles.svelte.js';
+	import appState from '$lib/app/core/stores/appState.svelte.js';
+	import { applySvgUserStyles } from '$lib/app/core/utils/applySvgUserStyles.svelte.js';
+	import psi from '$lib/app/ui/utils/psi.js';
 
 	function actualiseLocalStorage(storageName, value) {
 		localStorage.setItem(storageName, JSON.stringify(value));
@@ -17,18 +18,18 @@
 	 */
 	const strokeTypes = ['round', 'bevel', 'miter'];
 	function changeStrokeType() {
-		let currentType = globalVarFront.icoGlyphUserSettings.style['stroke-linejoin'];
+		let currentType = appState.icoGlyphUserSettings.style['stroke-linejoin'];
 		let currentIndex = strokeTypes.indexOf(currentType);
 
 		let nextIndex = (currentIndex + 1) % strokeTypes.length;
-		globalVarFront.icoGlyphUserSettings.style['stroke-linejoin'] = strokeTypes[nextIndex];
-		globalVarFront.icoGlyphUserSettings.style['stroke-linecap'] = strokeTypes[nextIndex];
+		appState.icoGlyphUserSettings.style['stroke-linejoin'] = strokeTypes[nextIndex];
+		appState.icoGlyphUserSettings.style['stroke-linecap'] = strokeTypes[nextIndex];
 
-		actualiseLocalStorage('icoGlyphsUserStyle', globalVarFront.icoGlyphUserSettings.style);
+		actualiseLocalStorage('icoGlyphsUserStyle', appState.icoGlyphUserSettings.style);
 	}
 
-	let inputWidth = $derived(100 / globalVarFront.psi + '%');
-	$inspect(100 / globalVarFront.psi ** 7);
+	let inputWidth = $derived(100 / psi + '%');
+	// $inspect(100 / psi ** 7);
 </script>
 
 <div class="svg-styler-container">
@@ -40,23 +41,23 @@
 				id="stroke-color-input"
 				class="color-input"
 				type="color"
-				bind:value={globalVarFront.icoGlyphUserSettings.style.stroke}
+				bind:value={appState.icoGlyphUserSettings.style.stroke}
 				oninput={() =>
-					actualiseLocalStorage('icoGlyphsUserStyle', globalVarFront.icoGlyphUserSettings.style)}
+					actualiseLocalStorage('icoGlyphsUserStyle', appState.icoGlyphUserSettings.style)}
 			/>
 		</div>
 	</div>
 	<div class="mod-color-container hover-border">
 		<div class="column-container">
 			<label for="stroke-size"
-				>Stroke size : {globalVarFront.icoGlyphUserSettings.style['stroke-width']} px</label
+				>Stroke size : {appState.icoGlyphUserSettings.style['stroke-width']} px</label
 			><input
 				style="width: {inputWidth};"
 				id="stroke-size"
 				class="color-input"
-				bind:value={globalVarFront.icoGlyphUserSettings.style['stroke-width']}
+				bind:value={appState.icoGlyphUserSettings.style['stroke-width']}
 				oninput={() =>
-					actualiseLocalStorage('icoGlyphsUserStyle', globalVarFront.icoGlyphUserSettings.style)}
+					actualiseLocalStorage('icoGlyphsUserStyle', appState.icoGlyphUserSettings.style)}
 				min="0"
 				max="16"
 				step="0.1"
@@ -66,7 +67,7 @@
 	</div>
 	<button onclick={changeStrokeType} class="text-button">
 		Stroke style :
-		{globalVarFront.icoGlyphUserSettings.style['stroke-linejoin']}
+		{appState.icoGlyphUserSettings.style['stroke-linejoin']}
 	</button>
 
 	<div class="mod-color-container hover-border">
@@ -78,9 +79,9 @@
 			onchange={() =>
 				actualiseLocalStorage(
 					'useStyleForSvgDownload',
-					globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload
+					appState.icoGlyphUserSettings.useStyleForSvgDownload
 				)}
-			bind:checked={globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload}
+			bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
 		/>
 	</div>
 

@@ -1,4 +1,4 @@
-import globalVarFront from '$lib/globalVarFront.svelte.js';
+import appState from '$lib/app/core/stores/appState.svelte.js';
 
 export function applySvgUserStyles() {
 	const strokeColorDependOfMode = {
@@ -12,9 +12,9 @@ export function applySvgUserStyles() {
 
 	const savedStyle = localStorage.getItem('icoGlyphsUserStyle');
 	if (savedStyle) {
-		globalVarFront.icoGlyphUserSettings.style = JSON.parse(savedStyle);
+		appState.icoGlyphUserSettings.style = JSON.parse(savedStyle);
 	} else {
-		globalVarFront.icoGlyphUserSettings.style = {
+		appState.icoGlyphUserSettings.style = {
 			stroke: strokeColorDependOfMode[colorMode],
 			'stroke-linejoin': 'round',
 			'stroke-linecap': 'round',
@@ -26,6 +26,6 @@ export function applySvgUserStyles() {
 
 	const useStyleForSvgDownload = localStorage.getItem('useStyleForSvgDownload');
 	if (useStyleForSvgDownload) {
-		globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload = JSON.parse(useStyleForSvgDownload);
+		appState.icoGlyphUserSettings.useStyleForSvgDownload = JSON.parse(useStyleForSvgDownload);
 	}
 }

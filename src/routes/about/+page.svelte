@@ -2,13 +2,13 @@
 	import Hero from './Hero.svelte';
 	import HowtoUse from './HowtoUse.svelte';
 	import LinguisticDemo from './LinguisticDemo.svelte';
-	import globalVarFront from '$lib/globalVarFront.svelte.js';
+	import psi from '$lib/app/ui/utils/psi.js';
 	import Tech from './Tech.svelte';
 	import ContactUs from './ContactUs.svelte';
 
 	let windowHeight = $state(0);
 
-	let minSectionHeight = $derived(windowHeight / globalVarFront.psi + 'px');
+	let minSectionHeight = $derived(windowHeight / psi + 'px');
 
 	// $inspect(minSectionHeight);
 </script>

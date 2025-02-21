@@ -1,10 +1,10 @@
 <script>
-	import globalVarFront from '$lib/globalVarFront.svelte.js';
+	import appState from '$lib/app/core/stores/appState.svelte.js';
 
-	let togglePrivateIcoGlyphStatus = $state(globalVarFront.showPrivateIcoGlyph.value);
+	let togglePrivateIcoGlyphStatus = $state(appState.showPrivateIcoGlyph.value);
 	const togglePrivateIcoGlyph = () => {
-		globalVarFront.showPrivateIcoGlyph.togglePrivateIcoGlyph();
-		togglePrivateIcoGlyphStatus = globalVarFront.showPrivateIcoGlyph.value;
+		appState.showPrivateIcoGlyph.togglePrivateIcoGlyph();
+		togglePrivateIcoGlyphStatus = appState.showPrivateIcoGlyph.value;
 	};
 </script>
 
@@ -26,19 +26,19 @@
 			<div class="param-button-container">
 				<button
 					onclick={() => {
-						globalVarFront.colorMode.changeColorMode('light');
+						appState.colorMode.changeColorMode('light');
 					}}
 					class="text-button"><h5>Light</h5></button
 				>
 				<button
 					onclick={() => {
-						globalVarFront.colorMode.changeColorMode('grey');
+						appState.colorMode.changeColorMode('grey');
 					}}
 					class="text-button"><h5>Grey</h5></button
 				>
 				<button
 					onclick={() => {
-						globalVarFront.colorMode.changeColorMode('dark');
+						appState.colorMode.changeColorMode('dark');
 					}}
 					class="text-button"><h5>Dark</h5></button
 				>

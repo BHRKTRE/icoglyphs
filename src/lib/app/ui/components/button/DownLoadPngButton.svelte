@@ -1,7 +1,7 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
 	import { derived } from 'svelte/store';
-	import globalVarFront from '$lib/globalVarFront.svelte.js';
+	import appState from '$lib/app/core/stores/appState.svelte.js';
 
 	let { icoGlyphName } = $props();
 
@@ -12,7 +12,7 @@
 			${Object.entries(SvgAttributes)
 				.map(([key, value]) => `${key}="${value}"`)
 				.join(' ')}
-			style="${Object.entries(globalVarFront.icoGlyphUserSettings.style)
+			style="${Object.entries(appState.icoGlyphUserSettings.style)
 				.map(([key, value]) => `${key}:${value}`)
 				.join(';')}">
 			<path d='${icoGlyphs.getPath(icoGlyphName)}' />

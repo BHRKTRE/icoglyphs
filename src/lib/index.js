@@ -1,8 +1,8 @@
-import icoGlyphsLibrary from './icoglyphs-library/icoGlyphsLibrary.json';
-import getCompleteSvg from './icoglyphs-library/external/getSvgData/getCompleteSVG';
-import getPath from './icoglyphs-library/external/getSvgData/getPath';
-import getSvgAttributes from './icoglyphs-library/external/getSvgData/getSvgAttributes';
-import getIcoGlyphDefaultStyle from './icoglyphs-library/external/getSvgData/getStyle';
+import icoGlyphsLibrary from './library/icoGlyphsLibrary.json';
+import getCompleteSvg from './library/external/getSvgData/getCompleteSVG';
+import getPath from './library/external/getSvgData/getPath';
+import getSvgAttributes from './library/external/getSvgData/getSvgAttributes';
+import getIcoGlyphDefaultStyle from './library/external/getSvgData/getStyle';
 
 const icoGlyphs = {
 	getPath: (icoGlyphName, icoGlyphVersion) => {

@@ -1,12 +1,12 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
-	import globalVarFront from '$lib/globalVarFront.svelte.js';
+	import appState from '$lib/app/core/stores/appState.svelte.js';
 
 	let { icoGlyphName } = $props();
 
 	let svgStyle = $derived.by(() => {
-		if (globalVarFront.icoGlyphUserSettings.useStyleForSvgDownload === true) {
-			return globalVarFront.icoGlyphUserSettings.style;
+		if (appState.icoGlyphUserSettings.useStyleForSvgDownload === true) {
+			return appState.icoGlyphUserSettings.style;
 		} else {
 			return '';
 		}

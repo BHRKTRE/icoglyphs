@@ -1,12 +1,12 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
-	import IcoGlyphLinked from '$lib/components/clickable/IcoGlyphLinked.svelte';
-	import CopySvgButton from '$lib/components/button/CopySvgButton.svelte';
-	import DownLoadSvgButton from '$lib/components/button/DownLoadSvgButton.svelte';
-	import DownLoadPngButton from '$lib/components/button/DownLoadPngButton.svelte';
-	import SvgStyler from '$lib/components/SvgStyler.svelte';
+	import IcoGlyphLinked from '$lib/app/ui/components/IcoGlyphLinked.svelte';
+	import CopySvgButton from '$lib/app/ui/components/button/CopySvgButton.svelte';
+	import DownLoadSvgButton from '$lib/app/ui/components/button/DownLoadSvgButton.svelte';
+	import DownLoadPngButton from '$lib/app/ui/components/button/DownLoadPngButton.svelte';
+	import SvgStyler from '$lib/app/ui/components/SvgStyler.svelte';
 	import anime from 'animejs';
-	import globalVarFront from '$lib/globalVarFront.svelte.js';
+	import appState from '$lib/app/core/stores/appState.svelte.js';
 
 	let { data } = $props();
 
@@ -51,12 +51,12 @@
 		}
 	}
 
-	// $inspect('front', globalVarFront.icoGlyphUserSettings.style);
+	// $inspect('front', appState.icoGlyphUserSettings.style);
 </script>
 
 <main>
 	<div id="icoglyph-container">
-		<svg {...globalVarFront.icoGlyphUserSettings.style} {...icoGlyphs.getSvgAttributes(data.name)}>
+		<svg {...appState.icoGlyphUserSettings.style} {...icoGlyphs.getSvgAttributes(data.name)}>
 			<path d={icoGlyphs.getPath(data.name)} />
 		</svg>
 	</div>

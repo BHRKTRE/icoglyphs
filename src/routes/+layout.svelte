@@ -1,9 +1,9 @@
 <script>
 	import Footer from './_layoutComponents/Footer.svelte';
 	import NavBar from './_layoutComponents/NavBar.svelte';
-	import globalVarFront from '$lib/globalVarFront.svelte.js';
+	import psi from '$lib/app/ui/utils/psi.js';
 	import { onMount } from 'svelte';
-	import { applySvgUserStyles } from '$lib/design/applySvgUserStyles.svelte.js';
+	import { applySvgUserStyles } from '$lib/app/core/utils/applySvgUserStyles.svelte.js';
 
 	// make animation for waiting for the page to be ready
 	let readyToDisplay = $state(false);
@@ -13,13 +13,13 @@
 		readyToDisplay = true;
 	});
 
-	// $inspect(globalVarFront.icoGlyphUserSettings.style);
+	// $inspect(appState.icoGlyphUserSettings.style);
 
 	let { children } = $props();
 
 	let windowWidth = $state(0);
 
-	let sideMargin = $derived(windowWidth / Math.pow(globalVarFront.psi, 10) + 'px');
+	let sideMargin = $derived(windowWidth / Math.pow(psi, 10) + 'px');
 
 	// $inspect(sideMargin);
 </script>
