@@ -117,14 +117,14 @@ ul {
 	padding-inline-start: 0;
 }
 
-/* svg {
+.internal-icoglyph-button {
 	stroke: var(--t1);
 	stroke-linejoin: round;
 	stroke-linecap: round;
 	stroke-width: 0.4rem;
 	stroke-opacity: 1;
 	fill: none;
-} */
+}
 
 button {
 	margin: 0;
@@ -136,6 +136,7 @@ button {
 	border: none;
 	transition: 200ms;
 	border: var(--border-width-small) solid transparent;
+	border-radius: var(--border-radius);
 }
 
 .hover-border {
