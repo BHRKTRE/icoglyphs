@@ -2,18 +2,24 @@
 	import icoGlyphs from '$lib/index.js';
 	import anime from 'animejs';
 
-	let { props } = $props();
+	let { ...propsOfIcoGlyphButton } = $props();
 	const uid = $props.id();
 
-	let currentStates = $state(Object.keys(props)[0]);
+	let currentStates = $state(Object.keys(propsOfIcoGlyphButton)[0]);
 
-	let nextState = $derived(props[currentStates].anime.to);
+	// FIX : improve this if anime dont exist
+	let nextState = $derived(propsOfIcoGlyphButton[currentStates].anime.to);
 	let animeDuration = $derived(
-		props[currentStates].anime.duration ? props[currentStates].anime.duration : 500
+		propsOfIcoGlyphButton[currentStates].anime.duration
+			? propsOfIcoGlyphButton[currentStates].anime.duration
+			: 500
 	);
 
+	// ADD : anime if something change
+
+	// FIX : Need fix if user spam click
 	function changeState() {
-		if (props[currentStates].anime) {
+		if (propsOfIcoGlyphButton[currentStates].anime) {
 			anime({
 				targets: `#${uid}`,
 				d: icoGlyphs.getPath(nextState),
@@ -27,11 +33,11 @@
 		}
 	}
 
-	// $inspect(nextState);
+	// $inspect(propsOfIcoGlyphButton);
 </script>
 
 <button
-	onclick={(props[currentStates].onClickFunction(), changeState)}
+	onclick={(propsOfIcoGlyphButton[currentStates].onClickFunction(), changeState)}
 	aria-label="a faire"
 	class="internal-icoglyph-button"
 >

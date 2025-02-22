@@ -1,40 +1,30 @@
 <script>
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
-	import propsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
+	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
-	function hello() {
-		console.log('hello');
-	}
+	icoGlyphButtonPropsConstructor.add(
+		'arrow_right',
+		() => {
+			console.log('function 1');
+		},
+		{ to: 'arrow_left', duration: 1000 }
+	);
 
-	const props = {
-		props: {
-			arrow_right: {
-				onClickFunction: () => {
-					console.log('function 1');
-				},
-				anime: {
-					to: 'arrow_left',
-					duration: 1000
-				}
-			},
-			arrow_left: {
-				onClickFunction: () => {
-					console.log('function 2');
-				},
-				anime: { to: 'arrow_top' }
-			},
-			arrow_top: {
-				onClickFunction: () => {
-					console.log('function 3');
-				}
-				// anime: { to: 'arrow_right' }
-			}
-		}
-	};
+	icoGlyphButtonPropsConstructor.add(
+		'arrow_left',
+		() => {
+			console.log('function 2');
+		},
+		{ to: 'arrow_top' }
+	);
 
-	// $inspect(props);
+	icoGlyphButtonPropsConstructor.add('arrow_top', () => {
+		console.log('function 3');
+	});
+
+	const propsOfIcoGlyphButton = icoGlyphButtonPropsConstructor.props;
 </script>
 
 <main>
-	<IcoGlyphButton {...props} />
+	<IcoGlyphButton {...propsOfIcoGlyphButton} />
 </main>

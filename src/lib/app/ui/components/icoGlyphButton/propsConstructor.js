@@ -1,45 +1,37 @@
-class PropsConstructor {
-	// Define the states as methods
-	state1(icoGlyphName, onClickFunction) {
-		this.icoGlyphName = icoGlyphName;
-		this.onClickFunction = onClickFunction;
+/**
+ * Class representing the constructor for icoGlyphButtonProps.
+ */
+class icoGlyphButtonPropsConstructor {
+	/**
+	 * Creates an instance of icoGlyphButtonPropsConstructor.
+	 * Initializes the props object to hold button properties.
+	 */
+	constructor() {
+		this.props = {};
 	}
 
-	state2(icoGlyphName, onClickFunction) {
-		this.icoGlyphName = icoGlyphName;
-		this.onClickFunction = onClickFunction;
-	}
+	/**
+	 * Adds a new button icon with an optional animation to the props collection.
+	 *
+	 * @param {string} name - The name of the icon (e.g., 'arrow_right').
+	 * @param {Function} onClickFunction - The function to be executed when the button is clicked.
+	 * @param {Object|null} [anime=null] - An optional animation object containing properties like 'to' and 'duration'.
+	 * @param {string} [anime.to] - The target icon name for animation (e.g., 'arrow_left').
+	 * @param {number} [anime.duration] - The duration of the animation in milliseconds.
+	 */
+	add(name, onClickFunction, anime = null) {
+		const newIcon = {
+			onClickFunction: onClickFunction
+		};
 
-	state3(icoGlyphName, onClickFunction) {
-		this.icoGlyphName = icoGlyphName;
-		this.onClickFunction = onClickFunction;
-	}
-
-	// Constructor to initialize the state
-	constructor(state = 1, icoGlyphName, onClickFunction) {
-		// Dynamically set the state based on the input
-		if (state === 1) {
-			this.state1(icoGlyphName, onClickFunction);
-		} else if (state === 2) {
-			this.state2(icoGlyphName, onClickFunction);
-		} else if (state === 3) {
-			this.state3(icoGlyphName, onClickFunction);
+		if (anime) {
+			newIcon.anime = anime;
 		}
+
+		this.props[name] = newIcon;
 	}
 }
 
-export default PropsConstructor;
-
-/**
- * Change la couleur de l'icône.
- * @param {string} newColor La nouvelle couleur.
- */
-// changeColor(newColor) {
-//     this.color = newColor;
-// }
-
-// app/core/utils/iconUtils.js
-// import IcoGlyph from '../models/IcoGlyph.js';
-
-// const icon = new IcoGlyph(1, 'star', '<svg>...</svg>', 'blue');
-// icon.changeColor('red');
+// Create an instance of icoGlyphButtonPropsConstructor
+const icoGlyphButtonProps = new icoGlyphButtonPropsConstructor();
+export default icoGlyphButtonProps;
