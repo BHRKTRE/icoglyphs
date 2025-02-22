@@ -8,26 +8,26 @@
 
 	const props = {
 		props: {
-			state1: {
-				icoGlyphName: 'arrow_right',
+			arrow_right: {
 				onClickFunction: () => {
 					console.log('function 1');
 				},
-				to: 'state2'
+				anime: {
+					to: 'arrow_left',
+					duration: 1000
+				}
 			},
-			state2: {
-				icoGlyphName: 'arrow_left',
+			arrow_left: {
 				onClickFunction: () => {
 					console.log('function 2');
 				},
-				to: 'state3'
+				anime: { to: 'arrow_top' }
 			},
-			state3: {
-				icoGlyphName: 'arrow_top',
+			arrow_top: {
 				onClickFunction: () => {
 					console.log('function 3');
-				},
-				to: 'state1'
+				}
+				// anime: { to: 'arrow_right' }
 			}
 		}
 	};
