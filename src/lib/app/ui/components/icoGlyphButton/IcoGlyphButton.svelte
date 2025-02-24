@@ -7,19 +7,24 @@
 
 	let currentStates = $state(Object.keys(propsOfIcoGlyphButton)[0]);
 
-	// FIX : improve this if anime dont exist
-	let nextState = $derived(propsOfIcoGlyphButton[currentStates].anime.to);
-	let animeDuration = $derived(
-		propsOfIcoGlyphButton[currentStates].anime.duration
-			? propsOfIcoGlyphButton[currentStates].anime.duration
-			: 500
-	);
+	function onClickFunction() {
+		propsOfIcoGlyphButton[currentStates].onClickFunction();
+		if (propsOfIcoGlyphButton[currentStates].changeStateOnClick) {
+			changeStateFunction('changeStateOnClick');
+		}
+	}
 
 	// ADD : anime if something change
 
 	// FIX : Need fix if user spam click
-	function changeState() {
-		if (propsOfIcoGlyphButton[currentStates].anime) {
+	function changeStateFunction(changeType) {
+		// FIX : improve this if anime dont exist
+
+		let nextState = propsOfIcoGlyphButton[currentStates][changeType].to;
+		let animeDuration = propsOfIcoGlyphButton[currentStates][changeType].duration
+			? propsOfIcoGlyphButton[currentStates][changeType].duration
+			: 500;
+		if (propsOfIcoGlyphButton[currentStates][changeType]) {
 			anime({
 				targets: `#${uid}`,
 				d: icoGlyphs.getPath(nextState),
@@ -33,14 +38,22 @@
 		}
 	}
 
-	// $inspect(propsOfIcoGlyphButton);
+	//////////////////////////////
+
+	$effect(() => {
+		if (propsOfIcoGlyphButton[currentStates]?.changeStateOnVarTrue) {
+			if (propsOfIcoGlyphButton[currentStates].changeStateOnVarTrue.animeOnTrue == true) {
+				changeStateFunction('changeStateOnVarTrue');
+			} else {
+				// console.log('var is false');
+			}
+		}
+	});
+
+	// $inspect(fooVar);
 </script>
 
-<button
-	onclick={(propsOfIcoGlyphButton[currentStates].onClickFunction(), changeState)}
-	aria-label="a faire"
-	class="internal-icoglyph-button"
->
+<button onclick={onClickFunction} aria-label="a faire" class="internal-icoglyph-button">
 	<svg {...icoGlyphs.getSvgAttributes(currentStates)}>
 		<path id={uid} d={icoGlyphs.getPath(currentStates)} />
 	</svg>
