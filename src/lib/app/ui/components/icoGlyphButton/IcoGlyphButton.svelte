@@ -18,6 +18,14 @@
 
 	// change state and start animation
 	function changeStateFunction(changeName) {
+		if (!Object.keys(propsOfIcoGlyphButton.buttonStates).includes(changeName)) {
+			console.error(
+				`Error: The state "${changeName}" does not exist in this button. 
+					 Available states are: ${Object.keys(propsOfIcoGlyphButton.buttonStates).join(', ')}`
+			);
+			return;
+		}
+
 		if (isAnimating) return;
 		isAnimating = true;
 
@@ -43,14 +51,7 @@
 	// animation if selected is different from currentStates
 	$effect(() => {
 		if (currentStates !== selected && !isAnimating) {
-			if (!Object.keys(propsOfIcoGlyphButton.buttonStates).includes(selected)) {
-				console.error(
-					`Error: The state "${selected}" does not exist. 
-					 Available states are: ${Object.keys(propsOfIcoGlyphButton.buttonStates).join(', ')}`
-				);
-			} else {
-				changeStateFunction(propsOfIcoGlyphButton.selected);
-			}
+			changeStateFunction(propsOfIcoGlyphButton.selected);
 		}
 	});
 

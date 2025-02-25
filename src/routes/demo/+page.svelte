@@ -2,6 +2,14 @@
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
+	let bbb = $state(new icoGlyphButtonPropsConstructor());
+	bbb.add('arrow_left', () => console.log('function 2'), { to: 'arrow_right' });
+	bbb.add('arrow_right', () => console.log('function 2'));
+
+	//////////////////////////
+
+	let icoSelected = $state('arrow_right');
+
 	let propsOfIcoGlyphButton = $state({
 		selected: 'arrow_right',
 		animeDuration: 1000,
@@ -30,7 +38,8 @@
 		propsOfIcoGlyphButton.selected = 'arrow_top';
 	}
 
-	// $inspect(fooVar);
+	// make animeDuration optional
+	$inspect(propsOfIcoGlyphButton);
 </script>
 
 <main>
