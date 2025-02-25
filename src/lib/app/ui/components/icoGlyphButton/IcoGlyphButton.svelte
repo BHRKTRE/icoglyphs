@@ -2,55 +2,59 @@
 	import icoGlyphs from '$lib/index.js';
 	import anime from 'animejs';
 
-	let { ...propsOfIcoGlyphButton } = $props();
+	let { selected = $bindable(), ...propsOfIcoGlyphButton } = $props();
 	const uid = $props.id();
 
-	let currentStates = $state(Object.keys(propsOfIcoGlyphButton)[0]);
+	let currentStates = $state(Object.keys(propsOfIcoGlyphButton.buttonStates)[0]);
+	let isAnimating = $state(false);
 
+	// function to be executed when the button is clicked + start animation if .to is defined
 	function onClickFunction() {
-		propsOfIcoGlyphButton[currentStates].onClickFunction();
-		if (propsOfIcoGlyphButton[currentStates].changeStateOnClick) {
-			changeStateFunction('changeStateOnClick');
+		propsOfIcoGlyphButton.buttonStates[currentStates].onClickFunction();
+		if (propsOfIcoGlyphButton.buttonStates[currentStates].to) {
+			changeStateFunction(propsOfIcoGlyphButton.buttonStates[currentStates].to);
 		}
 	}
 
-	// ADD : anime if something change
+	// change state and start animation
+	function changeStateFunction(changeName) {
+		if (isAnimating) return;
+		isAnimating = true;
 
-	// FIX : Need fix if user spam click
-	function changeStateFunction(changeType) {
-		// FIX : improve this if anime dont exist
-
-		let nextState = propsOfIcoGlyphButton[currentStates][changeType].to;
-		let animeDuration = propsOfIcoGlyphButton[currentStates][changeType].duration
-			? propsOfIcoGlyphButton[currentStates][changeType].duration
+		let nextState = changeName;
+		let animeDuration = propsOfIcoGlyphButton.animeDuration
+			? propsOfIcoGlyphButton.animeDuration
 			: 500;
-		if (propsOfIcoGlyphButton[currentStates][changeType]) {
-			anime({
-				targets: `#${uid}`,
-				d: icoGlyphs.getPath(nextState),
-				direction: 'normal',
-				easing: 'easeInOutQuad',
-				duration: animeDuration,
-				complete: function () {
-					currentStates = nextState;
-				}
-			});
-		}
+
+		anime({
+			targets: `#${uid}`,
+			d: icoGlyphs.getPath(nextState),
+			direction: 'normal',
+			easing: 'easeInOutQuad',
+			duration: animeDuration,
+			complete: function () {
+				selected = nextState;
+				currentStates = nextState;
+				isAnimating = false;
+			}
+		});
 	}
 
-	//////////////////////////////
-
+	// animation if selected is different from currentStates
 	$effect(() => {
-		if (propsOfIcoGlyphButton[currentStates]?.changeStateOnVarTrue) {
-			if (propsOfIcoGlyphButton[currentStates].changeStateOnVarTrue.animeOnTrue == true) {
-				changeStateFunction('changeStateOnVarTrue');
+		if (currentStates !== selected && !isAnimating) {
+			if (!Object.keys(propsOfIcoGlyphButton.buttonStates).includes(selected)) {
+				console.error(
+					`Error: The state "${selected}" does not exist. 
+					 Available states are: ${Object.keys(propsOfIcoGlyphButton.buttonStates).join(', ')}`
+				);
 			} else {
-				// console.log('var is false');
+				changeStateFunction(propsOfIcoGlyphButton.selected);
 			}
 		}
 	});
 
-	// $inspect(fooVar);
+	// $inspect(isAnimating);
 </script>
 
 <button onclick={onClickFunction} aria-label="a faire" class="internal-icoglyph-button">
