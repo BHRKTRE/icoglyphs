@@ -2,26 +2,24 @@
 	import icoGlyphs from '$lib/index.js';
 	import anime from 'animejs';
 
-	let { selected = $bindable(), ...propsOfIcoGlyphButton } = $props();
+	let { selected = $bindable(), animeDuration = 500, buttonConfig } = $props();
 	const uid = $props.id();
 
-	let currentStates = $state(Object.keys(propsOfIcoGlyphButton.buttonStates)[0]);
+	let state = $state(selected || Object.keys(buttonConfig)[0]);
 	let isAnimating = $state(false);
 
-	// function to be executed when the button is clicked + start animation if .to is defined
 	function onClickFunction() {
-		propsOfIcoGlyphButton.buttonStates[currentStates].onClickFunction();
-		if (propsOfIcoGlyphButton.buttonStates[currentStates].to) {
-			changeStateFunction(propsOfIcoGlyphButton.buttonStates[currentStates].to);
+		buttonConfig[state].onClickFunction();
+		if (buttonConfig[state].to) {
+			transitionState(buttonConfig[state].to);
 		}
 	}
 
-	// change state and start animation
-	function changeStateFunction(changeName) {
-		if (!Object.keys(propsOfIcoGlyphButton.buttonStates).includes(changeName)) {
+	function transitionState(newState) {
+		if (!Object.keys(buttonConfig).includes(newState)) {
 			console.error(
-				`Error: The state "${changeName}" does not exist in this button. 
-					 Available states are: ${Object.keys(propsOfIcoGlyphButton.buttonStates).join(', ')}`
+				`Error: The state "${newState}" does not exist in this button.
+				Available states are: ${Object.keys(buttonConfig).join(', ')}`
 			);
 			return;
 		}
@@ -29,38 +27,30 @@
 		if (isAnimating) return;
 		isAnimating = true;
 
-		let nextState = changeName;
-		let animeDuration = propsOfIcoGlyphButton.animeDuration
-			? propsOfIcoGlyphButton.animeDuration
-			: 500;
-
 		anime({
 			targets: `#${uid}`,
-			d: icoGlyphs.getPath(nextState),
+			d: icoGlyphs.getPath(newState),
 			direction: 'normal',
 			easing: 'easeInOutQuad',
 			duration: animeDuration,
-			complete: function () {
-				selected = nextState;
-				currentStates = nextState;
+			complete: () => {
+				selected = newState;
+				state = newState;
 				isAnimating = false;
 			}
 		});
 	}
 
-	// animation if selected is different from currentStates
 	$effect(() => {
-		if (currentStates !== selected && !isAnimating) {
-			changeStateFunction(propsOfIcoGlyphButton.selected);
+		if (typeof selected !== 'undefined' && state !== selected && !isAnimating) {
+			transitionState(selected);
 		}
 	});
-
-	// $inspect(isAnimating);
 </script>
 
 <button onclick={onClickFunction} aria-label="a faire" class="internal-icoglyph-button">
-	<svg {...icoGlyphs.getSvgAttributes(currentStates)}>
-		<path id={uid} d={icoGlyphs.getPath(currentStates)} />
+	<svg {...icoGlyphs.getSvgAttributes(state)}>
+		<path id={uid} d={icoGlyphs.getPath(state)} />
 	</svg>
 </button>
 
