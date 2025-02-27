@@ -1,5 +1,6 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
+	import Tooltip from '$lib/app/ui/components/icoGlyphButton/Tooltip.svelte';
 	import anime from 'animejs';
 
 	let { selected = $bindable(), animeDuration = 500, buttonConfig } = $props();
@@ -46,9 +47,22 @@
 			transitionState(selected);
 		}
 	});
+
+	let buttonIsOver = $state(false);
+
+	$inspect(buttonConfig[state].tooltip);
 </script>
 
-<button onclick={onClickFunction} aria-label="a faire" class="internal-icoglyph-button">
+<button
+	onmouseenter={() => (buttonIsOver = true)}
+	onmouseleave={() => (buttonIsOver = false)}
+	onclick={onClickFunction}
+	aria-label="a faire"
+	class="internal-icoglyph-button"
+>
+	{#if buttonConfig[state].tooltip}
+		<Tooltip {...buttonConfig[state].tooltip} {buttonIsOver} />
+	{/if}
 	<svg {...icoGlyphs.getSvgAttributes(state)}>
 		<path id={uid} d={icoGlyphs.getPath(state)} />
 	</svg>
@@ -56,6 +70,8 @@
 
 <style>
 	button {
+		position: relative;
+
 		width: 50px;
 		height: 50px;
 	}

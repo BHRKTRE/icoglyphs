@@ -3,8 +3,11 @@
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
 	let bbb = $state(new icoGlyphButtonPropsConstructor());
-	bbb.add('arrow_left', () => console.log('function 2'), 'arrow_top');
-	bbb.add('arrow_right', () => console.log('function 1'), 'arrow_left');
+	bbb.add('arrow_left', () => console.log('function 2'), {
+		to: 'arrow_top',
+		tooltip: bbb.tooltip('a faire', 'bottom')
+	});
+	bbb.add('arrow_right', () => console.log('function 1'), { to: 'arrow_left' });
 	bbb.add('arrow_top', () => console.log('function 3'));
 
 	//////////////////////////
@@ -12,26 +15,6 @@
 	// let selectedButton1 = $state('arrow_right');
 
 	let animeDurationButton1 = $state(100);
-
-	let propsOfIcoGlyphButton1 = {
-		arrow_right: {
-			onClickFunction: () => {
-				console.log('function 1');
-			},
-			to: 'arrow_left'
-		},
-		arrow_left: {
-			onClickFunction: () => {
-				console.log('function 2');
-			},
-			to: 'arrow_top'
-		},
-		arrow_top: {
-			onClickFunction: () => {
-				console.log('function 3');
-			}
-		}
-	};
 
 	function changeActualState() {
 		selectedButton1 = 'arrow_top';
@@ -41,7 +24,7 @@
 		animeDurationButton1 = 2000;
 	}
 
-	$inspect(bbb);
+	// $inspect(bbb);
 
 	/**
 	 *Doc:
@@ -55,7 +38,18 @@
 </script>
 
 <main>
+	<div id="justforspace"></div>
 	<IcoGlyphButton animeDuration={animeDurationButton1} buttonConfig={bbb} />
 	<button class="text-button" onclick={changeActualState}>arrow_left</button>
 	<button class="text-button" onclick={changeDuration}>duration</button>
 </main>
+
+<style>
+	main {
+		margin-left: 15px;
+	}
+
+	#justforspace {
+		height: 100px;
+	}
+</style>
