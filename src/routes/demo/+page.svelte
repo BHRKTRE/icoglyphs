@@ -7,12 +7,21 @@
 		to: 'arrow_top',
 		tooltip: bbb.tooltip('a faire', 'bottom')
 	});
-	bbb.add('arrow_right', () => console.log('function 1'), { to: 'arrow_left' });
+	bbb.add('arrow_right', () => console.log('function 1'), {
+		to: 'arrow_left',
+		tooltip: bbb.tooltip('coucou', 'top')
+	});
 	bbb.add('arrow_top', () => console.log('function 3'));
+
+	const styleyy = {
+		background: 'var(--b2)',
+		width: '100px',
+		height: '100px'
+	};
 
 	//////////////////////////
 
-	// let selectedButton1 = $state('arrow_right');
+	let selectedButton1 = $state('arrow_right');
 
 	let animeDurationButton1 = $state(100);
 
@@ -24,22 +33,26 @@
 		animeDurationButton1 = 2000;
 	}
 
-	// $inspect(bbb);
-
 	/**
 	 *Doc:
+	 * @notice This will trigger when the parent change the name button
 	 * @param {string} selected - Must be a valid icoGlyph name and being in the button	* can be used to bind the selected prop of IcoGlyphButton
 	 * Thus you can change the button state from anywhere in the app
 	 * Ex: if the state button depend of a boolean in the parent component
 	 * bind:selected={...}
 	 */
 
-	//bind:selected={selectedButton1}
+	// $inspect(bbb);
 </script>
 
 <main>
 	<div id="justforspace"></div>
-	<IcoGlyphButton animeDuration={animeDurationButton1} buttonConfig={bbb} />
+	<IcoGlyphButton
+		bind:selected={selectedButton1}
+		animeDuration={animeDurationButton1}
+		buttonConfig={bbb}
+		buttonStyle={styleyy}
+	/>
 	<button class="text-button" onclick={changeActualState}>arrow_left</button>
 	<button class="text-button" onclick={changeDuration}>duration</button>
 </main>

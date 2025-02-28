@@ -1,6 +1,6 @@
 /**
- * Class for configuring `IcoGlyphButton` props.
- * Each instance represents multiple button states and their transitions.
+ * @title Class for configuring `IcoGlyphButton` props.
+ * Each instance stores multiple button states and defines their behavior, including transitions and tooltips
  */
 class IcoGlyphButtonPropsConstructor {
 	/**
@@ -27,6 +27,7 @@ class IcoGlyphButtonPropsConstructor {
 	 * @param {string} name - The name of the button state (e.g., `'arrow_right'`).
 	 * @param {Function} onClickFunction - The function executed when the button is clicked.
 	 * @param {Object} options - Optional additional properties such as `to`, `tooltip`, etc.
+	 * @return {void} This method does not return anything. It modifies the current state by adding a new entry.
 	 */
 	add(name, onClickFunction, options = {}) {
 		this[name] = {
@@ -38,9 +39,11 @@ class IcoGlyphButtonPropsConstructor {
 
 export default IcoGlyphButtonPropsConstructor;
 
-// Usage
-// let buttonName = $state(new icoGlyphButtonPropsConstructor());
-// buttonName.add('arrow_left', () => console.log('function 2'), {
-// 	to: 'arrow_top',
-// 	tooltip: buttonName.tooltip('a faire', 'bottom')
-// });
+/** @example
+ * let buttonNameExample = $state(new icoGlyphButtonPropsConstructor());
+ *
+ * buttonNameExample.add('arrow_left', () => fooFunction(), {
+ * 	to: 'arrow_top',
+ * 	tooltip: buttonNameExample.tooltip('a faire', 'bottom')
+ * });
+ */

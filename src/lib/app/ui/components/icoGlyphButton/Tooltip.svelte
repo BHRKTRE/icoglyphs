@@ -1,13 +1,36 @@
 <script>
+	/**
+	 * @title Tooltip Component
+	 * @dev Displays a tooltip with configurable text, position, and spacing.
+	 * @notice This component is used to show a tooltip with a specified message when hovering over a button.
+	 * @notice You can configure the text, location, and spacing of the tooltip.
+	 *
+	 * @param {string} tooltipsText - The text to display inside the tooltip. Default is 'coucou'.
+	 * @param {string} tooltipLocation - The position of the tooltip relative to the button.
+	 *                                   Valid values: 'top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right', 'left', 'right'.
+	 * @param {string} tooltipsSpaceBetween - The space between the tooltip and the button. Default is '10px'.
+	 * @param {boolean} buttonIsOver - Automatically passed from the IcoGlyphButton component.
+	 *                                  Controls the visibility of the tooltip when `true`.
+	 */
 	let {
 		tooltipsText = 'coucou',
-		tooltipLocation = 'top-right',
+		tooltipLocation = 'top',
 		tooltipsSpaceBetween = '10px',
 		buttonIsOver = false
 	} = $props();
 
+	/**
+	 * @notice Defines the spacing between the tooltip and the button.
+	 * @dev Uses a `calc(100% + Xpx)` formula to dynamically compute the spacing between the tooltip and the button.
+	 * @return {string} A CSS-compatible string defining the space between the tooltip and button.
+	 */
 	let spaceBetweenSetup = `calc(100% + ${tooltipsSpaceBetween})`;
 
+	/**
+	 * @notice Computes the CSS property that determines where the tooltip is positioned.
+	 * @dev Uses a derived store to map `tooltipLocation` to a CSS placement property.
+	 * @return {string} The CSS property (`top`, `bottom`, `left`, or `right`).
+	 */
 	let spaceBetweenLocation = $derived.by(() => {
 		switch (tooltipLocation) {
 			case 'top':
@@ -28,7 +51,10 @@
 		}
 	});
 
-	// $inspect(tooltipLocation);
+	/**
+	 * @notice Tooltip element with dynamic positioning and visibility.
+	 * @dev The `class:buttonIsOver` ensures the tooltip is only visible on hover.
+	 */
 </script>
 
 <span
