@@ -12,6 +12,7 @@
 	 * @param {boolean} buttonIsOver - Automatically passed from the IcoGlyphButton component.
 	 *                                  Controls the visibility of the tooltip when `true`.
 	 */
+
 	let {
 		tooltipsText = 'coucou',
 		tooltipLocation = 'top',
@@ -50,11 +51,6 @@
 				return `right`;
 		}
 	});
-
-	/**
-	 * @notice Tooltip element with dynamic positioning and visibility.
-	 * @dev The `class:buttonIsOver` ensures the tooltip is only visible on hover.
-	 */
 </script>
 
 <span

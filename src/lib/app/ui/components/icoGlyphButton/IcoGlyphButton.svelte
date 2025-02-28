@@ -10,19 +10,19 @@
 	 *
 	 * @dev The `propsConstructor.js` file in the same directory can be used to configure `buttonConfig`.
 	 *
+	 * @param {string} [selected] (optional) A valid icoGlyph name that must exist in `buttonConfig`.
+	 * @param {number} [animeDuration=500] (optional) The animation duration in milliseconds.
+	 * @param {object} buttonConfig The main data structure defining button states and behaviors.
+	 * @param {object} [buttonStyle] (optional) Custom styles for the button.
+	 *
 	 * @example
-	 * // Example usage of IcoGlyphButton:
 	 * <IcoGlyphButton
-	 *   bind:selected={selectedButton1Var}
+	 *   bind:selected={selectedButtonVar}
 	 *   animeDuration={animeDurationButtonVar}
 	 *   buttonConfig={buttonConfigVar}
 	 *   buttonStyle={buttonStyleVar}
 	 * />
 	 *
-	 * @param {string} [selected] (optional) A valid icoGlyph name that must exist in `buttonConfig`.
-	 * @param {number} [animeDuration=500] (optional) The animation duration in milliseconds.
-	 * @param {object} buttonConfig The main data structure defining button states and behaviors.
-	 * @param {object} [buttonStyle] (optional) Custom styles for the button.
 	 */
 
 	let { selected = $bindable(), animeDuration = 500, buttonConfig, buttonStyle } = $props();

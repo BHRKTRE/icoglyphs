@@ -9,8 +9,16 @@ class IcoGlyphButtonPropsConstructor {
 	 * @param {string} tooltipsText - The text to display in the tooltip.
 	 * @param {string} [tooltipLocation] - (Optional) The position of the tooltip (e.g., 'top', 'bottom', 'left', 'right').
 	 * @param {string} [tooltipsSpaceBetween] - (Optional) The space between the button and the tooltip.
-	 * @returns {Object} The object containing tooltip options.
+	 * @returns {object} The object containing tooltip options.
+	 *
+	 * @example
+	 * let buttonNameExample = $state(new icoGlyphButtonPropsConstructor());
+	 * buttonNameExample.add('arrow_left', () => fooFunction(), {
+	 * 	to: 'arrow_top',
+	 * 	tooltip: buttonNameExample.tooltip('tooltip text', 'bottom')
+	 * });
 	 */
+
 	tooltip(tooltipsText, tooltipLocation, tooltipsSpaceBetween) {
 		let tooltipOptions = { tooltipsText };
 
@@ -25,8 +33,8 @@ class IcoGlyphButtonPropsConstructor {
 	 * Adds a new button state with an associated function and optional properties.
 	 *
 	 * @param {string} name - The name of the button state (e.g., `'arrow_right'`).
-	 * @param {Function} onClickFunction - The function executed when the button is clicked.
-	 * @param {Object} options - Optional additional properties such as `to`, `tooltip`, etc.
+	 * @param {function} onClickFunction - The function executed when the button is clicked.
+	 * @param {object} options - Optional additional properties such as `to`, `tooltip`, etc.
 	 * @return {void} This method does not return anything. It modifies the current state by adding a new entry.
 	 */
 	add(name, onClickFunction, options = {}) {
@@ -38,12 +46,3 @@ class IcoGlyphButtonPropsConstructor {
 }
 
 export default IcoGlyphButtonPropsConstructor;
-
-/** @example
- * let buttonNameExample = $state(new icoGlyphButtonPropsConstructor());
- *
- * buttonNameExample.add('arrow_left', () => fooFunction(), {
- * 	to: 'arrow_top',
- * 	tooltip: buttonNameExample.tooltip('a faire', 'bottom')
- * });
- */
