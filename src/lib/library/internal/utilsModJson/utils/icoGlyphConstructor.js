@@ -1,9 +1,13 @@
 class icoGlyphConstructor {
-	constructor({ name = 'default-name', path = {}, metadata = {}, spec = {} } = {}) {
+	constructor({ name = 'default-name', path = {}, aliases = [], metadata = {}, spec = {} } = {}) {
 		this.name = name;
 
-		// Initialize path
+		// Initialize aliases (only if it's a valid array and not empty)
+		if (Array.isArray(aliases) && aliases.length > 0) {
+			this.aliases = [...new Set(aliases)]; // Remove duplicates
+		}
 
+		// Initialize path
 		this.path = path;
 
 		// Initialize metadata
@@ -39,9 +43,13 @@ class icoGlyphConstructor {
 	}
 
 	toJSON() {
-		const json = {
-			path: this.path
-		};
+		const json = {};
+
+		// Include aliases first if they exist
+		if (this.aliases) json.aliases = this.aliases;
+
+		// Include path
+		json.path = this.path;
 
 		// Include metadata only if it exists
 		if (this.metadata) json.metadata = this.metadata;

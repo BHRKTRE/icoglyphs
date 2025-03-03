@@ -1,5 +1,14 @@
 import icoGlyphConstructor from './utils/icoGlyphConstructor.js'; // Import of the IcoGlyph class
 import readAndUpdateJSON from './utils/fileUtils/readAndUpdateJSON.js'; // Import of the centralized function
+import checkAliasConflict from './utils/checkers/checkAliasConflict.js';
+
+/**
+ * Generates a unique identifier (_xxxx).
+ * @returns {string} A unique ID in the format "_xxxx".
+ */
+function generateUniqueId() {
+	return `_${Math.floor(1000 + Math.random() * 9000)}`;
+}
 
 /**
  * Adds a new IcoGlyph to the JSON data.
@@ -8,13 +17,24 @@ import readAndUpdateJSON from './utils/fileUtils/readAndUpdateJSON.js'; // Impor
  */
 async function addNewIcoGlyph(glyphData) {
 	return readAndUpdateJSON(async (jsonData) => {
-		const newGlyph = new icoGlyphConstructor(glyphData);
-
-		// Check if the glyph already exists
-		if (jsonData.svgData.hasOwnProperty(newGlyph.name)) {
-			console.error(`Err: An icoGlyph with the name "${newGlyph.name}" already exists.`);
+		// Ensure aliases do not exist in other glyphs
+		if (glyphData.aliases && checkAliasConflict(glyphData.aliases, jsonData)) {
+			console.error(`Failed to add "${glyphData.name}" due to alias conflict.`);
 			return;
 		}
+
+		let baseName = glyphData.name || 'default';
+		let uniqueName = baseName + generateUniqueId();
+
+		// Ensure the generated name is unique in jsonData.svgData
+		while (jsonData.svgData.hasOwnProperty(uniqueName)) {
+			uniqueName = baseName + generateUniqueId(); // Regenerate if necessary
+		}
+
+		// Update the name in the object
+		glyphData.name = uniqueName;
+
+		const newGlyph = new icoGlyphConstructor(glyphData);
 
 		// Add the new glyph to the JSON data
 		jsonData.svgData[newGlyph.name] = newGlyph.toJSON();
@@ -30,7 +50,10 @@ async function addNewIcoGlyph(glyphData) {
  * @param {string} name - icoGlyph name to add - will be the key object
  *
  * path
- *    @param {object}
+ *    @param {string|array}
+ *
+ * * aliases
+ *    @param {array} - optional - list of aliases names
  *
  * metadata
  *    @param {array} [metadata.tags] - optional
@@ -47,7 +70,11 @@ async function addNewIcoGlyph(glyphData) {
 
 const newIcoGlyph = {
 	name: '1',
-	path: ['yes', 'no'],
+
+	aliases: ['ii', 'uu'],
+
+	path: 'M 0 -10 A 1 1 0 0 0 0 10 A 1 1 0 0 0 0 -10 M 10 -35 L 35 -35 L 35 -10 M -10 35 L -10 10 L -35 10',
+
 	metadata: {
 		// tags: ["under", "behind"],
 		// categories: ["Under"],
