@@ -9,32 +9,47 @@
 	const getDefaultIcoGlyphs = () => {
 		const categoriesUsed = new Set();
 		return Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
-			if (!appState.showPrivateIcoGlyph.value && icoGlyphName.startsWith('_')) return false;
+			// Check if the icon is private (it has no aliases) and showPrivateIcoGlyph.value is false
+			const icoData = icoGlyphs.library().svgData[icoGlyphName];
+			const aliases = icoData.aliases || [];
 
-			const { metadata } = icoGlyphs.library().svgData[icoGlyphName];
+			// If the icon has no aliases and showPrivateIcoGlyph.value is false, exclude it
+			if (!appState.showPrivateIcoGlyph.value && aliases.length === 0) return false;
+
+			const { metadata } = icoData;
+
+			// Include icons from unused categories
 			if (metadata?.categories?.some((cat) => !categoriesUsed.has(cat))) {
 				metadata.categories.forEach((cat) => categoriesUsed.add(cat));
 				return true;
 			}
+
+			// Include the icon if it has no categories
 			return !metadata?.categories;
 		});
 	};
 
 	const search = () => {
 		const lowerQuery = query.trim().toLowerCase();
-		const queryWords = lowerQuery.split(/\s+/); // Découpe en mots
+		const queryWords = lowerQuery.split(/\s+/);
 
 		filteredIcoGlyphs = lowerQuery
 			? Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
-					if (!appState.showPrivateIcoGlyph.value && icoGlyphName.startsWith('_')) return false;
-
-					const { metadata } = icoGlyphs.library().svgData[icoGlyphName];
+					// Retrieve the icon data
+					const icoData = icoGlyphs.library().svgData[icoGlyphName];
+					const { metadata } = icoData;
+					const aliases = (icoData.aliases || []).map((alias) => alias.toLowerCase());
 					const iconText = icoGlyphName.toLowerCase();
 					const iconTags = (metadata?.tags ?? []).map((tag) => tag.toLowerCase());
+					const iconCategories = (metadata?.categories ?? []).map((cat) => cat.toLowerCase());
 
-					// Vérifie que TOUS les mots sont présents dans le nom ou les tags
+					// Filter by icon text, aliases, tags, and categories
 					return queryWords.every(
-						(word) => iconText.includes(word) || iconTags.some((tag) => tag.includes(word))
+						(word) =>
+							iconText.includes(word) ||
+							aliases.some((alias) => alias.includes(word)) ||
+							iconTags.some((tag) => tag.includes(word)) ||
+							iconCategories.some((category) => category.includes(word))
 					);
 				})
 			: getDefaultIcoGlyphs();

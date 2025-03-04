@@ -82,7 +82,7 @@ async function updateArray(glyphName, array, type, action) {
  */
 
 const optionsForPushingInArray = {
-	icoGlyphName: '1_5755', // The name of the icoGlyph
+	icoGlyphName: 'l__d_br_tl__s_7', // The name of the icoGlyph
 	keysToPush: ['newAlias'], // The array of tags/aliases to add
 	arrayTypesToPush: 'aliases', // Specify 'tags' or 'aliases'
 	action: 'add' // Action can be 'add' or 'remove'

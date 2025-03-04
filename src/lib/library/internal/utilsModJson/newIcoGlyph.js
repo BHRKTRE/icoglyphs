@@ -3,36 +3,39 @@ import readAndUpdateJSON from './utils/fileUtils/readAndUpdateJSON.js'; // Impor
 import checkAliasConflict from './utils/checkers/checkAliasConflict.js';
 
 /**
- * Generates a unique identifier (_xxxx).
- * @returns {string} A unique ID in the format "_xxxx".
- */
-function generateUniqueId() {
-	return `_${Math.floor(1000 + Math.random() * 9000)}`;
-}
-
-/**
  * Adds a new IcoGlyph to the JSON data.
  *
  * @param {object} glyphData - Data of the element to add. Parameters can be partial (default values will be used).
  */
 async function addNewIcoGlyph(glyphData) {
 	return readAndUpdateJSON(async (jsonData) => {
+		// Check if a name is provided, otherwise return an error
+		if (!glyphData.name) {
+			console.error('Error: The glyph must have a name.');
+			return;
+		}
+
+		// Check if an element with the same name already exists
+		if (jsonData.svgData.hasOwnProperty(glyphData.name)) {
+			console.error(`Error: An element with the name "${glyphData.name}" already exists.`);
+			return;
+		}
+
+		// Check if a similar path already exists in the dataset
+		const isDuplicatePath = Object.values(jsonData.svgData).some(
+			(existingGlyph) => existingGlyph.path === glyphData.path
+		);
+
+		if (isDuplicatePath) {
+			console.error('Error: A glyph with the same path already exists.');
+			return;
+		}
+
 		// Ensure aliases do not exist in other glyphs
 		if (glyphData.aliases && checkAliasConflict(glyphData.aliases, jsonData)) {
 			console.error(`Failed to add "${glyphData.name}" due to alias conflict.`);
 			return;
 		}
-
-		let baseName = glyphData.name || 'default';
-		let uniqueName = baseName + generateUniqueId();
-
-		// Ensure the generated name is unique in jsonData.svgData
-		while (jsonData.svgData.hasOwnProperty(uniqueName)) {
-			uniqueName = baseName + generateUniqueId(); // Regenerate if necessary
-		}
-
-		// Update the name in the object
-		glyphData.name = uniqueName;
 
 		const newGlyph = new icoGlyphConstructor(glyphData);
 
@@ -69,11 +72,11 @@ async function addNewIcoGlyph(glyphData) {
  */
 
 const newIcoGlyph = {
-	name: '1',
+	name: 'aaa',
 
-	aliases: ['ii', 'uu'],
+	aliases: ['zss'],
 
-	path: 'M 0 -10 A 1 1 0 0 0 0 10 A 1 1 0 0 0 0 -10 M 10 -35 L 35 -35 L 35 -10 M -10 35 L -10 10 L -35 10',
+	path: 'M 0 -10 A 1 1 0 0 0 0 10 A 1 1 0 0 0 0 -10 M 10 -35 L 35 -35 L 35 -10 M -10 3',
 
 	metadata: {
 		// tags: ["under", "behind"],

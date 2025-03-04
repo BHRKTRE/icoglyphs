@@ -13,31 +13,6 @@ function handleError(err) {
 }
 
 /**
- * Sorts a JSON object or array by keys or properties in alphabetical order.
- * @param {object|array} jsonData - The JSON data to sort.
- * @returns {object|array} - The sorted JSON data.
- */
-function sortJSON(jsonData) {
-	if (Array.isArray(jsonData)) {
-		return jsonData.sort((a, b) => {
-			// If it's an array of objects, you can specify the property to sort by:
-			// Example: return a.name.localeCompare(b.name); to sort by 'name' property
-			return JSON.stringify(a).localeCompare(JSON.stringify(b));
-		});
-	} else if (typeof jsonData === 'object' && jsonData !== null) {
-		// Sort the keys of the object alphabetically
-		const sortedObject = {};
-		Object.keys(jsonData)
-			.sort()
-			.forEach((key) => {
-				sortedObject[key] = jsonData[key];
-			});
-		return sortedObject;
-	}
-	return jsonData; // If it's neither an object nor an array, return it as is
-}
-
-/**
  * Writes data to a JSON file, with arrays on a single line.
  * @param {object} jsonData - The data to write to the file.
  */
@@ -84,9 +59,6 @@ async function readJSON() {
 async function readAndUpdateJSON(updateFunction) {
 	try {
 		let jsonData = await readJSON();
-
-		// Sort JSON data before updating
-		jsonData = sortJSON(jsonData);
 
 		await updateFunction(jsonData); // Update data with the provided function
 		await writeJSON(jsonData);
