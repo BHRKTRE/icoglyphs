@@ -14,13 +14,13 @@
 		to: 'grey-mode'
 	});
 
-	let colorModeSelected = $state(`${JSON.parse(localStorage.getItem('colorMode'))}-mode`);
-
-	const buttonStyle = {
-		// 'background:hover': 'red'
-	};
+	let colorModeSelected = $state(
+		localStorage.getItem('colorMode')
+			? `${JSON.parse(localStorage.getItem('colorMode'))}-mode`
+			: 'grey-mode'
+	);
 
 	// $inspect(colorModeSelected);
 </script>
 
-<IcoGlyphButton buttonConfig={colorModeButton} bind:selected={colorModeSelected} {buttonStyle} />
+<IcoGlyphButton buttonConfig={colorModeButton} bind:selected={colorModeSelected} />
