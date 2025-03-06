@@ -33,7 +33,7 @@
 </script>
 
 <div class="svg-styler-container">
-	<div class="mod-color-container hover-border">
+	<div class="mod-color-container">
 		<div class="column-container" id="stroke-color-container">
 			<label for="stroke-color-input" id="stroke-color-label">Stroke color</label>
 			<input
@@ -47,7 +47,7 @@
 			/>
 		</div>
 	</div>
-	<div class="mod-color-container hover-border">
+	<div class="mod-color-container">
 		<div class="column-container">
 			<label for="stroke-size"
 				>Stroke size : {appState.icoGlyphUserSettings.style['stroke-width']} px</label
@@ -70,7 +70,7 @@
 		{appState.icoGlyphUserSettings.style['stroke-linejoin']}
 	</button>
 
-	<div class="mod-color-container hover-border">
+	<div class="mod-color-container">
 		<label for="toggle-import-style">Import style when copying & downloading (SVG only)</label
 		><input
 			id="toggle-import-style"

@@ -1,6 +1,7 @@
 <script>
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
+	import psi from '$lib/app/ui/utils/psi.js';
 
 	let bbb = $state(new icoGlyphButtonPropsConstructor());
 	bbb.add('arrow_left', () => console.log('function 2'), {
@@ -42,7 +43,7 @@
 	 * bind:selected={...}
 	 */
 
-	// $inspect(bbb);
+	$inspect(1 / psi ** 4);
 </script>
 
 <main>

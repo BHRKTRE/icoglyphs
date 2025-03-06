@@ -72,17 +72,17 @@ async function addNewIcoGlyph(glyphData) {
  */
 
 const newIcoGlyph = {
-	name: 'aaa',
+	name: 's1__d_t__r__s_1',
 
-	aliases: ['zss'],
+	// aliases: ['grey-mode'],
 
-	path: 'M 0 -10 A 1 1 0 0 0 0 10 A 1 1 0 0 0 0 -10 M 10 -35 L 35 -35 L 35 -10 M -10 3',
+	path: 'mmmm',
 
 	metadata: {
-		// tags: ["under", "behind"],
-		// categories: ["Under"],
-		// publicName: "bot right arrow",
+		// tags: ['gray', 'grey', 'ashen'],
+		// categories: ['Color-mode']
 		//
+		// publicName: "bot right arrow",
 		// author: "L",
 		// description: "",
 		// notes: {

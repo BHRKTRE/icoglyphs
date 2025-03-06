@@ -1,28 +1,52 @@
 {
 	"svgData": {
 		"v1__p_r__d_r__s_2_4": {
-			"path": "M 15 -20 L 35 0 L 15 20"
+			"path": "M 15 -20 L 35 0 L 15 20",
+			"metadata": {
+				"tags": ["cap"]
+			}
 		},
 		"v1__p_t__d_t__s_4_2": {
-			"path": "M -20 -15 L 0 -35 L 20 -15"
+			"path": "M -20 -15 L 0 -35 L 20 -15",
+			"metadata": {
+				"tags": ["cap"]
+			}
 		},
 		"v1__p_l__d_l__s_2_4": {
-			"path": "M -15 -20 L -35 0 L -15 20"
+			"path": "M -15 -20 L -35 0 L -15 20",
+			"metadata": {
+				"tags": ["cap"]
+			}
 		},
 		"v1__p_b__d_b__s_4_2": {
-			"path": "M -20 15 L 0 35 L 20 15"
+			"path": "M -20 15 L 0 35 L 20 15",
+			"metadata": {
+				"tags": ["cap"]
+			}
 		},
 		"v1__p_bl__d_bl__s_3": {
-			"path": "M 5 25 L -25 25 L -25 -5"
+			"path": "M 5 25 L -25 25 L -25 -5",
+			"metadata": {
+				"tags": ["cap"]
+			}
 		},
 		"v1__p_br__d_br__s_3": {
-			"path": "M -5 25 L 25 25 L 25 -5"
+			"path": "M -5 25 L 25 25 L 25 -5",
+			"metadata": {
+				"tags": ["cap"]
+			}
 		},
 		"v1__p_tl__d_tl__s_3": {
-			"path": "M 5 -25 L -25 -25 L -25 5"
+			"path": "M 5 -25 L -25 -25 L -25 5",
+			"metadata": {
+				"tags": ["cap"]
+			}
 		},
 		"v1__p_tr__d_tr__s_3": {
-			"path": "M -5 -25 L 25 -25 L 25 5"
+			"path": "M -5 -25 L 25 -25 L 25 5",
+			"metadata": {
+				"tags": ["cap"]
+			}
 		},
 		"l__d_r_l__s_7": {
 			"aliases": ["no", "refuse"],
@@ -103,7 +127,7 @@
 				"tags": ["circle"]
 			}
 		},
-		"l__d_r_l__s_7___k___v1__p_r__d_r__s_2_4": {
+		"l__d_r_l__s_7___x___v1__p_r__d_r__s_2_4": {
 			"aliases": ["arrow-right"],
 			"path": ["l__d_l_r__s_7", "v1__p_r__d_r__s_2_4"],
 			"metadata": {
@@ -111,67 +135,139 @@
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_r_l__s_7___k___v1__p_l__d_l__s_2_4": {
+		"l__d_r_l__s_7___x___v1__p_l__d_l__s_2_4": {
 			"aliases": ["arrow-left"],
 			"path": ["l__d_r_l__s_7", "v1__p_l__d_l__s_2_4"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_b_t__s_7___k___v1__p_t__d_t__s_4_2": {
+		"l__d_b_t__s_7___x___v1__p_t__d_t__s_4_2": {
 			"aliases": ["arrow-top"],
 			"path": ["l__d_b_t__s_7", "v1__p_t__d_t__s_4_2"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_t_b__s_7___k___v1__p_b__d_b__s_4_2": {
+		"l__d_t_b__s_7___x___v1__p_b__d_b__s_4_2": {
 			"aliases": ["arrow-bottom"],
 			"path": ["l__d_t_b__s_7", "v1__p_b__d_b__s_4_2"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_tr_bl__s_7___k___v1__p_bl__d_bl__s_3": {
+		"l__d_tr_bl__s_7___x___v1__p_bl__d_bl__s_3": {
 			"aliases": ["arrow-bottom-left"],
 			"path": ["l__d_tr_bl__s_7", "v1__p_bl__d_bl__s_3"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_br_tl__s_7___k___v1__p_tl__d_tl__s_3": {
+		"l__d_br_tl__s_7___x___v1__p_tl__d_tl__s_3": {
 			"aliases": ["arrow-top-left"],
 			"path": ["l__d_br_tl__s_7", "v1__p_tl__d_tl__s_3"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_bl_tr__s_7___k___v1__p_tr__d_tr__s_3": {
+		"l__d_bl_tr__s_7___x___v1__p_tr__d_tr__s_3": {
 			"aliases": ["arrow-top-right"],
 			"path": ["l__d_bl_tr__s_7", "v1__p_tr__d_tr__s_3"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_tl_br__s_7___k___v1__p_br__d_br__s_3": {
+		"l__d_tl_br__s_7___x___v1__p_br__d_br__s_3": {
 			"aliases": ["arrow-bottom-right"],
 			"path": ["l__d_tl_br__s_7", "v1__p_br__d_br__s_3"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_r_l__s_7___h___o__p_b__s_2": {
+		"l__d_r_l__s_7___x___o__p_b__s_2": {
 			"aliases": ["under"],
 			"path": ["l__d_r_l__s_7", "o__p_b__s_2"],
 			"metadata": {
 				"categories": ["Position"]
 			}
 		},
-		"l__d_r_l__s_7___h___o__p_t__s_2": {
+		"l__d_r_l__s_7___x___o__p_t__s_2": {
 			"aliases": ["over"],
 			"path": ["l__d_r_l__s_7", "o__p_t__s_2"],
 			"metadata": {
 				"categories": ["Position"]
+			}
+		},
+		"s1__d_t__s_7_2": {
+			"aliases": ["sky"],
+			"path": "M -35 0 Q 0 -30 35 0",
+			"metadata": {
+				"tags": ["sky", "azure", "heavens"],
+				"categories": ["Cosmos"]
+			}
+		},
+		"s1__d_b__s_7_2": {
+			"aliases": ["earth"],
+			"path": "M -35 0 M -35 0 Q 0 30 35 0",
+			"metadata": {
+				"tags": ["earth", "terra", "soil", "ground", "gaia", "tellus"],
+				"categories": ["Cosmos"]
+			}
+		},
+		"s1__d_t__s_7_2___x____s1__d_b__s_7_2": {
+			"aliases": ["eyelids"],
+			"path": ["s1__d_t__s_7_2", "s1__d_b__s_7_2"],
+			"metadata": {
+				"tags": ["eye", "gaze", "eyelids"]
+			}
+		},
+		"l__d_b_t__p_t__s_1": {
+			"path": "M 0 -25 L 0 -35"
+		},
+		"l__d_c_tr__p_c_tr__s_1": {
+			"path": "M 20 -22 L 25 -30"
+		},
+		"l__d_c_tl__p_c_tl__s_1": {
+			"path": "M -20 -22 L -25 -30"
+		},
+		"s1__d_t__s_7_2___x____s1__d_b__s_7_2___x___l__d_c_tl__p_c_tl__s_1___x___l__d_b_t__p_t__s_1___x___l__d_c_tr__p_c_tr__s_1": {
+			"aliases": ["light-mode"],
+			"path": ["eye", "l__d_c_tl__p_c_tl__s_1", "l__d_b_t__p_t__s_1", "l__d_c_tr__p_c_tr__s_1"],
+			"metadata": {
+				"tags": ["light", "day", "bright", "clear", "color mode"],
+				"categories": ["Color-mode"]
+			}
+		},
+		"l__d_t_b__p_b__s_1": {
+			"path": "M 0 25 L 0 35"
+		},
+		"l__d_c_bl__p_c_bl__s_1": {
+			"path": "M -20 22 L -25 30"
+		},
+		"l__d_c_br__p_c_br__s_1": {
+			"path": "M 20 22 L 25 30"
+		},
+		"s1__d_t__s_7_2___x____s1__d_b__s_7_2___x___l__d_c_bl__p_c_bl__s_1___x___l__d_t_b__p_b__s_1___x___l__d_c_br__p_c_br__s_1": {
+			"aliases": ["dark-mode"],
+			"path": ["eye", "l__d_c_bl__p_c_bl__s_1", "l__d_t_b__p_b__s_1", "l__d_c_br__p_c_br__s_1"],
+			"metadata": {
+				"tags": ["dark", "night", "dim", "moonlight", "dark mode", "nocture"],
+				"categories": ["Color-mode"]
+			}
+		},
+		"s1__d_t__s_7_2___x___s1__d_b__s_7_2___x___o__s_2": {
+			"aliases": ["eye"],
+			"path": ["eyelids", "o__s_2"],
+			"metadata": {
+				"tags": ["eye", "optic", "oculus", "vision", "sight", "look", "view"]
+			}
+		},
+		"s1__d_t__s_7_2___x____s1__d_b__s_7_2___x___l__d_c_bl__p_c_bl__s_1___x___l__d_b_t__p_t__s_1___x___l__d_c_br__p_c_br__s_1": {
+			"aliases": ["grey-mode"],
+			"path": ["eye", "l__d_c_bl__p_c_bl__s_1", "l__d_b_t__p_t__s_1", "l__d_c_br__p_c_br__s_1"],
+			"metadata": {
+				"tags": ["gray", "grey", "ashen"],
+				"categories": ["Color-mode"]
 			}
 		}
 	}

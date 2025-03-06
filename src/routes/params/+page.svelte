@@ -1,5 +1,7 @@
 <script>
 	import appState from '$lib/app/core/stores/appState.svelte.js';
+	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
+	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
 	let togglePrivateIcoGlyphStatus = $state(appState.showPrivateIcoGlyph.value);
 	const togglePrivateIcoGlyph = () => {
@@ -21,29 +23,7 @@
 				>
 			</div>
 		</div>
-		<div class="param-section">
-			<h3>Color mode</h3>
-			<div class="param-button-container">
-				<button
-					onclick={() => {
-						appState.colorMode.changeColorMode('light');
-					}}
-					class="text-button"><h5>Light</h5></button
-				>
-				<button
-					onclick={() => {
-						appState.colorMode.changeColorMode('grey');
-					}}
-					class="text-button"><h5>Grey</h5></button
-				>
-				<button
-					onclick={() => {
-						appState.colorMode.changeColorMode('dark');
-					}}
-					class="text-button"><h5>Dark</h5></button
-				>
-			</div>
-		</div>
+		<div class="param-section"></div>
 	</div>
 </main>
 

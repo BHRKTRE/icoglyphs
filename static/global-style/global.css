@@ -73,10 +73,12 @@ body {
 	/* Colors */
 	/* background opaque*/
 	--b1: rgb(var(--back-color));
-	/* background opacity 1*/
-	--b2: rgba(var(--front-color), 0.1396);
 	/* background opacity 2*/
-	--b3: rgba(var(--front-color), 0.7548);
+	--b2: rgba(var(--front-color), 0.1396);
+	/* background opacity 3, mostly for button:hover*/
+	--b3: rgba(var(--front-color), 0.3247);
+	/* background opacity 4*/
+	--b4: rgba(var(--front-color), 0.7548);
 	/* text color */
 	--t1: rgb(var(--front-color));
 	/*  */
@@ -84,6 +86,7 @@ body {
 
 	/* Set the body background color */
 	background: var(--b1);
+	transition: 1s;
 }
 /* GLOBAL SETTINGS */
 
@@ -134,23 +137,17 @@ button {
 	color: inherit;
 	cursor: pointer;
 	border: none;
-	transition: 200ms;
+	transition: 324ms;
 	border: var(--border-width-small) solid transparent;
 	border-radius: var(--border-radius);
 }
 
-.hover-border {
-	transition: 200ms;
-	border: var(--border-width-small) solid transparent;
-}
-
-button:hover,
-.hover-border:hover {
-	border: var(--border-width-small) solid var(--b3);
+button:hover {
+	background: var(--b3);
 }
 
 button:active {
-	background: var(--b3);
+	background: var(--b4);
 }
 
 .text-button {
@@ -196,14 +193,14 @@ input[type='range'] {
 /***** Track Styles *****/
 /***** Chrome, Safari, Opera, and Edge Chromium *****/
 input[type='range']::-webkit-slider-runnable-track {
-	background: var(--b3);
+	background: var(--b4);
 	height: var(--track-height);
 	border-radius: var(--track-border-radius);
 }
 
 /******** Firefox ********/
 input[type='range']::-moz-range-track {
-	background: var(--b3);
+	background: var(--b4);
 	height: var(--track-height);
 	border-radius: var(--track-border-radius);
 }
