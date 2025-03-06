@@ -117,7 +117,7 @@
 	class="internal-icoglyph-button"
 	{style}
 >
-	{#if buttonConfig[currentState].tooltip}
+	{#if buttonConfig[currentState]?.tooltip}
 		<Tooltip {...buttonConfig[currentState].tooltip} {buttonIsOver} />
 	{/if}
 	<svg {...icoGlyphs.getSvgAttributes(currentState)}>
