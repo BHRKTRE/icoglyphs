@@ -23,7 +23,6 @@
 				>
 			</div>
 		</div>
-		<div class="param-section"></div>
 	</div>
 </main>
 
@@ -40,11 +39,11 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		margin: 1rem;
+		margin: var(--spacing-medium);
 		border: solid 1px var(--t1);
 		border-radius: var(--border-radius);
-		padding: 1rem;
+		padding: var(--spacing-medium);
 		width: 100%;
-		gap: 1rem;
+		gap: var(--spacing-medium);
 	}
 </style>

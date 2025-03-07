@@ -24,31 +24,34 @@
 				"tags": ["cap"]
 			}
 		},
-		"v1__p_bl__d_bl__s_3": {
+		"v1__p_bl__d_bl__s_3_3": {
 			"path": "M 5 25 L -25 25 L -25 -5",
 			"metadata": {
 				"tags": ["cap"]
 			}
 		},
-		"v1__p_br__d_br__s_3": {
+		"v1__p_br__d_br__s_3_3": {
 			"path": "M -5 25 L 25 25 L 25 -5",
 			"metadata": {
 				"tags": ["cap"]
 			}
 		},
-		"v1__p_tl__d_tl__s_3": {
+		"v1__p_tl__d_tl__s_3_3": {
 			"path": "M 5 -25 L -25 -25 L -25 5",
 			"metadata": {
 				"tags": ["cap"]
 			}
 		},
-		"v1__p_tr__d_tr__s_3": {
+		"v1__p_tr__d_tr__s_3_3": {
 			"path": "M -5 -25 L 25 -25 L 25 5",
 			"metadata": {
 				"tags": ["cap"]
 			}
 		},
-		"l__d_r_l__s_7": {
+		"v1__p_c_b__d_t__s_4_2": {
+			"path": "M -20 20 L 0 0 L 20 20"
+		},
+		"l__d_r_l__s_7_0": {
 			"aliases": ["no", "refuse"],
 			"path": "M 35 0 L -35 0",
 			"metadata": {
@@ -56,10 +59,10 @@
 				"categories": ["Validation"]
 			}
 		},
-		"l__d_l_r__s_7": {
+		"l__d_l_r__s_7_0": {
 			"path": "M -35 0 L 35 0"
 		},
-		"l__d_t_b__s_7": {
+		"l__d_t_b__s_0_7": {
 			"aliases": ["yes", "confirm"],
 			"path": "M 0 -35 L 0 35",
 			"metadata": {
@@ -67,138 +70,132 @@
 				"categories": ["Validation"]
 			}
 		},
-		"l__d_b_t__s_7": {
+		"l__d_b_t__s_0_7": {
 			"path": "M 0 35 L 0 -35",
 			"metadata": {
 				"tags": ["line"]
 			}
 		},
-		"l__d_tl_br__s_7": {
+		"l__d_tl_br__s_5_5": {
 			"path": "M -25 -25 L 25 25",
 			"metadata": {
 				"tags": ["line"]
 			}
 		},
-		"l__d_tr_bl__s_7": {
+		"l__d_tr_bl__s_5_5": {
 			"path": "M 25 -25 L -25 25",
 			"metadata": {
 				"tags": ["line"]
 			}
 		},
-		"l__d_br_tl__s_7": {
+		"l__d_br_tl__s_5_5": {
 			"path": "M 25 25 L -25 -25",
 			"metadata": {
 				"tags": ["line"]
 			}
 		},
-		"l__d_bl_tr__s_7": {
+		"l__d_bl_tr__s_5_5": {
 			"path": "M -25 25 L 25 -25",
 			"metadata": {
 				"tags": ["line"]
 			}
 		},
-		"o__s_1": {
-			"path": "M 0 -5 A 1 1 0 0 0 0 5 A 1 1 0 0 0 0 -5",
-			"metadata": {
-				"tags": ["circle"]
-			}
-		},
-		"o__s_2": {
+		"o__s_2_2": {
 			"path": "M 0 -10 A 1 1 0 0 0 0 10 A 1 1 0 0 0 0 -10",
 			"metadata": {
 				"tags": ["circle"]
 			}
 		},
-		"o__p_t__s_2": {
+		"o__p_t__s_2_2": {
 			"path": "M 0 -35 A 1 1 0 0 0 0 -15 A 1 1 0 0 0 0 -35",
 			"metadata": {
 				"tags": ["circle"]
 			}
 		},
-		"o__p_b__s_2": {
+		"o__p_b__s_2_2": {
 			"path": "M 0 15 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 15",
 			"metadata": {
 				"tags": ["circle"]
 			}
 		},
-		"o__s_7": {
+		"o__s_7_7": {
 			"path": "M 0 -35 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 -35",
 			"metadata": {
 				"tags": ["circle"]
 			}
 		},
-		"l__d_r_l__s_7___x___v1__p_r__d_r__s_2_4": {
+		"l__d_r_l__s_7_0___x___v1__p_r__d_r__s_2_4": {
 			"aliases": ["arrow-right"],
-			"path": ["l__d_l_r__s_7", "v1__p_r__d_r__s_2_4"],
+			"path": ["l__d_l_r__s_7_0", "v1__p_r__d_r__s_2_4"],
 			"metadata": {
 				"tags": ["direction", "time"],
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_r_l__s_7___x___v1__p_l__d_l__s_2_4": {
+		"l__d_r_l__s_7_0___x___v1__p_l__d_l__s_2_4": {
 			"aliases": ["arrow-left"],
-			"path": ["l__d_r_l__s_7", "v1__p_l__d_l__s_2_4"],
+			"path": ["l__d_r_l__s_7_0", "v1__p_l__d_l__s_2_4"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_b_t__s_7___x___v1__p_t__d_t__s_4_2": {
+		"l__d_b_t__s_0_7___x___v1__p_t__d_t__s_4_2": {
 			"aliases": ["arrow-top"],
-			"path": ["l__d_b_t__s_7", "v1__p_t__d_t__s_4_2"],
+			"path": ["l__d_b_t__s_0_7", "v1__p_t__d_t__s_4_2"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_t_b__s_7___x___v1__p_b__d_b__s_4_2": {
+		"l__d_t_b__s_0_7___x___v1__p_b__d_b__s_4_2": {
 			"aliases": ["arrow-bottom"],
-			"path": ["l__d_t_b__s_7", "v1__p_b__d_b__s_4_2"],
+			"path": ["l__d_t_b__s_0_7", "v1__p_b__d_b__s_4_2"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_tr_bl__s_7___x___v1__p_bl__d_bl__s_3": {
+		"l__d_tr_bl__s_5_5___x___v1__p_bl__d_bl__s_3_3": {
 			"aliases": ["arrow-bottom-left"],
-			"path": ["l__d_tr_bl__s_7", "v1__p_bl__d_bl__s_3"],
+			"path": ["l__d_tr_bl__s_5_5", "v1__p_bl__d_bl__s_3_3"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_br_tl__s_7___x___v1__p_tl__d_tl__s_3": {
+		"l__d_br_tl__s_5_5___x___v1__p_tl__d_tl__s_3_3": {
 			"aliases": ["arrow-top-left"],
-			"path": ["l__d_br_tl__s_7", "v1__p_tl__d_tl__s_3"],
+			"path": ["l__d_br_tl__s_5_5", "v1__p_tl__d_tl__s_3_3"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_bl_tr__s_7___x___v1__p_tr__d_tr__s_3": {
+		"l__d_bl_tr__s_5_5___x___v1__p_tr__d_tr__s_3_3": {
 			"aliases": ["arrow-top-right"],
-			"path": ["l__d_bl_tr__s_7", "v1__p_tr__d_tr__s_3"],
+			"path": ["l__d_bl_tr__s_5_5", "v1__p_tr__d_tr__s_3_3"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_tl_br__s_7___x___v1__p_br__d_br__s_3": {
+		"l__d_tl_br__s_5_5___x___v1__p_br__d_br__s_3_3": {
 			"aliases": ["arrow-bottom-right"],
-			"path": ["l__d_tl_br__s_7", "v1__p_br__d_br__s_3"],
+			"path": ["l__d_tl_br__s_5_5", "v1__p_br__d_br__s_3_3"],
 			"metadata": {
 				"categories": ["Arrow"]
 			}
 		},
-		"l__d_r_l__s_7___x___o__p_b__s_2": {
+		"l__d_r_l__s_7_0___x___o__p_b__s_2_2": {
 			"aliases": ["under"],
-			"path": ["l__d_r_l__s_7", "o__p_b__s_2"],
+			"path": ["l__d_r_l__s_7_0", "o__p_b__s_2_2"],
 			"metadata": {
 				"categories": ["Position"]
 			}
 		},
-		"l__d_r_l__s_7___x___o__p_t__s_2": {
+		"l__d_r_l__s_7_0___x___o__p_t__s_2_2": {
 			"aliases": ["over"],
-			"path": ["l__d_r_l__s_7", "o__p_t__s_2"],
+			"path": ["l__d_r_l__s_7_0", "o__p_t__s_2_2"],
 			"metadata": {
 				"categories": ["Position"]
 			}
 		},
-		"s1__d_t__s_7_2": {
+		"c1__d_t__s_7_2": {
 			"aliases": ["sky"],
 			"path": "M -35 0 Q 0 -30 35 0",
 			"metadata": {
@@ -206,7 +203,7 @@
 				"categories": ["Cosmos"]
 			}
 		},
-		"s1__d_b__s_7_2": {
+		"c1__d_b__s_7_2": {
 			"aliases": ["earth"],
 			"path": "M -35 0 Q 0 30 35 0",
 			"metadata": {
@@ -214,71 +211,53 @@
 				"categories": ["Cosmos"]
 			}
 		},
-		"v1s1v1s1x__d_l_r__s_7_3": {
+		"v1c1v1c1x__d_l_r__s_7_3": {
 			"aliases": ["eyelids"],
 			"path": "M -35 0 Q 0 -30 35 0 Q 0 30 -35 0 Z",
 			"metadata": {
 				"tags": ["eye", "gaze", "eyelids"]
 			}
 		},
-		"l__d_b_t__p_t__s_1": {
-			"path": "M 0 -25 L 0 -35"
+		"v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2": {
+			"aliases": ["eye"],
+			"path": ["eyelids", "o__s_2_2"],
+			"metadata": {
+				"tags": ["eye", "optic", "oculus", "vision", "sight", "look", "view"]
+			}
 		},
-		"l__d_c_tr__p_c_tr__s_1": {
-			"path": "M 20 -22 L 25 -30"
-		},
-		"l__d_c_tl__p_c_tl__s_1": {
-			"path": "M -20 -22 L -25 -30"
-		},
-		"v1s1v1s1x__d_l_r__s_7_3___x___o__s_2___x___l__d_c_tl__p_c_tl__s_1___x___l__d_b_t__p_t__s_1___x___l__d_c_tr__p_c_tr__s_1": {
+		"v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2___x___l__d_c_tl__p_c_tl__s_0_1___x___l__d_b_t__p_t__s_0_1___x___l__d_c_tr__p_c_tr__s_0_1": {
 			"aliases": ["light-mode"],
-			"path": ["eye", "l__d_c_tl__p_c_tl__s_1", "l__d_b_t__p_t__s_1", "l__d_c_tr__p_c_tr__s_1"],
+			"path": ["eye", "M -20 -22 L -25 -30", "M 0 -25 L 0 -35", "M 20 -22 L 25 -30"],
 			"metadata": {
 				"tags": ["light", "day", "bright", "clear", "color mode"],
 				"categories": ["Color-mode"]
 			}
 		},
-		"l__d_t_b__p_b__s_1": {
-			"path": "M 0 25 L 0 35"
-		},
-		"l__d_c_bl__p_c_bl__s_1": {
-			"path": "M -20 22 L -25 30"
-		},
-		"l__d_c_br__p_c_br__s_1": {
-			"path": "M 20 22 L 25 30"
-		},
-		"v1s1v1s1x__d_l_r__s_7_3___x___o__s_2___x___l__d_c_bl__p_c_bl__s_1___x___l__d_t_b__p_b__s_1___x___l__d_c_br__p_c_br__s_1": {
+		"v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2___x___l__d_c_bl__p_c_bl__s_0_1___x___l__d_t_b__p_b__s_0_1___x___l__d_c_br__p_c_br__s_0_1": {
 			"aliases": ["dark-mode"],
-			"path": ["eye", "l__d_c_bl__p_c_bl__s_1", "l__d_t_b__p_b__s_1", "l__d_c_br__p_c_br__s_1"],
+			"path": ["eye", "M -20 22 L -25 30", "M 0 25 L 0 35", "M 20 22 L 25 30"],
 			"metadata": {
 				"tags": ["dark", "night", "dim", "moonlight", "dark mode", "nocture"],
 				"categories": ["Color-mode"]
 			}
 		},
-		"v1s1v1s1x__d_l_r__s_7_3___x___o__s_2": {
-			"aliases": ["eye"],
-			"path": ["eyelids", "o__s_2"],
-			"metadata": {
-				"tags": ["eye", "optic", "oculus", "vision", "sight", "look", "view"]
-			}
-		},
-		"v1s1v1s1x__d_l_r__s_7_3___x___o__s_2___x___l__d_c_bl__p_c_bl__s_1___x___l__d_b_t__p_t__s_1___x___l__d_c_br__p_c_br__s_1": {
+		"v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2___x___l__d_c_bl__p_c_bl__s_0_1___x___l__d_b_t__p_t__s_0_1___x___l__d_c_br__p_c_br__s_0_1": {
 			"aliases": ["grey-mode"],
-			"path": ["eye", "l__d_c_bl__p_c_bl__s_1", "l__d_b_t__p_t__s_1", "l__d_c_br__p_c_br__s_1"],
+			"path": ["eye", "M -20 22 L -25 30", "M 0 -25 L 0 -35", "M 20 22 L 25 30"],
 			"metadata": {
 				"tags": ["gray", "grey", "ashen"],
 				"categories": ["Color-mode"]
 			}
 		},
-		"o__s_4": {
-			"path": "M 0 -20 A 1 1 0 0 0 0 20 A 1 1 0 0 0 0 -20"
-		},
-		"o__s_7___x___v1__p_c_b__d_t__s_4_2": {
+		"o__s_7_7___x___v1__p_c_b__d_t__s_4_2___x___l__p_c_b__d_b_t__s_0_3": {
 			"aliases": ["home-page"],
-			"path": ["o__s_7", "v1__p_c_b__d_t__s_4_2", "M 0 0 L 0 35"]
+			"path": ["o__s_7_7", "M -25 24 L 0 0 L 25 24", "M 0 35 L 0 0"]
 		},
-		"v1__p_c_b__d_t__s_4_2": {
-			"path": "M -20 20 L 0 0 L 20 20"
+		"deploy_style": {
+			"path": "M -15 -20 C -15 -40 -25 -40 -25 -20 C -25 5 5 5 5 -20 C 5 -40 -5 -40 -5 -20 C -5 5 25 5 25 -20 C 25 -40 15 -40 15 -20 M -35 5 L 0 35 L 35 5"
+		},
+		"fold_style": {
+			"path": "M 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 M -35 35 L 0 5 L 35 35"
 		}
 	}
 }

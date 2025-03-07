@@ -1,11 +1,18 @@
 <script>
 	import ColorModeButton from './ColorModeButton.svelte';
+	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
+	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
+	import { goto } from '$app/navigation';
+
+	let homePageButton = new icoGlyphButtonPropsConstructor();
+	homePageButton.add('home-page', () => goto('/'));
 </script>
 
 <div id="navbar-container">
 	<ul>
-		<li><a href="/"><h5>Home</h5></a></li>
+		<li><IcoGlyphButton buttonConfig={homePageButton} /></li>
 		<li><a href="/params"><h5>Params</h5></a></li>
+
 		<li><ColorModeButton /></li>
 	</ul>
 </div>

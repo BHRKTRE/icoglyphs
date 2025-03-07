@@ -72,11 +72,11 @@ async function addNewIcoGlyph(glyphData) {
  */
 
 const newIcoGlyph = {
-	name: 'v1__p_c_b__d_t__s_4_2',
+	name: 'fold_style',
 
 	// aliases: ['home-page'],
 
-	path: 'M -20 20 L 0 0 L 20 20',
+	path: 'M -15 -20 L -15 -20 L -15 -20 C -15 -40 -25 -40 -25 -20 C -25 5 5 5 5 -20 C 5 -40 -5 -40 -5 -20 C -5 5 25 5 25 -20 C 25 -40 15 -40 15 -20 M -35 5 L 0 30 L 35 5M 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 M -35 35 L 0 5 L 35 35',
 
 	metadata: {
 		// tags: ['gray', 'grey', 'ashen'],
