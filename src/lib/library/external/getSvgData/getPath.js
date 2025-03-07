@@ -8,42 +8,37 @@ import searchIcoGlyph from '../searchIcoGlyph';
  * @returns {string | undefined} The path of the icon glyph as a string, or undefined if the glyph is not found.
  */
 function getPath(icoGlyphName) {
+	// If icoGlyphName is already an SVG path (starts with 'M'), return it immediately
+	if (typeof icoGlyphName === 'string' && icoGlyphName.trim().startsWith('M')) {
+		return icoGlyphName;
+	}
+
 	// If icoGlyphName is an array, process each element recursively
 	if (Array.isArray(icoGlyphName)) {
 		return icoGlyphName
-			.map((glyphOrPath) =>
-				typeof glyphOrPath === 'string' && glyphOrPath.startsWith('M')
-					? glyphOrPath
-					: getPath(glyphOrPath)
-			)
-			.join(' ');
+			.map((glyphOrPath) => getPath(glyphOrPath)) // Recursively process each element
+			.join(' '); // Join all paths into a single string
 	}
 
-	// Search for the icon in searchIcoGlyph
+	// Search for the icon glyph in the library
 	const icoGlyph = searchIcoGlyph(icoGlyphName);
 	if (!icoGlyph) return;
 
 	const { path } = icoGlyph;
 
-	// If path is an array, process each sub-glyph
+	// If the path is a single string and already an SVG path, return it directly
+	if (typeof path === 'string' && path.trim().startsWith('M')) {
+		return path;
+	}
+
+	// If path is an array, process each sub-glyph recursively
 	if (Array.isArray(path)) {
 		return path
-			.map((subGlyphNames) =>
-				Array.isArray(subGlyphNames)
-					? subGlyphNames
-							.map((subGlyphName) =>
-								typeof subGlyphName === 'string' && subGlyphName.startsWith('M')
-									? subGlyphName
-									: getPath(subGlyphName)
-							)
-							.join(' ')
-					: getPath(subGlyphNames)
-			)
+			.map((subGlyphName) => getPath(subGlyphName)) // Recursive call
 			.join(' ');
 	}
 
-	// Return the path if it's a single string
-	return path;
+	return undefined;
 }
 
 export default getPath;

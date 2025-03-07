@@ -208,15 +208,15 @@
 		},
 		"s1__d_b__s_7_2": {
 			"aliases": ["earth"],
-			"path": "M -35 0 M -35 0 Q 0 30 35 0",
+			"path": "M -35 0 Q 0 30 35 0",
 			"metadata": {
 				"tags": ["earth", "terra", "soil", "ground", "gaia", "tellus"],
 				"categories": ["Cosmos"]
 			}
 		},
-		"s1__d_t__s_7_2___x____s1__d_b__s_7_2": {
+		"v1s1v1s1x__d_l_r__s_7_3": {
 			"aliases": ["eyelids"],
-			"path": ["s1__d_t__s_7_2", "s1__d_b__s_7_2"],
+			"path": "M -35 0 Q 0 -30 35 0 Q 0 30 -35 0 Z",
 			"metadata": {
 				"tags": ["eye", "gaze", "eyelids"]
 			}
@@ -230,7 +230,7 @@
 		"l__d_c_tl__p_c_tl__s_1": {
 			"path": "M -20 -22 L -25 -30"
 		},
-		"s1__d_t__s_7_2___x____s1__d_b__s_7_2___x___l__d_c_tl__p_c_tl__s_1___x___l__d_b_t__p_t__s_1___x___l__d_c_tr__p_c_tr__s_1": {
+		"v1s1v1s1x__d_l_r__s_7_3___x___o__s_2___x___l__d_c_tl__p_c_tl__s_1___x___l__d_b_t__p_t__s_1___x___l__d_c_tr__p_c_tr__s_1": {
 			"aliases": ["light-mode"],
 			"path": ["eye", "l__d_c_tl__p_c_tl__s_1", "l__d_b_t__p_t__s_1", "l__d_c_tr__p_c_tr__s_1"],
 			"metadata": {
@@ -247,7 +247,7 @@
 		"l__d_c_br__p_c_br__s_1": {
 			"path": "M 20 22 L 25 30"
 		},
-		"s1__d_t__s_7_2___x____s1__d_b__s_7_2___x___l__d_c_bl__p_c_bl__s_1___x___l__d_t_b__p_b__s_1___x___l__d_c_br__p_c_br__s_1": {
+		"v1s1v1s1x__d_l_r__s_7_3___x___o__s_2___x___l__d_c_bl__p_c_bl__s_1___x___l__d_t_b__p_b__s_1___x___l__d_c_br__p_c_br__s_1": {
 			"aliases": ["dark-mode"],
 			"path": ["eye", "l__d_c_bl__p_c_bl__s_1", "l__d_t_b__p_b__s_1", "l__d_c_br__p_c_br__s_1"],
 			"metadata": {
@@ -255,20 +255,30 @@
 				"categories": ["Color-mode"]
 			}
 		},
-		"s1__d_t__s_7_2___x___s1__d_b__s_7_2___x___o__s_2": {
+		"v1s1v1s1x__d_l_r__s_7_3___x___o__s_2": {
 			"aliases": ["eye"],
 			"path": ["eyelids", "o__s_2"],
 			"metadata": {
 				"tags": ["eye", "optic", "oculus", "vision", "sight", "look", "view"]
 			}
 		},
-		"s1__d_t__s_7_2___x____s1__d_b__s_7_2___x___l__d_c_bl__p_c_bl__s_1___x___l__d_b_t__p_t__s_1___x___l__d_c_br__p_c_br__s_1": {
+		"v1s1v1s1x__d_l_r__s_7_3___x___o__s_2___x___l__d_c_bl__p_c_bl__s_1___x___l__d_b_t__p_t__s_1___x___l__d_c_br__p_c_br__s_1": {
 			"aliases": ["grey-mode"],
 			"path": ["eye", "l__d_c_bl__p_c_bl__s_1", "l__d_b_t__p_t__s_1", "l__d_c_br__p_c_br__s_1"],
 			"metadata": {
 				"tags": ["gray", "grey", "ashen"],
 				"categories": ["Color-mode"]
 			}
+		},
+		"o__s_4": {
+			"path": "M 0 -20 A 1 1 0 0 0 0 20 A 1 1 0 0 0 0 -20"
+		},
+		"o__s_7___x___v1__p_c_b__d_t__s_4_2": {
+			"aliases": ["home-page"],
+			"path": ["o__s_7", "v1__p_c_b__d_t__s_4_2", "M 0 0 L 0 35"]
+		},
+		"v1__p_c_b__d_t__s_4_2": {
+			"path": "M -20 20 L 0 0 L 20 20"
 		}
 	}
 }

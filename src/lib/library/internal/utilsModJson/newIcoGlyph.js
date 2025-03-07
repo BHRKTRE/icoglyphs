@@ -72,11 +72,11 @@ async function addNewIcoGlyph(glyphData) {
  */
 
 const newIcoGlyph = {
-	name: 's1__d_t__r__s_1',
+	name: 'v1__p_c_b__d_t__s_4_2',
 
-	// aliases: ['grey-mode'],
+	// aliases: ['home-page'],
 
-	path: 'mmmm',
+	path: 'M -20 20 L 0 0 L 20 20',
 
 	metadata: {
 		// tags: ['gray', 'grey', 'ashen'],
