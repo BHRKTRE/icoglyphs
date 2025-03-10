@@ -26,6 +26,17 @@ h4 {
 	color: var(--t1);
 	font-family: var(--typo1);
 	font-weight: 300;
+	font-size: 0.9rem;
+}
+
+code {
+	color: var(--t1);
+	font-family: var(--typo1);
+	font-weight: 300;
+	font-size: 0.8rem;
+}
+.path-code {
+	letter-spacing: 0.15rem;
 }
 
 h5,
@@ -170,7 +181,9 @@ input[type='text'] {
 /* CONTAINER */
 .basic-container {
 	border-radius: var(--border-radius);
-	background: var(--b2);
+	/* background: var(--b2); */
+	padding: var(--spacing-small) var(--spacing-medium);
+	width: 100%;
 }
 
 /* ********** */

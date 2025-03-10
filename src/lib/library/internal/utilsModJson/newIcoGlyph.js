@@ -72,19 +72,20 @@ async function addNewIcoGlyph(glyphData) {
  */
 
 const newIcoGlyph = {
-	name: 'fold_style',
+	name: 'v3__p_b__d_b__s_7_2',
 
-	// aliases: ['home-page'],
+	// aliases: ['download'],
 
-	path: 'M -15 -20 L -15 -20 L -15 -20 C -15 -40 -25 -40 -25 -20 C -25 5 5 5 5 -20 C 5 -40 -5 -40 -5 -20 C -5 5 25 5 25 -20 C 25 -40 15 -40 15 -20 M -35 5 L 0 30 L 35 5M 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 M -35 35 L 0 5 L 35 35',
+	path: 'M -35 15 L -35 35 L 35 35 L 35 15',
 
 	metadata: {
 		// tags: ['gray', 'grey', 'ashen'],
 		// categories: ['Color-mode']
 		//
-		// publicName: "bot right arrow",
+		// Keys below may be deprecated
 		// author: "L",
 		// description: "",
+		// publicName: "bot right arrow",
 		// notes: {
 		// userNote: "",
 		// devNote: "",

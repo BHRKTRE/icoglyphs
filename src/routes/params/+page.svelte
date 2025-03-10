@@ -24,6 +24,19 @@
 			</div>
 		</div>
 	</div>
+	<div id="params-container">
+		<div class="param-section">
+			<h3>IcoGlypher mode</h3>
+			<div class="param-button-container">
+				<button
+					onclick={() => {
+						appState.icoGlypherMode.toggleFunction();
+					}}
+					class="text-button"><h5>{appState.icoGlypherMode.value}</h5></button
+				>
+			</div>
+		</div>
+	</div>
 </main>
 
 <style>

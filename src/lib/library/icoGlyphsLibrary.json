@@ -112,6 +112,12 @@
 				"tags": ["circle"]
 			}
 		},
+		"o__p_tr__s_2_2": {
+			"path": "M 25 -35 A 1 1 0 0 0 25 -15 A 1 1 0 0 0 25 -35"
+		},
+		"o__p_tl__s_2_2": {
+			"path": "M -25 -35 A 1 1 0 0 0 -25 -15 A 1 1 0 0 0 -25 -35"
+		},
 		"o__p_b__s_2_2": {
 			"path": "M 0 15 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 15",
 			"metadata": {
@@ -128,7 +134,7 @@
 			"aliases": ["arrow-right"],
 			"path": ["l__d_l_r__s_7_0", "v1__p_r__d_r__s_2_4"],
 			"metadata": {
-				"tags": ["direction", "time"],
+				"tags": ["Arrow", "right", "go"],
 				"categories": ["Arrow"]
 			}
 		},
@@ -136,49 +142,56 @@
 			"aliases": ["arrow-left"],
 			"path": ["l__d_r_l__s_7_0", "v1__p_l__d_l__s_2_4"],
 			"metadata": {
-				"categories": ["Arrow"]
+				"categories": ["Arrow"],
+				"tags": ["Arrow", "left", "back"]
 			}
 		},
 		"l__d_b_t__s_0_7___x___v1__p_t__d_t__s_4_2": {
-			"aliases": ["arrow-top"],
+			"aliases": ["arrow-up", "arrow-top"],
 			"path": ["l__d_b_t__s_0_7", "v1__p_t__d_t__s_4_2"],
 			"metadata": {
-				"categories": ["Arrow"]
+				"categories": ["Arrow"],
+				"tags": ["Arrow", "up", "top"]
 			}
 		},
 		"l__d_t_b__s_0_7___x___v1__p_b__d_b__s_4_2": {
-			"aliases": ["arrow-bottom"],
+			"aliases": ["arrow-down", "arrow-bottom"],
 			"path": ["l__d_t_b__s_0_7", "v1__p_b__d_b__s_4_2"],
 			"metadata": {
-				"categories": ["Arrow"]
+				"categories": ["Arrow"],
+				"tags": ["Arrow", "down", "bottom"]
 			}
 		},
 		"l__d_tr_bl__s_5_5___x___v1__p_bl__d_bl__s_3_3": {
-			"aliases": ["arrow-bottom-left"],
+			"aliases": ["arrow-down-left", "arrow-bottom-left"],
 			"path": ["l__d_tr_bl__s_5_5", "v1__p_bl__d_bl__s_3_3"],
 			"metadata": {
-				"categories": ["Arrow"]
+				"categories": ["Arrow"],
+				"tags": ["Arrow", "down", "bottom", "left"]
 			}
 		},
 		"l__d_br_tl__s_5_5___x___v1__p_tl__d_tl__s_3_3": {
-			"aliases": ["arrow-top-left"],
+			"aliases": ["arrow-up-left", "arrow-top-left"],
 			"path": ["l__d_br_tl__s_5_5", "v1__p_tl__d_tl__s_3_3"],
 			"metadata": {
-				"categories": ["Arrow"]
+				"categories": ["Arrow"],
+				"tags": ["Arrow", "up", "top", "left"]
 			}
 		},
 		"l__d_bl_tr__s_5_5___x___v1__p_tr__d_tr__s_3_3": {
-			"aliases": ["arrow-top-right"],
+			"aliases": ["arrow-up-right", "arrow-top-right"],
 			"path": ["l__d_bl_tr__s_5_5", "v1__p_tr__d_tr__s_3_3"],
 			"metadata": {
-				"categories": ["Arrow"]
+				"categories": ["Arrow"],
+				"tags": ["Arrow", "top", "up", "right"]
 			}
 		},
 		"l__d_tl_br__s_5_5___x___v1__p_br__d_br__s_3_3": {
-			"aliases": ["arrow-bottom-right"],
+			"aliases": ["arrow-down-right", "arrow-bottom-right"],
 			"path": ["l__d_tl_br__s_5_5", "v1__p_br__d_br__s_3_3"],
 			"metadata": {
-				"categories": ["Arrow"]
+				"categories": ["Arrow"],
+				"tags": ["Arrow", "down", "bottom", "right"]
 			}
 		},
 		"l__d_r_l__s_7_0___x___o__p_b__s_2_2": {
@@ -225,6 +238,14 @@
 				"tags": ["eye", "optic", "oculus", "vision", "sight", "look", "view"]
 			}
 		},
+		"v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2___x___l__d_c_bl__p_c_bl__s_0_1___x___l__d_b_t__p_t__s_0_1___x___l__d_c_br__p_c_br__s_0_1": {
+			"aliases": ["grey-mode"],
+			"path": ["eye", "M -20 22 L -25 30", "M 0 -25 L 0 -35", "M 20 22 L 25 30"],
+			"metadata": {
+				"tags": ["gray", "grey", "ashen"],
+				"categories": ["Color-mode"]
+			}
+		},
 		"v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2___x___l__d_c_tl__p_c_tl__s_0_1___x___l__d_b_t__p_t__s_0_1___x___l__d_c_tr__p_c_tr__s_0_1": {
 			"aliases": ["light-mode"],
 			"path": ["eye", "M -20 -22 L -25 -30", "M 0 -25 L 0 -35", "M 20 -22 L 25 -30"],
@@ -241,23 +262,75 @@
 				"categories": ["Color-mode"]
 			}
 		},
-		"v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2___x___l__d_c_bl__p_c_bl__s_0_1___x___l__d_b_t__p_t__s_0_1___x___l__d_c_br__p_c_br__s_0_1": {
-			"aliases": ["grey-mode"],
-			"path": ["eye", "M -20 22 L -25 30", "M 0 -25 L 0 -35", "M 20 22 L 25 30"],
+		"o__s_7_7___x___v1__p_c_b__d_t__s_4_2___x___l__p_c_b__d_b_t__s_0_3": {
+			"path": ["o__s_7_7", "M -25 24 L 0 0 L 25 24", "M 0 35 L 0 0"],
 			"metadata": {
-				"tags": ["gray", "grey", "ashen"],
-				"categories": ["Color-mode"]
+				"tags": ["?", "circle", "kinda peace"]
 			}
 		},
-		"o__s_7_7___x___v1__p_c_b__d_t__s_4_2___x___l__p_c_b__d_b_t__s_0_3": {
+		"c1e1c1__p_c_t__s_5_3": {
+			"path": "M -15 -20 C -15 -40 -25 -40 -25 -20 C -25 5 5 5 5 -20 C 5 -40 -5 -40 -5 -20 C -5 5 25 5 25 -20 C 25 -40 15 -40 15 -20",
+			"metadata": {
+				"tags": ["?", "style"]
+			}
+		},
+		"v1__p_c_b__d_b__s_7_3___x___o__p_tl__s_2_2___x___o__p_t__s_2_2___x___o__p_tr__s_2_2": {
+			"aliases": ["drop-down"],
+			"path": ["v1__p_c_b__d_b__s_7_3", "o__p_tl__s_2_2", "o__p_t__s_2_2", "o__p_tr__s_2_2"],
+			"metadata": {
+				"tags": ["deploy", "down", "bottom", "drop", "menu"],
+				"categories": ["menu interaction"]
+			}
+		},
+		"v1__p_c_b__d_t__s_7_3___x___o__p_t__s_2_2": {
+			"aliases": ["collapse-up"],
+			"path": ["v1__p_c_b__d_t__s_7_3", "o__p_t__s_2_2", "o__p_t__s_2_2", "o__p_t__s_2_2"],
+			"metadata": {
+				"tags": ["fold", "up", "top", "collapse", "menu"],
+				"categories": ["menu interaction"]
+			}
+		},
+		"v1__p_c_b__d_b__s_7_3": {
+			"path": "M -35 5 L 0 35 L 35 5"
+		},
+		"v1__p_c_b__d_t__s_7_3": {
+			"path": "M -35 35 L 0 5 L 35 35"
+		},
+		"o__s_7_7___x___o__p_c_b__s_3_3": {
 			"aliases": ["home-page"],
-			"path": ["o__s_7_7", "M -25 24 L 0 0 L 25 24", "M 0 35 L 0 0"]
+			"path": ["o__s_7_7", "o__p_c_b__s_3_3"],
+			"metadata": {
+				"tags": [
+					"home",
+					"home page",
+					"house",
+					"residence",
+					"haven",
+					"sanctuary",
+					"refuge",
+					"place of rest",
+					"start page",
+					"main page",
+					"base",
+					"nest",
+					"landing page",
+					"safe place",
+					"shelter",
+					"dwelling",
+					"domain",
+					"startup"
+				]
+			}
 		},
-		"deploy_style": {
-			"path": "M -15 -20 C -15 -40 -25 -40 -25 -20 C -25 5 5 5 5 -20 C 5 -40 -5 -40 -5 -20 C -5 5 25 5 25 -20 C 25 -40 15 -40 15 -20 M -35 5 L 0 35 L 35 5"
+		"o__p_c_b__s_3_3": {
+			"path": "M 0 0 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 0"
 		},
-		"fold_style": {
-			"path": "M 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 C 0 -15 0 -15 0 -15 M -35 35 L 0 5 L 35 35"
+		"v3__p_b__d_b__s_7_2": {
+			"path": "M -35 15 L -35 35 L 35 35 L 35 15"
+		},
+		"arrow_down___x___v3__p_b__d_b__s_7_2": {
+			"aliases": ["download"],
+			"path": ["arrow-down", "v3__p_b__d_b__s_7_2"]
 		}
 	}
 }

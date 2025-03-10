@@ -9,7 +9,8 @@
 			Designed for developers, designers, and everyone else, IcoGlyphs aims to provide a universal
 			and intuitive visual language. Use it as icons or in any form of communication, making it
 			accessible to all, regardless of culture, age, or education. <br />
-			Free and open-source, licensed under the GPL.
+			Free and open-source, licensed under the GPL. // "icoGlyphs: Unifying Communication Through Visual
+			Language" "Join the icoGlyphers in Crafting the Future of Communication"
 		</p>
 	</div>
 

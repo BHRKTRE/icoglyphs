@@ -3,6 +3,7 @@ import { applySvgUserStyles } from '$lib/app/core/utils/applySvgUserStyles.svelt
 /**
  * Retrieves the initial value of `showPrivateIcoGlyph` from localStorage.
  * If the key doesn't exist or the code is executed server-side, defaults to `false`.
+ * @dev May be deprecated
  *
  * @type {boolean} Boolean value indicating whether "private ico glyph" mode is enabled.
  */
@@ -21,6 +22,29 @@ const togglePrivateIcoGlyph = () => {
 
 	// Save the updated value to localStorage.
 	localStorage.setItem('showPrivateIcoGlyph', JSON.stringify(appState.showPrivateIcoGlyph.value));
+};
+
+/**
+ * Retrieves the initial value of `icoGlypherMode` from localStorage.
+ * If the key doesn't exist or the code is executed server-side, defaults to `false`.
+ *
+ * @type {boolean} Boolean value indicating whether "private ico glyph" mode is enabled.
+ */
+const icoGlypherModeValue =
+	typeof window !== 'undefined' && localStorage.getItem('icoGlypherMode')
+		? JSON.parse(localStorage.getItem('icoGlypherMode'))
+		: false;
+
+/**
+ * Toggles the value of `icoGlypherMode` in the global state
+ * and updates it in localStorage for persistence.
+ */
+const toggleIcoGlypherMode = () => {
+	// Flip the current value of `icoGlypherMode`.
+	appState.icoGlypherMode.value = !appState.icoGlypherMode.value;
+
+	// Save the updated value to localStorage.
+	localStorage.setItem('icoGlypherMode', JSON.stringify(appState.icoGlypherMode.value));
 };
 
 /**
@@ -61,6 +85,10 @@ let appState = $state({
 	showPrivateIcoGlyph: {
 		value: showPrivateIcoGlyphValue,
 		togglePrivateIcoGlyph: togglePrivateIcoGlyph
+	},
+	icoGlypherMode: {
+		value: icoGlypherModeValue,
+		toggleFunction: toggleIcoGlypherMode
 	},
 	colorMode: {
 		// The initial value could be retrieved from localStorage if needed.

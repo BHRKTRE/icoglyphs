@@ -40,22 +40,22 @@
 	let svgStylerPadding = $derived(
 		displaySvgStyler ? '25px var(--spacing-medium) var(--spacing-medium) var(--spacing-medium)' : 0
 	);
-	let selectedButton = $state('deploy_style');
+	let selectedButton = $state('drop-down');
 	/**
 	 * Button for display SvgStyler
 	 *
 	 */
 	let displaySvgStylerButton = new icoGlyphButtonPropsConstructor();
-	displaySvgStylerButton.add('deploy_style', () => {
+	displaySvgStylerButton.add('drop-down', () => {
 		displaySvgStyler = true;
-		selectedButton = 'fold_style';
+		selectedButton = 'collapse-up';
 	});
-	displaySvgStylerButton.add('fold_style', () => {
+	displaySvgStylerButton.add('collapse-up', () => {
 		displaySvgStyler = false;
-		selectedButton = 'deploy_style';
+		selectedButton = 'drop-down';
 	});
 
-	// $inspect(100 / psi ** 7);s
+	// $inspect(appState.icoGlypherMode);
 </script>
 
 <div id="displayButtonContainer">
