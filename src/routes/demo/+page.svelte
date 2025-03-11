@@ -4,30 +4,30 @@
 	import psi from '$lib/app/ui/utils/psi.js';
 
 	let bbb = $state(new icoGlyphButtonPropsConstructor());
-	bbb.add('arrow_left', () => console.log('function 2'), {
-		to: 'arrow_top',
-		tooltip: bbb.tooltip('a faire', 'bottom')
+	bbb.add('download', () => console.log('function 2'), {
+		// tooltip: bbb.tooltip('a faire', 'bottom'),
+		text: 'Prends le bail'
 	});
-	bbb.add('arrow_right', () => console.log('function 1'), {
-		to: 'arrow_left',
-		tooltip: bbb.tooltip('coucou', 'top')
+	bbb.add('arrow-right', () => console.log('function 1'), {
+		// tooltip: bbb.tooltip('coucou', 'top'),
+		text: '.png'
 	});
-	bbb.add('arrow_top', () => console.log('function 3'));
+	// bbb.add('arrow-top', () => console.log('function 3'));
 
 	const styleyy = {
-		background: 'var(--b2)',
-		width: '100px',
-		height: '100px'
+		// background: 'var(--b2)',
+		// width: '100px',
+		// height: '100px'
 	};
 
 	//////////////////////////
 
-	let selectedButton1 = $state('arrow_right');
+	let selectedButton1 = $state('download');
 
-	let animeDurationButton1 = $state(100);
+	let animeDurationButton1 = $state(500);
 
 	function changeActualState() {
-		selectedButton1 = 'arrow_top';
+		selectedButton1 = 'arrow-left';
 	}
 
 	function changeDuration() {
@@ -43,7 +43,7 @@
 	 * bind:selected={...}
 	 */
 
-	$inspect(1 / psi ** 4);
+	// $inspect(1 / psi ** 4);
 </script>
 
 <main>
@@ -54,6 +54,8 @@
 		buttonConfig={bbb}
 		buttonStyle={styleyy}
 	/>
+	<br />
+	<br />
 	<button class="text-button" onclick={changeActualState}>arrow_left</button>
 	<button class="text-button" onclick={changeDuration}>duration</button>
 </main>

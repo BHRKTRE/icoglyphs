@@ -27,11 +27,11 @@
 <svelte:window bind:innerWidth={windowWidth} />
 
 {#if readyToDisplay}
-	<NavBar />
-
 	<div style="margin: 0 {sideMargin};" id="page-wrapper">
-		{@render children?.()}
-	</div>
+		<NavBar />
 
-	<Footer />
+		{@render children?.()}
+
+		<Footer />
+	</div>
 {/if}

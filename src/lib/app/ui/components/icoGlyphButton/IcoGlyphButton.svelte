@@ -13,6 +13,8 @@
 	 * @param {string} [selected] (optional) A valid icoGlyph name that must exist in `buttonConfig`.
 	 * @param {number} [animeDuration=500] (optional) The animation duration in milliseconds.
 	 * @param {object} buttonConfig The main data structure defining button states and behaviors.
+	 * @notice Must be {nameExample, () functionExample => {}, to : nextName}
+	 * @dev "to" may be deprecated ?
 	 * @param {object} [buttonStyle] (optional) Custom styles for the button.
 	 *
 	 * @example

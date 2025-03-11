@@ -3,7 +3,7 @@
 	import icoGlyphs from '$lib/index.js';
 
 	let { icoGlyphName } = $props();
-	$inspect(icoGlyphName);
+	// $inspect(icoGlyphName);
 </script>
 
 {#if appState.icoGlypherMode.value}

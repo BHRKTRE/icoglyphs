@@ -25,6 +25,52 @@ const togglePrivateIcoGlyph = () => {
 };
 
 /**
+ * Retrieves the initial value of `designerMode` from localStorage.
+ * If the key doesn't exist or the code is executed server-side, defaults to `false`.
+ *
+ * @type {boolean} Boolean value indicating whether "private ico glyph" mode is enabled.
+ */
+const designerModeValue =
+	typeof window !== 'undefined' && localStorage.getItem('designerMode')
+		? JSON.parse(localStorage.getItem('designerMode'))
+		: false;
+
+/**
+ * Toggles the value of `designerMode` in the global state
+ * and updates it in localStorage for persistence.
+ */
+const toggledesignerMode = () => {
+	// Flip the current value of `designerMode`.
+	appState.designerMode.value = !appState.designerMode.value;
+
+	// Save the updated value to localStorage.
+	localStorage.setItem('designerMode', JSON.stringify(appState.designerMode.value));
+};
+
+/**
+ * Retrieves the initial value of `devMode` from localStorage.
+ * If the key doesn't exist or the code is executed server-side, defaults to `false`.
+ *
+ * @type {boolean} Boolean value indicating whether "private ico glyph" mode is enabled.
+ */
+const devModeValue =
+	typeof window !== 'undefined' && localStorage.getItem('devMode')
+		? JSON.parse(localStorage.getItem('devMode'))
+		: false;
+
+/**
+ * Toggles the value of `designerMode` in the global state
+ * and updates it in localStorage for persistence.
+ */
+const toggledevMode = () => {
+	// Flip the current value of `devMode`.
+	appState.devMode.value = !appState.devMode.value;
+
+	// Save the updated value to localStorage.
+	localStorage.setItem('devMode', JSON.stringify(appState.devMode.value));
+};
+
+/**
  * Retrieves the initial value of `icoGlypherMode` from localStorage.
  * If the key doesn't exist or the code is executed server-side, defaults to `false`.
  *
@@ -89,6 +135,14 @@ let appState = $state({
 	icoGlypherMode: {
 		value: icoGlypherModeValue,
 		toggleFunction: toggleIcoGlypherMode
+	},
+	devMode: {
+		value: devModeValue,
+		toggleFunction: toggledevMode
+	},
+	designerMode: {
+		value: designerModeValue,
+		toggleFunction: toggledesignerMode
 	},
 	colorMode: {
 		// The initial value could be retrieved from localStorage if needed.

@@ -72,15 +72,15 @@ async function addNewIcoGlyph(glyphData) {
  */
 
 const newIcoGlyph = {
-	name: 'v3__p_b__d_b__s_7_2',
+	name: 'l__p_cl__d_bl_tr___x___l__p_cr__d_br_tr___x___o__s_15_15',
 
-	// aliases: ['download'],
+	// aliases: ['dev'],
 
-	path: 'M -35 15 L -35 35 L 35 35 L 35 15',
+	path: ['dev', 'o__s_15_15'],
 
 	metadata: {
-		// tags: ['gray', 'grey', 'ashen'],
-		// categories: ['Color-mode']
+		// tags: ['code', 'dev', 'developer'],
+		categories: ['_mode']
 		//
 		// Keys below may be deprecated
 		// author: "L",
