@@ -1,153 +1,99 @@
 import { applySvgUserStyles } from '$lib/app/core/utils/applySvgUserStyles.svelte.js';
 
 /**
- * Retrieves the initial value of `showPrivateIcoGlyph` from localStorage.
- * If the key doesn't exist or the code is executed server-side, defaults to `false`.
- * @dev May be deprecated
+ * Loads mode settings from localStorage.
+ * If no data is found or the code is running on the server side, it returns default values.
  *
- * @type {boolean} Boolean value indicating whether "private ico glyph" mode is enabled.
+ * @returns {object} An object containing the application's mode settings.
  */
-const showPrivateIcoGlyphValue =
-	typeof window !== 'undefined' && localStorage.getItem('showPrivateIcoGlyph')
-		? JSON.parse(localStorage.getItem('showPrivateIcoGlyph'))
-		: false;
+const loadModesFromLocalStorage = () => {
+	if (typeof window === 'undefined') return {}; // Prevents errors in a server-side environment
+	const storedModes = localStorage.getItem('modes');
+	return storedModes
+		? JSON.parse(storedModes)
+		: {
+				showPrivateIcoGlyph: false,
+				icoGlypherMode: false,
+				devMode: false,
+				designerMode: false,
+				colorMode: 'grey'
+			};
+};
+
+// Retrieve stored mode settings
+const modes = loadModesFromLocalStorage();
 
 /**
- * Toggles the value of `showPrivateIcoGlyph` in the global state
- * and updates it in localStorage for persistence.
+ * Saves the current mode settings to localStorage for persistence.
  */
-const togglePrivateIcoGlyph = () => {
-	// Flip the current value of `showPrivateIcoGlyph`.
-	appState.showPrivateIcoGlyph.value = !appState.showPrivateIcoGlyph.value;
-
-	// Save the updated value to localStorage.
-	localStorage.setItem('showPrivateIcoGlyph', JSON.stringify(appState.showPrivateIcoGlyph.value));
+const saveModesToLocalStorage = () => {
+	localStorage.setItem('modes', JSON.stringify(modes));
 };
 
 /**
- * Retrieves the initial value of `designerMode` from localStorage.
- * If the key doesn't exist or the code is executed server-side, defaults to `false`.
+ * Toggles the state of a given mode and updates localStorage.
  *
- * @type {boolean} Boolean value indicating whether "private ico glyph" mode is enabled.
+ * @param {string} mode - The name of the mode to toggle.
  */
-const designerModeValue =
-	typeof window !== 'undefined' && localStorage.getItem('designerMode')
-		? JSON.parse(localStorage.getItem('designerMode'))
-		: false;
-
-/**
- * Toggles the value of `designerMode` in the global state
- * and updates it in localStorage for persistence.
- */
-const toggledesignerMode = () => {
-	// Flip the current value of `designerMode`.
-	appState.designerMode.value = !appState.designerMode.value;
-
-	// Save the updated value to localStorage.
-	localStorage.setItem('designerMode', JSON.stringify(appState.designerMode.value));
+const toggleMode = (mode) => {
+	modes[mode] = !modes[mode];
+	saveModesToLocalStorage();
 };
 
 /**
- * Retrieves the initial value of `devMode` from localStorage.
- * If the key doesn't exist or the code is executed server-side, defaults to `false`.
+ * Updates the application's color mode and stores the selection in localStorage.
  *
- * @type {boolean} Boolean value indicating whether "private ico glyph" mode is enabled.
- */
-const devModeValue =
-	typeof window !== 'undefined' && localStorage.getItem('devMode')
-		? JSON.parse(localStorage.getItem('devMode'))
-		: false;
-
-/**
- * Toggles the value of `designerMode` in the global state
- * and updates it in localStorage for persistence.
- */
-const toggledevMode = () => {
-	// Flip the current value of `devMode`.
-	appState.devMode.value = !appState.devMode.value;
-
-	// Save the updated value to localStorage.
-	localStorage.setItem('devMode', JSON.stringify(appState.devMode.value));
-};
-
-/**
- * Retrieves the initial value of `icoGlypherMode` from localStorage.
- * If the key doesn't exist or the code is executed server-side, defaults to `false`.
- *
- * @type {boolean} Boolean value indicating whether "private ico glyph" mode is enabled.
- */
-const icoGlypherModeValue =
-	typeof window !== 'undefined' && localStorage.getItem('icoGlypherMode')
-		? JSON.parse(localStorage.getItem('icoGlypherMode'))
-		: false;
-
-/**
- * Toggles the value of `icoGlypherMode` in the global state
- * and updates it in localStorage for persistence.
- */
-const toggleIcoGlypherMode = () => {
-	// Flip the current value of `icoGlypherMode`.
-	appState.icoGlypherMode.value = !appState.icoGlypherMode.value;
-
-	// Save the updated value to localStorage.
-	localStorage.setItem('icoGlypherMode', JSON.stringify(appState.icoGlypherMode.value));
-};
-
-/**
- * Changes the color mode of the application and persists the selection in localStorage.
- *
- * @param {string} color - The name of the selected color mode (must be : "light", "dark", "grey").
+ * @param {string} color - The selected color mode (accepted values: "light", "dark", "grey").
  */
 const changeColorMode = (color) => {
-	// Save the selected color mode to localStorage for persistence.
-	localStorage.setItem('colorMode', JSON.stringify(color));
-
-	// Apply the selected color mode to the document body attribute.
+	modes.colorMode = color;
+	saveModesToLocalStorage();
 	document.body.setAttribute('data-color-mode', color);
 	applySvgUserStyles();
 };
 
 /**
- * IcoGlyphs User Custom Style
- *
+ * Stores user-defined styles for IcoGlyphs.
  */
 let icoGlyphUserCustomStyles = $state({});
 let useStyleForSvgDownload = $state(true);
 
 /**
- * Global application state object.
+ * Global application state.
  *
  * @typedef {object} appState
- * @property {object} showPrivateIcoGlyph - Contains the state and related methods for `showPrivateIcoGlyph`.
- * @property {boolean} showPrivateIcoGlyph.value - Indicates whether "private icoGlyph" mode is enabled.
- * @property {function} showPrivateIcoGlyph.togglePrivateIcoGlyph - Toggles the value of `showPrivateIcoGlyph`.
- * @property {object} colorMode - Contains the method to change the application's color mode.
- * @property {function} colorMode.changeColorMode - Updates the color mode and stores the preference.
- *    Possible values: 'grey' (default), 'dark', 'light'.
- * @property {object} icoGlyphUserSettings
- * * @property {object} style
+ * @property {object} showPrivateIcoGlyph - Controls the state of the "private icoGlyph" mode.
+ * @property {boolean} showPrivateIcoGlyph.value - Indicates if "private icoGlyph" mode is enabled.
+ * @property {function} showPrivateIcoGlyph.toggle - Toggles the "private icoGlyph" mode.
+ * @property {object} colorMode - Controls the application's color mode.
+ * @property {function} colorMode.change - Updates the color mode and saves the preference.
+ *    Available options: 'grey' (default), 'dark', 'light'.
+ * @property {object} icoGlyphUserSettings - Contains user-defined style settings.
+ * @property {object} icoGlyphUserSettings.style - Stores custom styles for IcoGlyphs.
+ * @property {boolean} icoGlyphUserSettings.useStyleForSvgDownload - Determines if styles should be applied during SVG download.
  */
 let appState = $state({
-	showPrivateIcoGlyph: {
-		value: showPrivateIcoGlyphValue,
-		togglePrivateIcoGlyph: togglePrivateIcoGlyph
-	},
-	icoGlypherMode: {
-		value: icoGlypherModeValue,
-		toggleFunction: toggleIcoGlypherMode
-	},
-	devMode: {
-		value: devModeValue,
-		toggleFunction: toggledevMode
-	},
-	designerMode: {
-		value: designerModeValue,
-		toggleFunction: toggledesignerMode
-	},
-	colorMode: {
-		// The initial value could be retrieved from localStorage if needed.
-		// value: 'grey',
-		changeColorMode: changeColorMode
+	modes: {
+		showPrivateIcoGlyph: {
+			value: modes.showPrivateIcoGlyph,
+			toggle: () => toggleMode('showPrivateIcoGlyph')
+		},
+		icoGlypherMode: {
+			value: modes.icoGlypherMode,
+			toggle: () => toggleMode('icoGlypherMode')
+		},
+		devMode: {
+			value: modes.devMode,
+			toggle: () => toggleMode('devMode')
+		},
+		designerMode: {
+			value: modes.designerMode,
+			toggle: () => toggleMode('designerMode')
+		},
+		colorMode: {
+			value: modes.colorMode,
+			change: changeColorMode
+		}
 	},
 	icoGlyphUserSettings: {
 		style: icoGlyphUserCustomStyles,
@@ -155,5 +101,4 @@ let appState = $state({
 	}
 });
 
-// Export the global state so it can be used across the application.
 export default appState;

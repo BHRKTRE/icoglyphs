@@ -55,7 +55,7 @@
 		selectedButton = 'drop-down';
 	});
 
-	// $inspect(appState.icoGlypherMode);
+	// $inspect(appState.modes);
 </script>
 
 <div id="displayButtonContainer">

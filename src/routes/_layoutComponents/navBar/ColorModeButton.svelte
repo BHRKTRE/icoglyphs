@@ -4,21 +4,17 @@
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
 	let colorModeButton = $state(new icoGlyphButtonPropsConstructor());
-	colorModeButton.add('grey-mode', () => appState.colorMode.changeColorMode('dark'), {
+	colorModeButton.add('grey-mode', () => appState.modes.colorMode.change('dark'), {
 		to: 'dark-mode'
 	});
-	colorModeButton.add('dark-mode', () => appState.colorMode.changeColorMode('light'), {
+	colorModeButton.add('dark-mode', () => appState.modes.colorMode.change('light'), {
 		to: 'light-mode'
 	});
-	colorModeButton.add('light-mode', () => appState.colorMode.changeColorMode('grey'), {
+	colorModeButton.add('light-mode', () => appState.modes.colorMode.change('grey'), {
 		to: 'grey-mode'
 	});
 
-	let colorModeSelected = $state(
-		localStorage.getItem('colorMode')
-			? `${JSON.parse(localStorage.getItem('colorMode'))}-mode`
-			: 'grey-mode'
-	);
+	let colorModeSelected = $state(`${appState.modes.colorMode.value}-mode`);
 
 	// $inspect(colorModeSelected);
 </script>

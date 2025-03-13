@@ -13,7 +13,7 @@
 	// $inspect(appState.icoGlyphStyles);
 </script>
 
-{#if appState.showPrivateIcoGlyph.value || !icoGlyphName.startsWith('_')}
+{#if appState.modes.showPrivateIcoGlyph.value || !icoGlyphName.startsWith('_')}
 	<button
 		onclick={() => goto(`/ico/${icoGlyphName}`)}
 		aria-label={`Navigate to ${icoGlyphName} page`}

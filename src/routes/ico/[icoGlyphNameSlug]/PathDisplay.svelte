@@ -6,7 +6,7 @@
 	// $inspect(icoGlyphName);
 </script>
 
-{#if appState.icoGlypherMode.value}
+{#if appState.modes.icoGlypherMode.value}
 	<div class="basic-container">
 		<code class="path-code">{icoGlyphs.getPath(icoGlyphName)}</code>
 	</div>

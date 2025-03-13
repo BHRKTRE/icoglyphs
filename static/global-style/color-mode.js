@@ -1,4 +1,4 @@
-const themeValue = JSON.parse(localStorage.getItem('colorMode'));
-const defaultColorMode = 'grey';
+const modes = JSON.parse(localStorage.getItem('modes'));
+const themeValue = modes ? modes.colorMode : 'grey';
 
-document.body.setAttribute('data-color-mode', themeValue ?? defaultColorMode);
+document.body.setAttribute('data-color-mode', themeValue);

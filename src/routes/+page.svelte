@@ -14,7 +14,7 @@
 			const aliases = icoData.aliases || [];
 
 			// If the icon has no aliases and showPrivateIcoGlyph.value is false, exclude it
-			if (!appState.showPrivateIcoGlyph.value && aliases.length === 0) return false;
+			if (!appState.modes.showPrivateIcoGlyph.value && aliases.length === 0) return false;
 
 			const { metadata } = icoData;
 

@@ -1,6 +1,7 @@
 <script>
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
+	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import psi from '$lib/app/ui/utils/psi.js';
 
 	let bbb = $state(new icoGlyphButtonPropsConstructor());
@@ -43,7 +44,7 @@
 	 * bind:selected={...}
 	 */
 
-	// $inspect(1 / psi ** 4);
+	// $inspect(appState.modes);
 </script>
 
 <main>

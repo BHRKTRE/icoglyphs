@@ -3,10 +3,10 @@
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
-	let togglePrivateIcoGlyphStatus = $state(appState.showPrivateIcoGlyph.value);
+	let togglePrivateIcoGlyphStatus = $state(appState.modes.showPrivateIcoGlyph.value);
 	const togglePrivateIcoGlyph = () => {
-		appState.showPrivateIcoGlyph.togglePrivateIcoGlyph();
-		togglePrivateIcoGlyphStatus = appState.showPrivateIcoGlyph.value;
+		appState.modes.showPrivateIcoGlyph.toggle();
+		togglePrivateIcoGlyphStatus = appState.modes.showPrivateIcoGlyph.value;
 	};
 </script>
 
@@ -30,9 +30,9 @@
 			<div class="param-button-container">
 				<button
 					onclick={() => {
-						appState.icoGlypherMode.toggleFunction();
+						appState.modes.icoGlypherMode.toggleFunction();
 					}}
-					class="text-button"><h5>{appState.icoGlypherMode.value}</h5></button
+					class="text-button"><h5>{appState.modes.icoGlypherMode.value}</h5></button
 				>
 			</div>
 		</div>
