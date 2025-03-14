@@ -12,7 +12,6 @@ const loadModesFromLocalStorage = () => {
 	return storedModes
 		? JSON.parse(storedModes)
 		: {
-				showPrivateIcoGlyph: false,
 				icoGlypherMode: false,
 				devMode: false,
 				designerMode: false,
@@ -62,9 +61,6 @@ let useStyleForSvgDownload = $state(true);
  * Global application state.
  *
  * @typedef {object} appState
- * @property {object} showPrivateIcoGlyph - Controls the state of the "private icoGlyph" mode.
- * @property {boolean} showPrivateIcoGlyph.value - Indicates if "private icoGlyph" mode is enabled.
- * @property {function} showPrivateIcoGlyph.toggle - Toggles the "private icoGlyph" mode.
  * @property {object} colorMode - Controls the application's color mode.
  * @property {function} colorMode.change - Updates the color mode and saves the preference.
  *    Available options: 'grey' (default), 'dark', 'light'.
@@ -74,10 +70,6 @@ let useStyleForSvgDownload = $state(true);
  */
 let appState = $state({
 	modes: {
-		showPrivateIcoGlyph: {
-			value: modes.showPrivateIcoGlyph,
-			toggle: () => toggleMode('showPrivateIcoGlyph')
-		},
 		icoGlypherMode: {
 			value: modes.icoGlypherMode,
 			toggle: () => toggleMode('icoGlypherMode')

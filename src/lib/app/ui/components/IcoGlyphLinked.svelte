@@ -13,18 +13,16 @@
 	// $inspect(appState.icoGlyphStyles);
 </script>
 
-{#if appState.modes.showPrivateIcoGlyph.value || !icoGlyphName.startsWith('_')}
-	<button
-		onclick={() => goto(`/ico/${icoGlyphName}`)}
-		aria-label={`Navigate to ${icoGlyphName} page`}
-		class="icoglyphContainer"
-		style={`width: ${dimensions[size]}px; height: ${dimensions[size]}px;`}
-	>
-		<svg {...appState.icoGlyphUserSettings.style} {...icoGlyphs.getSvgAttributes(icoGlyphName)}>
-			<path d={icoGlyphs.getPath(icoGlyphName)} />
-		</svg>
-	</button>
-{/if}
+<button
+	onclick={() => goto(`/ico/${icoGlyphName}`)}
+	aria-label={`Navigate to ${icoGlyphName} page`}
+	class="icoglyphContainer"
+	style={`width: ${dimensions[size]}px; height: ${dimensions[size]}px;`}
+>
+	<svg {...appState.icoGlyphUserSettings.style} {...icoGlyphs.getSvgAttributes(icoGlyphName)}>
+		<path d={icoGlyphs.getPath(icoGlyphName)} />
+	</svg>
+</button>
 
 <style>
 	.icoglyphContainer {

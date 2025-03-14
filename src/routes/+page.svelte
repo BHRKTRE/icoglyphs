@@ -1,7 +1,6 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
 	import IcoGlyphLinked from '$lib/app/ui/components/IcoGlyphLinked.svelte';
-	import appState from '$lib/app/core/stores/appState.svelte.js';
 
 	let query = $state('');
 	let filteredIcoGlyphs = $state([]);
@@ -9,12 +8,10 @@
 	const getDefaultIcoGlyphs = () => {
 		const categoriesUsed = new Set();
 		return Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
-			// Check if the icon is private (it has no aliases) and showPrivateIcoGlyph.value is false
 			const icoData = icoGlyphs.library().svgData[icoGlyphName];
 			const aliases = icoData.aliases || [];
 
-			// If the icon has no aliases and showPrivateIcoGlyph.value is false, exclude it
-			if (!appState.modes.showPrivateIcoGlyph.value && aliases.length === 0) return false;
+			if (aliases.length === 0) return false;
 
 			const { metadata } = icoData;
 
