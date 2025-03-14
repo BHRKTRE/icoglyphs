@@ -10,11 +10,19 @@
 		medium: 130
 	};
 
-	// $inspect(appState.icoGlyphStyles);
+	function getIcoGlyphSlug() {
+		if (icoGlyphs.library().svgData[icoGlyphName].aliases) {
+			return icoGlyphs.library().svgData[icoGlyphName].aliases[0];
+		} else {
+			return icoGlyphName;
+		}
+	}
+
+	$inspect(getIcoGlyphSlug());
 </script>
 
 <button
-	onclick={() => goto(`/ico/${icoGlyphName}`)}
+	onclick={() => goto(`/ico/${getIcoGlyphSlug()}`)}
 	aria-label={`Navigate to ${icoGlyphName} page`}
 	class="icoglyphContainer"
 	style={`width: ${dimensions[size]}px; height: ${dimensions[size]}px;`}
