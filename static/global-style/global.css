@@ -149,7 +149,6 @@ button {
 	cursor: pointer;
 	border: none;
 	transition: 324ms;
-	border: var(--border-width-small) solid transparent;
 	border-radius: var(--border-radius);
 }
 
@@ -184,6 +183,20 @@ input[type='text'] {
 	/* background: var(--b2); */
 	padding: var(--spacing-small) var(--spacing-medium);
 	width: 100%;
+}
+
+/* ********** */
+/* CLASS STYLE */
+/* ********** */
+
+.border-1 {
+	border: var(--border-width-medium) solid var(--b2);
+	border-radius: var(--border-radius);
+}
+
+.container-1 {
+	gap: var(--spacing-small);
+	padding: var(--spacing-medium);
 }
 
 /* ********** */

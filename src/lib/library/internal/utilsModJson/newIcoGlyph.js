@@ -72,26 +72,15 @@ async function addNewIcoGlyph(glyphData) {
  */
 
 const newIcoGlyph = {
-	name: 'v4__p_r_b__s_5_4___x___v3__p_r_t__d_r_t__s_5_4',
+	name: 'c1__p_l__d_l__s_2_4___x___l__p_c__d_bp_r__d_r__s_2_4',
 
-	aliases: ['copy'],
+	aliases: ['on'],
 
-	path: 'M -35 35 L 10 35 L 10 -20 L -35 -20 Z M 10 20 L 35 20 L 35 -35 L -10 -35 L -10 -20',
+	path: 'M -20 0 L -35 0 M 35 0 L 20 0 M 20 0 A 1 1 0 0 0 -20 0 M -20 0 A 1 1 0 0 0 20 0',
 
 	metadata: {
-		tags: [
-			'copy',
-			'duplicate',
-			'clone',
-			'replicate',
-			'clipboard',
-			'reproduce',
-			'copy-to-clipboard',
-			'multiplication',
-			'reuse',
-			'replication'
-		]
-		// categories: ['_mode']
+		tags: ['activated', 'true'],
+		categories: ['Toggle']
 		//
 		// Keys below may be deprecated
 		// author: "L",

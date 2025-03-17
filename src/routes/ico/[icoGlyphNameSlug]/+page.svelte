@@ -92,27 +92,31 @@
 		<SvgStyler />
 
 		{#if icoGlyphs.searchIcoGlyph(data.name)?.metadata?.tags?.length > 0}
-			<div id="tags-container">
+			<div id="tags-container" class="container-1 border-1">
+				<h5>Tags</h5>
 				<p>{tagsDisplay}</p>
 			</div>
 		{/if}
 
-		<div id="subIcoGlyphsDisplay">
-			{#each allPathKeys as pathKeys}
-				{#if pathKeys !== data.name}
-					<!-- svelte-ignore a11y_no_static_element_interactions -->
-					<!-- svelte-ignore a11y_click_events_have_key_events -->
-					<div
-						onmouseenter={() => animationOnMouseEnter(pathKeys)}
-						onmouseleave={animationOnMouseLeave}
-						class="animableSet"
-						onclick={() => (readyToAnimate = false)}
-					>
-						<IcoGlyphLinked icoGlyphName={pathKeys} size="small" />
-					</div>
-				{/if}
-			{/each}
-		</div>
+		{#if data.metadata?.categories && data.metadata.categories.length > 0}
+			<div id="sub-icoglyphs-display" class="border-1 container-1">
+				<h5>Related icoGlyphs</h5>
+				{#each allPathKeys as pathKeys}
+					{#if pathKeys !== data.name}
+						<!-- svelte-ignore a11y_no_static_element_interactions -->
+						<!-- svelte-ignore a11y_click_events_have_key_events -->
+						<div
+							onmouseenter={() => animationOnMouseEnter(pathKeys)}
+							onmouseleave={animationOnMouseLeave}
+							class="animableSet"
+							onclick={() => (readyToAnimate = false)}
+						>
+							<IcoGlyphLinked icoGlyphName={pathKeys} size="small" />
+						</div>
+					{/if}
+				{/each}
+			</div>
+		{/if}
 	</div>
 </main>
 
@@ -171,6 +175,10 @@
 		}
 	}
 
+	#tags-container {
+		position: relative;
+	}
+
 	#tags-container p {
 		font-size: 1rem;
 		font-weight: 400;
@@ -178,12 +186,29 @@
 		text-align: center;
 	}
 
-	#subIcoGlyphsDisplay {
+	#sub-icoglyphs-display {
 		margin-top: 30px;
+		position: relative;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: var(--spacing-medium);
-		padding: var(--spacing-medium);
 	}
+
+	.container-1 h5 {
+		position: absolute;
+		top: -14px;
+		background: var(--b1);
+		padding: 0 var(--spacing-medium);
+		z-index: 1;
+		transform: translateX(-50%);
+		left: 50%;
+	}
+
+	/* #tags-container h5 {
+		position: absolute;
+		top: -14px;
+		background: var(--b1);
+		padding: 0 var(--spacing-medium);
+		z-index: 1;
+	} */
 </style>

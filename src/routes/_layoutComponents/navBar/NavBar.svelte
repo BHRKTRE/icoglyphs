@@ -1,7 +1,6 @@
 <script>
 	import ColorModeButton from './ColorModeButton.svelte';
-	import DesignerModeButton from './DesignerModeButton.svelte';
-	import DevModeButton from './DevModeButton.svelte';
+
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 	import { goto } from '$app/navigation';
@@ -21,7 +20,7 @@
 		</li>
 
 		<li class="right"><IcoGlyphButton buttonConfig={paramsButton} /></li>
-		<li class="right"><ColorModeButton /></li>
+		<!-- <li class="right"><ColorModeButton /></li> -->
 	</ul>
 </div>
 

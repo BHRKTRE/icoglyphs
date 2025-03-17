@@ -379,6 +379,41 @@
 					"replication"
 				]
 			}
+		},
+		"c1__p_l__d_l__s_2_4___x___l__p_c__d_b_t__s_0_7___x___c1__p_r__d_r__s_2_4": {
+			"aliases": ["off", "false"],
+			"path": "M 0 0 L 0 35 M 0 -35 L 0 0 M -15 -20 A 1 1 0 0 0 -15 20 M 15 20 A 1 1 0 0 0 15 -20",
+			"metadata": {
+				"tags": [
+					"deactivated",
+					"disabled",
+					"cancel",
+					"false",
+					"inactive",
+					"state",
+					"unchecked",
+					"unselected",
+					"stopped"
+				],
+				"categories": ["Toggle"]
+			}
+		},
+		"l__p_l__d_r_l__s_2_0___x___o__p_c__s_4_4___x___l__p_r__d_r_l__s_2_0": {
+			"aliases": ["on", "true"],
+			"path": "M -20 0 L -35 0 M 35 0 L 20 0 M 20 0 A 1 1 0 0 0 -20 0 M -20 0 A 1 1 0 0 0 20 0",
+			"metadata": {
+				"tags": [
+					"activated",
+					"enabled",
+					"true",
+					"active",
+					"checked",
+					"running",
+					"state",
+					"selected"
+				],
+				"categories": ["Toggle"]
+			}
 		}
 	}
 }
