@@ -91,7 +91,7 @@
 		</div>
 		<SvgStyler />
 
-		{#if icoGlyphs.searchIcoGlyph(data.name)?.metadata?.tags.length > 0}
+		{#if icoGlyphs.searchIcoGlyph(data.name)?.metadata?.tags?.length > 0}
 			<div id="tags-container">
 				<p>{tagsDisplay}</p>
 			</div>
