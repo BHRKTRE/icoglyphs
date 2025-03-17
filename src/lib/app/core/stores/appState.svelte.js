@@ -20,7 +20,7 @@ const loadModesFromLocalStorage = () => {
 };
 
 // Retrieve stored mode settings
-const modes = loadModesFromLocalStorage();
+let modes = $state(loadModesFromLocalStorage());
 
 /**
  * Saves the current mode settings to localStorage for persistence.
@@ -37,6 +37,8 @@ const saveModesToLocalStorage = () => {
 const toggleMode = (mode) => {
 	modes[mode] = !modes[mode];
 	saveModesToLocalStorage();
+
+	appState.modes[mode].value = modes[mode];
 };
 
 /**

@@ -2,6 +2,8 @@
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
+
+	$inspect(appState.modes.icoGlypherMode.value);
 </script>
 
 <main>

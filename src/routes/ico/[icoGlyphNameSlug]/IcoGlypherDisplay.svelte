@@ -3,12 +3,12 @@
 	import icoGlyphs from '$lib/index.js';
 
 	let { icoGlyphName } = $props();
-	$inspect(icoGlyphs.searchIcoGlyph(icoGlyphName));
+	$inspect(appState.modes.icoGlypherMode.value);
 </script>
 
 {#if appState.modes.icoGlypherMode.value == true}
 	<div class="basic-container">
-		<code class="path-code">{icoGlyphs.library(icoGlyphName)}</code>
+		<code class="path-code">{icoGlyphs.searchIcoGlyph(icoGlyphName).key}</code>
 	</div>
 	<div class="basic-container">
 		<code class="path-code">{icoGlyphs.getPath(icoGlyphName)}</code>
