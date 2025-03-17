@@ -15,17 +15,24 @@
 
 <div id="navbar-container">
 	<ul>
-		<li class="left"><IcoGlyphButton buttonConfig={homePageButton} /></li>
-		<!-- <li><a href="/params"><h5>Params</h5></a></li> -->
+		<!-- <li class="left"><IcoGlyphButton buttonConfig={homePageButton} /></li> -->
+		<li class="left">
+			<a href="/" title="Home - IcoGlyphs">IcoGlyphs</a>
+		</li>
 
-		<!-- <li class="right"><DevModeButton /></li> -->
-		<!-- <li class="right"><DesignerModeButton /></li> -->
 		<li class="right"><IcoGlyphButton buttonConfig={paramsButton} /></li>
 		<li class="right"><ColorModeButton /></li>
 	</ul>
 </div>
 
 <style>
+	a {
+		color: var(--t1);
+		font-family: var(--typo1);
+		font-weight: 500;
+		font-size: 1.5rem;
+	}
+
 	#navbar-container {
 		margin: var(--spacing-medium) 0;
 		display: flex;

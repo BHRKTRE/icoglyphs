@@ -72,22 +72,24 @@ async function addNewIcoGlyph(glyphData) {
  */
 
 const newIcoGlyph = {
-	name: 'o__p_b__s_2_2___x___o__s_2_2___x___o__p_t__s_2_2',
+	name: 'v4__p_r_b__s_5_4___x___v3__p_r_t__d_r_t__s_5_4',
 
-	aliases: ['plurality'],
+	aliases: ['copy'],
 
-	path: ['o__p_b__s_2_2', 'o__s_2_2', 'o__p_t__s_2_2'],
+	path: 'M -35 35 L 10 35 L 10 -20 L -35 -20 Z M 10 20 L 35 20 L 35 -35 L -10 -35 L -10 -20',
 
 	metadata: {
 		tags: [
-			'several',
-			'many',
-			'multiple',
-			'few',
-			'multiplicity',
-			'diversity',
-			'variety',
-			'multitude'
+			'copy',
+			'duplicate',
+			'clone',
+			'replicate',
+			'clipboard',
+			'reproduce',
+			'copy-to-clipboard',
+			'multiplication',
+			'reuse',
+			'replication'
 		]
 		// categories: ['_mode']
 		//

@@ -3,6 +3,8 @@
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
+	// This Component may be removed
+
 	let colorModeButton = $state(new icoGlyphButtonPropsConstructor());
 	colorModeButton.add('grey-mode', () => appState.modes.colorMode.change('dark'), {
 		to: 'dark-mode'

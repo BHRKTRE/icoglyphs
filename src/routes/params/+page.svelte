@@ -3,7 +3,7 @@
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
-	$inspect(appState.modes.icoGlypherMode.value);
+	// $inspect(appState.modes.icoGlypherMode.value);
 </script>
 
 <main>
