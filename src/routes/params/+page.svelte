@@ -12,7 +12,7 @@
 			<div class="param-button-container">
 				<button
 					onclick={() => {
-						appState.modes.icoGlypherMode.toggleFunction();
+						appState.modes.icoGlypherMode.toggle();
 					}}
 					class="text-button"><h5>{appState.modes.icoGlypherMode.value}</h5></button
 				>

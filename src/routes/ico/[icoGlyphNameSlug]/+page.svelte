@@ -7,7 +7,7 @@
 	import SvgStyler from '$lib/app/ui/components/SvgStyler.svelte';
 	import anime from 'animejs';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import PathDisplay from './PathDisplay.svelte';
+	import IcoGlypherDisplay from './IcoGlypherDisplay.svelte';
 
 	let { data } = $props();
 
@@ -63,7 +63,7 @@
 	</div>
 
 	<div id="buttonContainer">
-		<PathDisplay icoGlyphName={data.name} />
+		<IcoGlypherDisplay icoGlyphName={data.name} />
 		<CopySvgButton icoGlyphName={data.name} />
 		<DownLoadSvgButton icoGlyphName={data.name} />
 		<DownLoadPngButton icoGlyphName={data.name} />

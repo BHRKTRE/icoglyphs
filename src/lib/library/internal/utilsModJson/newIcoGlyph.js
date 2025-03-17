@@ -72,15 +72,24 @@ async function addNewIcoGlyph(glyphData) {
  */
 
 const newIcoGlyph = {
-	name: 'l__p_cl__d_bl_tr___x___l__p_cr__d_br_tr___x___o__s_15_15',
+	name: 'o__p_b__s_2_2___x___o__s_2_2___x___o__p_t__s_2_2',
 
-	// aliases: ['dev'],
+	aliases: ['plurality'],
 
-	path: ['dev', 'o__s_15_15'],
+	path: ['o__p_b__s_2_2', 'o__s_2_2', 'o__p_t__s_2_2'],
 
 	metadata: {
-		// tags: ['code', 'dev', 'developer'],
-		categories: ['_mode']
+		tags: [
+			'several',
+			'many',
+			'multiple',
+			'few',
+			'multiplicity',
+			'diversity',
+			'variety',
+			'multitude'
+		]
+		// categories: ['_mode']
 		//
 		// Keys below may be deprecated
 		// author: "L",

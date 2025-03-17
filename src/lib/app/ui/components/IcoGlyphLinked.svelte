@@ -18,7 +18,7 @@
 		}
 	}
 
-	$inspect(getIcoGlyphSlug());
+	// $inspect(getIcoGlyphSlug());
 </script>
 
 <button

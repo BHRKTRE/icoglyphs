@@ -314,18 +314,6 @@
             "aliases": ["download"],
             "path": ["arrow-down", "v3__p_b__d_b__s_7_2"]
         },
-        "c1e1c1__p_c_t__s_5_3___x___o__s_8_8": {
-            "path": ["style", "o__s_8_8"],
-            "metadata": {
-                "categories": ["_mode"]
-            }
-        },
-        "c1e1c1__p_c_t__s_5_3___x___o__s_15_15": {
-            "path": ["M -15 0 C -15 -30 -30 -30 -30 0 C -30 30 5 30 5 -5 C 5 -30 -5 -30 -5 -5 C -5 30 30 30 30 0 C 30 -30 15 -30 15 0", "o__s_15_15"],
-            "metadata": {
-                "categories": ["_mode"]
-            }
-        },
         "o__s_8_8": {
             "path": "M 0 -42 A 1 1 0 0 0 0 42 A 1 1 0 0 0 0 -42"
         },
@@ -339,16 +327,11 @@
                 "tags": ["code", "dev", "developer"]
             }
         },
-        "l__p_cl__d_bl_tr___x___l__p_cr__d_br_tr___x___o__s_8_8": {
-            "path": ["dev", "o__s_8_8"],
+        "o__p_b__s_2_2___x___o__s_2_2___x___o__p_t__s_2_2": {
+            "aliases": ["plurality"],
+            "path": ["o__p_b__s_2_2", "o__s_2_2", "o__p_t__s_2_2"],
             "metadata": {
-                "categories": ["_mode"]
-            }
-        },
-        "l__p_cl__d_bl_tr___x___l__p_cr__d_br_tr___x___o__s_15_15": {
-            "path": ["dev", "o__s_15_15"],
-            "metadata": {
-                "categories": ["_mode"]
+                "tags": ["several", "many", "multiple", "few", "multiplicity", "diversity", "variety", "multitude"]
             }
         }
     }

@@ -8,6 +8,9 @@
 
 	let homePageButton = new icoGlyphButtonPropsConstructor();
 	homePageButton.add('home-page', () => goto('/'));
+
+	let paramsButton = new icoGlyphButtonPropsConstructor();
+	paramsButton.add('plurality', () => goto('/params'));
 </script>
 
 <div id="navbar-container">
@@ -17,6 +20,7 @@
 
 		<!-- <li class="right"><DevModeButton /></li> -->
 		<!-- <li class="right"><DesignerModeButton /></li> -->
+		<li class="right"><IcoGlyphButton buttonConfig={paramsButton} /></li>
 		<li class="right"><ColorModeButton /></li>
 	</ul>
 </div>
