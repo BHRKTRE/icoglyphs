@@ -1,16 +1,24 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
 	import IcoGlyphLinked from '$lib/app/ui/components/IcoGlyphLinked.svelte';
+	import appState from '$lib/app/core/stores/appState.svelte.js';
 
-	let query = $state('');
 	let filteredIcoGlyphs = $state([]);
+
+	// Function to shuffle an array (Fisher-Yates algorithm)
+	const shuffleArray = (array) => {
+		for (let i = array.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[array[i], array[j]] = [array[j], array[i]];
+		}
+		return array;
+	};
 
 	const getDefaultIcoGlyphs = () => {
 		const categoriesUsed = new Set();
-		return Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
+		const defaultIcons = Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
 			const icoData = icoGlyphs.library().svgData[icoGlyphName];
 			const aliases = icoData.aliases || [];
-
 			if (aliases.length === 0) return false;
 
 			const { metadata } = icoData;
@@ -24,15 +32,16 @@
 			// Include the icon if it has no categories
 			return !metadata?.categories;
 		});
+
+		return shuffleArray(defaultIcons);
 	};
 
 	const search = () => {
-		const lowerQuery = query.trim().toLowerCase();
+		const lowerQuery = appState.searchBarValue.trim().toLowerCase();
 		const queryWords = lowerQuery.split(/\s+/);
 
 		filteredIcoGlyphs = lowerQuery
 			? Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
-					// Retrieve the icon data
 					const icoData = icoGlyphs.library().svgData[icoGlyphName];
 					const { metadata } = icoData;
 					const aliases = (icoData.aliases || []).map((alias) => alias.toLowerCase());
@@ -40,7 +49,7 @@
 					const iconTags = (metadata?.tags ?? []).map((tag) => tag.toLowerCase());
 					const iconCategories = (metadata?.categories ?? []).map((cat) => cat.toLowerCase());
 
-					// Filter by icon text, aliases, tags, and categories
+					// Filter icons by name, aliases, tags, and categories
 					return queryWords.every(
 						(word) =>
 							iconText.includes(word) ||
@@ -52,6 +61,7 @@
 			: getDefaultIcoGlyphs();
 	};
 
+	// Randomize icons when the page loads
 	filteredIcoGlyphs = getDefaultIcoGlyphs();
 </script>
 
@@ -59,7 +69,7 @@
 	<input
 		id="searchBar"
 		type="text"
-		bind:value={query}
+		bind:value={appState.searchBarValue}
 		placeholder="Search icoGlyphs"
 		oninput={search}
 	/>

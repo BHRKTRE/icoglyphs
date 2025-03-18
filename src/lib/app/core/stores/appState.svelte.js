@@ -54,10 +54,15 @@ const changeColorMode = (color) => {
 };
 
 /**
- * Stores user-defined styles for IcoGlyphs.
+ * Stores user-defined styles for IcoGlyphs (designerMode only).
  */
 let icoGlyphUserCustomStyles = $state({});
 let useStyleForSvgDownload = $state(true);
+
+/**
+ * Search bar value
+ */
+let searchBarValue = $state('');
 
 /**
  * Global application state.
@@ -69,6 +74,7 @@ let useStyleForSvgDownload = $state(true);
  * @property {object} icoGlyphUserSettings - Contains user-defined style settings.
  * @property {object} icoGlyphUserSettings.style - Stores custom styles for IcoGlyphs.
  * @property {boolean} icoGlyphUserSettings.useStyleForSvgDownload - Determines if styles should be applied during SVG download.
+ * @property {string} searchBarValue
  */
 let appState = $state({
 	modes: {
@@ -92,7 +98,8 @@ let appState = $state({
 	icoGlyphUserSettings: {
 		style: icoGlyphUserCustomStyles,
 		useStyleForSvgDownload: useStyleForSvgDownload
-	}
+	},
+	searchBarValue: searchBarValue
 });
 
 export default appState;
