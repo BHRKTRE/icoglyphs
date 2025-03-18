@@ -29,3 +29,8 @@ export function applySvgUserStyles() {
 		appState.icoGlyphUserSettings.useStyleForSvgDownload = JSON.parse(useStyleForSvgDownload);
 	}
 }
+
+export function resetStyle() {
+	localStorage.removeItem('icoGlyphsUserStyle');
+	applySvgUserStyles();
+}

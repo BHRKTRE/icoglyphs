@@ -1,4 +1,4 @@
-import { applySvgUserStyles } from '$lib/app/core/utils/applySvgUserStyles.svelte.js';
+import { applySvgUserStyles, resetStyle } from '$lib/app/core/utils/applySvgUserStyles.svelte.js';
 
 /**
  * Loads mode settings from localStorage.
@@ -88,7 +88,10 @@ let appState = $state({
 		},
 		designerMode: {
 			value: modes.designerMode,
-			toggle: () => toggleMode('designerMode')
+			toggle: () => {
+				toggleMode('designerMode');
+				resetStyle();
+			}
 		},
 		colorMode: {
 			value: modes.colorMode,

@@ -56,7 +56,7 @@
 	designerModeToggle.add('false', () => appState.modes.designerMode.toggle(), {});
 	designerModeToggle.add('true', () => appState.modes.designerMode.toggle(), {});
 
-	$inspect(devModeValue);
+	// $inspect(devModeValue);
 </script>
 
 <div id="params-container">

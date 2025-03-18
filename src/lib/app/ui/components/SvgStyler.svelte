@@ -1,17 +1,12 @@
 <script>
 	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import { applySvgUserStyles } from '$lib/app/core/utils/applySvgUserStyles.svelte.js';
+	import { applySvgUserStyles, resetStyle } from '$lib/app/core/utils/applySvgUserStyles.svelte.js';
 	import psi from '$lib/app/ui/utils/psi.js';
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
 	function actualiseLocalStorage(storageName, value) {
 		localStorage.setItem(storageName, JSON.stringify(value));
-	}
-
-	function resetStyle() {
-		localStorage.removeItem('icoGlyphsUserStyle');
-		applySvgUserStyles();
 	}
 
 	/**
@@ -58,12 +53,31 @@
 	// $inspect(appState.modes);
 </script>
 
-{#if appState.modes.designerMode.value == true}
-	<div id="displayButtonContainer">
-		<IcoGlyphButton buttonConfig={displaySvgStylerButton} bind:selected={selectedButton} />
-	</div>
-	<div class="svg-styler-container" style:padding={svgStylerPadding}>
-		{#if displaySvgStyler}
+<div id="displayButtonContainer">
+	<IcoGlyphButton buttonConfig={displaySvgStylerButton} bind:selected={selectedButton} />
+</div>
+<div class="svg-styler-container" style:padding={svgStylerPadding}>
+	{#if displaySvgStyler}
+		<div class="mod-color-container">
+			<div class="column-container">
+				<label for="stroke-size"
+					>Stroke size : {appState.icoGlyphUserSettings.style['stroke-width']} px</label
+				><input
+					style="width: {inputWidth};"
+					id="stroke-size"
+					class="color-input"
+					bind:value={appState.icoGlyphUserSettings.style['stroke-width']}
+					oninput={() =>
+						actualiseLocalStorage('icoGlyphsUserStyle', appState.icoGlyphUserSettings.style)}
+					min="0"
+					max="16"
+					step="0.1"
+					type="range"
+				/>
+			</div>
+		</div>
+
+		{#if appState.modes.designerMode.value == true}
 			<div class="mod-color-container">
 				<div class="column-container" id="stroke-color-container">
 					<label for="stroke-color-input" id="stroke-color-label">Stroke color</label>
@@ -78,29 +92,16 @@
 					/>
 				</div>
 			</div>
-			<div class="mod-color-container">
-				<div class="column-container">
-					<label for="stroke-size"
-						>Stroke size : {appState.icoGlyphUserSettings.style['stroke-width']} px</label
-					><input
-						style="width: {inputWidth};"
-						id="stroke-size"
-						class="color-input"
-						bind:value={appState.icoGlyphUserSettings.style['stroke-width']}
-						oninput={() =>
-							actualiseLocalStorage('icoGlyphsUserStyle', appState.icoGlyphUserSettings.style)}
-						min="0"
-						max="16"
-						step="0.1"
-						type="range"
-					/>
-				</div>
-			</div>
-			<button onclick={changeStrokeType} class="text-button">
-				Stroke style :
-				{appState.icoGlyphUserSettings.style['stroke-linejoin']}
-			</button>
 
+			<div class="small-button-container">
+				<button onclick={changeStrokeType} class="text-button">
+					Stroke style :
+					{appState.icoGlyphUserSettings.style['stroke-linejoin']}
+				</button>
+				<button onclick={resetStyle} class="text-button">Reset style</button>
+			</div>
+		{/if}
+		{#if appState.modes.devMode.value == true}
 			<div class="mod-color-container">
 				<label for="toggle-import-style">Import style when copying & downloading (SVG only)</label
 				><input
@@ -115,11 +116,9 @@
 					bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
 				/>
 			</div>
-
-			<button onclick={resetStyle} class="text-button">Reset style</button>
 		{/if}
-	</div>
-{/if}
+	{/if}
+</div>
 
 <style>
 	#displayButtonContainer {
@@ -175,7 +174,12 @@
 		padding: var(--spacing-small) var(--spacing-medium);
 		border-radius: var(--border-radius);
 	}
-
+	.small-button-container {
+		display: flex;
+		gap: var(--spacing-medium);
+		width: 100%;
+		justify-content: space-around;
+	}
 	#stroke-color-container {
 		position: relative;
 	}

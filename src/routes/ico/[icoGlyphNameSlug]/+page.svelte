@@ -4,8 +4,9 @@
 	import SvgStyler from '$lib/app/ui/components/SvgStyler.svelte';
 	import anime from 'animejs';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import IcoGlypherDisplay from './IcoGlypherDisplay.svelte';
+	import IcoGlypherModeDisplay from './IcoGlypherModeDisplay.svelte';
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
+	import MainIcoG from './mainIcoG.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 	import {
 		downloadPng,
@@ -77,14 +78,10 @@
 <main>
 	<div id="main-container">
 		<div id="top-container">
-			<div id="icoglyph-container">
-				<svg {...appState.icoGlyphUserSettings.style} {...icoGlyphs.getSvgAttributes(data.name)}>
-					<path d={icoGlyphs.getPath(data.name)} />
-				</svg>
-			</div>
+			<MainIcoG IGname={data.name} />
 
 			<div id="buttonContainer">
-				<IcoGlypherDisplay icoGlyphName={data.name} />
+				<IcoGlypherModeDisplay icoGlyphName={data.name} />
 				<IcoGlyphButton buttonConfig={downloadPngButton} />
 				<IcoGlyphButton buttonConfig={copySvgButton} />
 			</div>
@@ -145,14 +142,6 @@
 		position: relative;
 	}
 
-	#icoglyph-container {
-		width: 100%;
-		height: 100%;
-		border: var(--b2) var(--border-width-medium) solid;
-		border-radius: var(--border-radius);
-		max-width: var(--max-width-medium);
-	}
-
 	#buttonContainer {
 		position: absolute;
 		margin: var(--spacing-medium) 0;
@@ -177,6 +166,7 @@
 
 	#tags-container {
 		position: relative;
+		margin-top: 15px;
 	}
 
 	#tags-container p {

@@ -1,20 +1,36 @@
 import icoGlyphs from '$lib/index.js';
 import appState from '$lib/app/core/stores/appState.svelte.js';
 
-let svgStyle = $derived.by(() => {
-	if (appState.icoGlyphUserSettings.useStyleForSvgDownload === true) {
-		return appState.icoGlyphUserSettings.style;
-	} else {
-		return '';
-	}
+let defaultStyleForUserExport = $state({
+	fill: 'none',
+	stroke: '#000000',
+	'stroke-linecap': 'round',
+	'stroke-linejoin': 'round',
+	'stroke-opacity': 1,
+	'stroke-width': appState.icoGlyphUserSettings.style['stroke-width']
 });
+
+function getStyle() {
+	let style = defaultStyleForUserExport;
+
+	if (
+		!appState.icoGlyphUserSettings.useStyleForSvgDownload &&
+		appState.modes.devMode.value === true
+	) {
+		style = {};
+	} else if (appState.modes.designerMode.value) {
+		style = appState.icoGlyphUserSettings.style;
+	}
+
+	return style;
+}
 
 function getCompletSvg(icoGlyphName) {
 	return `	<svg 
     ${Object.entries(icoGlyphs.getSvgAttributes(icoGlyphName))
 			.map(([key, value]) => `${key}="${value}"`)
 			.join(' ')}   
-    ${Object.entries(svgStyle)
+    ${Object.entries(getStyle())
 			.map(([key, value]) => `${key}="${value}"`)
 			.join(' ')}>
     
