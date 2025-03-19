@@ -31,10 +31,14 @@
 	 * Display SvgStyle
 	 *
 	 */
-	let displaySvgStyler = $state(false);
-	let svgStylerPadding = $derived(
-		displaySvgStyler ? '25px var(--spacing-medium) var(--spacing-medium) var(--spacing-medium)' : 0
-	);
+	// May be removed
+	let displaySvgStyler = $state(true);
+	// let svgStylerPadding = $derived(
+	// 	displaySvgStyler ? '25px var(--spacing-medium) var(--spacing-medium) var(--spacing-medium)' : 0
+	// );
+
+	const svgStylerPadding = 'var(--spacing-medium)';
+
 	let selectedButton = $state('drop-down');
 	/**
 	 * Button for display SvgStyler
@@ -50,78 +54,78 @@
 		selectedButton = 'drop-down';
 	});
 
-	// $inspect(appState.modes);
+	// $inspect(appState.icoGlyphUserSettings.style);
 </script>
 
-<div id="displayButtonContainer">
+<!-- <div id="displayButtonContainer">
 	<IcoGlyphButton buttonConfig={displaySvgStylerButton} bind:selected={selectedButton} />
-</div>
+</div> -->
 <div class="svg-styler-container" style:padding={svgStylerPadding}>
-	{#if displaySvgStyler}
+	<!-- {#if displaySvgStyler} -->
+	<div class="mod-color-container">
+		<div class="column-container">
+			<label for="stroke-size"
+				>Stroke size : {appState.icoGlyphUserSettings.style['stroke-width']} px</label
+			><input
+				style="width: {inputWidth};"
+				id="stroke-size"
+				class="color-input"
+				bind:value={appState.icoGlyphUserSettings.style['stroke-width']}
+				oninput={() =>
+					actualiseLocalStorage('icoGlyphsUserStyle', appState.icoGlyphUserSettings.style)}
+				min="0"
+				max="16"
+				step="0.1"
+				type="range"
+			/>
+		</div>
+	</div>
+
+	{#if appState.modes.designerMode.value == true}
 		<div class="mod-color-container">
-			<div class="column-container">
-				<label for="stroke-size"
-					>Stroke size : {appState.icoGlyphUserSettings.style['stroke-width']} px</label
-				><input
+			<div class="column-container" id="stroke-color-container">
+				<label for="stroke-color-input" id="stroke-color-label">Stroke color</label>
+				<input
 					style="width: {inputWidth};"
-					id="stroke-size"
+					id="stroke-color-input"
 					class="color-input"
-					bind:value={appState.icoGlyphUserSettings.style['stroke-width']}
+					type="color"
+					bind:value={appState.icoGlyphUserSettings.style.stroke}
 					oninput={() =>
 						actualiseLocalStorage('icoGlyphsUserStyle', appState.icoGlyphUserSettings.style)}
-					min="0"
-					max="16"
-					step="0.1"
-					type="range"
 				/>
 			</div>
 		</div>
 
-		{#if appState.modes.designerMode.value == true}
-			<div class="mod-color-container">
-				<div class="column-container" id="stroke-color-container">
-					<label for="stroke-color-input" id="stroke-color-label">Stroke color</label>
-					<input
-						style="width: {inputWidth};"
-						id="stroke-color-input"
-						class="color-input"
-						type="color"
-						bind:value={appState.icoGlyphUserSettings.style.stroke}
-						oninput={() =>
-							actualiseLocalStorage('icoGlyphsUserStyle', appState.icoGlyphUserSettings.style)}
-					/>
-				</div>
-			</div>
-
-			<div class="small-button-container">
-				<button onclick={changeStrokeType} class="text-button">
-					Stroke style :
-					{appState.icoGlyphUserSettings.style['stroke-linejoin']}
-				</button>
-				<button onclick={resetStyle} class="text-button">Reset style</button>
-			</div>
-		{/if}
-		{#if appState.modes.devMode.value == true}
-			<div class="mod-color-container">
-				<label for="toggle-import-style">Import style when copying & downloading (SVG only)</label
-				><input
-					id="toggle-import-style"
-					class="color-input"
-					type="checkbox"
-					onchange={() =>
-						actualiseLocalStorage(
-							'useStyleForSvgDownload',
-							appState.icoGlyphUserSettings.useStyleForSvgDownload
-						)}
-					bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
-				/>
-			</div>
-		{/if}
+		<div class="small-button-container">
+			<button onclick={changeStrokeType} class="text-button">
+				Stroke style :
+				{appState.icoGlyphUserSettings.style['stroke-linejoin']}
+			</button>
+			<button onclick={resetStyle} class="text-button">Reset style</button>
+		</div>
 	{/if}
+	{#if appState.modes.devMode.value == true}
+		<div class="mod-color-container">
+			<label for="toggle-import-style">Import style when copying & downloading (SVG only)</label
+			><input
+				id="toggle-import-style"
+				class="color-input"
+				type="checkbox"
+				onchange={() =>
+					actualiseLocalStorage(
+						'useStyleForSvgDownload',
+						appState.icoGlyphUserSettings.useStyleForSvgDownload
+					)}
+				bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
+			/>
+		</div>
+	{/if}
+	<!-- {/if} -->
 </div>
 
 <style>
-	#displayButtonContainer {
+	/* #displayButtonContainer {
 		border: 5px solid var(--b1);
 		border-radius: var(--border-radius);
 		background: var(--b1);
@@ -129,7 +133,7 @@
 		bottom: -25px;
 		z-index: 1;
 		transition: 1s;
-	}
+	} */
 
 	.svg-styler-container {
 		display: flex;

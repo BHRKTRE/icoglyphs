@@ -56,6 +56,22 @@ const changeColorMode = (color) => {
 /**
  * Stores user-defined styles for IcoGlyphs (designerMode only).
  */
+const defaultStrokeColor = {
+	grey: '#e4ebf3',
+	light: '#0c0f13',
+	dark: '#e4ebf3'
+};
+let savedStyle = localStorage.getItem('icoGlyphsUserStyle')
+	? JSON.parse(localStorage.getItem('icoGlyphsUserStyle'))
+	: {
+			stroke: defaultStrokeColor[modes.colorMode],
+			'stroke-linejoin': 'round',
+			'stroke-linecap': 'round',
+			'stroke-width': 6,
+			'stroke-opacity': 1,
+			fill: 'none'
+		};
+
 let icoGlyphUserCustomStyles = $state({});
 let useStyleForSvgDownload = $state(true);
 
