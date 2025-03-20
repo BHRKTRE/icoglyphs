@@ -8,7 +8,7 @@
 
 	let checkerboard = $state(appState.modes.designerMode.value);
 
-	// $inspect(JSON.parse(localStorage.getItem('icoGlyphsUserStyle')));
+	// $inspect(appState.icoGlyphUserSettings.style);
 </script>
 
 <div id="icoglyph-container" class:checkerboard>

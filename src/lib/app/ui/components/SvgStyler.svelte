@@ -1,14 +1,19 @@
 <script>
 	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import { applySvgUserStyles, resetStyle } from '$lib/app/core/utils/applySvgUserStyles.svelte.js';
 	import psi from '$lib/app/ui/utils/psi.js';
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
-	function actualiseLocalStorage(storageName, value) {
-		localStorage.setItem(storageName, JSON.stringify(value));
-	}
+	function actualiseLocalStorage(storageName, key, value) {
+		// Récupérer l'objet existant dans localStorage
+		let storedData = JSON.parse(localStorage.getItem(storageName)) || {};
 
+		// Mettre à jour uniquement la clé concernée
+		storedData[key] = value;
+
+		// Enregistrer l'objet mis à jour dans localStorage
+		localStorage.setItem(storageName, JSON.stringify(storedData));
+	}
 	/**
 	 * Stroke types settings
 	 *
@@ -22,7 +27,16 @@
 		appState.icoGlyphUserSettings.style['stroke-linejoin'] = strokeTypes[nextIndex];
 		appState.icoGlyphUserSettings.style['stroke-linecap'] = strokeTypes[nextIndex];
 
-		actualiseLocalStorage('icoGlyphsUserStyle', appState.icoGlyphUserSettings.style);
+		actualiseLocalStorage(
+			'icoGlyphsUserStyle',
+			'stroke-linecap',
+			appState.icoGlyphUserSettings.style['stroke-linecap']
+		);
+		actualiseLocalStorage(
+			'icoGlyphsUserStyle',
+			'stroke-linejoin',
+			appState.icoGlyphUserSettings.style['stroke-linejoin']
+		);
 	}
 
 	let inputWidth = $derived(100 / psi + '%');
@@ -72,7 +86,11 @@
 				class="color-input"
 				bind:value={appState.icoGlyphUserSettings.style['stroke-width']}
 				oninput={() =>
-					actualiseLocalStorage('icoGlyphsUserStyle', appState.icoGlyphUserSettings.style)}
+					actualiseLocalStorage(
+						'icoGlyphsUserStyle',
+						'stroke-width',
+						appState.icoGlyphUserSettings.style['stroke-width']
+					)}
 				min="0"
 				max="16"
 				step="0.1"
@@ -92,7 +110,11 @@
 					type="color"
 					bind:value={appState.icoGlyphUserSettings.style.stroke}
 					oninput={() =>
-						actualiseLocalStorage('icoGlyphsUserStyle', appState.icoGlyphUserSettings.style)}
+						actualiseLocalStorage(
+							'icoGlyphsUserStyle',
+							'stroke',
+							appState.icoGlyphUserSettings.style['stroke']
+						)}
 				/>
 			</div>
 		</div>
@@ -102,7 +124,9 @@
 				Stroke style :
 				{appState.icoGlyphUserSettings.style['stroke-linejoin']}
 			</button>
-			<button onclick={resetStyle} class="text-button">Reset style</button>
+			<button onclick={() => appState.icoGlyphUserSettings.resetStyle} class="text-button"
+				>Reset style</button
+			>
 		</div>
 	{/if}
 	{#if appState.modes.devMode.value == true}

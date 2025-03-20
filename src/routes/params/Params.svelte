@@ -56,7 +56,7 @@
 	designerModeToggle.add('false', () => appState.modes.designerMode.toggle(), {});
 	designerModeToggle.add('true', () => appState.modes.designerMode.toggle(), {});
 
-	// $inspect(devModeValue);
+	// $inspect(appState.icoGlyphUserSettings.style);
 </script>
 
 <div id="params-container">

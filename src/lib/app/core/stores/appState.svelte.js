@@ -1,5 +1,3 @@
-import { applySvgUserStyles, resetStyle } from '$lib/app/core/utils/applySvgUserStyles.svelte.js';
-
 /**
  * Loads mode settings from localStorage.
  * If no data is found or the code is running on the server side, it returns default values.
@@ -20,7 +18,7 @@ const loadModesFromLocalStorage = () => {
 };
 
 // Retrieve stored mode settings
-let modes = $state(loadModesFromLocalStorage());
+let modes = loadModesFromLocalStorage(); // Directly load from localStorage
 
 /**
  * Saves the current mode settings to localStorage for persistence.
@@ -50,35 +48,64 @@ const changeColorMode = (color) => {
 	modes.colorMode = color;
 	saveModesToLocalStorage();
 	document.body.setAttribute('data-color-mode', color);
-	applySvgUserStyles();
+
+	icoGlyphUserCustomStyles.stroke = storedStyle.stroke
+		? storedStyle.stroke
+		: strokeColorDependOnMode[color];
+
+	// console.log(icoGlyphUserCustomStyles.stroke, strokeColorDependOnMode[color]);
 };
 
 /**
  * Stores user-defined styles for IcoGlyphs (designerMode only).
  */
-const defaultStrokeColor = {
+
+// Default stroke colors based on mode
+const strokeColorDependOnMode = {
 	grey: '#e4ebf3',
 	light: '#0c0f13',
 	dark: '#e4ebf3'
 };
-let savedStyle = localStorage.getItem('icoGlyphsUserStyle')
-	? JSON.parse(localStorage.getItem('icoGlyphsUserStyle'))
-	: {
-			stroke: defaultStrokeColor[modes.colorMode],
-			'stroke-linejoin': 'round',
-			'stroke-linecap': 'round',
-			'stroke-width': 6,
-			'stroke-opacity': 1,
-			fill: 'none'
-		};
 
-let icoGlyphUserCustomStyles = $state({});
-let useStyleForSvgDownload = $state(true);
+// Load user-defined SVG styles from local storage
+const loadSvgStyleFromLocalStorage = () => {
+	if (typeof window === 'undefined') return {}; // Prevents errors in server-side environments
+
+	const storedStyle = localStorage.getItem('icoGlyphsUserStyle');
+	return storedStyle ? JSON.parse(storedStyle) : {};
+};
+
+// Retrieve stored styles or set defaults
+let storedStyle = loadSvgStyleFromLocalStorage();
+
+/**
+ * Updates the user styles when color mode or other properties change.
+ */
+const updateUserStyles = () => {
+	return {
+		stroke: storedStyle.stroke || strokeColorDependOnMode[modes.colorMode],
+		'stroke-linejoin': storedStyle['stroke-linejoin'] || 'round',
+		'stroke-linecap': storedStyle['stroke-linecap'] || 'round',
+		'stroke-width': storedStyle['stroke-width'] || 6,
+		'stroke-opacity': storedStyle['stroke-opacity'] || 1,
+		fill: storedStyle.fill || 'none'
+	};
+};
+
+// Define the final user custom styles for IcoGlyphs with defaults
+let icoGlyphUserCustomStyles = $state(updateUserStyles());
+
+// State for managing style usage in SVG downloads
+let useStyleForSvgDownload = true;
+
+const resetStyle = () => {
+	localStorage.removeItem('icoGlyphsUserStyle');
+};
 
 /**
  * Search bar value
  */
-let searchBarValue = $state('');
+let searchBarValue = '';
 
 /**
  * Global application state.
@@ -116,7 +143,8 @@ let appState = $state({
 	},
 	icoGlyphUserSettings: {
 		style: icoGlyphUserCustomStyles,
-		useStyleForSvgDownload: useStyleForSvgDownload
+		useStyleForSvgDownload: useStyleForSvgDownload,
+		resetStyle: () => resetStyle()
 	},
 	searchBarValue: searchBarValue
 });

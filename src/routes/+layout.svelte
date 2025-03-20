@@ -2,15 +2,18 @@
 	import Footer from './_layoutComponents/Footer.svelte';
 	import NavBar from './_layoutComponents/navBar/NavBar.svelte';
 	import psi from '$lib/app/ui/utils/psi.js';
-	import { onMount } from 'svelte';
-	import { applySvgUserStyles } from '$lib/app/core/utils/applySvgUserStyles.svelte.js';
+	import appState from '$lib/app/core/stores/appState.svelte.js';
 
 	// make animation for waiting for the page to be ready
 	let readyToDisplay = $state(false);
 
-	onMount(() => {
-		applySvgUserStyles();
+	$effect(() => {
 		readyToDisplay = true;
+
+		// return () => {
+		// 	console.log('Composant démonté, enregistrement dans localStorage');
+		// 	localStorage.setItem('monChat', 'fff');
+		// };
 	});
 
 	// $inspect(appState.icoGlyphUserSettings.style);

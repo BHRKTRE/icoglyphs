@@ -1,17 +1,23 @@
 import icoGlyphs from '$lib/index.js';
 import appState from '$lib/app/core/stores/appState.svelte.js';
 
-let defaultStyleForUserExport = $state({
+const defaultStyleForUserExport = {
 	fill: 'none',
 	stroke: '#000000',
 	'stroke-linecap': 'round',
 	'stroke-linejoin': 'round',
-	'stroke-opacity': 1,
-	'stroke-width': appState.icoGlyphUserSettings.style['stroke-width']
-});
+	'stroke-opacity': 1
+};
+
+function getDefaultStyleForUserExport() {
+	return {
+		...defaultStyleForUserExport,
+		'stroke-width': appState.icoGlyphUserSettings.style['stroke-width']
+	};
+}
 
 function getStyle() {
-	let style = defaultStyleForUserExport;
+	let style = getDefaultStyleForUserExport();
 
 	if (
 		!appState.icoGlyphUserSettings.useStyleForSvgDownload &&
