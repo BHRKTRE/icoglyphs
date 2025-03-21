@@ -11,7 +11,6 @@
 		readyToDisplay = true;
 
 		// return () => {
-		// 	console.log('Composant démonté, enregistrement dans localStorage');
 		// 	localStorage.setItem('monChat', 'fff');
 		// };
 	});
@@ -24,7 +23,7 @@
 
 	let sideMargin = $derived(windowWidth / Math.pow(psi, 10) + 'px');
 
-	// $inspect(sideMargin);
+	// $inspect(appState.modes.devMode.value);
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />

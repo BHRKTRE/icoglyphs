@@ -32,6 +32,7 @@ const saveModesToLocalStorage = () => {
  *
  * @param {string} mode - The name of the mode to toggle.
  */
+// ! toggle function may be suppressed
 const toggleMode = (mode) => {
 	modes[mode] = !modes[mode];
 	saveModesToLocalStorage();
@@ -45,8 +46,8 @@ const toggleMode = (mode) => {
  * @param {string} color - The selected color mode (accepted values: "light", "dark", "grey").
  */
 const changeColorMode = (color) => {
-	modes.colorMode = color;
-	saveModesToLocalStorage();
+	// modes.colorMode = color;
+	// saveModesToLocalStorage();
 	document.body.setAttribute('data-color-mode', color);
 
 	icoGlyphUserCustomStyles.stroke = storedStyle.stroke
@@ -123,14 +124,17 @@ let appState = $state({
 	modes: {
 		icoGlypherMode: {
 			value: modes.icoGlypherMode,
+			// toggle function may be suppressed
 			toggle: () => toggleMode('icoGlypherMode')
 		},
 		devMode: {
 			value: modes.devMode,
+			// toggle function may be suppressed
 			toggle: () => toggleMode('devMode')
 		},
 		designerMode: {
 			value: modes.designerMode,
+			// toggle function may be suppressed
 			toggle: () => {
 				toggleMode('designerMode');
 				resetStyle();

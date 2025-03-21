@@ -3,6 +3,14 @@
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
+	$effect(() => {
+		const modesValues = Object.fromEntries(
+			Object.entries(appState.modes).map(([key, data]) => [key, data.value])
+		);
+
+		localStorage.setItem('modes', JSON.stringify(modesValues));
+	});
+
 	/**
 	 * Button Style
 	 */
@@ -14,49 +22,81 @@
 	 * ColorMode button
 	 */
 	let colorModeButton = $state(new icoGlyphButtonPropsConstructor());
-	colorModeButton.add('grey-mode', () => appState.modes.colorMode.change('dark'), {
-		to: 'dark-mode'
-	});
-	colorModeButton.add('dark-mode', () => appState.modes.colorMode.change('light'), {
-		to: 'light-mode'
-	});
-	colorModeButton.add('light-mode', () => appState.modes.colorMode.change('grey'), {
-		to: 'grey-mode'
-	});
+	colorModeButton.add(
+		'grey-mode',
+		() => ((appState.modes.colorMode.value = 'dark'), appState.modes.colorMode.change('dark')),
+		{
+			to: 'dark-mode'
+		}
+	);
+	colorModeButton.add(
+		'dark-mode',
+		() => ((appState.modes.colorMode.value = 'light'), appState.modes.colorMode.change('light')),
+		{
+			to: 'light-mode'
+		}
+	);
+	colorModeButton.add(
+		'light-mode',
+		() => ((appState.modes.colorMode.value = 'grey'), appState.modes.colorMode.change('grey')),
+		{
+			to: 'grey-mode'
+		}
+	);
 	let colorModeSelected = $state(`${appState.modes.colorMode.value}-mode`);
 
 	/**
 	 * devMode button
 	 */
+	let devModeButtonState = $state(`${appState.modes.devMode.value}`);
+	function devModeButtonAction() {
+		appState.modes.devMode.value = !appState.modes.devMode.value;
+		devModeButtonState = `${appState.modes.devMode.value}`;
+	}
 	let devModeButton = $state(new icoGlyphButtonPropsConstructor());
-	devModeButton.add('dev', () => appState.modes.devMode.toggle(), {});
-
+	devModeButton.add(
+		'dev',
+		() => {
+			devModeButtonAction();
+		},
+		{}
+	);
 	let devModeToggle = $state(new icoGlyphButtonPropsConstructor());
-	devModeToggle.add('false', () => appState.modes.devMode.toggle(), {});
-	devModeToggle.add('true', () => appState.modes.devMode.toggle(), {});
-	let devModeValue = $state(`${appState.modes.devMode.value}`);
+	devModeToggle.add('false', () => devModeButtonAction());
+	devModeToggle.add('true', () => devModeButtonAction());
 
 	/**
 	 * icoGlypherMode button
 	 */
+	let icoGlypherModeButtonState = $state(`${appState.modes.icoGlypherMode.value}`);
+	function icoGlypherButtonAction() {
+		appState.modes.icoGlypherMode.value = !appState.modes.icoGlypherMode.value;
+		icoGlypherModeButtonState = `${appState.modes.icoGlypherMode.value}`;
+	}
 	let icoGlypherModeButton = $state(new icoGlyphButtonPropsConstructor());
-	icoGlypherModeButton.add('sky', () => appState.modes.icoGlypherMode.toggle(), {});
+	icoGlypherModeButton.add('sky', () => icoGlypherButtonAction(), {});
 
 	let icoGlypherModeToggle = $state(new icoGlyphButtonPropsConstructor());
-	icoGlypherModeToggle.add('false', () => appState.modes.icoGlypherMode.toggle(), {});
-	icoGlypherModeToggle.add('true', () => appState.modes.icoGlypherMode.toggle(), {});
+	icoGlypherModeToggle.add('false', () => icoGlypherButtonAction(), {});
+	icoGlypherModeToggle.add('true', () => icoGlypherButtonAction(), {});
 
 	/**
 	 * designerMode button
 	 */
+	let designerModeButtonState = $state(`${appState.modes.designerMode.value}`);
+	function designerButtonAction() {
+		appState.modes.designerMode.value = !appState.modes.designerMode.value;
+		designerModeButtonState = `${appState.modes.designerMode.value}`;
+		localStorage.removeItem('icoGlyphsUserStyle');
+	}
 	let designerModeButton = $state(new icoGlyphButtonPropsConstructor());
-	designerModeButton.add('style', () => appState.modes.designerMode.toggle(), {});
+	designerModeButton.add('style', () => designerButtonAction(), {});
 
 	let designerModeToggle = $state(new icoGlyphButtonPropsConstructor());
-	designerModeToggle.add('false', () => appState.modes.designerMode.toggle(), {});
-	designerModeToggle.add('true', () => appState.modes.designerMode.toggle(), {});
+	designerModeToggle.add('false', () => designerButtonAction(), {});
+	designerModeToggle.add('true', () => designerButtonAction(), {});
 
-	// $inspect(appState.icoGlyphUserSettings.style);
+	// $inspect(devModeButtonState, bb, appState.modes.devMode.value);
 </script>
 
 <div id="params-container">
@@ -70,17 +110,25 @@
 
 	<div class="param-section">
 		<IcoGlyphButton {buttonStyle} buttonConfig={devModeButton} />
-		<IcoGlyphButton {buttonStyle} buttonConfig={devModeToggle} bind:selected={devModeValue} />
+		<IcoGlyphButton {buttonStyle} buttonConfig={devModeToggle} bind:selected={devModeButtonState} />
 	</div>
 
 	<div class="param-section">
 		<IcoGlyphButton {buttonStyle} buttonConfig={icoGlypherModeButton} />
-		<IcoGlyphButton {buttonStyle} buttonConfig={icoGlypherModeToggle} />
+		<IcoGlyphButton
+			{buttonStyle}
+			buttonConfig={icoGlypherModeToggle}
+			bind:selected={icoGlypherModeButtonState}
+		/>
 	</div>
 
 	<div class="param-section">
 		<IcoGlyphButton {buttonStyle} buttonConfig={designerModeButton} />
-		<IcoGlyphButton {buttonStyle} buttonConfig={designerModeToggle} />
+		<IcoGlyphButton
+			{buttonStyle}
+			buttonConfig={designerModeToggle}
+			bind:selected={designerModeButtonState}
+		/>
 	</div>
 </div>
 

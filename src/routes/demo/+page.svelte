@@ -5,7 +5,8 @@
 	import psi from '$lib/app/ui/utils/psi.js';
 
 	let bbb = $state(new icoGlyphButtonPropsConstructor());
-	bbb.add('download', () => console.log('function 2'), {
+	bbb.add('arrow-left', () => console.log('function 2'), {
+		to: 'arrow-right',
 		// tooltip: bbb.tooltip('a faire', 'bottom'),
 		text: 'Prends le bail'
 	});
@@ -23,13 +24,13 @@
 
 	//////////////////////////
 
-	let selectedButton1 = $state('download');
-
-	let animeDurationButton1 = $state(500);
+	let selectedButton1 = $state('arrow-left');
 
 	function changeActualState() {
-		selectedButton1 = 'arrow-left';
+		selectedButton1 = 'arrow-right';
 	}
+
+	let animeDurationButton1 = $state(500);
 
 	function changeDuration() {
 		animeDurationButton1 = 2000;
@@ -44,7 +45,7 @@
 	 * bind:selected={...}
 	 */
 
-	// $inspect(appState.modes);
+	$inspect(appState.modes);
 </script>
 
 <main>
