@@ -13,21 +13,21 @@
 			<li><a href={externalLinks.discord} target="_blank">Discord</a></li>
 		</ul>
 		<div id="modes-container">
-			<svg {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
 				<path d={icoGlyphs.getPath(appState.modes.colorMode.value)}> </path>
 			</svg>
 			{#if appState.modes.icoGlypherMode.value}
-				<svg {...icoGlyphs.getSvgAttributes('sky')}>
+				<svg class="svg-default" {...icoGlyphs.getSvgAttributes('sky')}>
 					<path d={icoGlyphs.getPath('sky')}> </path>
 				</svg>
 			{/if}
 			{#if appState.modes.devMode.value}
-				<svg {...icoGlyphs.getSvgAttributes('dev')}>
+				<svg class="svg-default" {...icoGlyphs.getSvgAttributes('dev')}>
 					<path d={icoGlyphs.getPath('dev')}> </path>
 				</svg>
 			{/if}
 			{#if appState.modes.designerMode.value}
-				<svg {...icoGlyphs.getSvgAttributes('style')}>
+				<svg class="svg-default" {...icoGlyphs.getSvgAttributes('style')}>
 					<path d={icoGlyphs.getPath('style')}> </path>
 				</svg>
 			{/if}

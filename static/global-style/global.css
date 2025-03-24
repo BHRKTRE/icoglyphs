@@ -133,7 +133,7 @@ ul {
 }
 
 .internal-icoglyph-button,
-svg {
+.svg-default {
 	stroke: var(--t1);
 	stroke-linejoin: round;
 	stroke-linecap: round;

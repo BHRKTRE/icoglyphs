@@ -81,12 +81,12 @@
 			<MainIcoG IGname={data.name} />
 
 			<div id="buttonContainer">
-				<IcoGlypherModeDisplay icoGlyphName={data.name} />
 				<IcoGlyphButton buttonConfig={downloadPngButton} />
 				{#if appState.modes.devMode.value}
 					<IcoGlyphButton buttonConfig={copySvgButton} />
 				{/if}
 			</div>
+			<IcoGlypherModeDisplay icoGlyphName={data.name} />
 		</div>
 		<SvgStyler />
 

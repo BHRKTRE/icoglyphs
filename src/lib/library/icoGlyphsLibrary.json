@@ -326,12 +326,12 @@
 		"o__p_c_b__s_3_3": {
 			"path": "M 0 0 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 0"
 		},
-		"v3__p_b__d_b__s_7_2": {
-			"path": "M -35 15 L -35 35 L 35 35 L 35 15"
+		"l__p_b__d_l_r__s_7_0": {
+			"path": "M 0 -35 L 0 35 M -20 15 L 0 35 L 20 15 M -35 35 L 35 35"
 		},
-		"arrow_down___x___v3__p_b__d_b__s_7_2": {
+		"arrow_down___x___l__p_b__d_l_r__s_7_0": {
 			"aliases": ["download"],
-			"path": ["arrow-down", "v3__p_b__d_b__s_7_2"]
+			"path": ["arrow-down", "l__p_b__d_l_r__s_7_0"]
 		},
 		"o__s_8_8": {
 			"path": "M 0 -42 A 1 1 0 0 0 0 42 A 1 1 0 0 0 0 -42"
