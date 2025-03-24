@@ -83,7 +83,9 @@
 			<div id="buttonContainer">
 				<IcoGlypherModeDisplay icoGlyphName={data.name} />
 				<IcoGlyphButton buttonConfig={downloadPngButton} />
-				<IcoGlyphButton buttonConfig={copySvgButton} />
+				{#if appState.modes.devMode.value}
+					<IcoGlyphButton buttonConfig={copySvgButton} />
+				{/if}
 			</div>
 		</div>
 		<SvgStyler />
@@ -97,7 +99,7 @@
 
 		{#if data.metadata?.categories && data.metadata.categories.length > 0}
 			<div id="sub-icoglyphs-display" class="border-1 container-1">
-				<h5>Related icoGlyphs</h5>
+				<!-- <h5>Related icoGlyphs</h5> -->
 				{#each allPathKeys as pathKeys}
 					{#if pathKeys !== data.name}
 						<!-- svelte-ignore a11y_no_static_element_interactions -->

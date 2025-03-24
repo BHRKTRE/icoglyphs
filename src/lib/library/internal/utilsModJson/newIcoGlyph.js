@@ -72,15 +72,15 @@ async function addNewIcoGlyph(glyphData) {
  */
 
 const newIcoGlyph = {
-	name: 'c1__p_l__d_l__s_2_4___x___l__p_c__d_bp_r__d_r__s_2_4',
+	name: 'discord_logo',
 
-	aliases: ['on'],
+	// aliases: ['github'],
 
-	path: 'M -20 0 L -35 0 M 35 0 L 20 0 M 20 0 A 1 1 0 0 0 -20 0 M -20 0 A 1 1 0 0 0 20 0',
+	path: 'M -13 21 l -4.59 6.52 c -3.37 -0.11 -15.54 -2.27 -20 -10 c 0 -16.48 6.49 -35.99 9.67 -38.9 c 6.59 -5.24 17.33 -6.1 17.33 -6.1 s 1.03 1.84 1.11 3.97 c 4.09 -0.8 7.57 -0.97 9.39 -0.97 c 1.84 0 5.37 0.17 9.51 1 c 0.06 -2.15 0.99 -4 0.99 -4 s 10.74 0.86 17.33 6.1 c 3.18 2.91 9.67 22.42 9.67 38.9 c -4.45 7.73 -16.63 9.89 -20 10 l -4.59 -6.52 c -3.53 0.88 -7.84 1.52 -12.91 1.52 s -9.38 -0.64 -12.91 -1.52 z M -13 -5 a 1 1 0 0 0 0 13 a 1 1 0 0 0 0 -13 M 13 -5 a 1 1 0 0 0 0 13 a 1 1 0 0 0 0 -13',
 
 	metadata: {
-		tags: ['activated', 'true'],
-		categories: ['Toggle']
+		// tags: ['activated', 'true'],
+		// categories: ['Toggle']
 		//
 		// Keys below may be deprecated
 		// author: "L",

@@ -9,10 +9,6 @@
 
 	$effect(() => {
 		readyToDisplay = true;
-
-		// return () => {
-		// 	localStorage.setItem('monChat', 'fff');
-		// };
 	});
 
 	// $inspect(appState.icoGlyphUserSettings.style);
@@ -34,6 +30,21 @@
 
 		{@render children?.()}
 
-		<Footer />
+		<div id="footer-container">
+			<Footer />
+		</div>
 	</div>
 {/if}
+
+<style>
+	#page-wrapper {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	#footer-container {
+		margin-top: auto;
+		margin-bottom: var(--spacing-medium);
+	}
+</style>
