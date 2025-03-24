@@ -29,7 +29,7 @@
 		<NavBar />
 
 		{@render children?.()}
-
+		<div id="footer-spacing"></div>
 		<div id="footer-container">
 			<Footer />
 		</div>
@@ -43,6 +43,9 @@
 		min-height: 100vh;
 	}
 
+	#footer-spacing {
+		height: 70px;
+	}
 	#footer-container {
 		margin-top: auto;
 		margin-bottom: var(--spacing-medium);
