@@ -18,8 +18,8 @@ const icoGlyphs = {
 		return getIcoGlyphDefaultStyle();
 	},
 
-	getCompleteSvg: (icoGlyphName, icoGlyphVersion) => {
-		return getCompleteSvg(icoGlyphName, icoGlyphVersion);
+	getCompleteSvg: (icoGlyphName) => {
+		return getCompleteSvg(icoGlyphName);
 	},
 	searchIcoGlyph: (icoGlyphName) => {
 		return searchIcoGlyph(icoGlyphName);

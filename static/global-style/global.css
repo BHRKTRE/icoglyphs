@@ -132,7 +132,8 @@ ul {
 	padding-inline-start: 0;
 }
 
-.internal-icoglyph-button {
+.internal-icoglyph-button,
+svg {
 	stroke: var(--t1);
 	stroke-linejoin: round;
 	stroke-linecap: round;
