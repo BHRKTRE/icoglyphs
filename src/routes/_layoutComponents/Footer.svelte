@@ -83,6 +83,11 @@
 	svg {
 		height: 40px;
 		stroke-width: 4px;
+		stroke: var(--t1);
+		stroke-linejoin: round;
+		stroke-linecap: round;
+		stroke-opacity: 1;
+		fill: none;
 	}
 
 	@media (max-width: 400px) {
