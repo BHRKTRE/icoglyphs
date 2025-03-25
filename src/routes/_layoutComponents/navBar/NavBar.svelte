@@ -18,7 +18,7 @@
 			<a href="/" title="Home - IcoGlyphs">IcoGlyphs</a>
 		</li>
 
-		<li class="right"><IcoGlyphButton buttonConfig={paramsButton} /></li>
+		<!-- <li class="right"><IcoGlyphButton buttonConfig={paramsButton} /></li> -->
 		<!-- <li class="right"><ColorModeButton /></li> -->
 	</ul>
 	<!-- {#if appState.IgSetingsIsOpen}
@@ -76,9 +76,9 @@
 	}
 
 	.left {
-		margin-right: auto; /* Pousse tout le reste à droite */
+		margin-right: auto;
 	}
-	.right {
-		margin-left: var(--spacing-small); /* Ajoute un petit espace entre les boutons de droite */
-	}
+	/* .right {
+		margin-left: var(--spacing-small); */
+	/* } */
 </style>

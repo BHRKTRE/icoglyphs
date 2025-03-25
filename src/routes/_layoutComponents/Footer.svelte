@@ -12,11 +12,10 @@
 			<li><a href={externalLinks.github} target="_blank">Github</a></li>
 			<li><a href={externalLinks.discord} target="_blank">Discord</a></li>
 		</ul>
-		<div
+		<button
 			onclick={() => (appState.IgSetingsIsOpen = true)}
 			id="modes-container"
 			aria-label="Open settings"
-			aria-hidden="true"
 		>
 			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
 				<path d={icoGlyphs.getPath(appState.modes.colorMode.value)}> </path>
@@ -36,7 +35,7 @@
 					<path d={icoGlyphs.getPath('style')}> </path>
 				</svg>
 			{/if}
-		</div>
+		</button>
 	</div>
 
 	<div id="footer-info">
@@ -55,7 +54,20 @@
 	}
 
 	#modes-container {
+		background: var(--b1);
+		margin: 0;
 		cursor: pointer;
+		border: none;
+		transition: 324ms;
+		border-radius: var(--border-radius);
+	}
+
+	#modes-container:hover {
+		background: var(--b2);
+	}
+
+	#modes-container:active {
+		background: var(--b4);
 	}
 
 	#footer-links {

@@ -11,7 +11,7 @@
 	// $inspect(appState.icoGlyphUserSettings.style);
 </script>
 
-<div id="icoglyph-container" class:checkerboard>
+<div id="icoglyph-container" class={appState.modes.designerMode.value ? 'checkerboard' : ' '}>
 	<svg {...appState.icoGlyphUserSettings.style} {...icoGlyphs.getSvgAttributes(IGname)}>
 		<path d={icoGlyphs.getPath(IGname)} />
 	</svg>

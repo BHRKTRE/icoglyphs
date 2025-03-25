@@ -72,6 +72,13 @@
 					.join(' ')
 			: ''
 	);
+
+	/*
+	 * 	Settings button
+	 */
+	let paramsButton = new icoGlyphButtonPropsConstructor();
+	paramsButton.add('plurality', () => (appState.IgSetingsIsOpen = !appState.IgSetingsIsOpen));
+
 	// $inspect(tagsDisplay);
 </script>
 
@@ -81,6 +88,7 @@
 			<MainIcoG IGname={data.name} />
 
 			<div id="buttonContainer">
+				<IcoGlyphButton buttonConfig={paramsButton} />
 				<IcoGlyphButton buttonConfig={downloadPngButton} />
 				{#if appState.modes.devMode.value}
 					<IcoGlyphButton buttonConfig={copySvgButton} />
@@ -146,10 +154,10 @@
 
 	#buttonContainer {
 		position: absolute;
-		margin: var(--spacing-medium) 0;
+		margin: 0;
 		gap: var(--spacing-medium);
-		top: var(--spacing-small);
-		right: -80px;
+		top: 0;
+		right: -60px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -161,8 +169,9 @@
 			flex-direction: row;
 			justify-content: center;
 			width: 100%;
-			top: 0;
+			top: var(--spacing-medium);
 			right: 0;
+			margin-bottom: var(--spacing-medium);
 		}
 	}
 

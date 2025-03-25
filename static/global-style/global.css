@@ -146,8 +146,6 @@ ul {
 	margin: 0;
 	padding: 0;
 	background: var(--b2);
-	font: inherit;
-	color: inherit;
 	cursor: pointer;
 	border: none;
 	transition: 324ms;
@@ -166,6 +164,7 @@ ul {
 	background: var(--b2);
 	padding: var(--spacing-small) var(--spacing-medium);
 	border-radius: var(--border-radius);
+	border: none;
 }
 
 input[type='text'] {
