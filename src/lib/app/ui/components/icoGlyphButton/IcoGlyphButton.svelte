@@ -108,6 +108,7 @@
 		: '';
 
 	// Consider adding an aria-label for accessibility
+	// Add class dynamically based on button state
 
 	// $inspect(style);
 </script>
@@ -116,7 +117,7 @@
 	onmouseenter={() => (buttonIsOver = true)}
 	onmouseleave={() => (buttonIsOver = false)}
 	onclick={onClickFunction}
-	class="internal-icoglyph-button"
+	class="internal-icoglyph-button button-default"
 	{style}
 >
 	{#if buttonConfig[currentState]?.tooltip}

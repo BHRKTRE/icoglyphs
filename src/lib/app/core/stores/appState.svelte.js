@@ -109,6 +109,11 @@ const resetStyle = () => {
 let searchBarValue = '';
 
 /**
+ * Search bar value
+ */
+let IgSetingsIsOpen = false;
+
+/**
  * Global application state.
  *
  * @typedef {object} appState
@@ -150,7 +155,8 @@ let appState = $state({
 		useStyleForSvgDownload: useStyleForSvgDownload,
 		resetStyle: () => resetStyle()
 	},
-	searchBarValue: searchBarValue
+	searchBarValue: searchBarValue,
+	IgSetingsIsOpen: IgSetingsIsOpen
 });
 
 export default appState;

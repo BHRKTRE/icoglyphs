@@ -45,7 +45,7 @@
 	 * bind:selected={...}
 	 */
 
-	$inspect(appState.modes);
+	// $inspect(appState.modes);
 </script>
 
 <main>
@@ -60,9 +60,18 @@
 	<br />
 	<button class="text-button" onclick={changeActualState}>arrow_left</button>
 	<button class="text-button" onclick={changeDuration}>duration</button>
+	<!-- <button class="text-button" onclick={changeDuration}>params</button>
+
+	<div id="params-container"><Params /></div> -->
 </main>
 
 <style>
+	/* #params-container {
+		border: 1px solid var(--b2);
+		position: absolute;
+		background: var(--b1);
+		top: 10px;
+	} */
 	main {
 		margin-left: 15px;
 	}

@@ -99,6 +99,11 @@
 	// $inspect(devModeButtonState, bb, appState.modes.devMode.value);
 </script>
 
+<button
+	aria-label="Close settings"
+	onclick={() => (appState.IgSetingsIsOpen = !appState.IgSetingsIsOpen)}
+	id="background-overlay"
+></button>
 <div id="params-container">
 	<div class="param-section">
 		<IcoGlyphButton
@@ -134,10 +139,25 @@
 
 <style>
 	#params-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		position: absolute;
+		top: 70px;
+		left: 50%;
+		transform: translateX(-50%);
+		background-color: var(--b1);
+		border: 2px solid var(--t1);
+		border-radius: var(--border-radius);
+		padding: var(--spacing-small);
+		z-index: 11;
+	}
+
+	#background-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 10;
 	}
 
 	.param-section {

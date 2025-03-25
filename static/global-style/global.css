@@ -142,7 +142,7 @@ ul {
 	fill: none;
 }
 
-button {
+.button-default {
 	margin: 0;
 	padding: 0;
 	background: var(--b2);
@@ -154,11 +154,11 @@ button {
 	border-radius: var(--border-radius);
 }
 
-button:hover {
+.button-default:hover {
 	background: var(--b3);
 }
 
-button:active {
+.button-default:active {
 	background: var(--b4);
 }
 

@@ -250,7 +250,7 @@
 			"aliases": ["light-mode", "light"],
 			"path": ["eye", "M -20 -22 L -25 -30", "M 0 -25 L 0 -35", "M 20 -22 L 25 -30"],
 			"metadata": {
-				"tags": ["light", "day", "bright", "clear", "color mode"],
+				"tags": ["light", "day", "bright", "clear"],
 				"categories": ["Color-mode"]
 			}
 		},
@@ -258,7 +258,7 @@
 			"aliases": ["dark-mode", "dark"],
 			"path": ["eye", "M -20 22 L -25 30", "M 0 25 L 0 35", "M 20 22 L 25 30"],
 			"metadata": {
-				"tags": ["dark", "night", "dim", "moonlight", "dark mode", "nocture"],
+				"tags": ["dark", "night", "dim", "moonlight", "nocture"],
 				"categories": ["Color-mode"]
 			}
 		},

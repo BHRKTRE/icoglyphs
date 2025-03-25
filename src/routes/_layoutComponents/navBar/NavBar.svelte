@@ -1,15 +1,14 @@
 <script>
-	import ColorModeButton from './ColorModeButton.svelte';
-
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 	import { goto } from '$app/navigation';
+	import appState from '$lib/app/core/stores/appState.svelte.js';
 
 	let homePageButton = new icoGlyphButtonPropsConstructor();
 	homePageButton.add('home-page', () => goto('/'));
 
 	let paramsButton = new icoGlyphButtonPropsConstructor();
-	paramsButton.add('plurality', () => goto('/params'));
+	paramsButton.add('plurality', () => (appState.IgSetingsIsOpen = !appState.IgSetingsIsOpen));
 </script>
 
 <div id="navbar-container">
@@ -22,9 +21,33 @@
 		<li class="right"><IcoGlyphButton buttonConfig={paramsButton} /></li>
 		<!-- <li class="right"><ColorModeButton /></li> -->
 	</ul>
+	<!-- {#if appState.IgSetingsIsOpen}
+		<div id="params-container">
+			<Params />
+		</div>
+		<div onclick={paramsButtonAction} id="background-overlay"></div>
+	{/if} -->
 </div>
 
 <style>
+	/* #params-container {
+		position: absolute;
+		top: 70px;
+		background-color: var(--b1);
+		border: 2px solid var(--t1);
+		border-radius: var(--border-radius);
+		padding: var(--spacing-small);
+		z-index: 11;
+	}
+	#background-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 10;
+	} */
 	a {
 		color: var(--t1);
 		font-family: var(--typo1);
