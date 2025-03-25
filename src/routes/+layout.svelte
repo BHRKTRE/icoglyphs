@@ -4,7 +4,6 @@
 	import psi from '$lib/app/ui/utils/psi.js';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 
-	// make animation for waiting for the page to be ready
 	let readyToDisplay = $state(false);
 
 	$effect(() => {
