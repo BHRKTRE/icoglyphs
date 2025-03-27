@@ -41,16 +41,6 @@
 
 	let inputWidth = $derived(100 / psi + '%');
 
-	/**
-	 * Display SvgStyle
-	 *
-	 */
-	// May be removed
-	let displaySvgStyler = $state(true);
-	// let svgStylerPadding = $derived(
-	// 	displaySvgStyler ? '25px var(--spacing-medium) var(--spacing-medium) var(--spacing-medium)' : 0
-	// );
-
 	const svgStylerPadding = 'var(--spacing-medium)';
 
 	let selectedButton = $state('drop-down');
@@ -68,10 +58,18 @@
 		selectedButton = 'drop-down';
 	});
 
+	/**
+	 * Functions
+	 */
+	function resetStyle() {
+		localStorage.removeItem('icoGlyphsUserStyle');
+		appState.icoGlyphUserSettings.style = appState.icoGlyphUserSettings.updateUserStyles();
+	}
+
 	// $inspect(appState.icoGlyphUserSettings.style);
 </script>
 
-{#if appState.modes.designerMode.value == true || appState.modes.devMode.value == true || appState.modes.icoGlypherMode.value == true}
+{#if appState.modes.designerMode.value == true || appState.modes.devMode.value == true}
 	<div class="svg-styler-container" style:padding={svgStylerPadding}>
 		{#if appState.modes.designerMode.value == true}
 			<div class="mod-color-container">
@@ -123,10 +121,7 @@
 					Stroke style :
 					{appState.icoGlyphUserSettings.style['stroke-linejoin']}
 				</button>
-				<button
-					onclick={() => appState.icoGlyphUserSettings.resetStyle}
-					class="text-button button-default">Reset style</button
-				>
+				<button onclick={resetStyle} class="text-button button-default">Reset style</button>
 			</div>
 		{/if}
 		{#if appState.modes.devMode.value == true}

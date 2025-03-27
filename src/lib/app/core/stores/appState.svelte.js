@@ -99,10 +99,6 @@ let icoGlyphUserCustomStyles = $state(updateUserStyles());
 // State for managing style usage in SVG downloads
 let useStyleForSvgDownload = true;
 
-const resetStyle = () => {
-	localStorage.removeItem('icoGlyphsUserStyle');
-};
-
 /**
  * Search bar value
  */
@@ -142,7 +138,6 @@ let appState = $state({
 			// toggle function may be suppressed
 			toggle: () => {
 				toggleMode('designerMode');
-				resetStyle();
 			}
 		},
 		colorMode: {
@@ -153,7 +148,7 @@ let appState = $state({
 	icoGlyphUserSettings: {
 		style: icoGlyphUserCustomStyles,
 		useStyleForSvgDownload: useStyleForSvgDownload,
-		resetStyle: () => resetStyle()
+		updateUserStyles: () => updateUserStyles()
 	},
 	searchBarValue: searchBarValue,
 	IgSetingsIsOpen: IgSetingsIsOpen

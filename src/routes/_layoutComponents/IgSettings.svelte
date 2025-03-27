@@ -88,6 +88,7 @@
 		appState.modes.designerMode.value = !appState.modes.designerMode.value;
 		designerModeButtonState = `${appState.modes.designerMode.value}`;
 		localStorage.removeItem('icoGlyphsUserStyle');
+		appState.icoGlyphUserSettings.style = appState.icoGlyphUserSettings.updateUserStyles();
 	}
 	let designerModeButton = $state(new icoGlyphButtonPropsConstructor());
 	designerModeButton.add('style', () => designerButtonAction(), {});
@@ -96,7 +97,9 @@
 	designerModeToggle.add('false', () => designerButtonAction(), {});
 	designerModeToggle.add('true', () => designerButtonAction(), {});
 
-	// $inspect(devModeButtonState, bb, appState.modes.devMode.value);
+	// $inspect(appState.icoGlyphUserSettings.updateUserStyles());
+
+	// colorModeButton hitbox too large
 </script>
 
 <button
@@ -148,6 +151,11 @@
 		border-radius: var(--border-radius);
 		padding: var(--spacing-small);
 		z-index: 11;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
 	#background-overlay {

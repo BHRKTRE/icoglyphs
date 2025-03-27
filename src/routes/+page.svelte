@@ -15,7 +15,8 @@
 	};
 
 	const getDefaultIcoGlyphs = () => {
-		const categoriesUsed = new Set();
+		const categoriesUsed = new Map();
+
 		const defaultIcons = Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
 			const icoData = icoGlyphs.library().svgData[icoGlyphName];
 			const aliases = icoData.aliases || [];
@@ -23,14 +24,22 @@
 
 			const { metadata } = icoData;
 
-			// Include icons from unused categories
-			if (metadata?.categories?.some((cat) => !categoriesUsed.has(cat))) {
-				metadata.categories.forEach((cat) => categoriesUsed.add(cat));
-				return true;
+			if (metadata?.categories) {
+				return metadata.categories.some((cat) => {
+					if (!categoriesUsed.has(cat)) {
+						categoriesUsed.set(cat, []);
+					}
+					categoriesUsed.get(cat).push(icoGlyphName);
+					return false;
+				});
 			}
 
-			// Include the icon if it has no categories
 			return !metadata?.categories;
+		});
+
+		categoriesUsed.forEach((icons, cat) => {
+			const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+			defaultIcons.push(randomIcon);
 		});
 
 		return shuffleArray(defaultIcons);

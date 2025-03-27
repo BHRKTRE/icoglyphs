@@ -46,9 +46,19 @@
 	 */
 
 	// $inspect(appState.modes);
+
+	const gg = `<path class="s-DFGFzS-n5PGz" id="c1" d="M 35 0 L -35 0 M -15 -20 L -35 0 L -15 20"></path>`;
 </script>
 
 <main>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="-50 -50 100 100"
+		focusable="false"
+		data-icoGlyph="arrow-left"
+		role="img"
+		class="s-DFGFzS-n5PGz">{@html gg}</svg
+	>
 	<div id="justforspace"></div>
 	<IcoGlyphButton
 		bind:selected={selectedButton1}
@@ -66,6 +76,12 @@
 </main>
 
 <style>
+	svg {
+		stroke-width: 1px;
+		stroke: var(--t1);
+		fill: none;
+	}
+
 	/* #params-container {
 		border: 1px solid var(--b2);
 		position: absolute;
