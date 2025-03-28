@@ -1,5 +1,5 @@
 /**
- * @title Class for configuring `IcoGlyphButton` props.
+ * @title Class for configuring '' props.
  * Each instance stores multiple button states and defines their behavior, including transitions and tooltips
  */
 class IcoGlyphButtonPropsConstructor {

@@ -5,9 +5,8 @@
 	import anime from 'animejs';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import IcoGlypherModeDisplay from './IcoGlypherModeDisplay.svelte';
-	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
 	import MainIcoG from './mainIcoG.svelte';
-	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
+	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
 	import {
 		downloadPng,
 		copySvgToClipBoard,
@@ -58,11 +57,6 @@
 	}
 
 	// Buttons data
-	const downloadPngButton = new icoGlyphButtonPropsConstructor();
-	downloadPngButton.add('download', () => downloadPng(data.name));
-
-	const copySvgButton = new icoGlyphButtonPropsConstructor();
-	copySvgButton.add('copy', () => copySvgToClipBoard(data.name));
 
 	let tagsDisplay = $derived(
 		icoGlyphs.searchIcoGlyph(data.name)?.metadata?.tags
@@ -73,12 +67,6 @@
 			: ''
 	);
 
-	/*
-	 * 	Settings button
-	 */
-	let paramsButton = new icoGlyphButtonPropsConstructor();
-	paramsButton.add('plurality', () => (appState.IgSetingsIsOpen = !appState.IgSetingsIsOpen));
-
 	// $inspect(tagsDisplay);
 </script>
 
@@ -88,10 +76,25 @@
 			<MainIcoG IGname={data.name} />
 
 			<div id="buttonContainer">
-				<IcoGlyphButton buttonConfig={paramsButton} />
-				<IcoGlyphButton buttonConfig={downloadPngButton} />
+				<button
+					class="button-default"
+					onclick={() => (appState.IgSetingsIsOpen = !appState.IgSetingsIsOpen)}
+				>
+					<svg class="svg-default" {...icoGlyphs.getSvgAttributes('plurality')}>
+						<MorphingPath IGName={'plurality'} />
+					</svg>
+				</button>
+				<button class="button-default" onclick={() => downloadPng(data.name)}>
+					<svg class="svg-default" {...icoGlyphs.getSvgAttributes('download')}>
+						<MorphingPath IGName={'download'} />
+					</svg>
+				</button>
 				{#if appState.modes.devMode.value}
-					<IcoGlyphButton buttonConfig={copySvgButton} />
+					<button class="button-default" onclick={() => copySvgToClipBoard(data.name)}>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes('copy')}>
+							<MorphingPath IGName={'copy'} />
+						</svg>
+					</button>
 				{/if}
 			</div>
 			<IcoGlypherModeDisplay icoGlyphName={data.name} />
@@ -128,6 +131,10 @@
 </main>
 
 <style>
+	button {
+		height: 50px;
+		width: 50px;
+	}
 	main {
 		display: flex;
 		justify-content: center;

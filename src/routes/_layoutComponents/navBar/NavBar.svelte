@@ -1,24 +1,14 @@
 <script>
-	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
-	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 	import { goto } from '$app/navigation';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
-
-	let homePageButton = new icoGlyphButtonPropsConstructor();
-	homePageButton.add('home-page', () => goto('/'));
-
-	let paramsButton = new icoGlyphButtonPropsConstructor();
-	paramsButton.add('plurality', () => (appState.IgSetingsIsOpen = !appState.IgSetingsIsOpen));
 </script>
 
 <div id="navbar-container">
 	<ul>
-		<!-- <li class="left"><IcoGlyphButton buttonConfig={homePageButton} /></li> -->
 		<li class="left">
 			<a href="/" title="Home - IcoGlyphs">IcoGlyphs</a>
 		</li>
 
-		<!-- <li class="right"><IcoGlyphButton buttonConfig={paramsButton} /></li> -->
 		<!-- <li class="right"><ColorModeButton /></li> -->
 	</ul>
 	<!-- {#if appState.IgSetingsIsOpen}

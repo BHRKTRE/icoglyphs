@@ -1,8 +1,6 @@
 <script>
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import psi from '$lib/app/ui/utils/psi.js';
-	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
-	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 
 	function actualiseLocalStorage(storageName, key, value) {
 		// Récupérer l'objet existant dans localStorage
@@ -42,21 +40,6 @@
 	let inputWidth = $derived(100 / psi + '%');
 
 	const svgStylerPadding = 'var(--spacing-medium)';
-
-	let selectedButton = $state('drop-down');
-	/**
-	 * Button for display SvgStyler
-	 *
-	 */
-	let displaySvgStylerButton = new icoGlyphButtonPropsConstructor();
-	displaySvgStylerButton.add('drop-down', () => {
-		displaySvgStyler = true;
-		selectedButton = 'collapse-up';
-	});
-	displaySvgStylerButton.add('collapse-up', () => {
-		displaySvgStyler = false;
-		selectedButton = 'drop-down';
-	});
 
 	/**
 	 * Functions

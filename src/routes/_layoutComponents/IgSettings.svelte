@@ -1,7 +1,7 @@
 <script>
 	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
-	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
+	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
+	import icoGlyphs from '$lib/index.js';
 
 	$effect(() => {
 		const modesValues = Object.fromEntries(
@@ -21,29 +21,18 @@
 	/**
 	 * ColorMode button
 	 */
-	let colorModeButton = $state(new icoGlyphButtonPropsConstructor());
-	colorModeButton.add(
-		'grey-mode',
-		() => ((appState.modes.colorMode.value = 'dark'), appState.modes.colorMode.change('dark')),
-		{
-			to: 'dark-mode'
+	function colorModeButtonAction() {
+		if (appState.modes.colorMode.value === 'grey') {
+			appState.modes.colorMode.value = 'dark';
+			appState.modes.colorMode.change('dark');
+		} else if (appState.modes.colorMode.value === 'dark') {
+			appState.modes.colorMode.value = 'light';
+			appState.modes.colorMode.change('light');
+		} else {
+			appState.modes.colorMode.value = 'grey';
+			appState.modes.colorMode.change('grey');
 		}
-	);
-	colorModeButton.add(
-		'dark-mode',
-		() => ((appState.modes.colorMode.value = 'light'), appState.modes.colorMode.change('light')),
-		{
-			to: 'light-mode'
-		}
-	);
-	colorModeButton.add(
-		'light-mode',
-		() => ((appState.modes.colorMode.value = 'grey'), appState.modes.colorMode.change('grey')),
-		{
-			to: 'grey-mode'
-		}
-	);
-	let colorModeSelected = $state(`${appState.modes.colorMode.value}-mode`);
+	}
 
 	/**
 	 * devMode button
@@ -53,17 +42,6 @@
 		appState.modes.devMode.value = !appState.modes.devMode.value;
 		devModeButtonState = `${appState.modes.devMode.value}`;
 	}
-	let devModeButton = $state(new icoGlyphButtonPropsConstructor());
-	devModeButton.add(
-		'dev',
-		() => {
-			devModeButtonAction();
-		},
-		{}
-	);
-	let devModeToggle = $state(new icoGlyphButtonPropsConstructor());
-	devModeToggle.add('false', () => devModeButtonAction());
-	devModeToggle.add('true', () => devModeButtonAction());
 
 	/**
 	 * icoGlypherMode button
@@ -73,12 +51,6 @@
 		appState.modes.icoGlypherMode.value = !appState.modes.icoGlypherMode.value;
 		icoGlypherModeButtonState = `${appState.modes.icoGlypherMode.value}`;
 	}
-	let icoGlypherModeButton = $state(new icoGlyphButtonPropsConstructor());
-	icoGlypherModeButton.add('sky', () => icoGlypherButtonAction(), {});
-
-	let icoGlypherModeToggle = $state(new icoGlyphButtonPropsConstructor());
-	icoGlypherModeToggle.add('false', () => icoGlypherButtonAction(), {});
-	icoGlypherModeToggle.add('true', () => icoGlypherButtonAction(), {});
 
 	/**
 	 * designerMode button
@@ -90,12 +62,6 @@
 		localStorage.removeItem('icoGlyphsUserStyle');
 		appState.icoGlyphUserSettings.style = appState.icoGlyphUserSettings.updateUserStyles();
 	}
-	let designerModeButton = $state(new icoGlyphButtonPropsConstructor());
-	designerModeButton.add('style', () => designerButtonAction(), {});
-
-	let designerModeToggle = $state(new icoGlyphButtonPropsConstructor());
-	designerModeToggle.add('false', () => designerButtonAction(), {});
-	designerModeToggle.add('true', () => designerButtonAction(), {});
 
 	// $inspect(appState.icoGlyphUserSettings.updateUserStyles());
 
@@ -109,38 +75,59 @@
 ></button>
 <div id="params-container">
 	<div class="param-section">
-		<IcoGlyphButton
-			{buttonStyle}
-			buttonConfig={colorModeButton}
-			bind:selected={colorModeSelected}
-		/>
+		<button class="button-default" onclick={colorModeButtonAction}>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
+				<MorphingPath IGName={appState.modes.colorMode.value} />
+			</svg>
+		</button>
 	</div>
 
 	<div class="param-section">
-		<IcoGlyphButton {buttonStyle} buttonConfig={devModeButton} />
-		<IcoGlyphButton {buttonStyle} buttonConfig={devModeToggle} bind:selected={devModeButtonState} />
+		<button class="button-default double-button" onclick={devModeButtonAction}>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes('dev')}>
+				<MorphingPath IGName={'dev'} />
+			</svg>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(devModeButtonState)}>
+				<MorphingPath IGName={devModeButtonState} />
+			</svg>
+		</button>
 	</div>
 
 	<div class="param-section">
-		<IcoGlyphButton {buttonStyle} buttonConfig={icoGlypherModeButton} />
-		<IcoGlyphButton
-			{buttonStyle}
-			buttonConfig={icoGlypherModeToggle}
-			bind:selected={icoGlypherModeButtonState}
-		/>
+		<button class="button-default double-button" onclick={icoGlypherButtonAction}>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes('sky')}>
+				<MorphingPath IGName={'sky'} />
+			</svg>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(icoGlypherModeButtonState)}>
+				<MorphingPath IGName={icoGlypherModeButtonState} />
+			</svg>
+		</button>
 	</div>
 
 	<div class="param-section">
-		<IcoGlyphButton {buttonStyle} buttonConfig={designerModeButton} />
-		<IcoGlyphButton
-			{buttonStyle}
-			buttonConfig={designerModeToggle}
-			bind:selected={designerModeButtonState}
-		/>
+		<button class="button-default double-button" onclick={designerButtonAction}>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes('style')}>
+				<MorphingPath IGName={'style'} />
+			</svg>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(designerModeButtonState)}>
+				<MorphingPath IGName={designerModeButtonState} />
+			</svg>
+		</button>
 	</div>
 </div>
 
 <style>
+	.double-button {
+		display: flex;
+		flex-direction: row;
+		width: 100px;
+	}
+
+	button {
+		height: 50px;
+		width: 50px;
+	}
+
 	#params-container {
 		position: fixed;
 		top: 70px;
@@ -174,11 +161,7 @@
 		align-items: center;
 		justify-content: center;
 		margin: var(--spacing-medium);
-		background: var(--b2);
-		/* border: solid 1px var(--t1); */
 		border-radius: var(--border-radius);
-		/* padding: var(--spacing-medium);
-		gap: var(--spacing-medium); */
 	}
 
 	.param-section:hover {

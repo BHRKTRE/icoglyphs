@@ -9,7 +9,7 @@
 	 * @param {string} tooltipLocation - The position of the tooltip relative to the button.
 	 *                                   Valid values: 'top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right', 'left', 'right'.
 	 * @param {string} tooltipsSpaceBetween - The space between the tooltip and the button. Default is '10px'.
-	 * @param {boolean} buttonIsOver - Automatically passed from the IcoGlyphButton component.
+	 * @param {boolean} buttonIsOver - Automatically passed from the component.
 	 *                                  Controls the visibility of the tooltip when `true`.
 	 */
 
