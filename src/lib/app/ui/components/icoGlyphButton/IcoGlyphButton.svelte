@@ -3,6 +3,8 @@
 	import Tooltip from '$lib/app/ui/components/icoGlyphButton/Tooltip.svelte';
 	import anime from 'animejs';
 
+	// May be deleted
+
 	/**
 	 * @title IcoGlyphButton Component
 	 * @author L

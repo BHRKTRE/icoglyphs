@@ -2,6 +2,7 @@
 	import externalLinks from '$lib/app/core/utils/externalLinks.js';
 	import icoGlyphs from '$lib/index.js';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
+	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
 
 	// $inspect(discordButton);
 </script>
@@ -18,7 +19,7 @@
 			aria-label="Open settings"
 		>
 			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
-				<path d={icoGlyphs.getPath(appState.modes.colorMode.value)}> </path>
+				<MorphingPath IGName={appState.modes.colorMode.value} />
 			</svg>
 			{#if appState.modes.icoGlypherMode.value}
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes('sky')}>

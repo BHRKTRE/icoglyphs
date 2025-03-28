@@ -4,16 +4,17 @@
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import psi from '$lib/app/ui/utils/psi.js';
-	import Test from './Test.svelte';
+	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
+	import Tooltip from '$lib/app/ui/components/Tooltip.svelte';
 
 	let bbb = $state(new icoGlyphButtonPropsConstructor());
 	bbb.add('arrow-left', () => console.log('function 2'), {
 		to: 'arrow-right',
-		// tooltip: bbb.tooltip('a faire', 'bottom'),
+		tooltip: bbb.tooltip('a faire', 'bottom'),
 		text: 'Prends le bail'
 	});
 	bbb.add('arrow-right', () => console.log('function 1'), {
-		// tooltip: bbb.tooltip('coucou', 'top'),
+		tooltip: bbb.tooltip('coucou', 'top'),
 		text: '.png'
 	});
 	// bbb.add('arrow-top', () => console.log('function 3'));
@@ -52,19 +53,33 @@
 	let defNAme = $state('arrow-left');
 	let nextname = $state('arrow-left');
 
+	let tooltipText = $state('coucou');
+
 	function changeActualState2() {
-		defNAme = nextname;
+		// defNAme = nextname;
+		tooltipText = 'sissi';
+		setTimeout(() => {
+			tooltipText = 'coucou'; // Valeur initiale
+		}, 2000);
 	}
 </script>
 
 <main>
-	<svg {...icoGlyphs.getSvgAttributes(defNAme)}>
-		<Test IGName={defNAme} />
-	</svg>
+	<div class="justforspace"></div>
+	<div class="flex">
+		<Tooltip text={tooltipText} location="top">
+			<button class="button-default button-1" onclick={() => console.log('click')}>
+				<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
+					<MorphingPath IGName={appState.modes.colorMode.value} />
+				</svg>
+			</button>
+		</Tooltip>
+	</div>
+	<div class="justforspace"></div>
 	<input type="text" bind:value={nextname} />
-	<button class="text-button" onclick={changeActualState2}>arrow_left</button>
+	<button class="text-button" onclick={changeActualState2}>change2</button>
 
-	<div id="justforspace"></div>
+	<div class="justforspace"></div>
 	<IcoGlyphButton
 		bind:selected={selectedButton1}
 		animeDuration={animeDurationButton1}
@@ -73,7 +88,7 @@
 	/>
 	<br />
 	<br />
-	<button class="text-button" onclick={changeActualState}>arrow_left</button>
+	<button class="text-button" onclick={changeActualState}>change</button>
 	<button class="text-button" onclick={changeDuration}>duration</button>
 	<!-- <button class="text-button" onclick={changeDuration}>params</button>
 
@@ -81,10 +96,12 @@
 </main>
 
 <style>
-	svg {
-		stroke-width: 3px;
-		stroke: var(--t1);
-		fill: none;
+	.flex {
+		display: flex;
+	}
+	.button-1 {
+		height: 50px;
+		width: 50px;
 	}
 
 	/* #params-container {
@@ -97,7 +114,7 @@
 		margin-left: 15px;
 	}
 
-	#justforspace {
+	.justforspace {
 		height: 100px;
 	}
 </style>
