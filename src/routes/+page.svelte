@@ -79,7 +79,7 @@
 		id="searchBar"
 		type="text"
 		bind:value={appState.searchBarValue}
-		placeholder="Search icoGlyphs"
+		placeholder="Search icoGlyphs..."
 		oninput={search}
 	/>
 
@@ -93,8 +93,9 @@
 <style>
 	#searchBar {
 		width: 100%;
+		max-width: 770px;
 		background: var(--b2);
-		padding: 5px 10px;
+		padding: var(--spacing-small) var(--spacing-medium);
 		border-radius: var(--border-radius);
 		margin-bottom: 1rem;
 	}
@@ -115,7 +116,9 @@
 
 	main {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
+		align-items: center;
+
 		flex-wrap: wrap;
 		height: 100%;
 		width: 100%;

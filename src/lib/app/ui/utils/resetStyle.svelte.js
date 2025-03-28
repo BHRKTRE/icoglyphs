@@ -1,5 +1,7 @@
 import appState from '$lib/app/core/stores/appState.svelte.js';
 
+// TODO: There are some duplications with appState. This should be fixed in the future.
+
 const loadSvgStyleFromLocalStorage = () => {
 	if (typeof window === 'undefined') return {};
 
@@ -25,7 +27,6 @@ const updateUserStyles = () => {
 	};
 };
 
-// Reset des styles utilisateur
 export function resetStyle() {
 	localStorage.removeItem('icoGlyphsUserStyle');
 	appState.icoGlyphUserSettings.style = updateUserStyles();

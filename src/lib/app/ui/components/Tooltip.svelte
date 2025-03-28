@@ -44,6 +44,8 @@
 				return `right`;
 		}
 	});
+
+	// TODO: Rename children-container
 </script>
 
 <div id="children-container">

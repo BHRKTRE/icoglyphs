@@ -48,9 +48,9 @@
 	footer {
 		display: flex;
 		flex-direction: column;
-		border-top: 2px solid var(--b2);
 		align-items: center;
 
+		border-top: 2px solid var(--b2);
 		padding-top: var(--spacing-small);
 	}
 
