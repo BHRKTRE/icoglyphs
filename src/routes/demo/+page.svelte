@@ -1,8 +1,10 @@
 <script>
 	import IcoGlyphButton from '$lib/app/ui/components/icoGlyphButton/IcoGlyphButton.svelte';
+	import icoGlyphs from '$lib/index.js';
 	import icoGlyphButtonPropsConstructor from '$lib/app/ui/components/icoGlyphButton/propsConstructor.js';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import psi from '$lib/app/ui/utils/psi.js';
+	import Test from './Test.svelte';
 
 	let bbb = $state(new icoGlyphButtonPropsConstructor());
 	bbb.add('arrow-left', () => console.log('function 2'), {
@@ -47,18 +49,21 @@
 
 	// $inspect(appState.modes);
 
-	const gg = `<path class="s-DFGFzS-n5PGz" id="c1" d="M 35 0 L -35 0 M -15 -20 L -35 0 L -15 20"></path>`;
+	let defNAme = $state('arrow-left');
+	let nextname = $state('arrow-left');
+
+	function changeActualState2() {
+		defNAme = nextname;
+	}
 </script>
 
 <main>
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="-50 -50 100 100"
-		focusable="false"
-		data-icoGlyph="arrow-left"
-		role="img"
-		class="s-DFGFzS-n5PGz">{@html gg}</svg
-	>
+	<svg {...icoGlyphs.getSvgAttributes(defNAme)}>
+		<Test IGName={defNAme} />
+	</svg>
+	<input type="text" bind:value={nextname} />
+	<button class="text-button" onclick={changeActualState2}>arrow_left</button>
+
 	<div id="justforspace"></div>
 	<IcoGlyphButton
 		bind:selected={selectedButton1}
@@ -77,7 +82,7 @@
 
 <style>
 	svg {
-		stroke-width: 1px;
+		stroke-width: 3px;
 		stroke: var(--t1);
 		fill: none;
 	}

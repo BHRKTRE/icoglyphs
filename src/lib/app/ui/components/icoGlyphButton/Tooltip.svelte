@@ -77,7 +77,6 @@
 		border-radius: var(--border-radius);
 
 		transition: opacity 1s;
-
 		white-space: nowrap;
 		position: absolute;
 		z-index: 1;
