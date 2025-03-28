@@ -1,15 +1,13 @@
 <script>
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import psi from '$lib/app/ui/utils/psi.js';
+	import { resetStyle } from '$lib/app/ui/utils/resetStyle.svelte.js';
 
 	function actualiseLocalStorage(storageName, key, value) {
-		// Récupérer l'objet existant dans localStorage
 		let storedData = JSON.parse(localStorage.getItem(storageName)) || {};
 
-		// Mettre à jour uniquement la clé concernée
 		storedData[key] = value;
 
-		// Enregistrer l'objet mis à jour dans localStorage
 		localStorage.setItem(storageName, JSON.stringify(storedData));
 	}
 	/**
@@ -44,9 +42,9 @@
 	/**
 	 * Functions
 	 */
-	function resetStyle() {
+	function resetStyleButtonAction() {
 		localStorage.removeItem('icoGlyphsUserStyle');
-		appState.icoGlyphUserSettings.style = appState.icoGlyphUserSettings.updateUserStyles();
+		resetStyle();
 	}
 
 	// $inspect(appState.icoGlyphUserSettings.style);
@@ -104,7 +102,9 @@
 					Stroke style :
 					{appState.icoGlyphUserSettings.style['stroke-linejoin']}
 				</button>
-				<button onclick={resetStyle} class="text-button button-default">Reset style</button>
+				<button onclick={resetStyleButtonAction} class="text-button button-default"
+					>Reset style</button
+				>
 			</div>
 		{/if}
 		{#if appState.modes.devMode.value == true}

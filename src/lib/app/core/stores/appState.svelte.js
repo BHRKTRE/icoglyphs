@@ -46,27 +46,16 @@ const toggleMode = (mode) => {
  * @param {string} color - The selected color mode (accepted values: "light", "dark", "grey").
  */
 const changeColorMode = (color) => {
-	// modes.colorMode = color;
-	// saveModesToLocalStorage();
 	document.body.setAttribute('data-color-mode', color);
 
 	icoGlyphUserCustomStyles.stroke = storedStyle.stroke
 		? storedStyle.stroke
 		: strokeColorDependOnMode[color];
-
-	// console.log(icoGlyphUserCustomStyles.stroke, strokeColorDependOnMode[color]);
 };
 
 /**
  * Stores user-defined styles for IcoGlyphs (designerMode only).
  */
-
-// Default stroke colors based on mode
-const strokeColorDependOnMode = {
-	grey: '#e4ebf3',
-	light: '#0c0f13',
-	dark: '#e4ebf3'
-};
 
 // Load user-defined SVG styles from local storage
 const loadSvgStyleFromLocalStorage = () => {
@@ -78,6 +67,13 @@ const loadSvgStyleFromLocalStorage = () => {
 
 // Retrieve stored styles or set defaults
 let storedStyle = loadSvgStyleFromLocalStorage();
+
+// Default stroke colors based on mode
+const strokeColorDependOnMode = {
+	grey: '#e4ebf3',
+	light: '#0c0f13',
+	dark: '#e4ebf3'
+};
 
 /**
  * Updates the user styles when color mode or other properties change.
@@ -147,8 +143,7 @@ let appState = $state({
 	},
 	icoGlyphUserSettings: {
 		style: icoGlyphUserCustomStyles,
-		useStyleForSvgDownload: useStyleForSvgDownload,
-		updateUserStyles: () => updateUserStyles()
+		useStyleForSvgDownload: useStyleForSvgDownload
 	},
 	searchBarValue: searchBarValue,
 	IgSetingsIsOpen: IgSetingsIsOpen

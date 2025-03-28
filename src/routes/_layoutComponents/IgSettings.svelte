@@ -2,6 +2,7 @@
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
 	import icoGlyphs from '$lib/index.js';
+	import { resetStyle } from '$lib/app/ui/utils/resetStyle.svelte.js';
 
 	$effect(() => {
 		const modesValues = Object.fromEntries(
@@ -12,25 +13,28 @@
 	});
 
 	/**
-	 * Button Style
-	 */
-	const buttonStyle = {
-		background: 'none'
-	};
-
-	/**
 	 * ColorMode button
 	 */
+
+	function resetStyleForColorModeButton() {
+		if (!appState.modes.designerMode.value) {
+			resetStyle();
+		}
+	}
+
 	function colorModeButtonAction() {
 		if (appState.modes.colorMode.value === 'grey') {
 			appState.modes.colorMode.value = 'dark';
 			appState.modes.colorMode.change('dark');
+			resetStyleForColorModeButton();
 		} else if (appState.modes.colorMode.value === 'dark') {
 			appState.modes.colorMode.value = 'light';
 			appState.modes.colorMode.change('light');
+			resetStyleForColorModeButton();
 		} else {
 			appState.modes.colorMode.value = 'grey';
 			appState.modes.colorMode.change('grey');
+			resetStyleForColorModeButton();
 		}
 	}
 
@@ -60,10 +64,8 @@
 		appState.modes.designerMode.value = !appState.modes.designerMode.value;
 		designerModeButtonState = `${appState.modes.designerMode.value}`;
 		localStorage.removeItem('icoGlyphsUserStyle');
-		appState.icoGlyphUserSettings.style = appState.icoGlyphUserSettings.updateUserStyles();
+		resetStyle();
 	}
-
-	// $inspect(appState.icoGlyphUserSettings.updateUserStyles());
 
 	// colorModeButton hitbox too large
 </script>
