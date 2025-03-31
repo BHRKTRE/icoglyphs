@@ -19,10 +19,8 @@
 
 <style>
 	.tag {
-		/* background-color: var(--t3); */
 		color: var(--t2);
 		padding: var(--spacing-small) var(--spacing-medium);
-		border-radius: var(--border-radius);
 
 		font-weight: 500;
 		font-size: 0.8rem;
