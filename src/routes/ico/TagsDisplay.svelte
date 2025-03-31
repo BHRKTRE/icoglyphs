@@ -25,7 +25,7 @@
 		font-weight: 500;
 		font-size: 0.8rem;
 
-		/* border-2 replication */
+		/* Replicating border-2 because it doesn't appear in the global.css on the main domain */
 		border: var(--border-width-small) solid var(--b2);
 		border-radius: var(--border-radius);
 	}
