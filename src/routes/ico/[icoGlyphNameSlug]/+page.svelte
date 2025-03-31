@@ -12,6 +12,7 @@
 		copySvgToClipBoard,
 		downloadSvg
 	} from '$lib/app/core/utils/export-tools.svelte.js';
+	import TagsDisplay from '../TagsDisplay.svelte';
 
 	let { data } = $props();
 
@@ -56,17 +57,6 @@
 		}
 	}
 
-	// Buttons data
-
-	let tagsDisplay = $derived(
-		icoGlyphs.searchIcoGlyph(data.name)?.metadata?.tags
-			? icoGlyphs
-					.searchIcoGlyph(data.name)
-					.metadata.tags.map((tag) => `#${tag.toLowerCase()}`)
-					.join(' ')
-			: ''
-	);
-
 	// $inspect(tagsDisplay);
 </script>
 
@@ -100,13 +90,7 @@
 			<IcoGlypherModeDisplay icoGlyphName={data.name} />
 		</div>
 		<SvgStyler />
-
-		{#if icoGlyphs.searchIcoGlyph(data.name)?.metadata?.tags?.length > 0}
-			<div id="tags-container" class="container-1 border-1">
-				<h5>Tags</h5>
-				<p>{tagsDisplay}</p>
-			</div>
-		{/if}
+		<TagsDisplay icoGlyphName={data.name} />
 
 		{#if data.metadata?.categories && data.metadata.categories.length > 0}
 			<div id="sub-icoglyphs-display" class="border-1 container-1">
@@ -182,41 +166,11 @@
 		}
 	}
 
-	#tags-container {
-		position: relative;
-		margin-top: 15px;
-	}
-
-	#tags-container p {
-		font-size: 1rem;
-		font-weight: 400;
-		font-style: italic;
-		text-align: center;
-	}
-
 	#sub-icoglyphs-display {
-		margin-top: 30px;
+		margin-top: var(--spacing-medium);
 		position: relative;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 	}
-
-	.container-1 h5 {
-		position: absolute;
-		top: -14px;
-		background: var(--b1);
-		padding: 0 var(--spacing-medium);
-		z-index: 1;
-		transform: translateX(-50%);
-		left: 50%;
-	}
-
-	/* #tags-container h5 {
-		position: absolute;
-		top: -14px;
-		background: var(--b1);
-		padding: 0 var(--spacing-medium);
-		z-index: 1;
-	} */
 </style>

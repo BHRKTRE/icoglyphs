@@ -94,7 +94,9 @@ body {
 	/* text color */
 	--t1: rgb(var(--front-color));
 	/*  */
-	--t2: rgba(var(--back-color), 0.7548);
+	--t2: rgba(var(--front-color), 0.7548);
+	/*  */
+	--t3: rgba(var(--front-color), 0.5698);
 
 	/* Set the body background color */
 	background: var(--b1);
@@ -192,6 +194,11 @@ input[type='text'] {
 
 .border-1 {
 	border: var(--border-width-medium) solid var(--b2);
+	border-radius: var(--border-radius);
+}
+
+.border-2 {
+	border: var(--border-width-small) solid var(--b2);
 	border-radius: var(--border-radius);
 }
 

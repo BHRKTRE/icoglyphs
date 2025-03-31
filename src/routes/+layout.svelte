@@ -19,7 +19,7 @@
 
 	let sideMargin = $derived(windowWidth / Math.pow(psi, 10) + 'px');
 
-	// $inspect(appState.modes.devMode.value);
+	// $inspect(1 / psi ** 2);
 </script>
 
 <svelte:window bind:innerWidth={windowWidth} />
