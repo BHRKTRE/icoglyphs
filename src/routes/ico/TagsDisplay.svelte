@@ -12,7 +12,7 @@
 	<div id="tags-container" class="border-1">
 		<h5>Tags</h5>
 		{#each tags as tag}
-			<span class="tag border-2">{tag}</span>
+			<span class="border-2 tag">{tag}</span>
 		{/each}
 	</div>
 {/if}
@@ -24,6 +24,10 @@
 
 		font-weight: 500;
 		font-size: 0.8rem;
+
+		/* border-2 replication */
+		border: var(--border-width-small) solid var(--b2);
+		border-radius: var(--border-radius);
 	}
 
 	#tags-container {
