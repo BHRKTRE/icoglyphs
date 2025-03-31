@@ -19,7 +19,7 @@
 
 <style>
 	.tag {
-		color: var(--t1);
+		color: var(--b4);
 		padding: var(--spacing-small) var(--spacing-medium);
 
 		font-weight: 500;
