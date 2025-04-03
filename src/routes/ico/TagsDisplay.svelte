@@ -3,9 +3,9 @@
 
 	let { icoGlyphName } = $props();
 
-	let tags = icoGlyphs.searchIcoGlyph(icoGlyphName)?.metadata?.tags;
+	let tags = $derived(icoGlyphs.searchIcoGlyph(icoGlyphName)?.metadata?.tags);
 
-	$inspect(tags);
+	$inspect(icoGlyphName);
 </script>
 
 {#if tags !== undefined}
