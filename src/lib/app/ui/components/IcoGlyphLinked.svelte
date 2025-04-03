@@ -22,7 +22,7 @@
 </script>
 
 <button
-	onclick={() => goto(`/ico/${getIcoGlyphSlug()}`)}
+	onclick={() => goto(`/icon/${getIcoGlyphSlug()}`)}
 	aria-label={`Navigate to ${icoGlyphName} page`}
 	class="icoglyphContainer button-default"
 	style={`width: ${dimensions[size]}px; height: ${dimensions[size]}px;`}

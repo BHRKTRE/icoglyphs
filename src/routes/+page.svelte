@@ -2,6 +2,7 @@
 	import icoGlyphs from '$lib/index.js';
 	import IcoGlyphLinked from '$lib/app/ui/components/IcoGlyphLinked.svelte';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
+	import Header from './Header.svelte';
 
 	let filteredIcoGlyphs = $state([]);
 
@@ -73,6 +74,8 @@
 	// Randomize icons when the page loads
 	filteredIcoGlyphs = getDefaultIcoGlyphs();
 </script>
+
+<Header />
 
 <main>
 	<input
