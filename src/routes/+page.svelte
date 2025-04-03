@@ -75,7 +75,36 @@
 	filteredIcoGlyphs = getDefaultIcoGlyphs();
 </script>
 
-<Header />
+<svelte:head>
+	<meta
+		name="description"
+		content="icoGlyphs - Icons designed with meaning, breaking cultural barriers for a truly universal visual language."
+	/>
+	<meta
+		name="keywords"
+		content="icons, glyphs, universal icons, ideographic, design, API, customizable, SVG, PNG, open-source, free, visual language"
+	/>
+	<!-- <meta name="author" content="icoGlyphs" /> -->
+	<meta name="robots" content="index, follow" />
+	<meta property="og:title" content="icoGlyphs - Free Ideographic Icons" />
+	<meta
+		property="og:description"
+		content="Icons designed with meaning, breaking cultural barriers for a truly universal visual language."
+	/>
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.icoglyphs.com" />
+	<!-- <meta property="og:image" content="https://www.icoglyphs.com/assets/images/og-image.jpg" /> -->
+	<meta name="twitter:title" content="icoGlyphs - Free Ideographic Icons" />
+	<meta
+		name="twitter:description"
+		content="Icons designed with meaning, breaking cultural barriers for a truly universal visual language."
+	/>
+	<!-- <meta name="twitter:image" content="https://www.icoglyphs.com/assets/images/twitter-image.jpg"> -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<title>icoGlyphs - Free Ideographic Icons</title>
+</svelte:head>
+
+<!-- <Header /> -->
 
 <main>
 	<input
