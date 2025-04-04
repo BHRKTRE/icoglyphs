@@ -85,6 +85,17 @@
 	</div>
 
 	<div class="param-section">
+		<button class="button-default double-button" onclick={designerButtonAction}>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes('style')}>
+				<MorphingPath IGName={'style'} />
+			</svg>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(designerModeButtonState)}>
+				<MorphingPath IGName={designerModeButtonState} />
+			</svg>
+		</button>
+	</div>
+
+	<div class="param-section">
 		<button class="button-default double-button" onclick={devModeButtonAction}>
 			<svg class="svg-default" {...icoGlyphs.getSvgAttributes('dev')}>
 				<MorphingPath IGName={'dev'} />
@@ -95,7 +106,8 @@
 		</button>
 	</div>
 
-	<div class="param-section">
+	<!-- IcoGlypher Mode -->
+	<!-- <div class="param-section">
 		<button class="button-default double-button" onclick={icoGlypherButtonAction}>
 			<svg class="svg-default" {...icoGlyphs.getSvgAttributes('sky')}>
 				<MorphingPath IGName={'sky'} />
@@ -104,18 +116,7 @@
 				<MorphingPath IGName={icoGlypherModeButtonState} />
 			</svg>
 		</button>
-	</div>
-
-	<div class="param-section">
-		<button class="button-default double-button" onclick={designerButtonAction}>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes('style')}>
-				<MorphingPath IGName={'style'} />
-			</svg>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(designerModeButtonState)}>
-				<MorphingPath IGName={designerModeButtonState} />
-			</svg>
-		</button>
-	</div>
+	</div> -->
 </div>
 
 <style>
