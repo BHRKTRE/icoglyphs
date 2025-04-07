@@ -45,14 +45,14 @@
 
 <main>
 	<div class="justforspace"></div>
-	<button class="button-svg-only">
+	<button class="button-default">
+		<span>Download foo bar</span>
 		<svg {...icoGlyphs.getSvgAttributes()}>
 			<MorphingPath IGName={appState.modes.colorMode.value} />
 		</svg>
 		<svg {...icoGlyphs.getSvgAttributes()}>
 			<MorphingPath IGName={appState.modes.colorMode.value} />
 		</svg>
-		Download le bail
 	</button>
 	<div class="justforspace"></div>
 	<div class="flex">
@@ -66,15 +66,15 @@
 	</div>
 	<div class="justforspace"></div>
 	<input type="text" bind:value={nextname} />
-	<button class="button-text" onclick={changeActualState2}>change2</button>
+	<button class="button-text-only" onclick={changeActualState2}>change2</button>
 
 	<div class="justforspace"></div>
 
 	<br />
 	<br />
-	<button class="button-text" onclick={changeActualState}>change</button>
-	<button class="button-text" onclick={changeDuration}>duration</button>
-	<!-- <button class="button-text" onclick={changeDuration}>params</button>
+	<button class="button-text-only" onclick={changeActualState}>change</button>
+	<button class="button-text-only" onclick={changeDuration}>duration</button>
+	<!-- <button class="button-text-only" onclick={changeDuration}>params</button>
 
 	<div id="params-container"><Params /></div> -->
 </main>

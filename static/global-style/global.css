@@ -194,7 +194,7 @@ input[type='text'] {
 	display: flex;
 }
 
-.button-text {
+.button-text-only {
 	background: var(--b2);
 	padding: var(--spacing-small) var(--spacing-medium);
 
@@ -202,6 +202,32 @@ input[type='text'] {
 	font-family: var(--typo1);
 	font-weight: 500;
 	font-size: 0.9rem;
+}
+
+.button-default {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+}
+
+/* text must be in span */
+.button-default span {
+	color: var(--t1);
+	font-family: var(--typo1);
+	font-weight: 500;
+	font-size: 0.9rem;
+
+	margin: 0 var(--spacing-small);
+}
+
+.button-default svg {
+	stroke: var(--t1);
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-width: 0.4rem;
+	stroke-opacity: 1;
+	fill: none;
+	height: 2rem;
 }
 
 .border-1 {
