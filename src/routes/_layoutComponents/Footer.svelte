@@ -14,7 +14,7 @@
 			<li><a href={externalLinks.discord} target="_blank">Discord</a></li>
 		</ul>
 		<button
-			onclick={() => (appState.IgSetingsIsOpen = true)}
+			onclick={() => (appState.IgSettingsIsOpen = true)}
 			id="modes-container"
 			aria-label="Open settings"
 		>

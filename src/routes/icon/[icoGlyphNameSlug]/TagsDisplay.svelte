@@ -5,7 +5,7 @@
 
 	let tags = $derived(icoGlyphs.searchIcoGlyph(icoGlyphName)?.metadata?.tags);
 
-	$inspect(icoGlyphName);
+	// $inspect(icoGlyphName);
 </script>
 
 {#if tags !== undefined}

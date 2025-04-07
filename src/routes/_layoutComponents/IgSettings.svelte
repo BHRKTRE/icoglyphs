@@ -67,40 +67,50 @@
 		resetStyle();
 	}
 
+	/**
+	 * Converts a boolean to the string 'activated' or 'deactivated'
+	 */
+	function translateBooleanToString(value) {
+		return value ? 'activated' : 'deactivated';
+	}
+
 	// colorModeButton hitbox too large
 </script>
 
 <button
 	aria-label="Close settings"
-	onclick={() => (appState.IgSetingsIsOpen = !appState.IgSetingsIsOpen)}
+	onclick={() => (appState.IgSettingsIsOpen = !appState.IgSettingsIsOpen)}
 	id="background-overlay"
 ></button>
 <div id="params-container">
 	<div class="param-section">
-		<button class="button-svg-only" onclick={colorModeButtonAction}>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
+		<button class="button-default" onclick={colorModeButtonAction}>
+			<span>Color mode : {appState.modes.colorMode.value}</span>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
 				<MorphingPath IGName={appState.modes.colorMode.value} />
 			</svg>
 		</button>
 	</div>
 
 	<div class="param-section">
-		<button class="button-svg-only double-button" onclick={designerButtonAction}>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes('style')}>
+		<button class="button-default" onclick={designerButtonAction}>
+			<span>Designer mode {translateBooleanToString(appState.modes.designerMode.value)}</span>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
 				<MorphingPath IGName={'style'} />
 			</svg>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(designerModeButtonState)}>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
 				<MorphingPath IGName={designerModeButtonState} />
 			</svg>
 		</button>
 	</div>
 
 	<div class="param-section">
-		<button class="button-svg-only double-button" onclick={devModeButtonAction}>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes('dev')}>
+		<button class="button-default" onclick={devModeButtonAction}>
+			<span>Developper mode {translateBooleanToString(appState.modes.devMode.value)}</span>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
 				<MorphingPath IGName={'dev'} />
 			</svg>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(devModeButtonState)}>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
 				<MorphingPath IGName={devModeButtonState} />
 			</svg>
 		</button>
@@ -120,17 +130,6 @@
 </div>
 
 <style>
-	.double-button {
-		display: flex;
-		flex-direction: row;
-		width: 100px;
-	}
-
-	button {
-		height: 50px;
-		width: 50px;
-	}
-
 	#params-container {
 		position: fixed;
 		top: 70px;

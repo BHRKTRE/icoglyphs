@@ -103,7 +103,7 @@ let searchBarValue = '';
 /**
  * Search bar value
  */
-let IgSetingsIsOpen = false;
+let IgSettingsIsOpen = false;
 
 /**
  * Global application state.
@@ -146,7 +146,7 @@ let appState = $state({
 		useStyleForSvgDownload: useStyleForSvgDownload
 	},
 	searchBarValue: searchBarValue,
-	IgSetingsIsOpen: IgSetingsIsOpen
+	IgSettingsIsOpen: IgSettingsIsOpen
 });
 
 export default appState;

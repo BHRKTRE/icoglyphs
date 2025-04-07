@@ -11,7 +11,7 @@
 
 		<!-- <li class="right"><ColorModeButton /></li> -->
 	</ul>
-	<!-- {#if appState.IgSetingsIsOpen}
+	<!-- {#if appState.IgSettingsIsOpen}
 		<div id="params-container">
 			<Params />
 		</div>

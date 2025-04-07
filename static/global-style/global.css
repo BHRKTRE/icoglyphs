@@ -208,6 +208,8 @@ input[type='text'] {
 	display: flex;
 	align-items: center;
 	width: fit-content;
+
+	white-space: nowrap;
 }
 
 /* text must be in span */

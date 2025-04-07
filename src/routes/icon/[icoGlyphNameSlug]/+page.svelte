@@ -12,7 +12,7 @@
 		copySvgToClipBoard,
 		downloadSvg
 	} from '$lib/app/core/utils/export-tools.svelte.js';
-	import TagsDisplay from '../TagsDisplay.svelte';
+	import TagsDisplay from './TagsDisplay.svelte';
 
 	let { data } = $props();
 
@@ -66,27 +66,47 @@
 			<MainIcoG IGname={data.name} />
 
 			<div id="buttonContainer">
-				<button
-					class="button-svg-only"
-					onclick={() => (appState.IgSetingsIsOpen = !appState.IgSetingsIsOpen)}
-				>
-					<svg class="svg-default" {...icoGlyphs.getSvgAttributes('plurality')}>
-						<MorphingPath IGName={'plurality'} />
-					</svg>
-				</button>
-				<button class="button-svg-only" onclick={() => downloadPng(data.name)}>
-					<svg class="svg-default" {...icoGlyphs.getSvgAttributes('download')}>
-						<MorphingPath IGName={'download'} />
-					</svg>
-				</button>
+				{#if !appState.modes.devMode.value && !appState.modes.designerMode.value}
+					<button class="button-default" onclick={() => downloadPng(data.name)}>
+						<span>Download icon's image</span>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={'download'} />
+						</svg>
+					</button>
+				{/if}
 				{#if appState.modes.devMode.value}
-					<button class="button-svg-only" onclick={() => copySvgToClipBoard(data.name)}>
-						<svg class="svg-default" {...icoGlyphs.getSvgAttributes('copy')}>
+					<button class="button-default" onclick={() => copySvgToClipBoard(data.name)}>
+						<span>Copy SVG to clipboard</span>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
 							<MorphingPath IGName={'copy'} />
 						</svg>
 					</button>
 				{/if}
+				{#if appState.modes.designerMode.value || appState.modes.devMode.value}
+					<button class="button-default" onclick={() => downloadPng(data.name)}>
+						<span>Download icon's PNG</span>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={'download'} />
+						</svg>
+					</button>
+					<button class="button-default" onclick={() => downloadSvg(data.name)}>
+						<span>Download icon's SVG</span>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={'download'} />
+						</svg>
+					</button>
+				{/if}
+				<button
+					class="button-default"
+					onclick={() => (appState.IgSettingsIsOpen = !appState.IgSettingsIsOpen)}
+				>
+					<span>Open settings</span>
+					<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+						<MorphingPath IGName={'plurality'} />
+					</svg>
+				</button>
 			</div>
+
 			<IcoGlypherModeDisplay icoGlyphName={data.name} />
 		</div>
 		<SvgStyler />
@@ -115,10 +135,6 @@
 </main>
 
 <style>
-	button {
-		height: 50px;
-		width: 50px;
-	}
 	main {
 		display: flex;
 		justify-content: center;
@@ -148,20 +164,23 @@
 		margin: 0;
 		gap: var(--spacing-medium);
 		top: 0;
-		right: -60px;
+		left: 510px;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		align-items: flex-start;
 	}
 
-	@media (max-width: 800px) {
+	@media (max-width: 930px) {
 		#buttonContainer {
 			position: relative;
+			display: flex;
 			flex-direction: row;
+			flex-wrap: wrap;
 			justify-content: center;
-			width: 100%;
+			max-width: 500px;
 			top: var(--spacing-medium);
-			right: 0;
+			left: 0;
 			margin-bottom: var(--spacing-medium);
 		}
 	}

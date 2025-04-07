@@ -25,7 +25,7 @@
 <svelte:window bind:innerWidth={windowWidth} />
 
 {#if readyToDisplay}
-	{#if appState.IgSetingsIsOpen}
+	{#if appState.IgSettingsIsOpen}
 		<IgSettings />
 	{/if}
 	<div style="margin: 0 {sideMargin};" id="page-wrapper">
