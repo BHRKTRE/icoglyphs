@@ -67,20 +67,20 @@
 
 			<div id="buttonContainer">
 				<button
-					class="button-default"
+					class="button-svg-only"
 					onclick={() => (appState.IgSetingsIsOpen = !appState.IgSetingsIsOpen)}
 				>
 					<svg class="svg-default" {...icoGlyphs.getSvgAttributes('plurality')}>
 						<MorphingPath IGName={'plurality'} />
 					</svg>
 				</button>
-				<button class="button-default" onclick={() => downloadPng(data.name)}>
+				<button class="button-svg-only" onclick={() => downloadPng(data.name)}>
 					<svg class="svg-default" {...icoGlyphs.getSvgAttributes('download')}>
 						<MorphingPath IGName={'download'} />
 					</svg>
 				</button>
 				{#if appState.modes.devMode.value}
-					<button class="button-default" onclick={() => copySvgToClipBoard(data.name)}>
+					<button class="button-svg-only" onclick={() => copySvgToClipBoard(data.name)}>
 						<svg class="svg-default" {...icoGlyphs.getSvgAttributes('copy')}>
 							<MorphingPath IGName={'copy'} />
 						</svg>

@@ -45,15 +45,19 @@
 
 <main>
 	<div class="justforspace"></div>
-	<button class="b1">
+	<button class="button-svg-only">
 		<svg {...icoGlyphs.getSvgAttributes()}>
 			<MorphingPath IGName={appState.modes.colorMode.value} />
 		</svg>
+		<svg {...icoGlyphs.getSvgAttributes()}>
+			<MorphingPath IGName={appState.modes.colorMode.value} />
+		</svg>
+		Download le bail
 	</button>
 	<div class="justforspace"></div>
 	<div class="flex">
 		<Tooltip text={tooltipText} location="top">
-			<button class="button-default button-1" onclick={() => console.log('click')}>
+			<button class="button-svg-only button-1" onclick={() => console.log('click')}>
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
 					<MorphingPath IGName={appState.modes.colorMode.value} />
 				</svg>
@@ -62,15 +66,15 @@
 	</div>
 	<div class="justforspace"></div>
 	<input type="text" bind:value={nextname} />
-	<button class="text-button" onclick={changeActualState2}>change2</button>
+	<button class="button-text" onclick={changeActualState2}>change2</button>
 
 	<div class="justforspace"></div>
 
 	<br />
 	<br />
-	<button class="text-button" onclick={changeActualState}>change</button>
-	<button class="text-button" onclick={changeDuration}>duration</button>
-	<!-- <button class="text-button" onclick={changeDuration}>params</button>
+	<button class="button-text" onclick={changeActualState}>change</button>
+	<button class="button-text" onclick={changeDuration}>duration</button>
+	<!-- <button class="button-text" onclick={changeDuration}>params</button>
 
 	<div id="params-container"><Params /></div> -->
 </main>

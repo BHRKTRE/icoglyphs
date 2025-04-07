@@ -24,7 +24,7 @@
 <button
 	onclick={() => goto(`/icon/${getIcoGlyphSlug()}`)}
 	aria-label={`Navigate to ${icoGlyphName} page`}
-	class="icoglyphContainer button-default"
+	class="icoglyphContainer button-svg-only"
 	style={`width: ${dimensions[size]}px; height: ${dimensions[size]}px;`}
 >
 	<svg {...appState.icoGlyphUserSettings.style} {...icoGlyphs.getSvgAttributes(icoGlyphName)}>

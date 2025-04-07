@@ -46,8 +46,7 @@ code {
 h5,
 span,
 label,
-a,
-.text-button {
+a {
 	color: var(--t1);
 	font-family: var(--typo1);
 	font-weight: 500;
@@ -138,39 +137,21 @@ ul {
 	padding-inline-start: 0;
 }
 
-.internal-icoglyph-button,
-.svg-default {
-	stroke: var(--t1);
-	stroke-linejoin: round;
-	stroke-linecap: round;
-	stroke-width: 0.4rem;
-	stroke-opacity: 1;
-	fill: none;
-}
-
-.button-default {
-	margin: 0;
-	padding: 0;
+button {
 	background: var(--b2);
 	cursor: pointer;
-	border: none;
 	transition: 324ms;
+
 	border-radius: var(--border-radius);
+	border: none;
 }
 
-.button-default:hover {
+button:hover {
 	background: var(--b3);
 }
 
-.button-default:active {
+button:active {
 	background: var(--b4);
-}
-
-.text-button {
-	background: var(--b2);
-	padding: var(--spacing-small) var(--spacing-medium);
-	border-radius: var(--border-radius);
-	border: none;
 }
 
 input[type='text'] {
@@ -195,6 +176,33 @@ input[type='text'] {
 /* ********** */
 /* CLASS STYLE */
 /* ********** */
+
+.internal-icoglyph-button,
+.svg-default {
+	stroke: var(--t1);
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-width: 0.4rem;
+	stroke-opacity: 1;
+	fill: none;
+}
+
+.button-svg-only {
+	margin: 0;
+	padding: 0;
+
+	display: flex;
+}
+
+.button-text {
+	background: var(--b2);
+	padding: var(--spacing-small) var(--spacing-medium);
+
+	color: var(--t1);
+	font-family: var(--typo1);
+	font-weight: 500;
+	font-size: 0.9rem;
+}
 
 .border-1 {
 	border: var(--border-width-medium) solid var(--b2);

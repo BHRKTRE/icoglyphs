@@ -98,13 +98,11 @@
 			</div>
 
 			<div class="small-button-container">
-				<button onclick={changeStrokeType} class="text-button button-default">
+				<button onclick={changeStrokeType} class="button-text">
 					Stroke style :
 					{appState.icoGlyphUserSettings.style['stroke-linejoin']}
 				</button>
-				<button onclick={resetStyleButtonAction} class="text-button button-default"
-					>Reset style</button
-				>
+				<button onclick={resetStyleButtonAction} class="button-text">Reset style</button>
 			</div>
 		{/if}
 		{#if appState.modes.devMode.value == true}
