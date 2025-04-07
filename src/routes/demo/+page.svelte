@@ -39,9 +39,17 @@
 			tooltipText = 'coucou'; // Valeur initiale
 		}, 2000);
 	}
+
+	// $inspect(icoGlyphs.getSvgAttributes());
 </script>
 
 <main>
+	<div class="justforspace"></div>
+	<button class="b1">
+		<svg {...icoGlyphs.getSvgAttributes()}>
+			<MorphingPath IGName={appState.modes.colorMode.value} />
+		</svg>
+	</button>
 	<div class="justforspace"></div>
 	<div class="flex">
 		<Tooltip text={tooltipText} location="top">
