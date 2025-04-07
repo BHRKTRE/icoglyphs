@@ -2,7 +2,7 @@
 	import icoGlyphs from '$lib/index.js';
 	import IcoGlyphLinked from '$lib/app/ui/components/IcoGlyphLinked.svelte';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import Header from './Header.svelte';
+	import HomePageHeader from './HomePageHeader.svelte';
 
 	let filteredIcoGlyphs = $state([]);
 
@@ -78,7 +78,7 @@
 <svelte:head>
 	<meta
 		name="description"
-		content="icoGlyphs - Icons designed with meaning, breaking cultural barriers for a truly universal visual language."
+		content="icoGlyphs - Icons created through the research of signs, shapes, and forms."
 	/>
 	<meta
 		name="keywords"
@@ -86,32 +86,32 @@
 	/>
 	<!-- <meta name="author" content="icoGlyphs" /> -->
 	<meta name="robots" content="index, follow" />
-	<meta property="og:title" content="icoGlyphs - Free Ideographic Icons" />
+	<meta property="og:title" content="icoGlyphs - Free Icons for Universal Expression" />
 	<meta
 		property="og:description"
-		content="Icons designed with meaning, breaking cultural barriers for a truly universal visual language."
+		content="Icons created through the research of signs, shapes, and forms."
 	/>
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://www.icoglyphs.com" />
 	<!-- <meta property="og:image" content="https://www.icoglyphs.com/assets/images/og-image.jpg" /> -->
-	<meta name="twitter:title" content="icoGlyphs - Free Ideographic Icons" />
+	<meta name="twitter:title" content="icoGlyphs - Free Icons for Universal Expression" />
 	<meta
 		name="twitter:description"
-		content="Icons designed with meaning, breaking cultural barriers for a truly universal visual language."
+		content="Icons created through the research of signs, shapes, and forms."
 	/>
 	<!-- <meta name="twitter:image" content="https://www.icoglyphs.com/assets/images/twitter-image.jpg"> -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<title>icoGlyphs - Free Ideographic Icons</title>
+	<title>icoGlyphs - Free Icons for Universal Expression</title>
 </svelte:head>
 
-<!-- <Header /> -->
+<HomePageHeader />
 
 <main>
 	<input
 		id="searchBar"
 		type="text"
 		bind:value={appState.searchBarValue}
-		placeholder="Search icoGlyphs..."
+		placeholder="Type what you wish to express..."
 		oninput={search}
 	/>
 

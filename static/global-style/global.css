@@ -56,9 +56,15 @@ a {
 p {
 	color: var(--t1);
 	font-family: var(--typo1);
-	font-weight: 300;
+	font-weight: 400;
 	font-size: 0.9rem;
 	text-align: justify;
+}
+
+@media (min-width: 1200px) {
+	p {
+		font-size: 1rem;
+	}
 }
 
 /* COLORS MODE */

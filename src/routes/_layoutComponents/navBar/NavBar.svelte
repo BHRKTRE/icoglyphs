@@ -46,12 +46,14 @@
 	}
 
 	#navbar-container {
-		margin: var(--spacing-medium) 0;
+		margin: var(--spacing-small) 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
 		height: 50px;
+
+		border-bottom: var(--border-width-small) solid var(--b2);
 	}
 	/* #navbar-container h5 {
 		color: var(--t1);
