@@ -4,6 +4,7 @@
 	import psi from '$lib/app/ui/utils/psi.js';
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
 	import Tooltip from '$lib/app/ui/components/Tooltip.svelte';
+	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
 
 	const styleyy = {
 		// background: 'var(--b2)',
@@ -40,10 +41,73 @@
 		}, 2000);
 	}
 
-	// $inspect(icoGlyphs.getSvgAttributes());
+	// $inspect(1 / psi ** 10);
 </script>
 
 <main>
+	<div class="justforspace"></div>
+
+	<BasicBlock>
+		{#snippet title()}<h3>Settings</h3>{/snippet}
+		{#snippet text()}
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad{/snippet}
+
+		{#snippet subBlock()}
+			<BasicBlock>
+				{#snippet title()}<h4>Settings</h4>{/snippet}
+				{#snippet text()}
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+					ut labore et dolore magna aliqua. Ut enim ad{/snippet}
+
+				{#snippet buttons()}
+					<button class="button-default">
+						<span>Downlddddddddddddddo bar</span>
+						<svg {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={appState.modes.colorMode.value} />
+						</svg>
+					</button>
+					<button class="button-default">
+						<span>Download foo bar</span>
+						<svg {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={appState.modes.colorMode.value} />
+						</svg>
+						<svg {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={appState.modes.colorMode.value} />
+						</svg>
+					</button>
+				{/snippet}
+			</BasicBlock>
+			<BasicBlock>
+				{#snippet title()}<h4>Settings</h4>{/snippet}
+				{#snippet text()}
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+					ut labore et dolore magna aliqua. Ut enim ad{/snippet}
+
+				{#snippet buttons()}
+					<button class="button-default">
+						<span>Download bar</span>
+						<svg {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={appState.modes.colorMode.value} />
+						</svg>
+						<svg {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={appState.modes.colorMode.value} />
+						</svg>
+					</button>
+					<button class="button-default">
+						<span>Download bar</span>
+						<svg {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={appState.modes.colorMode.value} />
+						</svg>
+						<svg {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={appState.modes.colorMode.value} />
+						</svg>
+					</button>
+				{/snippet}
+			</BasicBlock>
+		{/snippet}
+	</BasicBlock>
+
 	<div class="justforspace"></div>
 	<button class="button-default">
 		<span>Download foo bar</span>

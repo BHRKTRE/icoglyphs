@@ -29,7 +29,7 @@ h3 {
 h4 {
 	color: var(--t1);
 	font-family: var(--typo1);
-	font-weight: 300;
+	font-weight: 500;
 	font-size: 0.9rem;
 }
 
@@ -95,7 +95,7 @@ body {
 	/* background opaque*/
 	--b1: rgb(var(--back-color));
 	/* background opacity 2*/
-	--b2: rgba(var(--front-color), 0.1396);
+	--b2: rgba(var(--front-color), 0.06);
 	/* background opacity 3, mostly for button:hover*/
 	--b3: rgba(var(--front-color), 0.3247);
 	/* background opacity 4*/
@@ -149,7 +149,7 @@ button {
 	transition: 324ms;
 
 	border-radius: var(--border-radius);
-	border: none;
+	border: var(--border-width-small) solid var(--b2);
 }
 
 button:hover {
@@ -213,8 +213,11 @@ input[type='text'] {
 .button-default {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+
 	width: fit-content;
 
+	/* width: 100%; */
 	white-space: nowrap;
 }
 

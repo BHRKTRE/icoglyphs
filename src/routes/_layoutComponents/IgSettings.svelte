@@ -3,6 +3,7 @@
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
 	import icoGlyphs from '$lib/index.js';
 	import { resetStyle } from '$lib/app/ui/utils/resetStyle.svelte.js';
+	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
 
 	$effect(() => {
 		const modesValues = Object.fromEntries(
@@ -71,7 +72,7 @@
 	 * Converts a boolean to the string 'activated' or 'deactivated'
 	 */
 	function translateBooleanToString(value) {
-		return value ? 'activated' : 'deactivated';
+		return value ? 'Enable' : 'Disable';
 	}
 
 	// colorModeButton hitbox too large
@@ -83,39 +84,71 @@
 	id="background-overlay"
 ></button>
 <div id="params-container">
-	<div class="param-section">
-		<button class="button-default" onclick={colorModeButtonAction}>
-			<span>Color mode : {appState.modes.colorMode.value}</span>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-				<MorphingPath IGName={appState.modes.colorMode.value} />
-			</svg>
-		</button>
-	</div>
-
-	<div class="param-section">
-		<button class="button-default" onclick={designerButtonAction}>
-			<span>Designer mode {translateBooleanToString(appState.modes.designerMode.value)}</span>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-				<MorphingPath IGName={'style'} />
-			</svg>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-				<MorphingPath IGName={designerModeButtonState} />
-			</svg>
-		</button>
-	</div>
-
-	<div class="param-section">
-		<button class="button-default" onclick={devModeButtonAction}>
-			<span>Developper mode {translateBooleanToString(appState.modes.devMode.value)}</span>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-				<MorphingPath IGName={'dev'} />
-			</svg>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-				<MorphingPath IGName={devModeButtonState} />
-			</svg>
-		</button>
-	</div>
-
+	<BasicBlock>
+		{#snippet title()}
+			<h3>Settings</h3>
+		{/snippet}
+		{#snippet subBlock()}
+			<BasicBlock>
+				{#snippet title()}
+					<h4>Color Mode</h4>
+				{/snippet}
+				{#snippet text()}
+					Select your preferred color mode: light, dark, or grey.
+				{/snippet}
+				{#snippet buttons()}
+					<button class="button-default" onclick={colorModeButtonAction}>
+						<span>Color mode : {appState.modes.colorMode.value}</span>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={appState.modes.colorMode.value} />
+						</svg>
+					</button>
+				{/snippet}
+			</BasicBlock>
+			<BasicBlock>
+				{#snippet title()}
+					<h4>Designer Mode</h4>
+				{/snippet}
+				{#snippet text()}
+					Enables advanced tools to adjust stroke size, color, and more. Also allows you to download
+					icons in SVG format.
+				{/snippet}
+				{#snippet buttons()}
+					<button class="button-default" onclick={designerButtonAction}>
+						<span
+							>{translateBooleanToString(appState.modes.designerMode.value)} Designer Mode
+						</span>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={'style'} />
+						</svg>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={designerModeButtonState} />
+						</svg>
+					</button>
+				{/snippet}
+			</BasicBlock>
+			<BasicBlock>
+				{#snippet title()}
+					<h4>Developer Mode</h4>
+				{/snippet}
+				{#snippet text()}
+					Although the API is not yet available, you can use Developer Mode to copy icons as SVG to
+					the clipboard, with or without styles.
+				{/snippet}
+				{#snippet buttons()}
+					<button class="button-default" onclick={devModeButtonAction}>
+						<span>{translateBooleanToString(appState.modes.devMode.value)} Developer Mode</span>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={'dev'} />
+						</svg>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+							<MorphingPath IGName={devModeButtonState} />
+						</svg>
+					</button>
+				{/snippet}
+			</BasicBlock>
+		{/snippet}
+	</BasicBlock>
 	<!-- IcoGlypher Mode -->
 	<!-- <div class="param-section">
 		<button class="button-svg-only double-button" onclick={icoGlypherButtonAction}>
@@ -136,15 +169,10 @@
 		left: 50%;
 		transform: translateX(-50%);
 		background-color: var(--b1);
-		border: 2px solid var(--t1);
+		border: var(--border-width-small) solid var(--t1);
 		border-radius: var(--border-radius);
-		padding: var(--spacing-small);
 		z-index: 11;
-
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		max-width: 90vw;
 	}
 
 	#background-overlay {
@@ -155,22 +183,5 @@
 		height: 100vh;
 		background-color: rgba(0, 0, 0, 0.7);
 		z-index: 10;
-	}
-
-	.param-section {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		margin: var(--spacing-medium);
-		border-radius: var(--border-radius);
-	}
-
-	.param-section:hover {
-		background: var(--b3);
-	}
-
-	.param-section:active {
-		background: var(--b4);
 	}
 </style>
