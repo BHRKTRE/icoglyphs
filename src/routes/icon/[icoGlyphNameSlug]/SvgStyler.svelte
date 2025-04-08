@@ -2,6 +2,7 @@
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import psi from '$lib/app/ui/utils/psi.js';
 	import { resetStyle } from '$lib/app/ui/utils/resetStyle.svelte.js';
+	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
 
 	function actualiseLocalStorage(storageName, key, value) {
 		let storedData = JSON.parse(localStorage.getItem(storageName)) || {};
@@ -47,81 +48,101 @@
 		resetStyle();
 	}
 
+	let titleSection = $derived.by(() => {
+		if (appState.modes.designerMode.value == true && appState.modes.devMode.value == true) {
+			return 'Designer & Developer tools';
+		} else if (appState.modes.designerMode.value == true) {
+			return 'Designer tools';
+		} else if (appState.modes.devMode.value == true) {
+			return 'Developer tools';
+		}
+	});
+
 	// $inspect(appState.icoGlyphUserSettings.style);
 </script>
 
 {#if appState.modes.designerMode.value == true || appState.modes.devMode.value == true}
-	<div class="svg-styler-container" style:padding={svgStylerPadding}>
-		{#if appState.modes.designerMode.value == true}
-			<div class="mod-color-container">
-				<div class="column-container">
-					<label for="stroke-size"
-						>Stroke size : {appState.icoGlyphUserSettings.style['stroke-width']} px</label
+	<BasicBlock>
+		{#snippet title()}
+			<h3>{titleSection}</h3>
+		{/snippet}
+
+		<!-- {#snippet text()}
+			You can have more options to customize your experience in the settings menu.
+		{/snippet} -->
+
+		{#snippet buttons()}
+			{#if appState.modes.designerMode.value == true}
+				<div class="mod-color-container">
+					<div class="column-container">
+						<label for="stroke-size"
+							>Stroke size : {appState.icoGlyphUserSettings.style['stroke-width']} px</label
+						><input
+							style="width: {inputWidth};"
+							id="stroke-size"
+							class="color-input"
+							bind:value={appState.icoGlyphUserSettings.style['stroke-width']}
+							oninput={() =>
+								actualiseLocalStorage(
+									'icoGlyphsUserStyle',
+									'stroke-width',
+									appState.icoGlyphUserSettings.style['stroke-width']
+								)}
+							min="0.3"
+							max="9"
+							step="0.1"
+							type="range"
+						/>
+					</div>
+				</div>
+			{/if}
+
+			{#if appState.modes.designerMode.value == true}
+				<div class="mod-color-container">
+					<div class="column-container" id="stroke-color-container">
+						<label for="stroke-color-input" id="stroke-color-label">Stroke color</label>
+						<input
+							style="width: {inputWidth};"
+							id="stroke-color-input"
+							class="color-input"
+							type="color"
+							bind:value={appState.icoGlyphUserSettings.style.stroke}
+							oninput={() =>
+								actualiseLocalStorage(
+									'icoGlyphsUserStyle',
+									'stroke',
+									appState.icoGlyphUserSettings.style['stroke']
+								)}
+						/>
+					</div>
+				</div>
+
+				<div class="small-button-container">
+					<button onclick={changeStrokeType} class="button-text-only">
+						Stroke style :
+						{appState.icoGlyphUserSettings.style['stroke-linejoin']}
+					</button>
+					<button onclick={resetStyleButtonAction} class="button-text-only">Reset style</button>
+				</div>
+			{/if}
+			{#if appState.modes.devMode.value == true}
+				<div class="mod-color-container">
+					<label for="toggle-import-style">Import style when copying & downloading (SVG only)</label
 					><input
-						style="width: {inputWidth};"
-						id="stroke-size"
+						id="toggle-import-style"
 						class="color-input"
-						bind:value={appState.icoGlyphUserSettings.style['stroke-width']}
-						oninput={() =>
+						type="checkbox"
+						onchange={() =>
 							actualiseLocalStorage(
-								'icoGlyphsUserStyle',
-								'stroke-width',
-								appState.icoGlyphUserSettings.style['stroke-width']
+								'useStyleForSvgDownload',
+								appState.icoGlyphUserSettings.useStyleForSvgDownload
 							)}
-						min="0.3"
-						max="9"
-						step="0.1"
-						type="range"
+						bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
 					/>
 				</div>
-			</div>
-		{/if}
-
-		{#if appState.modes.designerMode.value == true}
-			<div class="mod-color-container">
-				<div class="column-container" id="stroke-color-container">
-					<label for="stroke-color-input" id="stroke-color-label">Stroke color</label>
-					<input
-						style="width: {inputWidth};"
-						id="stroke-color-input"
-						class="color-input"
-						type="color"
-						bind:value={appState.icoGlyphUserSettings.style.stroke}
-						oninput={() =>
-							actualiseLocalStorage(
-								'icoGlyphsUserStyle',
-								'stroke',
-								appState.icoGlyphUserSettings.style['stroke']
-							)}
-					/>
-				</div>
-			</div>
-
-			<div class="small-button-container">
-				<button onclick={changeStrokeType} class="button-text-only">
-					Stroke style :
-					{appState.icoGlyphUserSettings.style['stroke-linejoin']}
-				</button>
-				<button onclick={resetStyleButtonAction} class="button-text-only">Reset style</button>
-			</div>
-		{/if}
-		{#if appState.modes.devMode.value == true}
-			<div class="mod-color-container">
-				<label for="toggle-import-style">Import style when copying & downloading (SVG only)</label
-				><input
-					id="toggle-import-style"
-					class="color-input"
-					type="checkbox"
-					onchange={() =>
-						actualiseLocalStorage(
-							'useStyleForSvgDownload',
-							appState.icoGlyphUserSettings.useStyleForSvgDownload
-						)}
-					bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
-				/>
-			</div>
-		{/if}
-	</div>
+			{/if}
+		{/snippet}
+	</BasicBlock>
 {/if}
 
 <style>
@@ -135,7 +156,7 @@
 		transition: 1s;
 	} */
 
-	.svg-styler-container {
+	/* .svg-styler-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -146,7 +167,7 @@
 		gap: var(--spacing-medium);
 		max-width: var(--max-width-medium);
 		transition: 500ms;
-	}
+	} */
 
 	.mod-color-container {
 		display: flex;

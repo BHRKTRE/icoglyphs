@@ -97,9 +97,9 @@ body {
 	/* background opacity 2*/
 	--b2: rgba(var(--front-color), 0.06);
 	/* background opacity 3, mostly for button:hover*/
-	--b3: rgba(var(--front-color), 0.3247);
+	--b3: rgba(var(--front-color), 0.1054);
 	/* background opacity 4*/
-	--b4: rgba(var(--front-color), 0.7548);
+	--b4: rgba(var(--front-color), 0.185);
 	/* text color */
 	--t1: rgb(var(--front-color));
 	/*  */
@@ -240,6 +240,8 @@ input[type='text'] {
 	fill: none;
 	height: 2rem;
 }
+
+/* classes below can be removed */
 
 .border-1 {
 	border: var(--border-width-medium) solid var(--b2);

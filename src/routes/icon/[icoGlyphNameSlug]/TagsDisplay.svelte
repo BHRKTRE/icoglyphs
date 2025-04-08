@@ -1,5 +1,7 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
+	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
+	import { tick } from 'svelte';
 
 	let { icoGlyphName } = $props();
 
@@ -9,24 +11,34 @@
 </script>
 
 {#if tags !== undefined}
-	<div id="tags-container" class="border-1">
-		<h5>Tags</h5>
-		{#each tags as tag}
-			<span class="border-2 tag">{tag}</span>
-		{/each}
-	</div>
+	<BasicBlock>
+		{#snippet title()}
+			<h3>Tags</h3>
+		{/snippet}
+		{#snippet text()}
+			While a tag carries a whole universe of meaning, the list below helps to better understand the
+			icon.
+		{/snippet}
+		{#snippet subBlock()}
+			<div id="tags-container">
+				{#each tags as tag}
+					<span class=" tag">{tag}</span>
+				{/each}
+			</div>
+		{/snippet}
+	</BasicBlock>
 {/if}
 
 <style>
 	.tag {
-		color: var(--b4);
+		color: var(--t1);
 		padding: var(--spacing-small) var(--spacing-medium);
 
 		font-weight: 500;
 		font-size: 0.8rem;
 
-		/* Replicating border-2 because it doesn't appear in the global.css on the main domain */
-		border: var(--border-width-small) solid var(--b2);
+		border: var(--border-width-small) solid var(--b1);
+		/* background: var(--b2); */
 		border-radius: var(--border-radius);
 	}
 
@@ -38,18 +50,5 @@
 		gap: var(--spacing-medium);
 
 		position: relative;
-		max-width: var(--max-width-medium);
-		margin-top: 15px;
-		padding: var(--spacing-medium);
-	}
-
-	h5 {
-		position: absolute;
-		top: -14px;
-		background: var(--b1);
-		padding: 0 var(--spacing-medium);
-		z-index: 1;
-		transform: translateX(-50%);
-		left: 50%;
 	}
 </style>

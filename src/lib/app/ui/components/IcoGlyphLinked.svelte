@@ -35,14 +35,14 @@
 <style>
 	.icoglyphContainer {
 		border-radius: var(--border-radius);
-		background: none;
-	}
-
-	.icoglyphContainer:hover {
 		background: var(--b2);
 	}
 
-	.icoglyphContainer:active {
+	.icoglyphContainer:hover {
 		background: var(--b3);
+	}
+
+	.icoglyphContainer:active {
+		background: var(--b4);
 	}
 </style>

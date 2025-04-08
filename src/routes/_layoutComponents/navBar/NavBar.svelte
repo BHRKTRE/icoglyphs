@@ -46,7 +46,7 @@
 	}
 
 	#navbar-container {
-		margin: var(--spacing-small) 0;
+		margin: var(--spacing-medium) 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;

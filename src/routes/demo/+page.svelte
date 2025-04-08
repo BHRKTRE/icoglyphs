@@ -41,7 +41,7 @@
 		}, 2000);
 	}
 
-	// $inspect(1 / psi ** 10);
+	$inspect(1 / psi ** 6);
 </script>
 
 <main>
