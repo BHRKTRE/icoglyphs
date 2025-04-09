@@ -83,15 +83,15 @@
 	onclick={() => (appState.IgSettingsIsOpen = !appState.IgSettingsIsOpen)}
 	id="background-overlay"
 ></button>
-<div id="params-container">
+<div id="settings-container">
 	<BasicBlock>
 		{#snippet title()}
-			<h3>Settings</h3>
+			<h2>Settings</h2>
 		{/snippet}
 		{#snippet subBlock()}
 			<BasicBlock>
 				{#snippet title()}
-					<h4>Color Mode</h4>
+					<h3>Color Mode</h3>
 				{/snippet}
 				{#snippet text()}
 					Select your preferred color mode: light, dark, or grey.
@@ -107,7 +107,7 @@
 			</BasicBlock>
 			<BasicBlock>
 				{#snippet title()}
-					<h4>Designer Mode</h4>
+					<h3>Designer Mode</h3>
 				{/snippet}
 				{#snippet text()}
 					Enables advanced tools to adjust stroke size, color, and more. Also allows you to download
@@ -129,7 +129,7 @@
 			</BasicBlock>
 			<BasicBlock>
 				{#snippet title()}
-					<h4>Developer Mode</h4>
+					<h3>Developer Mode</h3>
 				{/snippet}
 				{#snippet text()}
 					Although the API is not yet available, you can use Developer Mode to copy icons as SVG to
@@ -163,7 +163,7 @@
 </div>
 
 <style>
-	#params-container {
+	#settings-container {
 		position: fixed;
 		top: 70px;
 		left: 50%;

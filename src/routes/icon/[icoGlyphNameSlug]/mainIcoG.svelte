@@ -2,7 +2,7 @@
 	import icoGlyphs from '$lib/index.js';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 
-	let { IGname } = $props();
+	let { data } = $props();
 
 	// let divBackground = $derived(appState.modes.designerMode.value == true ? damier : 'inherit');
 
@@ -12,8 +12,14 @@
 </script>
 
 <div id="icoglyph-container" class={appState.modes.designerMode.value ? 'checkerboard' : ' '}>
-	<svg {...appState.icoGlyphUserSettings.style} {...icoGlyphs.getSvgAttributes(IGname)}>
-		<path d={icoGlyphs.getPath(IGname)} />
+	<svg
+		role="img"
+		aria-labelledby="icon-title"
+		{...appState.icoGlyphUserSettings.style}
+		{...icoGlyphs.getSvgAttributes(data.name)}
+	>
+		<title id="icon-title">{data.aliases?.[0] || 'Unnamed'} icon</title>
+		<path d={icoGlyphs.getPath(data.name)} />
 	</svg>
 </div>
 

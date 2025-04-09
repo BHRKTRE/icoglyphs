@@ -84,7 +84,7 @@
 		name="keywords"
 		content="icons, glyphs, universal icons, ideographic, design, API, customizable, SVG, PNG, open-source, free, visual language"
 	/>
-	<!-- <meta name="author" content="icoGlyphs" /> -->
+	<meta name="author" content="IcoGlyphs Crew" />
 	<meta name="robots" content="index, follow" />
 	<meta property="og:title" content="icoGlyphs - Free Icons for Universal Expression" />
 	<meta
@@ -130,6 +130,7 @@
 		padding: var(--spacing-small) var(--spacing-medium);
 		border-radius: var(--border-radius);
 		margin-bottom: 1rem;
+		border: var(--border-width-medium) solid var(--b3);
 	}
 	#searchBar::placeholder {
 		color: var(--t1);

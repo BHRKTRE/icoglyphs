@@ -14,6 +14,7 @@
 	} from '$lib/app/core/utils/export-tools.svelte.js';
 	import TagsDisplay from './TagsDisplay.svelte';
 	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
+	import { page } from '$app/state';
 
 	let { data } = $props();
 
@@ -58,12 +59,44 @@
 		}
 	}
 
-	// $inspect(tagsDisplay);
+	// $inspect(page.url);
 </script>
+
+<svelte:head>
+	<meta name="description" content="{data.aliases?.[0] || 'Unnamed'} – free icon." />
+	<meta
+		name="keywords"
+		content="{data.aliases?.[0] ||
+			'Unnamed'}, icons, glyphs, universal icons, ideographic, design, API, customizable, SVG, PNG, open-source, free, visual language"
+	/>
+	<meta name="author" content="IcoGlyphs Crew" />
+	<meta name="robots" content="index, follow" />
+	<meta property="og:title" content="{data.aliases?.[0] || 'Unnamed'} – icon" />
+	<meta
+		property="og:description"
+		content="{data.aliases?.[0] ||
+			'Unnamed'} icon created through the research of signs, shapes, and forms."
+	/>
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={page.url} />
+	<!-- <meta property="og:image" content="https://www.icoglyphs.com/assets/images/og-image.jpg" /> -->
+	<meta name="twitter:title" content="{data.aliases?.[0] || 'Unnamed'} – icon" />
+	<meta
+		name="twitter:description"
+		content="{data.aliases?.[0] ||
+			'Unnamed'} icon created through the research of signs, shapes, and forms."
+	/>
+	<!-- <meta name="twitter:image" content="https://www.icoglyphs.com/assets/images/twitter-image.jpg"> -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<title>{data.aliases?.[0] || 'Unnamed'} – icon</title>
+</svelte:head>
 
 <main>
 	<div id="main-container">
-		<MainIcoG IGname={data.name} />
+		{#if data.aliases}
+			<h1>{data.aliases[0]} – free icon</h1>
+		{/if}
+		<MainIcoG {data} />
 		<div id="buttonContainer">
 			<BasicBlock>
 				{#snippet el()}
@@ -118,13 +151,13 @@
 		{#if data.metadata?.categories && data.metadata.categories.length > 0}
 			<BasicBlock>
 				{#snippet title()}
-					<h3>Related icoglyphs</h3>
+					<h2>Related icoglyphs</h2>
 				{/snippet}
 				{#snippet text()}
 					Icoglyphs can be grouped by categories that reflect shared meaning or related concepts.
 					The icons below share at least one and support animation.
 				{/snippet}
-				{#snippet subBlock()}
+				{#snippet el()}
 					<div id="sub-icoglyphs-display">
 						{#each allPathKeys as pathKeys}
 							{#if pathKeys !== data.name}
@@ -153,6 +186,11 @@
 		justify-content: center;
 		align-items: center;
 		width: 100%;
+	}
+
+	h1 {
+		font-size: 1.2rem;
+		text-transform: capitalize;
 	}
 
 	#main-container {

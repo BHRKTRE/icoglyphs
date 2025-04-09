@@ -340,7 +340,7 @@
 			"path": "M 0 -75 A 1 1 0 0 0 0 75 A 1 1 0 0 0 0 -75 M 50 50"
 		},
 		"l__p_cl__d_bl_tr___x___l__p_cr__d_br_tr": {
-			"aliases": ["dev"],
+			"aliases": ["developper", "dev"],
 			"path": "M -20 25 L 0 -25 M 0 25 L 20 -25",
 			"metadata": {
 				"tags": ["code", "dev", "developer"]

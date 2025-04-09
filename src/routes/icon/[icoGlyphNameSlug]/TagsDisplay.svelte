@@ -1,7 +1,6 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
 	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
-	import { tick } from 'svelte';
 
 	let { icoGlyphName } = $props();
 
@@ -13,7 +12,7 @@
 {#if tags !== undefined}
 	<BasicBlock>
 		{#snippet title()}
-			<h3>Tags</h3>
+			<h2>Tags</h2>
 		{/snippet}
 		{#snippet text()}
 			While a tag carries a whole universe of meaning, the list below helps to better understand the

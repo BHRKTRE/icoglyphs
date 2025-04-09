@@ -64,7 +64,7 @@
 {#if appState.modes.designerMode.value == true || appState.modes.devMode.value == true}
 	<BasicBlock>
 		{#snippet title()}
-			<h3>{titleSection}</h3>
+			<h2>{titleSection}</h2>
 		{/snippet}
 
 		<!-- {#snippet text()}
