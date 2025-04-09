@@ -71,24 +71,24 @@
 	/>
 	<meta name="author" content="IcoGlyphs Crew" />
 	<meta name="robots" content="index, follow" />
-	<meta property="og:title" content="{data.aliases?.[0] || 'Unnamed'} – icon" />
+	<meta property="og:title" content="'{data.aliases?.[0] || 'Unnamed'}' icon" />
 	<meta
 		property="og:description"
-		content="{data.aliases?.[0] ||
-			'Unnamed'} icon created through the research of signs, shapes, and forms."
+		content="'{data.aliases?.[0] ||
+			'Unnamed'}' icon created through the research of signs, shapes, and forms."
 	/>
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={page.url} />
 	<!-- <meta property="og:image" content="https://www.icoglyphs.com/assets/images/og-image.jpg" /> -->
-	<meta name="twitter:title" content="{data.aliases?.[0] || 'Unnamed'} – icon" />
+	<meta name="twitter:title" content="'{data.aliases?.[0] || 'Unnamed'}' icon" />
 	<meta
 		name="twitter:description"
-		content="{data.aliases?.[0] ||
-			'Unnamed'} icon created through the research of signs, shapes, and forms."
+		content="'{data.aliases?.[0] ||
+			'Unnamed'}' icon created through the research of signs, shapes, and forms."
 	/>
 	<!-- <meta name="twitter:image" content="https://www.icoglyphs.com/assets/images/twitter-image.jpg"> -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<title>{data.aliases?.[0] || 'Unnamed'} – icon</title>
+	<title>'{data.aliases?.[0] || 'Unnamed'}' icon</title>
 </svelte:head>
 
 <main>
