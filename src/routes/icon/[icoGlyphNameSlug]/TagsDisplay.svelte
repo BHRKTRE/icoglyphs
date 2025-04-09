@@ -19,7 +19,7 @@
 			While a tag carries a whole universe of meaning, the list below helps to better understand the
 			icon.
 		{/snippet}
-		{#snippet subBlock()}
+		{#snippet el()}
 			<div id="tags-container">
 				{#each tags as tag}
 					<span class=" tag">{tag}</span>
@@ -37,7 +37,7 @@
 		font-weight: 500;
 		font-size: 0.8rem;
 
-		border: var(--border-width-small) solid var(--b1);
+		border: var(--border-width-small) solid var(--b2);
 		/* background: var(--b2); */
 		border-radius: var(--border-radius);
 	}

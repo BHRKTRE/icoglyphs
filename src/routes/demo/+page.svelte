@@ -60,7 +60,7 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
 					ut labore et dolore magna aliqua. Ut enim ad{/snippet}
 
-				{#snippet buttons()}
+				{#snippet el()}
 					<button class="button-default">
 						<span>Downlddddddddddddddo bar</span>
 						<svg {...icoGlyphs.getSvgAttributes()}>
@@ -84,7 +84,7 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
 					ut labore et dolore magna aliqua. Ut enim ad{/snippet}
 
-				{#snippet buttons()}
+				{#snippet el()}
 					<button class="button-default">
 						<span>Download bar</span>
 						<svg {...icoGlyphs.getSvgAttributes()}>

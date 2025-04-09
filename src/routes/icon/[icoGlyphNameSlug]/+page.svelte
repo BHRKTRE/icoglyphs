@@ -66,7 +66,7 @@
 		<MainIcoG IGname={data.name} />
 		<div id="buttonContainer">
 			<BasicBlock>
-				{#snippet subBlock()}
+				{#snippet el()}
 					{#if !appState.modes.devMode.value && !appState.modes.designerMode.value}
 						<button class="button-default" onclick={() => downloadPng(data.name)}>
 							<span>Download icon's image</span>

@@ -1,5 +1,5 @@
 <script>
-	let { title, text, buttons, subBlock } = $props();
+	let { title, text, el, subBlock } = $props();
 </script>
 
 <div class="block-container">
@@ -13,9 +13,9 @@
 			<p>{@render text?.()}</p>
 		</div>
 	{/if}
-	{#if buttons}
-		<div class="buttons-container">
-			{@render buttons?.()}
+	{#if el}
+		<div class="elements-container">
+			{@render el?.()}
 		</div>
 	{/if}
 	{#if subBlock}
@@ -42,8 +42,8 @@
 	}
 
 	.text-container {
-		background: var(--b1);
-		padding: var(--spacing-medium);
+		/* background: var(--b1); */
+		padding: 0 var(--spacing-medium) var(--spacing-medium) var(--spacing-medium);
 		border-radius: var(--border-radius);
 	}
 
@@ -51,11 +51,14 @@
 		text-align: start;
 	}
 
-	.buttons-container {
+	.elements-container {
+		background: var(--b1);
+
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: space-around;
+		border-radius: var(--border-radius);
 
 		padding: var(--spacing-medium);
 		gap: var(--spacing-medium);

@@ -96,7 +96,7 @@
 				{#snippet text()}
 					Select your preferred color mode: light, dark, or grey.
 				{/snippet}
-				{#snippet buttons()}
+				{#snippet el()}
 					<button class="button-default" onclick={colorModeButtonAction}>
 						<span>Color mode : {appState.modes.colorMode.value}</span>
 						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
@@ -113,7 +113,7 @@
 					Enables advanced tools to adjust stroke size, color, and more. Also allows you to download
 					icons in SVG format.
 				{/snippet}
-				{#snippet buttons()}
+				{#snippet el()}
 					<button class="button-default" onclick={designerButtonAction}>
 						<span
 							>{translateBooleanToString(appState.modes.designerMode.value)} Designer Mode
@@ -135,7 +135,7 @@
 					Although the API is not yet available, you can use Developer Mode to copy icons as SVG to
 					the clipboard, with or without styles.
 				{/snippet}
-				{#snippet buttons()}
+				{#snippet el()}
 					<button class="button-default" onclick={devModeButtonAction}>
 						<span>{translateBooleanToString(appState.modes.devMode.value)} Developer Mode</span>
 						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>

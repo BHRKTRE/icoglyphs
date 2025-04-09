@@ -71,7 +71,7 @@
 			You can have more options to customize your experience in the settings menu.
 		{/snippet} -->
 
-		{#snippet buttons()}
+		{#snippet el()}
 			{#if appState.modes.designerMode.value == true}
 				<div class="mod-color-container">
 					<div class="column-container">
