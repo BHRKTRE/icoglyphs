@@ -37,6 +37,14 @@
 		background: var(--b1);
 	}
 
+	.navbar-button:hover {
+		background: var(--b2);
+	}
+
+	.navbar-button:active {
+		background: var(--b4);
+	}
+
 	#navbar-container {
 		margin: var(--spacing-medium) 0;
 		display: flex;
