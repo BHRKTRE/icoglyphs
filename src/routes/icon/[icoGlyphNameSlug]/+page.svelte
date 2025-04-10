@@ -59,6 +59,13 @@
 		}
 	}
 
+	function capitalizeTitle(str) {
+		return str
+			.split(' ') // Sépare la chaîne par des espaces
+			.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalise chaque mot
+			.join(' '); // Rejoint les mots en une seule chaîne
+	}
+
 	// $inspect(page.url);
 </script>
 
@@ -67,7 +74,7 @@
 	<meta
 		name="keywords"
 		content="{data.aliases?.[0] ||
-			'Unnamed'}, icons, glyphs, universal icons, ideographic, design, API, customizable, SVG, PNG, open-source, free, visual language"
+			'Unnamed'}, icon, glyph, universal icon, ideographic, API, customizable, SVG icon, PNG icon, UI design, visual language, free icon, scalable graphics, animable SVG"
 	/>
 	<meta name="author" content="IcoGlyphs Crew" />
 	<meta name="robots" content="index, follow" />
@@ -88,12 +95,12 @@
 	/>
 	<!-- <meta name="twitter:image" content="https://www.icoglyphs.com/assets/images/twitter-image.jpg"> -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<title>'{data.aliases?.[0] || 'Unnamed'}' icon</title>
+	<title>{capitalizeTitle(data.aliases?.[0] || 'Unnamed')} – icon</title>
 </svelte:head>
 
 <main>
 	{#if data.aliases}
-		<h1>{data.aliases[0]} – free icon</h1>
+		<h1>{capitalizeTitle(data.aliases?.[0] || 'Unnamed')} – free icon</h1>
 	{/if}
 	<div id="main-ig-container">
 		<MainIcoG {data} />
@@ -266,7 +273,6 @@
 		grid-area: tr;
 
 		font-size: 1.2rem;
-		text-transform: capitalize;
 	}
 
 	#top-container {

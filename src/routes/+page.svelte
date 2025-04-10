@@ -82,7 +82,7 @@
 	/>
 	<meta
 		name="keywords"
-		content="icons, glyphs, universal icons, ideographic, design, API, customizable, SVG, PNG, open-source, free, visual language"
+		content="icons, glyphs, universal icons, ideographic, API, customizable, SVG icons, PNG icons, UI design, visual language, free icons, scalable graphics, animable SVG"
 	/>
 	<meta name="author" content="IcoGlyphs Crew" />
 	<meta name="robots" content="index, follow" />
