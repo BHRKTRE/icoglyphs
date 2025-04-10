@@ -100,88 +100,93 @@
 	</div>
 
 	<div id="lm-container">
-		<div id="buttonContainer">
-			<BasicBlock>
-				{#snippet el()}
-					{#if !appState.modes.devMode.value && !appState.modes.designerMode.value}
-						<button class="button-default" onclick={() => downloadPng(data.name)}>
-							<span>Download icon's image</span>
+		<div id="lmt-container">
+			<div id="buttonContainer">
+				<BasicBlock>
+					{#snippet el()}
+						{#if !appState.modes.devMode.value && !appState.modes.designerMode.value}
+							<button class="button-default" onclick={() => downloadPng(data.name)}>
+								<span>Download icon's image</span>
+								<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+									<MorphingPath IGName={'download'} />
+								</svg>
+							</button>
+						{/if}
+						{#if appState.modes.devMode.value}
+							<button class="button-default" onclick={() => copySvgToClipBoard(data.name)}>
+								<span>Copy SVG to clipboard</span>
+								<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+									<MorphingPath IGName={'copy'} />
+								</svg>
+							</button>
+						{/if}
+						{#if appState.modes.designerMode.value || appState.modes.devMode.value}
+							<button class="button-default" onclick={() => downloadPng(data.name)}>
+								<span>Download icon's PNG</span>
+								<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+									<MorphingPath IGName={'download'} />
+								</svg>
+							</button>
+							<button class="button-default" onclick={() => downloadSvg(data.name)}>
+								<span>Download icon's SVG</span>
+								<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+									<MorphingPath IGName={'download'} />
+								</svg>
+							</button>
+						{/if}
+						<button
+							class="button-default"
+							onclick={() => (appState.IgSettingsIsOpen = !appState.IgSettingsIsOpen)}
+						>
+							<span>Open settings</span>
 							<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-								<MorphingPath IGName={'download'} />
+								<MorphingPath IGName={'plurality'} />
 							</svg>
 						</button>
-					{/if}
-					{#if appState.modes.devMode.value}
-						<button class="button-default" onclick={() => copySvgToClipBoard(data.name)}>
-							<span>Copy SVG to clipboard</span>
-							<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-								<MorphingPath IGName={'copy'} />
-							</svg>
-						</button>
-					{/if}
-					{#if appState.modes.designerMode.value || appState.modes.devMode.value}
-						<button class="button-default" onclick={() => downloadPng(data.name)}>
-							<span>Download icon's PNG</span>
-							<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-								<MorphingPath IGName={'download'} />
-							</svg>
-						</button>
-						<button class="button-default" onclick={() => downloadSvg(data.name)}>
-							<span>Download icon's SVG</span>
-							<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-								<MorphingPath IGName={'download'} />
-							</svg>
-						</button>
-					{/if}
-					<button
-						class="button-default"
-						onclick={() => (appState.IgSettingsIsOpen = !appState.IgSettingsIsOpen)}
-					>
-						<span>Open settings</span>
-						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={'plurality'} />
-						</svg>
-					</button>
-				{/snippet}
-			</BasicBlock>
+					{/snippet}
+				</BasicBlock>
+			</div>
+
+			<IcoGlypherModeDisplay icoGlyphName={data.name} />
+
+			<SvgStyler />
 		</div>
 
-		<IcoGlypherModeDisplay icoGlyphName={data.name} />
-
-		<SvgStyler />
+		<div id="lmb-container">
+			{#if data.metadata?.categories && data.metadata.categories.length > 0}
+				<BasicBlock>
+					{#snippet title()}
+						<h2>Related icoglyphs</h2>
+					{/snippet}
+					{#snippet text()}
+						Icoglyphs can be grouped by categories that reflect shared meaning or related concepts.
+						The icons below share at least one and support animation.
+					{/snippet}
+					{#snippet el()}
+						<div id="sub-icoglyphs-display">
+							{#each allPathKeys as pathKeys}
+								{#if pathKeys !== data.name}
+									<!-- svelte-ignore a11y_no_static_element_interactions -->
+									<!-- svelte-ignore a11y_click_events_have_key_events -->
+									<div
+										onmouseenter={() => animationOnMouseEnter(pathKeys)}
+										onmouseleave={animationOnMouseLeave}
+										class="animableSet"
+										onclick={() => (readyToAnimate = false)}
+									>
+										<IcoGlyphLinked icoGlyphName={pathKeys} size="small" />
+									</div>
+								{/if}
+							{/each}
+						</div>
+					{/snippet}
+				</BasicBlock>
+			{/if}
+		</div>
 	</div>
+
 	<div id="br-container">
 		<TagsDisplay icoGlyphName={data.name} />
-
-		{#if data.metadata?.categories && data.metadata.categories.length > 0}
-			<BasicBlock>
-				{#snippet title()}
-					<h2>Related icoglyphs</h2>
-				{/snippet}
-				{#snippet text()}
-					Icoglyphs can be grouped by categories that reflect shared meaning or related concepts.
-					The icons below share at least one and support animation.
-				{/snippet}
-				{#snippet el()}
-					<div id="sub-icoglyphs-display">
-						{#each allPathKeys as pathKeys}
-							{#if pathKeys !== data.name}
-								<!-- svelte-ignore a11y_no_static_element_interactions -->
-								<!-- svelte-ignore a11y_click_events_have_key_events -->
-								<div
-									onmouseenter={() => animationOnMouseEnter(pathKeys)}
-									onmouseleave={animationOnMouseLeave}
-									class="animableSet"
-									onclick={() => (readyToAnimate = false)}
-								>
-									<IcoGlyphLinked icoGlyphName={pathKeys} size="small" />
-								</div>
-							{/if}
-						{/each}
-					</div>
-				{/snippet}
-			</BasicBlock>
-		{/if}
 	</div>
 </main>
 
@@ -192,7 +197,8 @@
 		grid-template-areas:
 			'tr .'
 			'rm lm'
-			'l .';
+			'br lm'
+			'br .';
 
 		margin: 0 auto;
 		width: 100%;
@@ -208,7 +214,14 @@
 		max-width: 440px;
 	}
 
-	@media (max-width: 1080px) {
+	#lmt-container {
+		grid-area: lm;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-medium);
+	}
+
+	@media (max-width: 1150px) {
 		main {
 			display: flex;
 			flex-direction: column;
@@ -217,16 +230,26 @@
 		#lm-container {
 			grid-area: lm;
 			display: flex;
-			flex-direction: row;
-			align-items: flex-start;
+			flex-direction: column;
 
 			gap: var(--spacing-medium);
 			max-width: 580px;
 		}
+
+		#lmt-container {
+			grid-area: lm;
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: center;
+
+			gap: var(--spacing-medium);
+			width: 100%;
+		}
 	}
 
 	@media (max-width: 630px) {
-		#lm-container {
+		#lmt-container {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -241,7 +264,7 @@
 	}
 
 	#br-container {
-		grid-area: l;
+		grid-area: br;
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-medium);
