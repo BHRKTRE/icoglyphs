@@ -92,11 +92,14 @@
 </svelte:head>
 
 <main>
-	<div id="main-container">
-		{#if data.aliases}
-			<h1>{data.aliases[0]} – free icon</h1>
-		{/if}
+	{#if data.aliases}
+		<h1>{data.aliases[0]} – free icon</h1>
+	{/if}
+	<div id="main-ig-container">
 		<MainIcoG {data} />
+	</div>
+
+	<div id="lm-container">
 		<div id="buttonContainer">
 			<BasicBlock>
 				{#snippet el()}
@@ -146,6 +149,8 @@
 		<IcoGlypherModeDisplay icoGlyphName={data.name} />
 
 		<SvgStyler />
+	</div>
+	<div id="br-container">
 		<TagsDisplay icoGlyphName={data.name} />
 
 		{#if data.metadata?.categories && data.metadata.categories.length > 0}
@@ -182,25 +187,72 @@
 
 <style>
 	main {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:
+			'tr .'
+			'rm lm'
+			'l .';
+
+		margin: 0 auto;
 		width: 100%;
+		gap: var(--spacing-medium);
+		max-width: 1030px;
+	}
+
+	#lm-container {
+		grid-area: lm;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-medium);
+		max-width: 440px;
+	}
+
+	@media (max-width: 1080px) {
+		main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		#lm-container {
+			grid-area: lm;
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+
+			gap: var(--spacing-medium);
+			max-width: 580px;
+		}
+	}
+
+	@media (max-width: 630px) {
+		#lm-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+
+	#main-ig-container {
+		grid-area: rm;
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		max-width: 580px;
+	}
+
+	#br-container {
+		grid-area: l;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-medium);
+		max-width: 580px;
 	}
 
 	h1 {
+		grid-area: tr;
+
 		font-size: 1.2rem;
 		text-transform: capitalize;
-	}
-
-	#main-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		max-width: var(--max-width-medium);
-		gap: var(--spacing-medium);
 	}
 
 	#top-container {
@@ -214,12 +266,19 @@
 
 	#buttonContainer {
 		display: flex;
+		grid-area: r;
 		align-items: center;
 
 		position: relative;
 
-		max-width: 500px;
+		max-width: 250px;
 		left: 0;
+	}
+
+	@media (max-width: 430px) {
+		#buttonContainer {
+			max-width: none;
+		}
 	}
 
 	#buttonContainer button {

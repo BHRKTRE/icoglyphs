@@ -26,19 +26,15 @@
 <style>
 	#icoglyph-container {
 		width: 100%;
-		height: 100%;
+		aspect-ratio: 1 / 1;
 		border: var(--b2) var(--border-width-medium) solid;
 		border-radius: var(--border-radius);
-		max-width: var(--max-width-medium);
 	}
 
 	.checkerboard {
 		--color1: hsl(0 0% 40%);
 		--color2: hsl(0 0% 50%);
 		--size: 22px;
-
-		width: 500px;
-		height: 500px;
 
 		background-image: linear-gradient(
 				45deg,
