@@ -31,7 +31,7 @@ h4 {
 	color: var(--t1);
 	font-family: var(--typo1);
 	font-weight: 500;
-	font-size: 0.9rem;
+	font-size: 1rem;
 }
 
 code {
@@ -95,12 +95,12 @@ body {
 	--b3: rgba(var(--front-color), 0.1054);
 	/* background opacity 4*/
 	--b4: rgba(var(--front-color), 0.185);
+	/* background opacity 5*/
+	--b5: rgba(var(--front-color), 0.6);
 	/* text color */
 	--t1: rgb(var(--front-color));
 	/*  */
 	--t2: rgba(var(--back-color), 0.7548);
-	/*  */
-	--t3: rgba(var(--back-color), 0.5698);
 
 	/* Set the body background color */
 	background: var(--b1);
@@ -235,6 +235,27 @@ input[type='text'] {
 	fill: none;
 	height: 2rem;
 }
+
+/* WIP
+
+.button-important {
+	border: var(--border-width-small) solid var(--b5);
+	background: var(--b5);
+}
+
+.button-important span,
+.button-important svg {
+	color: var(--b1);
+	stroke: var(--b1);
+}
+
+.button-important:hover {
+	background: var(--b4);
+}
+
+.button-important:active {
+	background: var(--b2);
+} */
 
 /* classes below can be removed */
 

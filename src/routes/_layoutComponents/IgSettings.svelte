@@ -5,6 +5,8 @@
 	import { resetStyle } from '$lib/app/ui/utils/resetStyle.svelte.js';
 	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
 
+	//------
+
 	$effect(() => {
 		const modesValues = Object.fromEntries(
 			Object.entries(appState.modes).map(([key, data]) => [key, data.value])
@@ -72,10 +74,8 @@
 	 * Converts a boolean to the string 'activated' or 'deactivated'
 	 */
 	function translateBooleanToString(value) {
-		return value ? 'Enable' : 'Disable';
+		return value ? 'Enabled' : 'Disabled';
 	}
-
-	// colorModeButton hitbox too large
 </script>
 
 <button
@@ -83,96 +83,128 @@
 	onclick={() => (appState.IgSettingsIsOpen = !appState.IgSettingsIsOpen)}
 	id="background-overlay"
 ></button>
-<div id="settings-container">
-	<BasicBlock>
-		{#snippet title()}
-			<h2>Settings</h2>
-		{/snippet}
-		{#snippet subBlock()}
-			<BasicBlock>
-				{#snippet title()}
-					<h3>Color Mode</h3>
-				{/snippet}
-				{#snippet text()}
-					Select your preferred color mode: light, dark, or grey.
-				{/snippet}
-				{#snippet el()}
-					<button class="button-default" onclick={colorModeButtonAction}>
-						<span>Color mode : {appState.modes.colorMode.value}</span>
-						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={appState.modes.colorMode.value} />
-						</svg>
-					</button>
-				{/snippet}
-			</BasicBlock>
-			<BasicBlock>
-				{#snippet title()}
-					<h3>Designer Mode</h3>
-				{/snippet}
-				{#snippet text()}
-					Enables advanced tools to adjust stroke size, color, and more. Also allows you to download
-					icons in SVG format.
-				{/snippet}
-				{#snippet el()}
-					<button class="button-default" onclick={designerButtonAction}>
-						<span
-							>{translateBooleanToString(appState.modes.designerMode.value)} Designer Mode
-						</span>
-						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={'style'} />
-						</svg>
-						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={designerModeButtonState} />
-						</svg>
-					</button>
-				{/snippet}
-			</BasicBlock>
-			<BasicBlock>
-				{#snippet title()}
-					<h3>Developer Mode</h3>
-				{/snippet}
-				{#snippet text()}
-					Although the API is not yet available, you can use Developer Mode to copy icons as SVG to
-					the clipboard, with or without styles.
-				{/snippet}
-				{#snippet el()}
-					<button class="button-default" onclick={devModeButtonAction}>
-						<span>{translateBooleanToString(appState.modes.devMode.value)} Developer Mode</span>
-						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={'dev'} />
-						</svg>
-						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={devModeButtonState} />
-						</svg>
-					</button>
-				{/snippet}
-			</BasicBlock>
-		{/snippet}
-	</BasicBlock>
-	<!-- IcoGlypher Mode -->
-	<!-- <div class="param-section">
-		<button class="button-svg-only double-button" onclick={icoGlypherButtonAction}>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes('sky')}>
-				<MorphingPath IGName={'sky'} />
-			</svg>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(icoGlypherModeButtonState)}>
-				<MorphingPath IGName={icoGlypherModeButtonState} />
-			</svg>
-		</button>
-	</div> -->
+<div id="settings-wrapper">
+	<svg class="svg-default" {...icoGlyphs.getSvgAttributes()} id="close-button">
+		<MorphingPath IGName={'off'} />
+	</svg>
+	<div id="settings-container">
+		<BasicBlock>
+			{#snippet title()}
+				<h2>Settings</h2>
+			{/snippet}
+			{#snippet subBlock()}
+				<BasicBlock>
+					{#snippet title()}
+						<h3>Color Mode</h3>
+					{/snippet}
+					{#snippet text()}
+						Select your preferred color mode: light, dark, or grey.
+					{/snippet}
+					{#snippet el()}
+						<button class="button-default" onclick={colorModeButtonAction}>
+							<span>Color mode : {appState.modes.colorMode.value}</span>
+							<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+								<MorphingPath IGName={appState.modes.colorMode.value} />
+							</svg>
+						</button>
+					{/snippet}
+				</BasicBlock>
+				<BasicBlock>
+					{#snippet title()}
+						<h3>Interface Modes</h3>
+					{/snippet}
+					{#snippet text()}
+						Enable or disable advanced interface modes to suit your workflow in the icons pages .
+					{/snippet}
+					{#snippet el()}
+						<BasicBlock>
+							{#snippet title()}
+								<h4>Designer Mode</h4>
+							{/snippet}
+							{#snippet text()}
+								Access advanced tools for stroke customization, color editing, and export to SVG
+								format.
+							{/snippet}
+							{#snippet el()}
+								<button class="button-default" onclick={designerButtonAction}>
+									<span
+										>Designer Mode {translateBooleanToString(
+											appState.modes.designerMode.value
+										)}</span
+									>
+									<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+										<MorphingPath IGName={'style'} />
+									</svg>
+									<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+										<MorphingPath IGName={designerModeButtonState} />
+									</svg>
+								</button>
+							{/snippet}
+						</BasicBlock>
+						<BasicBlock>
+							{#snippet title()}
+								<h4>Developer Mode</h4>
+							{/snippet}
+							{#snippet text()}
+								The API is not yet available, but Developer Mode allows you to copy icons as
+								SVG—with or without styles—directly to your clipboard.
+							{/snippet}
+							{#snippet el()}
+								<button class="button-default" onclick={devModeButtonAction}>
+									<span
+										>Developer Mode {translateBooleanToString(appState.modes.devMode.value)}</span
+									>
+									<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+										<MorphingPath IGName={'dev'} />
+									</svg>
+									<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+										<MorphingPath IGName={devModeButtonState} />
+									</svg>
+								</button>
+							{/snippet}
+						</BasicBlock>
+					{/snippet}
+				</BasicBlock>
+			{/snippet}
+		</BasicBlock>
+	</div>
 </div>
 
 <style>
-	#settings-container {
+	#settings-wrapper {
+		position: relative;
 		position: fixed;
-		top: 70px;
+		top: 10vh;
 		left: 50%;
 		transform: translateX(-50%);
 		background-color: var(--b1);
 		border: var(--border-width-small) solid var(--t1);
 		border-radius: var(--border-radius);
 		z-index: 11;
-		max-width: 90vw;
+		max-width: 700px;
+		width: 90vw;
+	}
+
+	#close-button {
+		position: fixed;
+		height: 30px;
+		top: -40px;
+		right: 0px;
+		z-index: 12;
+		cursor: pointer;
+		pointer-events: none;
+	}
+
+	#settings-container {
+		max-height: calc(100vh - 100px);
+		overflow-y: auto;
+		overscroll-behavior: contain;
+	}
+
+	@media (max-width: 900px) {
+		#settings-container {
+			width: 90vw;
+		}
 	}
 
 	#background-overlay {

@@ -134,15 +134,6 @@
 								</svg>
 							</button>
 						{/if}
-						<button
-							class="button-default"
-							onclick={() => (appState.IgSettingsIsOpen = !appState.IgSettingsIsOpen)}
-						>
-							<span>Open settings</span>
-							<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-								<MorphingPath IGName={'plurality'} />
-							</svg>
-						</button>
 					{/snippet}
 				</BasicBlock>
 			</div>

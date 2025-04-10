@@ -1,6 +1,8 @@
 <script>
 	import { goto } from '$app/navigation';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
+	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
+	import icoGlyphs from '$lib/index.js';
 </script>
 
 <div id="navbar-container">
@@ -9,40 +11,30 @@
 			<a href="/" title="Home - IcoGlyphs">IcoGlyphs</a>
 		</li>
 
-		<!-- <li class="right"><ColorModeButton /></li> -->
+		<li class="right">
+			<button
+				class="button-default navbar-button"
+				onclick={() => (appState.IgSettingsIsOpen = !appState.IgSettingsIsOpen)}
+			>
+				<span>Settings</span>
+				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+					<MorphingPath IGName={'plurality'} />
+				</svg>
+			</button>
+		</li>
 	</ul>
-	<!-- {#if appState.IgSettingsIsOpen}
-		<div id="params-container">
-			<Params />
-		</div>
-		<div onclick={paramsButtonAction} id="background-overlay"></div>
-	{/if} -->
 </div>
 
 <style>
-	/* #params-container {
-		position: absolute;
-		top: 70px;
-		background-color: var(--b1);
-		border: 2px solid var(--t1);
-		border-radius: var(--border-radius);
-		padding: var(--spacing-small);
-		z-index: 11;
-	}
-	#background-overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		background-color: rgba(0, 0, 0, 0.7);
-		z-index: 10;
-	} */
 	a {
 		color: var(--t1);
 		font-family: var(--typo1);
 		font-weight: 500;
 		font-size: 1.5rem;
+	}
+
+	.navbar-button {
+		background: var(--b1);
 	}
 
 	#navbar-container {
