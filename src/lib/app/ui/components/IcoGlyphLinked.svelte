@@ -18,7 +18,7 @@
 		}
 	}
 
-	$inspect(appState.icoGlyphUserSettings.style);
+	// $inspect(appState.icoGlyphUserSettings.style);
 </script>
 
 <button
@@ -30,9 +30,9 @@
 >
 	<title id="icon-title">{getIcoGlyphSlug()} icon</title>
 	<svg
+		class="svg-default"
 		role="img"
 		aria-labelledby="icon-title"
-		{...appState.icoGlyphUserSettings.style}
 		{...icoGlyphs.getSvgAttributes(icoGlyphName)}
 	>
 		<path d={icoGlyphs.getPath(icoGlyphName)} />
