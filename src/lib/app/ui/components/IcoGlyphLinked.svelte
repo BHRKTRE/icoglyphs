@@ -25,7 +25,8 @@
 	onclick={() => goto(`/icon/${getIcoGlyphSlug()}`)}
 	aria-label={`Navigate to '${getIcoGlyphSlug()}' icon page`}
 	class="icoglyphContainer button-svg-only"
-	style={`width: ${dimensions[size]}px; height: ${dimensions[size]}px;`}
+	style:width={`${dimensions[size]}px`}
+	style:height={`${dimensions[size]}px`}
 >
 	<title id="icon-title">{getIcoGlyphSlug()} icon</title>
 	<svg
