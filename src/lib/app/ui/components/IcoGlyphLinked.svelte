@@ -18,16 +18,22 @@
 		}
 	}
 
-	// $inspect(getIcoGlyphSlug());
+	$inspect(appState.icoGlyphUserSettings.style);
 </script>
 
 <button
 	onclick={() => goto(`/icon/${getIcoGlyphSlug()}`)}
-	aria-label={`Navigate to ${icoGlyphName} page`}
+	aria-label={`Navigate to '${getIcoGlyphSlug()}' icon page`}
 	class="icoglyphContainer button-svg-only"
 	style={`width: ${dimensions[size]}px; height: ${dimensions[size]}px;`}
 >
-	<svg {...appState.icoGlyphUserSettings.style} {...icoGlyphs.getSvgAttributes(icoGlyphName)}>
+	<title id="icon-title">{getIcoGlyphSlug()} icon</title>
+	<svg
+		role="img"
+		aria-labelledby="icon-title"
+		{...appState.icoGlyphUserSettings.style}
+		{...icoGlyphs.getSvgAttributes(icoGlyphName)}
+	>
 		<path d={icoGlyphs.getPath(icoGlyphName)} />
 	</svg>
 </button>
