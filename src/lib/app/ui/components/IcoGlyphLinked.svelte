@@ -25,33 +25,23 @@
 	onclick={() => goto(`/icon/${getIcoGlyphSlug()}`)}
 	aria-label={`Navigate to '${getIcoGlyphSlug()}' icon page`}
 	class="icoglyphContainer button-svg-only"
+	style:width={`${dimensions[size]}px`}
+	style:height={`${dimensions[size]}px`}
 >
 	<title id="icon-title">{getIcoGlyphSlug()} icon</title>
 	<svg
 		role="img"
 		aria-labelledby="icon-title"
 		{...appState.icoGlyphUserSettings.style}
-		{...icoGlyphs.getSvgAttributes(icoGlyphName)}
+		{...icoGlyphs.getSvgAttributes()}
 	>
 		<path d={icoGlyphs.getPath(icoGlyphName)} />
 	</svg>
 </button>
 
 <style>
-	button {
-		width: 80px;
-		height: 80px;
-	}
-	.icoglyphContainer {
-		border-radius: var(--border-radius);
-		background: var(--b2);
-	}
-
-	.icoglyphContainer:hover {
-		background: var(--b3);
-	}
-
-	.icoglyphContainer:active {
-		background: var(--b4);
+	svg {
+		height: 100%;
+		width: 100%;
 	}
 </style>
