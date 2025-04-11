@@ -86,14 +86,14 @@
 	/>
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={page.url} />
-	<!-- <meta property="og:image" content="https://www.icoglyphs.com/assets/images/og-image.jpg" /> -->
+	<meta property="og:image" content="https://www.icoglyphs.com/og-image.png" />
 	<meta name="twitter:title" content="'{data.aliases?.[0] || 'Unnamed'}' icon" />
 	<meta
 		name="twitter:description"
 		content="'{data.aliases?.[0] ||
 			'Unnamed'}' icon created through the research of signs, shapes, and forms."
 	/>
-	<!-- <meta name="twitter:image" content="https://www.icoglyphs.com/assets/images/twitter-image.jpg"> -->
+	<meta name="twitter:image" content="https://www.icoglyphs.com/og-image.png" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<title>{capitalizeTitle(data.aliases?.[0] || 'Unnamed')} – icon</title>
 </svelte:head>

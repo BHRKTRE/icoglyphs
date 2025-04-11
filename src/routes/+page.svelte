@@ -93,13 +93,13 @@
 	/>
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://www.icoglyphs.com" />
-	<!-- <meta property="og:image" content="https://www.icoglyphs.com/assets/images/og-image.jpg" /> -->
+	<meta property="og:image" content="https://www.icoglyphs.com/og-image.png" />
 	<meta name="twitter:title" content="icoGlyphs - Free Icons for Universal Expression" />
 	<meta
 		name="twitter:description"
 		content="Icons created through the research of signs, shapes, and forms."
 	/>
-	<!-- <meta name="twitter:image" content="https://www.icoglyphs.com/assets/images/twitter-image.jpg"> -->
+	<meta name="twitter:image" content="https://www.icoglyphs.com/og-image.png" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<title>icoGlyphs - Free Icons for Universal Expression</title>
 </svelte:head>
