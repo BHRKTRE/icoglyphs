@@ -27,6 +27,7 @@
 	}
 
 	// $inspect(appState.modes);
+	let tooltipop = $state(false);
 
 	let defNAme = $state('arrow-left');
 	let nextname = $state('arrow-left');
@@ -34,79 +35,57 @@
 	let tooltipText = $state('coucou');
 
 	function changeActualState2() {
-		// defNAme = nextname;
 		tooltipText = 'sissi';
+		tooltipop = true;
 		setTimeout(() => {
-			tooltipText = 'coucou'; // Valeur initiale
+			tooltipText = 'coucou';
+			tooltipop = false;
 		}, 2000);
 	}
 
-	$inspect(1 / psi ** 5);
+	// $inspect(1 / psi ** 5);
 </script>
 
 <main>
 	<div class="justforspace"></div>
 
-	<BasicBlock>
-		{#snippet title()}<h3>Settings</h3>{/snippet}
-		{#snippet text()}
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-			labore et dolore magna aliqua. Ut enim ad{/snippet}
+	<Tooltip text={tooltipText} location="top" pop={tooltipop}>
+		<BasicBlock>
+			{#snippet title()}<h3>Settings</h3>{/snippet}
+			{#snippet text()}
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+				labore et dolore magna aliqua. Ut enim ad{/snippet}
 
-		{#snippet subBlock()}
-			<BasicBlock>
-				{#snippet title()}<h4>Settings</h4>{/snippet}
-				{#snippet text()}
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Ut enim ad{/snippet}
+			{#snippet subBlock()}
+				<BasicBlock>
+					{#snippet title()}<h4>Settings</h4>{/snippet}
+					{#snippet text()}
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+						incididunt ut labore et dolore magna aliqua. Ut enim ad{/snippet}
 
-				{#snippet el()}
-					<button class="button-default">
-						<span>Downlddddddddddddddo bar</span>
-						<svg {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={appState.modes.colorMode.value} />
-						</svg>
-					</button>
-					<button class="button-default">
-						<span>Download foo bar</span>
-						<svg {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={appState.modes.colorMode.value} />
-						</svg>
-						<svg {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={appState.modes.colorMode.value} />
-						</svg>
-					</button>
-				{/snippet}
-			</BasicBlock>
-			<BasicBlock>
-				{#snippet title()}<h4>Settings</h4>{/snippet}
-				{#snippet text()}
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
-					ut labore et dolore magna aliqua. Ut enim ad{/snippet}
+					{#snippet el()}
+						<button class="button-default" onclick={changeActualState2}>
+							<span>pop</span>
+							<svg {...icoGlyphs.getSvgAttributes()}>
+								<MorphingPath IGName={appState.modes.colorMode.value} />
+							</svg>
+						</button>
+					{/snippet}
+				</BasicBlock>
+			{/snippet}
+		</BasicBlock>
+	</Tooltip>
 
-				{#snippet el()}
-					<button class="button-default">
-						<span>Download bar</span>
-						<svg {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={appState.modes.colorMode.value} />
-						</svg>
-						<svg {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={appState.modes.colorMode.value} />
-						</svg>
-					</button>
-					<button class="button-default">
-						<span>Download bar</span>
-						<svg {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={appState.modes.colorMode.value} />
-						</svg>
-						<svg {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={appState.modes.colorMode.value} />
-						</svg>
-					</button>
-				{/snippet}
-			</BasicBlock>
-		{/snippet}
-	</BasicBlock>
+	<div class="justforspace"></div>
+	<div class="flex">
+		<Tooltip text={tooltipText} location="top">
+			<button class="button-svg-only button-1" onclick={() => console.log('click')}>
+				<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
+					<MorphingPath IGName={appState.modes.colorMode.value} />
+				</svg>
+			</button>
+		</Tooltip>
+	</div>
 
 	<div class="justforspace"></div>
 	<button class="button-default">
@@ -120,13 +99,13 @@
 	</button>
 	<div class="justforspace"></div>
 	<div class="flex">
-		<Tooltip text={tooltipText} location="top">
+		<!-- <Tooltip text={tooltipText} location="top">
 			<button class="button-svg-only button-1" onclick={() => console.log('click')}>
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
 					<MorphingPath IGName={appState.modes.colorMode.value} />
 				</svg>
 			</button>
-		</Tooltip>
+		</Tooltip> -->
 	</div>
 	<div class="justforspace"></div>
 	<input type="text" bind:value={nextname} />
@@ -136,7 +115,6 @@
 
 	<br />
 	<br />
-	<button class="button-text-only" onclick={changeActualState}>change</button>
 	<button class="button-text-only" onclick={changeDuration}>duration</button>
 	<!-- <button class="button-text-only" onclick={changeDuration}>params</button>
 

@@ -9,9 +9,10 @@
 	 * @param {string} location - The position of the tooltip relative to the button.
 	 *                                   Valid values: 'top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right', 'left', 'right'.
 	 * @param {string} space - The space between the tooltip and the button. Default is '10px'.
+	 * @param {boolean|null} pop - If true, displays the tooltip programmatically (not on hover). Default: null.
 	 */
 
-	let { text = 'coucou', location = 'top', space = '10px', children } = $props();
+	let { text = 'coucou', location = 'top', space = '10px', pop = null, children } = $props();
 
 	/**
 	 * @notice Defines the spacing between the tooltip and the button.
@@ -45,13 +46,24 @@
 		}
 	});
 
+	/**
+	 * @dev Prevents the tooltip from being displayed on:hover when the `pop` prop is set.
+	 */
+	let isPopTooltip = $derived.by(() => pop != null);
+
+	// $inspect(pop);
+
 	// TODO: Rename children-container
 </script>
 
-<div id="children-container">
+<div
+	id="children-container"
+	class:visible={pop}
+	class={{ isPopTooltip, 'hover-tooltip': !isPopTooltip }}
+>
 	<span
 		role="tooltip"
-		class="tooltip {location}"
+		class="tooltip {location} border-1"
 		style="{spaceBetweenLocation}:{spaceBetweenSetup};">{text}</span
 	>
 	{@render children()}
@@ -63,9 +75,10 @@
 		display: inline-block;
 	}
 
-	#children-container:hover .tooltip {
-		visibility: visible;
+	.hover-tooltip:hover .tooltip,
+	.visible .tooltip {
 		opacity: 1;
+		visibility: visible;
 	}
 
 	span {
@@ -76,18 +89,18 @@
 	}
 
 	.tooltip {
-		visibility: hidden;
 		opacity: 0;
+		visibility: hidden;
 
-		background-color: var(--b2);
+		background-color: var(--b1);
 		text-align: center;
 		padding: var(--spacing-small) var(--spacing-medium);
 		border-radius: var(--border-radius);
 
-		transition: opacity 1s;
+		transition: 0.4s;
 		white-space: nowrap;
 		position: absolute;
-		z-index: 1;
+		z-index: 20;
 	}
 
 	.top {
