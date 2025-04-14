@@ -4,8 +4,6 @@
 
 	let { data } = $props();
 
-	// let divBackground = $derived(appState.modes.designerMode.value == true ? damier : 'inherit');
-
 	let checkerboard = $state(appState.modes.designerMode.value);
 
 	// $inspect(appState.icoGlyphUserSettings.style);
