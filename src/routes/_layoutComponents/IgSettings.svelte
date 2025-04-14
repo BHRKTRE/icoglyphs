@@ -109,11 +109,7 @@
 	}
 </script>
 
-<button
-	aria-label="Close settings"
-	onclick={() => (appState.IgSettingsIsOpen = !appState.IgSettingsIsOpen)}
-	id="background-overlay"
-></button>
+<button aria-label="Close settings" onclick={() => history.back()} id="background-overlay"></button>
 <div id="settings-wrapper">
 	<svg class="svg-default" {...icoGlyphs.getSvgAttributes()} id="close-button">
 		<MorphingPath IGName={'off'} />

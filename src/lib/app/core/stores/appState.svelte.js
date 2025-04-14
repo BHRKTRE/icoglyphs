@@ -101,11 +101,6 @@ let useStyleForSvgDownload = true;
 let searchBarValue = '';
 
 /**
- * Search bar value
- */
-let IgSettingsIsOpen = false;
-
-/**
  * Global application state.
  *
  * @typedef {object} appState
@@ -145,8 +140,7 @@ let appState = $state({
 		style: icoGlyphUserCustomStyles,
 		useStyleForSvgDownload: useStyleForSvgDownload
 	},
-	searchBarValue: searchBarValue,
-	IgSettingsIsOpen: IgSettingsIsOpen
+	searchBarValue: searchBarValue
 });
 
 export default appState;

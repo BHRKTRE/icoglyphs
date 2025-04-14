@@ -1,8 +1,14 @@
 <script>
 	import { goto } from '$app/navigation';
-	import appState from '$lib/app/core/stores/appState.svelte.js';
+
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
 	import icoGlyphs from '$lib/index.js';
+
+	import { pushState } from '$app/navigation';
+
+	function openSettings() {
+		pushState('', { showSettings: true });
+	}
 </script>
 
 <div id="navbar-container">
@@ -12,10 +18,7 @@
 		</li>
 
 		<li class="right">
-			<button
-				class="button-default navbar-button"
-				onclick={() => (appState.IgSettingsIsOpen = !appState.IgSettingsIsOpen)}
-			>
+			<button class="button-default navbar-button" onclick={openSettings}>
 				<span>Settings</span>
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
 					<MorphingPath IGName={'plurality'} />

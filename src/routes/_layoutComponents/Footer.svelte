@@ -3,6 +3,11 @@
 	import icoGlyphs from '$lib/index.js';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
+	import { pushState } from '$app/navigation';
+
+	function openSettings() {
+		pushState('', { showSettings: true });
+	}
 
 	// $inspect(discordButton);
 </script>
@@ -13,11 +18,7 @@
 			<li><a href={externalLinks.github} target="_blank">Github</a></li>
 			<li><a href={externalLinks.discord} target="_blank">Discord</a></li>
 		</ul>
-		<button
-			onclick={() => (appState.IgSettingsIsOpen = true)}
-			id="modes-container"
-			aria-label="Open settings"
-		>
+		<button onclick={openSettings} id="modes-container" aria-label="Open settings">
 			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
 				<MorphingPath IGName={appState.modes.colorMode.value} />
 			</svg>
