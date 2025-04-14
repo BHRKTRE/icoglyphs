@@ -184,7 +184,7 @@
 		}
 	}
 
-	@media (max-width: 430px) {
+	@media (max-width: 350px) {
 		#buttonContainer {
 			max-width: none;
 		}
