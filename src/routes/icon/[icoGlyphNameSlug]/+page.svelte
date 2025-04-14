@@ -79,7 +79,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-medium);
-		max-width: 500px;
+		width: 100%;
+		/* max-width: 500px; */
 	}
 
 	#lmt-container {
