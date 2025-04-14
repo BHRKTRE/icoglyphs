@@ -50,9 +50,7 @@
 			<SvgStyler />
 		</div>
 
-		<div id="lmb-container">
-			<RelatedIcoG {data} />
-		</div>
+		<RelatedIcoG {data} />
 	</div>
 
 	<div id="br-container">
