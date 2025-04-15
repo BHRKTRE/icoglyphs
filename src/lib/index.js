@@ -1,5 +1,5 @@
 import icoGlyphsLibrary from './library/icoGlyphsLibrary.json';
-import getCompleteSvg from './library/external/getSvgData/getCompleteSVG';
+import getCompleteSvg from './library/external/getSvgData/getCompleteSvg';
 import getPath from './library/external/getSvgData/getPath';
 import getSvgAttributes from './library/external/getSvgData/getSvgAttributes';
 import getIcoGlyphDefaultStyle from './library/external/getSvgData/getStyle';

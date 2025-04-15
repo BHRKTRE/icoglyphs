@@ -240,7 +240,7 @@
 		},
 		"v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2___x___l__d_c_bl__p_c_bl__s_0_1___x___l__d_b_t__p_t__s_0_1___x___l__d_c_br__p_c_br__s_0_1": {
 			"aliases": ["grey-mode", "grey"],
-			"path": ["eye", "M -20 22 L -25 30", "M 0 -25 L 0 -35", "M 20 22 L 25 30"],
+			"path": ["eye", "_M -20 22 L -25 30", "M 0 -25 L 0 -35", "M 20 22 L 25 30"],
 			"metadata": {
 				"tags": ["gray", "grey", "ashen"],
 				"categories": ["Color-mode"]

@@ -26,7 +26,7 @@
 			.join(' ');
 	}
 
-	// $inspect(page.url);
+	$inspect(icoGlyphs.getCompleteSvg(data.name, { simplified: true }));
 </script>
 
 <Metadata {data} {capitalizeTitle} />
@@ -80,7 +80,6 @@
 		flex-direction: column;
 		gap: var(--spacing-medium);
 		width: 100%;
-		/* max-width: 500px; */
 	}
 
 	#lmt-container {

@@ -3,16 +3,16 @@ import icoGlyphs from '$lib/index.js';
 export async function GET({ url }) {
 	const name = url.searchParams.get('name');
 	const get = url.searchParams.get('get');
+	const simplified = url.searchParams.get('simplified') === 'true';
 
-	// Validate user input
 	if (name && typeof name !== 'string') {
 		return new Response(JSON.stringify({ error: 'The "name" parameter must be a string.' }), {
 			status: 400,
 			headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
 		});
 	}
+
 	if (name && name.length > 50) {
-		// Limite la longueur de "name"
 		return new Response(JSON.stringify({ error: 'The "name" parameter is too long.' }), {
 			status: 400,
 			headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
@@ -33,18 +33,27 @@ export async function GET({ url }) {
 	}
 
 	let data;
+	let contentType = 'application/json';
 
 	try {
 		const methods = {
 			path: icoGlyphs.getPath,
-			// /api?name=arrow_right&get=path
 			attributes: icoGlyphs.getSvgAttributes,
 			style: icoGlyphs.getIcoGlyphDefaultStyle,
 			'full-svg': icoGlyphs.getCompleteSvg,
 			default: icoGlyphs.library
 		};
 
-		data = methods[get] ? methods[get](name) : methods['default']();
+		if (get === 'path') {
+			data = methods.path(name, { simplified });
+		} else if (get === 'full-svg') {
+			data = methods['full-svg'](name, { simplified });
+			contentType = 'image/svg+xml'; // switch here only for full-svg
+		} else if (get) {
+			data = methods[get](name);
+		} else {
+			data = methods.default();
+		}
 
 		data = await Promise.resolve(data);
 	} catch (error) {
@@ -60,13 +69,11 @@ export async function GET({ url }) {
 		);
 	}
 
-	// Add CORS headers
-	const headers = {
-		'Content-Type': 'application/json',
-		'Access-Control-Allow-Origin': '*',
-		'Access-Control-Allow-Methods': 'GET'
-	};
-
-	// Return the response with the data
-	return new Response(JSON.stringify(data), { headers });
+	return new Response(contentType === 'application/json' ? JSON.stringify(data) : data, {
+		headers: {
+			'Content-Type': contentType,
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'GET'
+		}
+	});
 }

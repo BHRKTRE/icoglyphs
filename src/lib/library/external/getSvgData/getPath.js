@@ -5,36 +5,52 @@ import searchIcoGlyph from '../searchIcoGlyph';
  * it processes each one recursively.
  *
  * @param {string | string[]} icoGlyphName - The name of the icon glyph or an array of glyph names.
+ * @param {Object} [options] - Optional parameters.
+ * @param {boolean} [options.simplified=false] - If true, hidden elements (starting with '_') are excluded.
  * @returns {string | undefined} The path of the icon glyph as a string, or undefined if the glyph is not found.
  */
-function getPath(icoGlyphName) {
-	// If icoGlyphName is already an SVG path (starts with 'M'), return it immediately
+function getPath(icoGlyphName, { simplified = false } = {}) {
+	// If it's already a path string
 	if (typeof icoGlyphName === 'string' && icoGlyphName.trim().startsWith('M')) {
 		return icoGlyphName;
 	}
 
-	// If icoGlyphName is an array, process each element recursively
+	// If it's an array, process recursively
 	if (Array.isArray(icoGlyphName)) {
 		return icoGlyphName
-			.map((glyphOrPath) => getPath(glyphOrPath)) // Recursively process each element
-			.join(' '); // Join all paths into a single string
+			.map((glyphOrPath) => {
+				if (typeof glyphOrPath === 'string' && glyphOrPath.trim().startsWith('_')) {
+					if (simplified) return null; // skip if simplified
+					return glyphOrPath.trim().slice(1); // remove "_" if keeping
+				}
+				return getPath(glyphOrPath, { simplified });
+			})
+			.filter(Boolean) // remove nulls
+			.join(' ');
 	}
 
-	// Search for the icon glyph in the library
+	// Lookup glyph
 	const icoGlyph = searchIcoGlyph(icoGlyphName);
 	if (!icoGlyph) return;
 
 	const { path } = icoGlyph;
 
-	// If the path is a single string and already an SVG path, return it directly
+	// If it's a raw path string
 	if (typeof path === 'string' && path.trim().startsWith('M')) {
 		return path;
 	}
 
-	// If path is an array, process each sub-glyph recursively
+	// If it's an array
 	if (Array.isArray(path)) {
 		return path
-			.map((subGlyphName) => getPath(subGlyphName)) // Recursive call
+			.map((subGlyph) => {
+				if (typeof subGlyph === 'string' && subGlyph.trim().startsWith('_')) {
+					if (simplified) return null;
+					return subGlyph.trim().slice(1); // remove "_"
+				}
+				return getPath(subGlyph, { simplified });
+			})
+			.filter(Boolean)
 			.join(' ');
 	}
 
