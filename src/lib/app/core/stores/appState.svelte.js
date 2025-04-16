@@ -21,26 +21,6 @@ const loadModesFromLocalStorage = () => {
 let modes = loadModesFromLocalStorage(); // Directly load from localStorage
 
 /**
- * Saves the current mode settings to localStorage for persistence.
- */
-const saveModesToLocalStorage = () => {
-	localStorage.setItem('modes', JSON.stringify(modes));
-};
-
-/**
- * Toggles the state of a given mode and updates localStorage.
- *
- * @param {string} mode - The name of the mode to toggle.
- */
-// ! toggle function may be suppressed
-const toggleMode = (mode) => {
-	modes[mode] = !modes[mode];
-	saveModesToLocalStorage();
-
-	appState.modes[mode].value = modes[mode];
-};
-
-/**
  * Updates the application's color mode and stores the selection in localStorage.
  *
  * @param {string} color - The selected color mode (accepted values: "light", "dark", "grey").
@@ -115,21 +95,13 @@ let searchBarValue = '';
 let appState = $state({
 	modes: {
 		icoGlypherMode: {
-			value: modes.icoGlypherMode,
-			// toggle function may be suppressed
-			toggle: () => toggleMode('icoGlypherMode')
+			value: modes.icoGlypherMode
 		},
 		devMode: {
-			value: modes.devMode,
-			// toggle function may be suppressed
-			toggle: () => toggleMode('devMode')
+			value: modes.devMode
 		},
 		designerMode: {
-			value: modes.designerMode,
-			// toggle function may be suppressed
-			toggle: () => {
-				toggleMode('designerMode');
-			}
+			value: modes.designerMode
 		},
 		colorMode: {
 			value: modes.colorMode,
