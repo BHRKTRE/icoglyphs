@@ -22,19 +22,19 @@
 			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
 				<MorphingPath IGName={appState.modes.colorMode.value} />
 			</svg>
-			{#if appState.modes.icoGlypherMode.value}
+			{#if appState.modes.svgExpertMode.value}
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes('sky')}>
-					<path d={icoGlyphs.getPath('sky')}> </path>
+					<path d={icoGlyphs.getPath('sky')}></path>
 				</svg>
 			{/if}
 			{#if appState.modes.devMode.value}
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes('dev')}>
-					<path d={icoGlyphs.getPath('dev')}> </path>
+					<path d={icoGlyphs.getPath('dev')}></path>
 				</svg>
 			{/if}
 			{#if appState.modes.designerMode.value}
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes('style')}>
-					<path d={icoGlyphs.getPath('style')}> </path>
+					<path d={icoGlyphs.getPath('style')}></path>
 				</svg>
 			{/if}
 		</button>

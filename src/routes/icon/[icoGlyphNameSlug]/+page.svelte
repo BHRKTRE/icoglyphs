@@ -1,6 +1,6 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
-	import SvgStyler from './SvgStyler.svelte';
+	import Tools from './Tools.svelte';
 	import IcoGlypherModeDisplay from './IcoGlypherModeDisplay.svelte';
 	import MainIcoG from './mainIcoG.svelte';
 	import TagsDisplay from './TagsDisplay.svelte';
@@ -47,7 +47,7 @@
 
 			<IcoGlypherModeDisplay icoGlyphName={data.name} />
 
-			<SvgStyler />
+			<Tools />
 		</div>
 
 		<RelatedIcoG {data} />

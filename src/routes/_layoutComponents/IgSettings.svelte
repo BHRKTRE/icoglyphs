@@ -80,12 +80,14 @@
 	}
 
 	/**
-	 * icoGlypherMode button
+	 * svgExpertMode button
 	 */
-	let icoGlypherModeButtonState = $state(`${appState.modes.icoGlypherMode.value}`);
-	function icoGlypherButtonAction() {
-		appState.modes.icoGlypherMode.value = !appState.modes.icoGlypherMode.value;
-		icoGlypherModeButtonState = `${appState.modes.icoGlypherMode.value}`;
+	let svgExpertModeButtonState = $state(`${appState.modes.svgExpertMode.value}`);
+	function svgExpertModeButtonAction() {
+		appState.modes.svgExpertMode.value = !appState.modes.svgExpertMode.value;
+		svgExpertModeButtonState = `${appState.modes.svgExpertMode.value}`;
+
+		tooltipAction(`SVG Expert mode ${appState.modes.devMode.value ? 'enabled' : 'disabled'} !`);
 	}
 
 	/**
@@ -188,6 +190,29 @@
 										</svg>
 										<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
 											<MorphingPath IGName={devModeButtonState} />
+										</svg>
+									</button>
+								{/snippet}
+							</BasicBlock>
+							<BasicBlock>
+								{#snippet title()}
+									<h4>For SVG Expert</h4>
+								{/snippet}
+								{#snippet text()}
+									Lorem ipsum.
+								{/snippet}
+								{#snippet el()}
+									<button class="button-default" onclick={svgExpertModeButtonAction}>
+										<span
+											>SVG Expert Mode: {translateBooleanToString(
+												appState.modes.svgExpertMode.value
+											)}</span
+										>
+										<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+											<MorphingPath IGName={'v1__p_c_b__d_t__s_4_2'} />
+										</svg>
+										<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+											<MorphingPath IGName={svgExpertModeButtonState} />
 										</svg>
 									</button>
 								{/snippet}

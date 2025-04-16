@@ -6,7 +6,7 @@
 	// $inspect(appState.modes.icoGlypherMode.value);
 </script>
 
-{#if appState.modes.icoGlypherMode.value == true}
+<!-- {#if appState.modes.icoGlypherMode.value == true}
 	<div id="icoGlypher-display">
 		<div class="basic-container">
 			<code class="path-code">{icoGlyphs.searchIcoGlyph(icoGlyphName).key}</code>
@@ -28,4 +28,4 @@
 		gap: var(--spacing-medium);
 		padding-top: var(--spacing-medium);
 	}
-</style>
+</style> -->
