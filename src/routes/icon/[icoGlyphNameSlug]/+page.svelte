@@ -159,8 +159,8 @@
 		#lmt-container {
 			grid-area: lm;
 			display: flex;
-			flex-direction: row;
-			align-items: flex-start;
+			flex-direction: column;
+			align-items: center;
 			justify-content: center;
 
 			gap: var(--spacing-medium);

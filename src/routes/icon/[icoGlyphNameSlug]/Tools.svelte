@@ -37,7 +37,7 @@
 			<button class="button-default" onclick={() => pushState('', { showSettings: true })}>
 				<span>Get the tools you need</span>
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-					<path d={icoGlyphs.getPath('dev')} />
+					<path d={icoGlyphs.getPath('plurality')} />
 				</svg>
 			</button>
 		{/snippet}

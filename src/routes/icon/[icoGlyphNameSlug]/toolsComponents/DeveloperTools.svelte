@@ -18,8 +18,7 @@
 		{/snippet}
 		{#snippet subBlock()}
 			<div class="mod-color-container">
-				<label for="toggle-import-style">Import style when copying & downloading (SVG only)</label
-				><input
+				<label for="toggle-import-style">API IS COMING</label><input
 					id="toggle-import-style"
 					class="color-input"
 					type="checkbox"
