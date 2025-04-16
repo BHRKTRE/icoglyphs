@@ -1,7 +1,6 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
 	import Tools from './Tools.svelte';
-	import IcoGlypherModeDisplay from './IcoGlypherModeDisplay.svelte';
 	import MainIcoG from './mainIcoG.svelte';
 	import TagsDisplay from './TagsDisplay.svelte';
 	import Metadata from './Metadata.svelte';
@@ -26,7 +25,7 @@
 			.join(' ');
 	}
 
-	$inspect(icoGlyphs.getCompleteSvg(data.name, { simplified: true }));
+	// $inspect(icoGlyphs.getCompleteSvg(data.name, { simplified: true }));
 </script>
 
 <Metadata {data} {capitalizeTitle} />
@@ -45,16 +44,13 @@
 				<Buttons {data} />
 			</div>
 
-			<IcoGlypherModeDisplay icoGlyphName={data.name} />
-
-			<Tools />
+			<Tools {data} />
 		</div>
-
-		<RelatedIcoG {data} />
 	</div>
 
 	<div id="br-container">
 		<TagsDisplay icoGlyphName={data.name} />
+		<RelatedIcoG {data} />
 	</div>
 </main>
 

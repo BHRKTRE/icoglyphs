@@ -141,10 +141,10 @@
 					</BasicBlock>
 					<BasicBlock>
 						{#snippet title()}
-							<h3>Interface modes</h3>
+							<h3>Tools</h3>
 						{/snippet}
 						{#snippet text()}
-							Enable advanced interface modes to match your workflow when browsing icon pages.
+							Enable advanced tools to match your workflow when browsing icon pages.
 						{/snippet}
 						{#snippet el()}
 							<BasicBlock>
@@ -270,5 +270,8 @@
 		height: 100vh;
 		background-color: rgba(0, 0, 0, 0.7);
 		z-index: 10;
+
+		border-radius: 0;
+		border: none;
 	}
 </style>

@@ -1,7 +1,5 @@
 <script>
 	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import psi from '$lib/app/ui/utils/psi.js';
-	import { resetStyle } from '$lib/app/ui/utils/resetStyle.svelte.js';
 	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
 
 	function actualiseLocalStorage(storageName, key, value) {
@@ -14,20 +12,27 @@
 </script>
 
 {#if appState.modes.devMode.value == true}
-	<div class="mod-color-container">
-		<label for="toggle-import-style">Import style when copying & downloading (SVG only)</label
-		><input
-			id="toggle-import-style"
-			class="color-input"
-			type="checkbox"
-			onchange={() =>
-				actualiseLocalStorage(
-					'useStyleForSvgDownload',
-					appState.icoGlyphUserSettings.useStyleForSvgDownload
-				)}
-			bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
-		/>
-	</div>
+	<BasicBlock>
+		{#snippet title()}
+			<h3>Developper</h3>
+		{/snippet}
+		{#snippet subBlock()}
+			<div class="mod-color-container">
+				<label for="toggle-import-style">Import style when copying & downloading (SVG only)</label
+				><input
+					id="toggle-import-style"
+					class="color-input"
+					type="checkbox"
+					onchange={() =>
+						actualiseLocalStorage(
+							'useStyleForSvgDownload',
+							appState.icoGlyphUserSettings.useStyleForSvgDownload
+						)}
+					bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
+				/>
+			</div>
+		{/snippet}
+	</BasicBlock>
 {/if}
 
 <style>

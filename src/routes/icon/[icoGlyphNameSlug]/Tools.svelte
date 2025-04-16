@@ -3,34 +3,57 @@
 	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
 	import DesignerTools from './toolsComponents/DesignerTools.svelte';
 	import DeveloperTools from './toolsComponents/DeveloperTools.svelte';
+	import SvgExpertTools from './toolsComponents/SvgExpertTools.svelte';
+	import icoGlyphs from '$lib/index.js';
+	import { pushState } from '$app/navigation';
 
-	let titleSection = $derived.by(() => {
-		if (appState.modes.designerMode.value == true && appState.modes.devMode.value == true) {
-			return 'Designer & Developer tools';
-		} else if (appState.modes.designerMode.value == true) {
-			return 'Designer tools';
-		} else if (appState.modes.devMode.value == true) {
-			return 'Developer tools';
-		}
-	});
+	let { data } = $props();
 
-	// $inspect(appState.icoGlyphUserSettings.style);
+	let noModesActivated = $derived(
+		!(
+			appState.modes.designerMode.value ||
+			appState.modes.devMode.value ||
+			appState.modes.svgExpertMode.value
+		)
+	);
+
+	// $inspect(noModesActivated);
 </script>
 
-{#if appState.modes.designerMode.value == true || appState.modes.devMode.value == true}
+{#if noModesActivated}
 	<BasicBlock>
 		{#snippet title()}
-			<h2>{titleSection}</h2>
+			<h3>Tools</h3>
 		{/snippet}
 
-		<!-- {#snippet text()}
-			You can have more options to customize your experience in the settings menu.
-		{/snippet} -->
+		{#snippet text()}
+			<p>
+				Whether you need to customize the icon, access our API to include it directly in your app,
+				or anything else. <br /> We probably have the tools you need.
+			</p>
+		{/snippet}
 
 		{#snippet el()}
+			<button class="button-default" onclick={() => pushState('', { showSettings: true })}>
+				<span>Get the tools you need</span>
+				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+					<path d={icoGlyphs.getPath('dev')} />
+				</svg>
+			</button>
+		{/snippet}
+	</BasicBlock>
+{:else}
+	<BasicBlock>
+		{#snippet title()}
+			<h2>Tools</h2>
+		{/snippet}
+
+		{#snippet subBlock()}
 			<DesignerTools />
 
 			<DeveloperTools />
+
+			<SvgExpertTools {data} />
 		{/snippet}
 	</BasicBlock>
 {/if}
