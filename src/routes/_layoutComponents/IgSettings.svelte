@@ -194,7 +194,7 @@
 									</button>
 								{/snippet}
 							</BasicBlock>
-							<BasicBlock>
+							<!-- <BasicBlock>
 								{#snippet title()}
 									<h4>For SVG Expert</h4>
 								{/snippet}
@@ -216,7 +216,7 @@
 										</svg>
 									</button>
 								{/snippet}
-							</BasicBlock>
+							</BasicBlock> -->
 						{/snippet}
 					</BasicBlock>
 				{/snippet}

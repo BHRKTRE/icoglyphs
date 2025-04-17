@@ -48,7 +48,7 @@
 			<h2>Tools</h2>
 		{/snippet}
 
-		{#snippet subBlock()}
+		{#snippet el()}
 			<DesignerTools />
 
 			<DeveloperTools />

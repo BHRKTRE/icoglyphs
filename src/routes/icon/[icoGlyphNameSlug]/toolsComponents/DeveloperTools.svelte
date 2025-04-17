@@ -16,7 +16,10 @@
 		{#snippet title()}
 			<h3>Developper</h3>
 		{/snippet}
-		{#snippet subBlock()}
+		{#snippet text()}
+			API is coming...
+		{/snippet}
+		<!-- {#snippet subBlock()}
 			<div class="mod-color-container">
 				<label for="toggle-import-style">API IS COMING</label><input
 					id="toggle-import-style"
@@ -30,12 +33,12 @@
 					bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
 				/>
 			</div>
-		{/snippet}
+		{/snippet} -->
 	</BasicBlock>
 {/if}
 
 <style>
-	.mod-color-container {
+	/* .mod-color-container {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -44,5 +47,5 @@
 		width: 100%;
 		padding: var(--spacing-medium);
 		gap: var(--spacing-medium);
-	}
+	} */
 </style>
