@@ -4,12 +4,12 @@
 
 	let { data } = $props();
 
-	let checkerboard = $state(appState.modes.designerMode.value);
+	let checkerboard = $state(true);
 
 	// $inspect(appState.icoGlyphUserSettings.style);
 </script>
 
-<div id="icoglyph-container" class={appState.modes.designerMode.value ? 'checkerboard' : ' '}>
+<div id="icoglyph-container" class={checkerboard ? 'checkerboard' : ' '}>
 	<svg
 		role="img"
 		aria-labelledby="icon-title"

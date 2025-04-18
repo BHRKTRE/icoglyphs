@@ -1,13 +1,40 @@
 <script>
 	import { goto } from '$app/navigation';
+	import appState from '$lib/app/core/stores/appState.svelte.js';
 
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
 	import icoGlyphs from '$lib/index.js';
+	import { resetStyle } from '$lib/app/ui/utils/resetStyle.svelte.js';
 
-	import { pushState } from '$app/navigation';
+	$effect(() => {
+		const modesValues = Object.fromEntries(
+			Object.entries(appState.modes).map(([key, data]) => [key, data.value])
+		);
 
-	function openSettings() {
-		pushState('', { showSettings: true });
+		localStorage.setItem('modes', JSON.stringify(modesValues));
+	});
+	/**
+	 * ColorMode button
+	 */
+
+	function resetStyleForColorModeButton() {
+		resetStyle();
+	}
+
+	function colorModeButtonAction() {
+		if (appState.modes.colorMode.value === 'grey') {
+			appState.modes.colorMode.value = 'dark';
+			appState.modes.colorMode.change('dark');
+			resetStyleForColorModeButton();
+		} else if (appState.modes.colorMode.value === 'dark') {
+			appState.modes.colorMode.value = 'light';
+			appState.modes.colorMode.change('light');
+			resetStyleForColorModeButton();
+		} else {
+			appState.modes.colorMode.value = 'grey';
+			appState.modes.colorMode.change('grey');
+			resetStyleForColorModeButton();
+		}
 	}
 </script>
 
@@ -18,10 +45,9 @@
 		</li>
 
 		<li class="right">
-			<button class="button-default navbar-button" onclick={openSettings}>
-				<span>Settings</span>
+			<button class="button-default navbar-button" onclick={colorModeButtonAction}>
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-					<MorphingPath IGName={'plurality'} />
+					<MorphingPath IGName={appState.modes.colorMode.value} />
 				</svg>
 			</button>
 		</li>

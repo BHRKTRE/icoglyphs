@@ -10,9 +10,6 @@ const loadModesFromLocalStorage = () => {
 	return storedModes
 		? JSON.parse(storedModes)
 		: {
-				svgExpertMode: false,
-				devMode: false,
-				designerMode: false,
 				colorMode: 'grey'
 			};
 };
@@ -94,15 +91,6 @@ let searchBarValue = '';
  */
 let appState = $state({
 	modes: {
-		svgExpertMode: {
-			value: modes.svgExpertMode
-		},
-		devMode: {
-			value: modes.devMode
-		},
-		designerMode: {
-			value: modes.designerMode
-		},
 		colorMode: {
 			value: modes.colorMode,
 			change: changeColorMode

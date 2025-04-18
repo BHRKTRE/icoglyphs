@@ -19,12 +19,9 @@ function getDefaultStyleForUserExport() {
 function getStyle() {
 	let style = getDefaultStyleForUserExport();
 
-	if (
-		!appState.icoGlyphUserSettings.useStyleForSvgDownload &&
-		appState.modes.devMode.value === true
-	) {
+	if (!appState.icoGlyphUserSettings.useStyleForSvgDownload) {
 		style = {};
-	} else if (appState.modes.designerMode.value) {
+	} else {
 		style = appState.icoGlyphUserSettings.style;
 	}
 

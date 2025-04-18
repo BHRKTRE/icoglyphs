@@ -1,13 +1,5 @@
 <script>
 	import externalLinks from '$lib/app/core/utils/externalLinks.js';
-	import icoGlyphs from '$lib/index.js';
-	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
-	import { pushState } from '$app/navigation';
-
-	function openSettings() {
-		pushState('', { showSettings: true });
-	}
 
 	// $inspect(discordButton);
 </script>
@@ -18,26 +10,6 @@
 			<li><a href={externalLinks.github} target="_blank">Github</a></li>
 			<li><a href={externalLinks.discord} target="_blank">Discord</a></li>
 		</ul>
-		<button onclick={openSettings} id="modes-container" aria-label="Open settings">
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes(appState.modes.colorMode.value)}>
-				<MorphingPath IGName={appState.modes.colorMode.value} />
-			</svg>
-			{#if appState.modes.svgExpertMode.value}
-				<svg class="svg-default" {...icoGlyphs.getSvgAttributes('sky')}>
-					<path d={icoGlyphs.getPath('sky')}></path>
-				</svg>
-			{/if}
-			{#if appState.modes.devMode.value}
-				<svg class="svg-default" {...icoGlyphs.getSvgAttributes('dev')}>
-					<path d={icoGlyphs.getPath('dev')}></path>
-				</svg>
-			{/if}
-			{#if appState.modes.designerMode.value}
-				<svg class="svg-default" {...icoGlyphs.getSvgAttributes('style')}>
-					<path d={icoGlyphs.getPath('style')}></path>
-				</svg>
-			{/if}
-		</button>
 	</div>
 
 	<div id="footer-info">
@@ -55,23 +27,6 @@
 		padding-top: var(--spacing-small);
 	}
 
-	#modes-container {
-		background: var(--b1);
-		margin: 0;
-		cursor: pointer;
-		border: none;
-		transition: 324ms;
-		border-radius: var(--border-radius);
-	}
-
-	#modes-container:hover {
-		background: var(--b2);
-	}
-
-	#modes-container:active {
-		background: var(--b4);
-	}
-
 	#footer-links {
 		display: flex;
 		justify-content: space-between;
@@ -85,6 +40,7 @@
 		width: 100%;
 	}
 	#top-container {
+		margin-top: 20px;
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
@@ -103,7 +59,7 @@
 		font-size: 0.8rem;
 		margin-top: var(--spacing-small);
 	}
-	svg {
+	/* svg {
 		height: 40px;
 		stroke-width: 4px;
 		stroke: var(--t1);
@@ -111,12 +67,12 @@
 		stroke-linecap: round;
 		stroke-opacity: 1;
 		fill: none;
-	}
+	} */
 
 	@media (max-width: 400px) {
-		svg {
+		/* svg {
 			height: 30px;
-		}
+		} */
 		p {
 			font-size: 0.7rem;
 		}

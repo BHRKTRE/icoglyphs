@@ -2,7 +2,6 @@
 	import Footer from './_layoutComponents/Footer.svelte';
 	import NavBar from './_layoutComponents/navBar/NavBar.svelte';
 	import psi from '$lib/app/ui/utils/psi.js';
-	import IgSettings from './_layoutComponents/IgSettings.svelte';
 
 	import { page } from '$app/state';
 
@@ -26,9 +25,6 @@
 <svelte:window bind:innerWidth={windowWidth} />
 
 {#if readyToDisplay}
-	{#if page.state.showSettings}
-		<IgSettings />
-	{/if}
 	<div style="margin: 0 {sideMargin};" id="page-wrapper">
 		<NavBar />
 
