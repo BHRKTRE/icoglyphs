@@ -5,6 +5,7 @@
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
 	import Tooltip from '$lib/app/ui/components/Tooltip.svelte';
 	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
+	import TabInterface from '$lib/app/ui/components/TabInterface.svelte';
 
 	const styleyy = {
 		// background: 'var(--b2)',
@@ -43,10 +44,31 @@
 		}, 2000);
 	}
 
+	//
+
+	const tabs = ['tab1', 'tab2', 'tab3'];
+
+	let selected = $state('tab2');
+
 	// $inspect(1 / psi ** 5);
 </script>
 
 <main>
+	<div class="justforspace"></div>
+
+	<TabInterface {tabs} {selected}>
+		{#snippet content(selected)}
+			{#if 'tab1' == selected}
+				<BasicBlock>
+					{#snippet title()}<h3>Settings</h3>{/snippet}
+					{#snippet text()}
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+						incididunt ut labore et dolore magna aliqua. Ut enim ad{/snippet}
+				</BasicBlock>
+			{/if}
+		{/snippet}
+	</TabInterface>
+
 	<div class="justforspace"></div>
 
 	<Tooltip text={tooltipText} location="top" pop={tooltipop}>
