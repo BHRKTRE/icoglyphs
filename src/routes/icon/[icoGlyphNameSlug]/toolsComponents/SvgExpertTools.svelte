@@ -5,21 +5,6 @@
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 
 	let { data } = $props();
-	// For import style
-	// <div class="mod-color-container">
-	// 			<label for="toggle-import-style">Import style when copying & downloading (SVG only)</label
-	// 			><input
-	// 				id="toggle-import-style"
-	// 				class="color-input"
-	// 				type="checkbox"
-	// 				onchange={() =>
-	// 					actualiseLocalStorage(
-	// 						'useStyleForSvg',
-	// 						appState.icoGlyphUserSettings.useStyleForSvg
-	// 					)}
-	// 				bind:checked={appState.icoGlyphUserSettings.useStyleForSvg}
-	// 			/>
-	// 		</div>
 
 	function translateBooleanToIg(value) {
 		return value ? 'true' : 'false';
@@ -29,7 +14,14 @@
 		return value ? 'On' : 'Off';
 	}
 
-	// $inspect(appState.icoGlyphUserSettings.useStyleForSvg);
+	$effect(() => {
+		const userSettings = Object.fromEntries(
+			Object.entries(appState.userSettings).map(([key, data]) => [key, data])
+		);
+		localStorage.setItem('userSettings', JSON.stringify(userSettings));
+	});
+
+	// $inspect(appState.userSettings.useStyleForExportSvg);
 </script>
 
 <BasicBlock>
@@ -70,13 +62,13 @@
 				<button
 					class="button-default"
 					onclick={() =>
-						(appState.icoGlyphUserSettings.useStyleForSvg =
-							!appState.icoGlyphUserSettings.useStyleForSvg)}
+						(appState.userSettings.useStyleForExportSvg =
+							!appState.userSettings.useStyleForExportSvg)}
 				>
-					<span>{translateBooleanToString(appState.icoGlyphUserSettings.useStyleForSvg)}</span>
+					<span>{translateBooleanToString(appState.userSettings.useStyleForExportSvg)}</span>
 					<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
 						<MorphingPath
-							IGName={translateBooleanToIg(appState.icoGlyphUserSettings.useStyleForSvg)}
+							IGName={translateBooleanToIg(appState.userSettings.useStyleForExportSvg)}
 						/>
 					</svg>
 				</button>

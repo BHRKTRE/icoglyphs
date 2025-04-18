@@ -1,5 +1,5 @@
 <script>
-	let { tabs, content, selected } = $props();
+	let { tabs, content, selected = $bindable() } = $props();
 
 	// $inspect(selected);
 </script>

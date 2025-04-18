@@ -12,12 +12,17 @@
 
 	const tabs = ['Style', 'SVG Toolkit'];
 
-	let tabsSelected = $state('Style');
+	$effect(() => {
+		const userSettings = Object.fromEntries(
+			Object.entries(appState.userSettings).map(([key, data]) => [key, data])
+		);
+		localStorage.setItem('userSettings', JSON.stringify(userSettings));
+	});
 
-	// $inspect(noModesActivated);
+	// $inspect(appState.userSettings.iconToolsTabSelected);
 </script>
 
-<TabInterface {tabs} selected={tabsSelected}>
+<TabInterface {tabs} bind:selected={appState.userSettings.iconToolsTabSelected}>
 	{#snippet content(selected)}
 		{#if 'Style' == selected}
 			<DesignerTools />
@@ -28,6 +33,3 @@
 		{/if}
 	{/snippet}
 </TabInterface>
-
-<style>
-</style>

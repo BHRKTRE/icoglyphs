@@ -15,7 +15,24 @@ const loadModesFromLocalStorage = () => {
 };
 
 // Retrieve stored mode settings
-let modes = loadModesFromLocalStorage(); // Directly load from localStorage
+let modes = loadModesFromLocalStorage();
+
+/**
+ * User settings
+ */
+const loadUserSettingsFromLocalStorage = () => {
+	if (typeof window === 'undefined') return {}; // Prevents errors in server-side environments
+
+	const storedUserSettings = localStorage.getItem('userSettings');
+	return storedUserSettings
+		? JSON.parse(storedUserSettings)
+		: {
+				iconToolsTabSelected: 'SVG Toolkit',
+				useStyleForExportSvg: true
+			};
+};
+
+let userSettings = loadUserSettingsFromLocalStorage();
 
 /**
  * Updates the application's color mode and stores the selection in localStorage.
@@ -69,9 +86,6 @@ const updateUserStyles = () => {
 // Define the final user custom styles for IcoGlyphs with defaults
 let icoGlyphUserCustomStyles = $state(updateUserStyles());
 
-// State for managing style usage in SVG downloads
-let useStyleForSvg = true;
-
 /**
  * Search bar value
  */
@@ -86,7 +100,7 @@ let searchBarValue = '';
  *    Available options: 'grey' (default), 'dark', 'light'.
  * @property {object} icoGlyphUserSettings - Contains user-defined style settings.
  * @property {object} icoGlyphUserSettings.style - Stores custom styles for IcoGlyphs.
- * @property {boolean} icoGlyphUserSettings.useStyleForSvg - Determines if styles should be applied during SVG download.
+ * @property {boolean} userSettings.useStyleForExportSvg - Determines if styles should be applied during SVG download.
  * @property {string} searchBarValue
  */
 let appState = $state({
@@ -97,8 +111,11 @@ let appState = $state({
 		}
 	},
 	icoGlyphUserSettings: {
-		style: icoGlyphUserCustomStyles,
-		useStyleForSvg: useStyleForSvg
+		style: icoGlyphUserCustomStyles
+	},
+	userSettings: {
+		iconToolsTabSelected: userSettings.iconToolsTabSelected,
+		useStyleForExportSvg: userSettings.useStyleForExportSvg
 	},
 	searchBarValue: searchBarValue
 });

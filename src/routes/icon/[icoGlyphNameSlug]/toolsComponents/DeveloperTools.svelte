@@ -22,9 +22,9 @@
 					onchange={() =>
 						actualiseLocalStorage(
 							'useStyleForSvg',
-							appState.icoGlyphUserSettings.useStyleForSvg
+							appState.userSettings.useStyleForExportSvg
 						)}
-					bind:checked={appState.icoGlyphUserSettings.useStyleForSvg}
+					bind:checked={appState.userSettings.useStyleForExportSvg}
 				/>
 			</div> -->
 	{/snippet}
