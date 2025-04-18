@@ -1,7 +1,7 @@
 <script>
 	let { tabs, content, selected } = $props();
 
-	$inspect(selected);
+	// $inspect(selected);
 </script>
 
 <div class="block-container">

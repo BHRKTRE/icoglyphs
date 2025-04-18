@@ -70,7 +70,7 @@ const updateUserStyles = () => {
 let icoGlyphUserCustomStyles = $state(updateUserStyles());
 
 // State for managing style usage in SVG downloads
-let useStyleForSvgDownload = true;
+let useStyleForSvg = true;
 
 /**
  * Search bar value
@@ -86,7 +86,7 @@ let searchBarValue = '';
  *    Available options: 'grey' (default), 'dark', 'light'.
  * @property {object} icoGlyphUserSettings - Contains user-defined style settings.
  * @property {object} icoGlyphUserSettings.style - Stores custom styles for IcoGlyphs.
- * @property {boolean} icoGlyphUserSettings.useStyleForSvgDownload - Determines if styles should be applied during SVG download.
+ * @property {boolean} icoGlyphUserSettings.useStyleForSvg - Determines if styles should be applied during SVG download.
  * @property {string} searchBarValue
  */
 let appState = $state({
@@ -98,7 +98,7 @@ let appState = $state({
 	},
 	icoGlyphUserSettings: {
 		style: icoGlyphUserCustomStyles,
-		useStyleForSvgDownload: useStyleForSvgDownload
+		useStyleForSvg: useStyleForSvg
 	},
 	searchBarValue: searchBarValue
 });

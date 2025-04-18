@@ -21,10 +21,10 @@
 					type="checkbox"
 					onchange={() =>
 						actualiseLocalStorage(
-							'useStyleForSvgDownload',
-							appState.icoGlyphUserSettings.useStyleForSvgDownload
+							'useStyleForSvg',
+							appState.icoGlyphUserSettings.useStyleForSvg
 						)}
-					bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
+					bind:checked={appState.icoGlyphUserSettings.useStyleForSvg}
 				/>
 			</div> -->
 	{/snippet}

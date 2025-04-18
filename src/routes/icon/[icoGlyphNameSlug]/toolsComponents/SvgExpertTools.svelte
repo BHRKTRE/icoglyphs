@@ -1,9 +1,10 @@
 <script>
-	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
 	import icoGlyphs from '$lib/index.js';
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
+	import appState from '$lib/app/core/stores/appState.svelte.js';
 
+	let { data } = $props();
 	// For import style
 	// <div class="mod-color-container">
 	// 			<label for="toggle-import-style">Import style when copying & downloading (SVG only)</label
@@ -13,29 +14,37 @@
 	// 				type="checkbox"
 	// 				onchange={() =>
 	// 					actualiseLocalStorage(
-	// 						'useStyleForSvgDownload',
-	// 						appState.icoGlyphUserSettings.useStyleForSvgDownload
+	// 						'useStyleForSvg',
+	// 						appState.icoGlyphUserSettings.useStyleForSvg
 	// 					)}
-	// 				bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
+	// 				bind:checked={appState.icoGlyphUserSettings.useStyleForSvg}
 	// 			/>
 	// 		</div>
 
-	let { data } = $props();
+	function translateBooleanToIg(value) {
+		return value ? 'true' : 'false';
+	}
+
+	function translateBooleanToString(value) {
+		return value ? 'On' : 'Off';
+	}
+
+	// $inspect(appState.icoGlyphUserSettings.useStyleForSvg);
 </script>
 
 <BasicBlock>
 	{#snippet subBlock()}
 		<BasicBlock>
 			{#snippet title()}
-				<h4>Path</h4>
+				<h3>Path</h3>
 			{/snippet}
 			{#snippet el()}
 				<code>{icoGlyphs.getPath(data.name)}</code>
 			{/snippet}
 		</BasicBlock>
-		<BasicBlock>
+		<!-- <BasicBlock>
 			{#snippet title()}
-				<h4>Simplified path</h4>
+				<h3>Simplified path</h3>
 			{/snippet}
 			{#snippet text()}
 				The path will be simplified. Most animations between icons will no longer be possible.
@@ -49,19 +58,26 @@
 					</svg>
 				</button>
 			{/snippet}
-		</BasicBlock>
+		</BasicBlock> -->
 		<BasicBlock>
 			{#snippet title()}
-				<h4>Import style</h4>
+				<h3>Import style</h3>
 			{/snippet}
 			{#snippet text()}
-				Import the style of the icon when copying and downloading.
+				Import the style of the icon when copying and downloading SVG.
 			{/snippet}
 			{#snippet subBlock()}
-				<button class="button-default" onclick={() => console.log('test')}>
-					<span>Off / On</span>
+				<button
+					class="button-default"
+					onclick={() =>
+						(appState.icoGlyphUserSettings.useStyleForSvg =
+							!appState.icoGlyphUserSettings.useStyleForSvg)}
+				>
+					<span>{translateBooleanToString(appState.icoGlyphUserSettings.useStyleForSvg)}</span>
 					<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-						<MorphingPath IGName={'on'} />
+						<MorphingPath
+							IGName={translateBooleanToIg(appState.icoGlyphUserSettings.useStyleForSvg)}
+						/>
 					</svg>
 				</button>
 			{/snippet}

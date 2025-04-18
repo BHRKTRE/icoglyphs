@@ -10,7 +10,7 @@
 
 	let { data } = $props();
 
-	const tabs = ['Style', 'API', 'SVG options'];
+	const tabs = ['Style', 'SVG Toolkit'];
 
 	let tabsSelected = $state('Style');
 
@@ -23,7 +23,7 @@
 			<DesignerTools />
 		{:else if 'API' == selected}
 			<DeveloperTools />
-		{:else if 'SVG options' == selected}
+		{:else if 'SVG Toolkit' == selected}
 			<SvgExpertTools {data} />
 		{/if}
 	{/snippet}
