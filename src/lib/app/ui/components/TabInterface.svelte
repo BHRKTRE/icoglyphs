@@ -18,10 +18,7 @@
 		{/each}
 	</div>
 	<div class="content-container">
-		<!-- {#if selected} -->
 		{@render content(selected)}
-		<h2>{selected}</h2>
-		<!-- {/if} -->
 	</div>
 </div>
 

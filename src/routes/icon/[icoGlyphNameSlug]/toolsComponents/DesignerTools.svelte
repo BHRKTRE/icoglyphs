@@ -47,72 +47,59 @@
 	}
 </script>
 
-{#if appState.modes.designerMode.value == true}
-	<BasicBlock>
-		{#snippet title()}
-			<h3>Design</h3>
-		{/snippet}
+<BasicBlock>
+	{#snippet subBlock()}
+		<div class="mod-color-container">
+			<div class="column-container">
+				<label for="stroke-size"
+					>Size: {appState.icoGlyphUserSettings.style['stroke-width']} px</label
+				><input
+					style="width: {inputWidth};"
+					id="stroke-size"
+					class="color-input"
+					bind:value={appState.icoGlyphUserSettings.style['stroke-width']}
+					oninput={() =>
+						actualiseLocalStorage(
+							'icoGlyphsUserStyle',
+							'stroke-width',
+							appState.icoGlyphUserSettings.style['stroke-width']
+						)}
+					min="0.3"
+					max="9"
+					step="0.1"
+					type="range"
+				/>
+			</div>
+		</div>
 
-		{#snippet subBlock()}
-			<BasicBlock>
-				{#snippet title()}
-					<h4>Stroke customisation</h4>
-				{/snippet}
-				{#snippet subBlock()}
-					<div class="mod-color-container">
-						<div class="column-container">
-							<label for="stroke-size"
-								>Size: {appState.icoGlyphUserSettings.style['stroke-width']} px</label
-							><input
-								style="width: {inputWidth};"
-								id="stroke-size"
-								class="color-input"
-								bind:value={appState.icoGlyphUserSettings.style['stroke-width']}
-								oninput={() =>
-									actualiseLocalStorage(
-										'icoGlyphsUserStyle',
-										'stroke-width',
-										appState.icoGlyphUserSettings.style['stroke-width']
-									)}
-								min="0.3"
-								max="9"
-								step="0.1"
-								type="range"
-							/>
-						</div>
-					</div>
+		<div class="mod-color-container">
+			<div class="column-container" id="stroke-color-container">
+				<label for="stroke-color-input" id="stroke-color-label">Color</label>
+				<input
+					style="width: {inputWidth};"
+					id="stroke-color-input"
+					class="color-input"
+					type="color"
+					bind:value={appState.icoGlyphUserSettings.style.stroke}
+					oninput={() =>
+						actualiseLocalStorage(
+							'icoGlyphsUserStyle',
+							'stroke',
+							appState.icoGlyphUserSettings.style['stroke']
+						)}
+				/>
+			</div>
+		</div>
 
-					<div class="mod-color-container">
-						<div class="column-container" id="stroke-color-container">
-							<label for="stroke-color-input" id="stroke-color-label">Color</label>
-							<input
-								style="width: {inputWidth};"
-								id="stroke-color-input"
-								class="color-input"
-								type="color"
-								bind:value={appState.icoGlyphUserSettings.style.stroke}
-								oninput={() =>
-									actualiseLocalStorage(
-										'icoGlyphsUserStyle',
-										'stroke',
-										appState.icoGlyphUserSettings.style['stroke']
-									)}
-							/>
-						</div>
-					</div>
-
-					<div class="small-button-container">
-						<button onclick={changeStrokeType} class="button-text-only">
-							Stroke style :
-							{appState.icoGlyphUserSettings.style['stroke-linejoin']}
-						</button>
-					</div>
-				{/snippet}
-			</BasicBlock>
-			<button onclick={resetStyleButtonAction} class="button-text-only">Reset style</button>
-		{/snippet}
-	</BasicBlock>
-{/if}
+		<div class="small-button-container">
+			<button onclick={changeStrokeType} class="button-text-only">
+				Stroke style :
+				{appState.icoGlyphUserSettings.style['stroke-linejoin']}
+			</button>
+		</div>
+		<button onclick={resetStyleButtonAction} class="button-text-only">Reset style</button>
+	{/snippet}
+</BasicBlock>
 
 <style>
 	.mod-color-container {

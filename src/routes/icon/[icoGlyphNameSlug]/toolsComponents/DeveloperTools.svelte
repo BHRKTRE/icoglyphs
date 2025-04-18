@@ -11,16 +11,10 @@
 	}
 </script>
 
-{#if appState.modes.devMode.value == true}
-	<BasicBlock>
-		{#snippet title()}
-			<h3>Developper</h3>
-		{/snippet}
-		{#snippet text()}
-			API is coming...
-		{/snippet}
-		<!-- {#snippet subBlock()}
-			<div class="mod-color-container">
+<BasicBlock>
+	{#snippet subBlock()}
+		<p>API is coming...</p>
+		<!-- <div class="mod-color-container">
 				<label for="toggle-import-style">API IS COMING</label><input
 					id="toggle-import-style"
 					class="color-input"
@@ -32,20 +26,6 @@
 						)}
 					bind:checked={appState.icoGlyphUserSettings.useStyleForSvgDownload}
 				/>
-			</div>
-		{/snippet} -->
-	</BasicBlock>
-{/if}
-
-<style>
-	/* .mod-color-container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: var(--b2);
-		border-radius: var(--border-radius);
-		width: 100%;
-		padding: var(--spacing-medium);
-		gap: var(--spacing-medium);
-	} */
-</style>
+			</div> -->
+	{/snippet}
+</BasicBlock>

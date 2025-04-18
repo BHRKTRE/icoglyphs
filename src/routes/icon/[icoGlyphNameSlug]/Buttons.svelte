@@ -16,36 +16,25 @@
 
 <BasicBlock>
 	{#snippet el()}
-		{#if !appState.modes.devMode.value && !appState.modes.designerMode.value}
-			<button class="button-default" onclick={() => downloadPng(data.name)}>
-				<span>Download icon's image</span>
-				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-					<MorphingPath IGName={'download'} />
-				</svg>
-			</button>
-		{/if}
-		{#if appState.modes.devMode.value}
-			<button class="button-default" onclick={() => copySvgToClipBoard(data.name)}>
-				<span>Copy SVG to clipboard</span>
-				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-					<MorphingPath IGName={'copy'} />
-				</svg>
-			</button>
-		{/if}
-		{#if appState.modes.designerMode.value || appState.modes.devMode.value}
-			<button class="button-default" onclick={() => downloadPng(data.name)}>
-				<span>Download icon's PNG</span>
-				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-					<MorphingPath IGName={'download'} />
-				</svg>
-			</button>
-			<button class="button-default" onclick={() => downloadSvg(data.name)}>
-				<span>Download icon's SVG</span>
-				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-					<MorphingPath IGName={'download'} />
-				</svg>
-			</button>
-		{/if}
+		<button class="button-default" onclick={() => copySvgToClipBoard(data.name)}>
+			<span>Copy SVG to clipboard</span>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+				<MorphingPath IGName={'copy'} />
+			</svg>
+		</button>
+
+		<button class="button-default" onclick={() => downloadPng(data.name)}>
+			<span>Download icon's PNG</span>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+				<MorphingPath IGName={'download'} />
+			</svg>
+		</button>
+		<button class="button-default" onclick={() => downloadSvg(data.name)}>
+			<span>Download icon's SVG</span>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+				<MorphingPath IGName={'download'} />
+			</svg>
+		</button>
 	{/snippet}
 </BasicBlock>
 

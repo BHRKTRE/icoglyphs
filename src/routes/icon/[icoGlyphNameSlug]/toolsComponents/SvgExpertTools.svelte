@@ -23,56 +23,51 @@
 	let { data } = $props();
 </script>
 
-{#if appState.modes.svgExpertMode.value == true}
-	<BasicBlock>
-		{#snippet title()}
-			<h3>Advanced SVG</h3>
-		{/snippet}
-		{#snippet subBlock()}
-			<BasicBlock>
-				{#snippet title()}
-					<h4>Path</h4>
-				{/snippet}
-				{#snippet el()}
-					<code>{icoGlyphs.getPath(data.name)}</code>
-				{/snippet}
-			</BasicBlock>
-			<BasicBlock>
-				{#snippet title()}
-					<h4>Simplified path</h4>
-				{/snippet}
-				{#snippet text()}
-					The path will be simplified. Most animations between icons will no longer be possible.
-					However, this is useful for engraving or laser cutting.
-				{/snippet}
-				{#snippet subBlock()}
-					<button class="button-default" onclick={() => console.log('test')}>
-						<span>Off / On</span>
-						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={'on'} />
-						</svg>
-					</button>
-				{/snippet}
-			</BasicBlock>
-			<BasicBlock>
-				{#snippet title()}
-					<h4>Import style</h4>
-				{/snippet}
-				{#snippet text()}
-					Import the style of the icon when copying and downloading.
-				{/snippet}
-				{#snippet subBlock()}
-					<button class="button-default" onclick={() => console.log('test')}>
-						<span>Off / On</span>
-						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-							<MorphingPath IGName={'on'} />
-						</svg>
-					</button>
-				{/snippet}
-			</BasicBlock>
-		{/snippet}
-	</BasicBlock>
-{/if}
+<BasicBlock>
+	{#snippet subBlock()}
+		<BasicBlock>
+			{#snippet title()}
+				<h4>Path</h4>
+			{/snippet}
+			{#snippet el()}
+				<code>{icoGlyphs.getPath(data.name)}</code>
+			{/snippet}
+		</BasicBlock>
+		<BasicBlock>
+			{#snippet title()}
+				<h4>Simplified path</h4>
+			{/snippet}
+			{#snippet text()}
+				The path will be simplified. Most animations between icons will no longer be possible.
+				However, this is useful for engraving or laser cutting.
+			{/snippet}
+			{#snippet subBlock()}
+				<button class="button-default" onclick={() => console.log('test')}>
+					<span>Off / On</span>
+					<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+						<MorphingPath IGName={'on'} />
+					</svg>
+				</button>
+			{/snippet}
+		</BasicBlock>
+		<BasicBlock>
+			{#snippet title()}
+				<h4>Import style</h4>
+			{/snippet}
+			{#snippet text()}
+				Import the style of the icon when copying and downloading.
+			{/snippet}
+			{#snippet subBlock()}
+				<button class="button-default" onclick={() => console.log('test')}>
+					<span>Off / On</span>
+					<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+						<MorphingPath IGName={'on'} />
+					</svg>
+				</button>
+			{/snippet}
+		</BasicBlock>
+	{/snippet}
+</BasicBlock>
 
 <style>
 </style>
