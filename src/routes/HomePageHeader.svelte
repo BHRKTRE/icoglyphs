@@ -41,6 +41,7 @@
 
 	h2 {
 		text-align: center;
+		font-weight: 400;
 	}
 
 	/* #features {
