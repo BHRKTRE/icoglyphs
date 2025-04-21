@@ -14,7 +14,8 @@
 <header>
 	<h1 style:font-size="clamp(1.4rem, {h1FontSize}, 8rem)">Free Icons for Universal Expression</h1>
 	<h2 style:font-size="clamp(1rem, {h2FontSize}, 7rem)">
-		Icons created through the research of signs, shapes, and forms.
+		Crafted from the research of signs, shapes, and forms.<br />
+		Effortlessly customizable, usable, and animation-ready.
 	</h2>
 
 	<!-- <div id="features">
