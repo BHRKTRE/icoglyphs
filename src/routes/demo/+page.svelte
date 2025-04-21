@@ -54,7 +54,7 @@
 </script>
 
 <main>
-	<div class="justforspace"></div>
+	<!-- <div class="justforspace"></div>
 
 	<TabInterface {tabs} {selected}>
 		{#snippet content(selected)}
@@ -107,17 +107,17 @@
 				</svg>
 			</button>
 		</Tooltip>
-	</div>
+	</div> -->
 
 	<div class="justforspace"></div>
 	<button class="button-default">
 		<span>Download foo bar</span>
 		<svg {...icoGlyphs.getSvgAttributes()}>
-			<MorphingPath IGName={appState.modes.colorMode.value} />
+			<path d={icoGlyphs.getPath('dev')}></path>
 		</svg>
-		<svg {...icoGlyphs.getSvgAttributes()}>
+		<!-- <svg {...icoGlyphs.getSvgAttributes()}>
 			<MorphingPath IGName={appState.modes.colorMode.value} />
-		</svg>
+		</svg> -->
 	</button>
 	<div class="justforspace"></div>
 	<div class="flex">
@@ -128,7 +128,7 @@
 				</svg>
 			</button>
 		</Tooltip> -->
-	</div>
+		<!-- </div>
 	<div class="justforspace"></div>
 	<input type="text" bind:value={nextname} />
 	<button class="button-text-only" onclick={changeActualState2}>change2</button>
@@ -137,10 +137,11 @@
 
 	<br />
 	<br />
-	<button class="button-text-only" onclick={changeDuration}>duration</button>
-	<!-- <button class="button-text-only" onclick={changeDuration}>params</button>
+	<button class="button-text-only" onclick={changeDuration}>duration</button> -->
+		<!-- <button class="button-text-only" onclick={changeDuration}>params</button>
 
 	<div id="params-container"><Params /></div> -->
+	</div>
 </main>
 
 <style>

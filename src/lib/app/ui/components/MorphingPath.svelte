@@ -6,28 +6,7 @@
 	let isAnimating = $state(false);
 	const uid = $props.id();
 
-	/**
-	 * @notice Transitions the button to a new state with an animation.
-	 * @dev Ensures the new state exists in `buttonConfig` before transitioning.
-	 *
-	 * @param {string} newState The target state to transition to.
-	 * @return {void}
-	 */
-	function transitionState(newState) {
-		if (isAnimating) return;
-		isAnimating = true;
-
-		anime({
-			targets: `#${uid}`,
-			d: icoGlyphs.getPath(newState),
-			direction: 'normal',
-			easing: 'easeInOutQuad',
-			duration: animeDuration,
-			complete: () => {
-				isAnimating = false;
-			}
-		});
-	}
+	let currentPath = $state(icoGlyphs.getPath(IGName));
 
 	/**
 	 * @dev Enables external control over the button state, allowing updates from a parent component.
@@ -35,9 +14,36 @@
 	 */
 	$effect(() => {
 		if (typeof IGName !== 'undefined' && !isAnimating) {
-			transitionState(IGName);
+			const newPath = icoGlyphs.getPath(IGName);
+			if (newPath !== currentPath) {
+				transitionState(newPath);
+			}
 		}
 	});
+
+	/**
+	 * @notice Transitions the button to a new state with an animation.
+	 * @dev Ensures the new state exists in `buttonConfig` before transitioning.
+	 *
+	 * @param {string} newState The target state to transition to.
+	 * @return {void}
+	 */
+	function transitionState(newPath) {
+		if (isAnimating) return;
+		isAnimating = true;
+
+		anime({
+			targets: `#${uid}`,
+			d: newPath,
+			direction: 'normal',
+			easing: 'easeInOutQuad',
+			duration: animeDuration,
+			complete: () => {
+				currentPath = newPath;
+				isAnimating = false;
+			}
+		});
+	}
 </script>
 
-<path id={uid} d={icoGlyphs.getPath(IGName)}></path>
+<path id={uid} d={currentPath}></path>

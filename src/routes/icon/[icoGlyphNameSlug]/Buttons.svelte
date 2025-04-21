@@ -16,23 +16,24 @@
 
 <BasicBlock>
 	{#snippet el()}
-		<button class="button-default" onclick={() => copySvgToClipBoard(data.name)}>
-			<span>Copy SVG to clipboard</span>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-				<MorphingPath IGName={'copy'} />
-			</svg>
-		</button>
-
 		<button class="button-default" onclick={() => downloadPng(data.name)}>
 			<span>Download icon's PNG</span>
 			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
 				<MorphingPath IGName={'download'} />
 			</svg>
 		</button>
+
 		<button class="button-default" onclick={() => downloadSvg(data.name)}>
 			<span>Download icon's SVG</span>
 			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
 				<MorphingPath IGName={'download'} />
+			</svg>
+		</button>
+
+		<button class="button-default" onclick={() => copySvgToClipBoard(data.name)}>
+			<span>Copy SVG to clipboard</span>
+			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+				<MorphingPath IGName={'copy'} />
 			</svg>
 		</button>
 	{/snippet}

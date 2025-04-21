@@ -27,7 +27,7 @@ const loadUserSettingsFromLocalStorage = () => {
 	return storedUserSettings
 		? JSON.parse(storedUserSettings)
 		: {
-				iconToolsTabSelected: 'SVG Toolkit',
+				iconToolsTabSelected: 'Style',
 				useStyleForExportSvg: true
 			};
 };
