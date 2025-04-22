@@ -11,31 +11,63 @@
 
 	let { data } = $props();
 
-	// $inspect(data);
+	const buttonsConfig = [
+		{
+			key: 'dlPng',
+			action: () => downloadPng(data.name),
+			state1: { text: "Download icon's PNG", icon: 'download' },
+			state2: { text: 'PNG is downloading!', icon: 'download' }
+		},
+		{
+			key: 'dlSvg',
+			action: () => downloadSvg(data.name),
+			state1: { text: "Download icon's SVG", icon: 'download' },
+			state2: { text: 'SVG is downloading!', icon: 'download' }
+		},
+		{
+			key: 'copySvg',
+			action: () => copySvgToClipBoard(data.name),
+			state1: { text: 'Copy SVG to clipboard', icon: 'copy' },
+			state2: { text: 'SVG copied!', icon: 'copy' }
+		}
+	];
+
+	let buttonsArray = $state(
+		buttonsConfig.map(({ key, action, state1, state2 }) => ({
+			key: key,
+			action: action,
+			text: state1.text,
+			icon: state1.icon,
+			state1: state1,
+			state2: state2
+		}))
+	);
+
+	function handleClick(btn) {
+		btn.action();
+
+		btn.text = btn.state2.text;
+		btn.icon = btn.state2.icon;
+
+		setTimeout(() => {
+			btn.text = btn.state1.text;
+			btn.icon = btn.state1.icon;
+		}, 5000);
+	}
+
+	// $inspect(buttonsArray);
 </script>
 
 <BasicBlock>
 	{#snippet el()}
-		<button class="button-default" onclick={() => downloadPng(data.name)}>
-			<span>Download icon's PNG</span>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-				<MorphingPath IGName={'download'} />
-			</svg>
-		</button>
-
-		<button class="button-default" onclick={() => downloadSvg(data.name)}>
-			<span>Download icon's SVG</span>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-				<MorphingPath IGName={'download'} />
-			</svg>
-		</button>
-
-		<button class="button-default" onclick={() => copySvgToClipBoard(data.name)}>
-			<span>Copy SVG to clipboard</span>
-			<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-				<MorphingPath IGName={'copy'} />
-			</svg>
-		</button>
+		{#each buttonsArray as btn}
+			<button class="button-default" onclick={() => handleClick(btn)}>
+				<span>{btn.text}</span>
+				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+					<MorphingPath IGName={btn.icon} />
+				</svg>
+			</button>
+		{/each}
 	{/snippet}
 </BasicBlock>
 
