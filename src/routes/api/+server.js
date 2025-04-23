@@ -4,6 +4,25 @@ export async function GET({ url }) {
 	const name = url.searchParams.get('name');
 	const get = url.searchParams.get('get');
 	const simplified = url.searchParams.get('simplified') === 'true';
+	const styleParam = url.searchParams.get('style');
+
+	// Setup style
+	let style = {};
+	if (styleParam) {
+		try {
+			style = JSON.parse(decodeURIComponent(styleParam));
+		} catch (error) {
+			return new Response(
+				JSON.stringify({
+					error: 'Invalid "style" parameter format.'
+				}),
+				{
+					status: 400,
+					headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+				}
+			);
+		}
+	}
 
 	if (name && typeof name !== 'string') {
 		return new Response(JSON.stringify({ error: 'The "name" parameter must be a string.' }), {
@@ -38,7 +57,6 @@ export async function GET({ url }) {
 		const methods = {
 			path: icoGlyphs.getPath,
 			attributes: icoGlyphs.getSvgAttributes,
-			style: icoGlyphs.getIcoGlyphDefaultStyle,
 			svg: icoGlyphs.getSvg,
 			default: icoGlyphs.library
 		};
@@ -46,7 +64,7 @@ export async function GET({ url }) {
 		if (get === 'path') {
 			data = methods.path(name, { simplified });
 		} else if (get === 'svg') {
-			data = methods['svg'](name, { simplified });
+			data = methods['svg'](name, { simplified, style });
 			contentType = 'image/svg+xml'; // switch here only for svg
 		} else if (get) {
 			data = methods[get](name);
@@ -76,3 +94,13 @@ export async function GET({ url }) {
 		}
 	});
 }
+
+/**
+ * |> get SVG
+ * With style
+ * http://localhost:5173/api?name=arrow-right&get=svg&style=%7B%22stroke%22%3A%20%22%23e4ebf3%22%2C%20%22stroke-linejoin%22%3A%20%22round%22%2C%20%22stroke-linecap%22%3A%20%22round%22%2C%20%22stroke-width%22%3A%204.6%2C%20%22stroke-opacity%22%3A%201%2C%20%22fill%22%3A%20%22none%22%7D
+ *
+ * Simplified
+ * http://localhost:5173/api?name=arrow-right&get=svg&simplified=true
+ *
+ */

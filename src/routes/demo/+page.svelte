@@ -50,10 +50,25 @@
 
 	let selected = $state('tab2');
 
-	$inspect(icoGlyphs.getPath('l__d_r_l__s_7_0___x___v1__p_r__d_r__s_2_4'));
+	// $inspect(
+	// 	icoGlyphs.getSvg('l__d_r_l__s_7_0___x___v1__p_r__d_r__s_2_4', {
+	// 		style: appState.icoGlyphUserSettings.style
+	// 	})
+	// );
+
+	$inspect(appState.icoGlyphUserSettings.style);
 </script>
 
 <main>
+	<div class="justforspace"></div>
+
+	<img
+		src="http://localhost:5173/api?name=arrow-right&get=svg&style=%7B%22stroke%22%3A%20%22%23e4ebf3%22%2C%20%22stroke-linejoin%22%3A%20%22round%22%2C%20%22stroke-linecap%22%3A%20%22round%22%2C%20%22stroke-width%22%3A%204.6%2C%20%22stroke-opacity%22%3A%201%2C%20%22fill%22%3A%20%22none%22%7D"
+		alt="Icon"
+	/>
+
+	{@html icoGlyphs.getSvg('arrow-right', { style: appState.icoGlyphUserSettings.style })}
+
 	<!-- <div class="justforspace"></div>
 
 	<TabInterface {tabs} {selected}>

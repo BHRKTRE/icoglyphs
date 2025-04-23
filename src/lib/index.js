@@ -14,12 +14,13 @@ const icoGlyphs = {
 		return getSvgAttributes(icoGlyphName);
 	},
 
+	// May be deleted
 	getIcoGlyphDefaultStyle: () => {
 		return getIcoGlyphDefaultStyle();
 	},
 
-	getSvg: (icoGlyphName, simplified = {}) => {
-		return getSvg(icoGlyphName, simplified);
+	getSvg: (icoGlyphName, options = {}) => {
+		return getSvg(icoGlyphName, options);
 	},
 	searchIcoGlyph: (icoGlyphName) => {
 		return searchIcoGlyph(icoGlyphName);

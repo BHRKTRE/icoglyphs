@@ -10,7 +10,9 @@ import getSvgAttributes from './getSvgAttributes';
  * @param {boolean} [options.simplified=false] - Whether to use simplified path (excluding hidden parts).
  * @returns {string | undefined} The complete SVG markup, or undefined if the glyph is not found.
  */
-function getSvg(icoGlyphName, { simplified = false } = {}) {
+function getSvg(icoGlyphName, { simplified = false, style = {} } = {}) {
+	// console.log(formatObjects(style));
+
 	const icoGlyph = searchIcoGlyph(icoGlyphName);
 	if (!icoGlyph) return;
 
@@ -19,9 +21,10 @@ function getSvg(icoGlyphName, { simplified = false } = {}) {
 
 	if (!pathData) return;
 
-	const attributesString = formatAttributes(attributes);
+	const attributesString = formatObjects(attributes);
+	const styleString = formatObjects(style);
 
-	return `<svg ${attributesString} stroke="black">
+	return `<svg ${attributesString} ${styleString}>
 	<path d="${pathData}" />
 	</svg>`;
 }
@@ -29,11 +32,11 @@ function getSvg(icoGlyphName, { simplified = false } = {}) {
 /**
  * Converts an attributes object to a string for embedding in SVG.
  *
- * @param {Object} attrs - SVG attributes as key-value pairs.
+ * @param {Object} objs - SVG attributes as key-value pairs.
  * @returns {string} - A string of HTML-ready attributes.
  */
-function formatAttributes(attrs) {
-	return Object.entries(attrs)
+function formatObjects(objs) {
+	return Object.entries(objs)
 		.map(([key, value]) => `${key}="${value}"`)
 		.join(' ');
 }
