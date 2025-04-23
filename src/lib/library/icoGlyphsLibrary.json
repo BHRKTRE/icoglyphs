@@ -132,7 +132,7 @@
 		},
 		"l__d_r_l__s_7_0___x___v1__p_r__d_r__s_2_4": {
 			"aliases": ["arrow-right"],
-			"path": ["l__d_l_r__s_7_0", "v1__p_r__d_r__s_2_4"],
+			"path": ["l__d_l_r__s_7_0", "_v1__p_r__d_r__s_2_4"],
 			"metadata": {
 				"tags": ["arrow", "right", "go"],
 				"categories": ["Arrow"]

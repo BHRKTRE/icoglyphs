@@ -41,7 +41,7 @@ function processGlyph(el, simplified) {
 	return null;
 }
 
-function getPath(pathData, { simplified = true } = {}) {
+function getPath(pathData, { simplified = false } = {}) {
 	return processGlyph(pathData, simplified);
 }
 

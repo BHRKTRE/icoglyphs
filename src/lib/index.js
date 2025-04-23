@@ -6,8 +6,8 @@ import getIcoGlyphDefaultStyle from './library/external/getSvgData/getStyle';
 import searchIcoGlyph from './library/external/searchIcoGlyph';
 
 const icoGlyphs = {
-	getPath: (icoGlyphName, icoGlyphVersion) => {
-		return getPath(icoGlyphName, icoGlyphVersion);
+	getPath: (icoGlyphName, simplified = {}) => {
+		return getPath(icoGlyphName, simplified);
 	},
 
 	getSvgAttributes: (icoGlyphName) => {
@@ -18,8 +18,8 @@ const icoGlyphs = {
 		return getIcoGlyphDefaultStyle();
 	},
 
-	getSvg: (icoGlyphName) => {
-		return getSvg(icoGlyphName);
+	getSvg: (icoGlyphName, simplified = {}) => {
+		return getSvg(icoGlyphName, simplified);
 	},
 	searchIcoGlyph: (icoGlyphName) => {
 		return searchIcoGlyph(icoGlyphName);
