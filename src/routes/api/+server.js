@@ -19,11 +19,10 @@ export async function GET({ url }) {
 		});
 	}
 
-	if (get && !['path', 'attributes', 'style', 'full-svg'].includes(get)) {
+	if (get && !['path', 'attributes', 'style', 'svg'].includes(get)) {
 		return new Response(
 			JSON.stringify({
-				error:
-					'Invalid value for "get". Allowed values are "path", "attributes", "style", "full-svg".'
+				error: 'Invalid value for "get". Allowed values are "path", "attributes", "style", "svg".'
 			}),
 			{
 				status: 400,
@@ -40,15 +39,15 @@ export async function GET({ url }) {
 			path: icoGlyphs.getPath,
 			attributes: icoGlyphs.getSvgAttributes,
 			style: icoGlyphs.getIcoGlyphDefaultStyle,
-			'full-svg': icoGlyphs.getCompleteSvg,
+			svg: icoGlyphs.getSvg,
 			default: icoGlyphs.library
 		};
 
 		if (get === 'path') {
 			data = methods.path(name, { simplified });
-		} else if (get === 'full-svg') {
-			data = methods['full-svg'](name, { simplified });
-			contentType = 'image/svg+xml'; // switch here only for full-svg
+		} else if (get === 'svg') {
+			data = methods['svg'](name, { simplified });
+			contentType = 'image/svg+xml'; // switch here only for svg
 		} else if (get) {
 			data = methods[get](name);
 		} else {

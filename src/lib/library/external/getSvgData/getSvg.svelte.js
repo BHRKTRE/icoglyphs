@@ -8,7 +8,7 @@ import getSvgAttributes from './getSvgAttributes';
  * @param {boolean} [options.simplified=false] - Whether to use simplified path.
  * @returns {string} The complete SVG markup.
  */
-function getCompleteSvg(icoGlyphName, { simplified = false } = {}) {
+function getSvg(icoGlyphName, { simplified = false } = {}) {
 	const icoGlyph = searchIcoGlyph(icoGlyphName);
 	if (!icoGlyph) return;
 
@@ -24,4 +24,4 @@ function getCompleteSvg(icoGlyphName, { simplified = false } = {}) {
   </svg>`;
 }
 
-export default getCompleteSvg;
+export default getSvg;

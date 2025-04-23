@@ -1,5 +1,5 @@
 import icoGlyphsLibrary from './library/icoGlyphsLibrary.json';
-import getCompleteSvg from './library/external/getSvgData/getCompleteSvg';
+import getSvg from './library/external/getSvgData/getSvg.svelte.js';
 import getPath from './library/external/getSvgData/getPath';
 import getSvgAttributes from './library/external/getSvgData/getSvgAttributes';
 import getIcoGlyphDefaultStyle from './library/external/getSvgData/getStyle';
@@ -18,8 +18,8 @@ const icoGlyphs = {
 		return getIcoGlyphDefaultStyle();
 	},
 
-	getCompleteSvg: (icoGlyphName) => {
-		return getCompleteSvg(icoGlyphName);
+	getSvg: (icoGlyphName) => {
+		return getSvg(icoGlyphName);
 	},
 	searchIcoGlyph: (icoGlyphName) => {
 		return searchIcoGlyph(icoGlyphName);

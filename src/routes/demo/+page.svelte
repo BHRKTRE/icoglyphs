@@ -50,7 +50,7 @@
 
 	let selected = $state('tab2');
 
-	// $inspect(1 / psi ** 5);
+	$inspect(icoGlyphs.getPath('l__d_r_l__s_7_0___x___v1__p_r__d_r__s_2_4'));
 </script>
 
 <main>
