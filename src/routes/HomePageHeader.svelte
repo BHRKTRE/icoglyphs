@@ -18,13 +18,24 @@
 		Effortlessly customizable, usable, and animation-ready.
 	</h2>
 
-	<!-- <div id="features">
-		<h2 class="container-1">Easy to customize and download</h2>
-		<h2 class="container-1">API for Developers</h2>
-	</div> -->
+	<div class="construction-banner">
+		<p>[ Project under construction ]</p>
+	</div>
 </header>
 
 <style>
+	.construction-banner {
+		text-align: center;
+		padding: var(--spacing-medium) 20px;
+	}
+
+	.construction-banner p {
+		margin: 0;
+		color: var(--t1);
+		font-weight: 500;
+		font-size: 1rem;
+	}
+
 	header {
 		display: flex;
 		flex-direction: column;

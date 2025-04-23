@@ -8,7 +8,7 @@
 	<div id="top-container">
 		<ul id="footer-links">
 			<li><a href={externalLinks.github} target="_blank">Github</a></li>
-			<li><a href={externalLinks.discord} target="_blank">Discord</a></li>
+			<!-- <li><a href={externalLinks.discord} target="_blank">Discord</a></li> -->
 		</ul>
 	</div>
 
