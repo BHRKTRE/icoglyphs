@@ -1,7 +1,10 @@
 /**
  * @dev In some cases, it's necessary to convert the object to a string.
  * @returns {object} The default style to set in the SVG header.
+ *
  */
+
+// May be deleted
 function getIcoGlyphDefaultStyle() {
 	return {
 		fill: 'none',
