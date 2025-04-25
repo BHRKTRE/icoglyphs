@@ -6,13 +6,9 @@
 
 	let filteredIcoGlyphs = $state([]);
 
-	// Function to shuffle an array (Fisher-Yates algorithm)
-	const shuffleArray = (array) => {
-		for (let i = array.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			[array[i], array[j]] = [array[j], array[i]];
-		}
-		return array;
+	// Function to reverse an array
+	const reverseArray = (array) => {
+		return array.reverse();
 	};
 
 	const getDefaultIcoGlyphs = () => {
@@ -23,27 +19,27 @@
 			const aliases = icoData.aliases || [];
 			if (aliases.length === 0) return false;
 
-			const { metadata } = icoData;
+			// const { metadata } = icoData;
 
-			if (metadata?.categories) {
-				return metadata.categories.some((cat) => {
-					if (!categoriesUsed.has(cat)) {
-						categoriesUsed.set(cat, []);
-					}
-					categoriesUsed.get(cat).push(icoGlyphName);
-					return false;
-				});
-			}
+			// if (metadata?.categories) {
+			// 	return metadata.categories.some((cat) => {
+			// 		if (!categoriesUsed.has(cat)) {
+			// 			categoriesUsed.set(cat, []);
+			// 		}
+			// 		categoriesUsed.get(cat).push(icoGlyphName);
+			// 		return false;
+			// 	});
+			// }
 
-			return !metadata?.categories;
+			return icoData;
 		});
 
-		categoriesUsed.forEach((icons, cat) => {
+		categoriesUsed.forEach((icons) => {
 			const randomIcon = icons[Math.floor(Math.random() * icons.length)];
 			defaultIcons.push(randomIcon);
 		});
 
-		return shuffleArray(defaultIcons);
+		return reverseArray(defaultIcons);
 	};
 
 	const search = () => {

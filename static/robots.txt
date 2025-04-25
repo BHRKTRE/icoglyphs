@@ -4,4 +4,4 @@ Disallow: /demo/
 Disallow: /docs/
 Disallow: /about/
 
-Sitemap: https://tonsite.com/sitemap.xml
+Sitemap: https://icoglyphs.com/sitemap.xml
