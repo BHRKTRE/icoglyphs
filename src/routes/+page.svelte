@@ -3,44 +3,10 @@
 	import IcoGlyphLinked from '$lib/app/ui/components/IcoGlyphLinked.svelte';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import HomePageHeader from './HomePageHeader.svelte';
+	import Metadata from './Metadata.svelte';
+	import { getDefaultHomepageIcons } from '$lib/app/core/utils/homePageData.svelte.js';
 
 	let filteredIcoGlyphs = $state([]);
-
-	// Function to reverse an array
-	const reverseArray = (array) => {
-		return array.reverse();
-	};
-
-	const getDefaultIcoGlyphs = () => {
-		const categoriesUsed = new Map();
-
-		const defaultIcons = Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
-			const icoData = icoGlyphs.library().svgData[icoGlyphName];
-			const aliases = icoData.aliases || [];
-			if (aliases.length === 0) return false;
-
-			// const { metadata } = icoData;
-
-			// if (metadata?.categories) {
-			// 	return metadata.categories.some((cat) => {
-			// 		if (!categoriesUsed.has(cat)) {
-			// 			categoriesUsed.set(cat, []);
-			// 		}
-			// 		categoriesUsed.get(cat).push(icoGlyphName);
-			// 		return false;
-			// 	});
-			// }
-
-			return icoData;
-		});
-
-		categoriesUsed.forEach((icons) => {
-			const randomIcon = icons[Math.floor(Math.random() * icons.length)];
-			defaultIcons.push(randomIcon);
-		});
-
-		return reverseArray(defaultIcons);
-	};
 
 	const search = () => {
 		const lowerQuery = appState.searchBarValue.trim().toLowerCase();
@@ -64,42 +30,15 @@
 							iconCategories.some((category) => category.includes(word))
 					);
 				})
-			: getDefaultIcoGlyphs();
+			: getDefaultHomepageIcons();
 	};
 
-	// Randomize icons when the page loads
-	filteredIcoGlyphs = getDefaultIcoGlyphs();
+	filteredIcoGlyphs = getDefaultHomepageIcons();
+
+	// $inspect(getDefaultHomepageIconsWithAliases());
 </script>
 
-<svelte:head>
-	<meta
-		name="description"
-		content="icoGlyphs - Icons created through the research of signs, shapes, and forms."
-	/>
-	<meta
-		name="keywords"
-		content="icons, glyphs, universal icons, ideographic, API, customizable, SVG icons, PNG icons, UI design, visual language, free icons, scalable graphics, animable SVG"
-	/>
-	<meta name="author" content="IcoGlyphs Crew" />
-	<meta name="robots" content="index, follow" />
-	<meta property="og:title" content="icoGlyphs - Free Icons for Universal Expression" />
-	<meta
-		property="og:description"
-		content="Icons created through the research of signs, shapes, and forms."
-	/>
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://icoglyphs.com/" />
-	<meta property="og:image" content="https://icoglyphs.com/og-image.png" />
-	<meta name="twitter:title" content="icoGlyphs - Free Icons for Universal Expression" />
-	<meta
-		name="twitter:description"
-		content="Icons created through the research of signs, shapes, and forms."
-	/>
-	<meta name="twitter:image" content="https://icoglyphs.com/og-image.png" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<link rel="canonical" href="https://icoglyphs.com/" />
-	<title>icoGlyphs - Free Icons for Universal Expression</title>
-</svelte:head>
+<Metadata />
 
 <HomePageHeader />
 
