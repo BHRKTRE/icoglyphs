@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /demo/
+Disallow: /docs/
+Disallow: /about/
+
+Sitemap: https://tonsite.com/sitemap.xml
