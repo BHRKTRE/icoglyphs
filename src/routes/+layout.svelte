@@ -2,8 +2,7 @@
 	import Footer from './_layoutComponents/Footer.svelte';
 	import NavBar from './_layoutComponents/navBar/NavBar.svelte';
 	import psi from '$lib/app/ui/utils/psi.js';
-
-	import { page } from '$app/state';
+	import '../app.css';
 
 	let readyToDisplay = $state(false);
 
@@ -25,7 +24,7 @@
 <svelte:window bind:innerWidth={windowWidth} />
 
 {#if readyToDisplay}
-	<div style="margin: 0 {sideMargin};" id="page-wrapper">
+	<div class="app" style="margin: 0 {sideMargin};" id="page-wrapper">
 		<NavBar />
 
 		{@render children?.()}

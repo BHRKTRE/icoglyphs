@@ -1,9 +1,21 @@
-/* FONTS */
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* GLOBAL SETTINGS */
 
 :root {
 	--typo1: 'Roboto', sans-serif;
+
+	/* Border radius */
+	--border-radius: 8px;
+
+	/* Border */
+	--border-width-medium: 3px;
+	--border-width-small: 2px;
+
+	/* Max width for medium-sized elements */
+	--max-width-medium: 500px;
+
+	/* Spacing for margins, padding, gaps etc...*/
+	--spacing-medium: 10px;
+	--spacing-small: 5px;
 }
 
 h1 {
@@ -105,23 +117,6 @@ body {
 	/* Set the body background color */
 	background: var(--b1);
 	transition: 1s;
-}
-/* GLOBAL SETTINGS */
-
-:root {
-	/* Border radius */
-	--border-radius: 8px;
-
-	/* Border */
-	--border-width-medium: 3px;
-	--border-width-small: 2px;
-
-	/* Max width for medium-sized elements */
-	--max-width-medium: 500px;
-
-	/* Spacing for margins, padding, gaps etc...*/
-	--spacing-medium: 10px;
-	--spacing-small: 5px;
 }
 
 * {
