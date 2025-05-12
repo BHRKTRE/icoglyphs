@@ -20,7 +20,7 @@ const generateSitemap = () => {
         <url>
             <loc>${mainUrl}icon/${iconAlias}</loc>
             <lastmod>2025-04-25</lastmod>
-            <changefreq>weekly</changefreq>
+            <changefreq>monthly</changefreq>
             <priority>0.5</priority>
         </url>\n`;
 	});
