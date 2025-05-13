@@ -1,17 +1,16 @@
 <script>
-	import icoGlyphs from '$lib/index.js';
 	import IcoGlyphLinked from '$lib/app/ui/components/IcoGlyphLinked.svelte';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import HomePageHeader from './HomePageHeader.svelte';
 	import Metadata from './Metadata.svelte';
 	import { getDefaultHomepageIcons } from '$lib/app/core/utils/homePageData.svelte.js';
-	import { searchIcoglyphs } from '$lib/app/core/utils/searchIcoglyphs.svelte.js';
+	import { searchBarIcoglyphs } from '$lib/app/core/utils/searchBarIcoglyphs.svelte.js';
 
 	let filteredIcoGlyphs = $state([]);
 
 	function handleSearch() {
 		const query = appState.searchBarValue;
-		filteredIcoGlyphs = query.trim() === '' ? getDefaultHomepageIcons() : searchIcoglyphs(query);
+		filteredIcoGlyphs = query.trim() === '' ? getDefaultHomepageIcons() : searchBarIcoglyphs(query);
 	}
 
 	filteredIcoGlyphs = getDefaultHomepageIcons();

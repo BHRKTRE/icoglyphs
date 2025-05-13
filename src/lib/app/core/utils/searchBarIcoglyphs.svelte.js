@@ -1,6 +1,6 @@
 import icoGlyphs from '$lib/index.js';
 
-export const searchIcoglyphs = (query) => {
+export const searchBarIcoglyphs = (query) => {
 	const lowerQuery = query.trim().toLowerCase();
 	if (!lowerQuery) return [];
 

@@ -3,14 +3,22 @@
 	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
 	import icoGlyphs from '$lib/index.js';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
+	import { searchBarIcoglyphs } from '$lib/app/core/utils/searchBarIcoglyphs.svelte.js';
+
+	let filteredIcoGlyphs = $state([]);
+
+	function handleSearch() {
+		const query = appState.searchBarValue;
+		filteredIcoGlyphs = query.trim() === '' ? '' : searchBarIcoglyphs(query);
+	}
 
 	if (!dev) {
 		throw error(404, 'Not found');
 	}
 
 	let objj = $state({
-		igName: 'eeeee',
-		aliases: 'alss',
+		key: 'eeeee',
+		aliases: ['alss'],
 		path: 'M -35 0 Q 0 -30 35 0 Q 0 30 -35 0 Z M 0 -10 A 1 1 0 0 0 0 10 A 1 1 0 0 0 0 -10 M -20 22 L -25 30 M 0 25 L 0 35 M 20 22 L 25 30',
 		metadata: {
 			categories: ['Toggle'],
@@ -28,24 +36,65 @@
 		}
 	});
 
-	function updateArray(e, elName) {
+	function updateTextareaArray(e, setValue) {
 		try {
 			const parsed = JSON.parse(e.target.value);
 			if (Array.isArray(parsed)) {
-				objj.metadata[elName] = parsed;
+				setValue(parsed);
 			}
 		} catch (err) {
 			console.error('JSON invalide');
 		}
 	}
 
-	// $inspect(objj.metadata.tags);
+	function loadIg(igName) {
+		// console.log(icoGlyphs.searchIcoGlyph(igName).categories);
+		const result = icoGlyphs.searchIcoGlyph(igName);
+		if (!result) return;
+
+		objj.key = result.key;
+		objj.aliases = result.aliases ?? null;
+		objj.path = result.path;
+
+		objj.metadata.categories = result.metadata?.categories ?? null;
+		objj.metadata.tags = result.metadata?.tags ?? null;
+	}
+
+	$inspect(objj.key);
 </script>
 
 {#if dev}
 	<header>
 		<BasicBlock>
-			{#snippet el()}{/snippet}
+			{#snippet el()}
+				<input
+					id="searchBar"
+					autocomplete="off"
+					type="text"
+					bind:value={appState.searchBarValue}
+					placeholder="Search"
+					oninput={handleSearch}
+				/>
+				<div id="searchBarIcoGlyphsContainer">
+					{#each filteredIcoGlyphs as icoGlyphName}
+						<button
+							onclick={() => loadIg(icoGlyphName)}
+							class="icoglyphContainer button-svg-only"
+							style:width="60px"
+							style:height="60px"
+						>
+							<title id="icon-title">{icoGlyphName} icon</title>
+							<svg
+								role="img"
+								aria-labelledby="icon-title"
+								{...appState.icoGlyphUserSettings.style}
+								{...icoGlyphs.getSvgAttributes()}
+							>
+								<path d={icoGlyphs.getPath(icoGlyphName)} />
+							</svg>
+						</button>
+					{/each}
+				</div>{/snippet}
 		</BasicBlock>
 	</header>
 	<main>
@@ -62,7 +111,9 @@
 									id="svg-preview-el"
 									{...appState.icoGlyphUserSettings.style}
 									{...icoGlyphs.getSvgAttributes()}
-									><title id="icon-title">dark-mode icon</title><path d={objj.path}></path>
+									><title id="icon-title">dark-mode icon</title><path
+										d={icoGlyphs.getPath(objj.path)}
+									></path>
 								</svg>
 							</div>
 						{/snippet}
@@ -75,10 +126,10 @@
 				{#snippet el()}
 					<BasicBlock>
 						{#snippet title()}
-							<h3>igName</h3>
+							<h3>Key</h3>
 						{/snippet}
 						{#snippet el()}
-							<textarea id="input-igName" bind:value={objj.igName}></textarea>
+							<textarea id="input-key" bind:value={objj.key}></textarea>
 						{/snippet}
 					</BasicBlock>
 				{/snippet}
@@ -90,7 +141,11 @@
 							<h3>Aliases</h3>
 						{/snippet}
 						{#snippet el()}
-							<textarea id="input-aliases" bind:value={objj.aliases}></textarea>
+							<textarea
+								id="input-aliases"
+								oninput={(e) => updateTextareaArray(e, (v) => (objj.categories = v))}
+								>{JSON.stringify(objj.aliases, null, 2)}</textarea
+							>
 						{/snippet}
 					</BasicBlock>
 				{/snippet}
@@ -102,7 +157,11 @@
 							<h3>Path</h3>
 						{/snippet}
 						{#snippet el()}
-							<textarea id="input-path" bind:value={objj.path}></textarea>
+							<textarea
+								id="input-path"
+								oninput={(e) => updateTextareaArray(e, (v) => (objj.path = v))}
+								>{JSON.stringify(objj.path, null, 2)}</textarea
+							>
 						{/snippet}
 					</BasicBlock>
 				{/snippet}
@@ -119,7 +178,9 @@
 									<h3>Categories</h3>
 								{/snippet}
 								{#snippet el()}
-									<textarea id="input-categories" oninput={(e) => updateArray(e, 'categories')}
+									<textarea
+										id="input-categories"
+										oninput={(e) => updateTextareaArray(e, (v) => (objj.metadata.categories = v))}
 										>{JSON.stringify(objj.metadata.categories, null, 2)}</textarea
 									>
 								{/snippet}
@@ -129,7 +190,9 @@
 									<h3>Tags</h3>
 								{/snippet}
 								{#snippet el()}
-									<textarea id="input-tags" oninput={(e) => updateArray(e, 'tags')}
+									<textarea
+										id="input-tags"
+										oninput={(e) => updateTextareaArray(e, (v) => (objj.metadata.tags = v))}
 										>{JSON.stringify(objj.metadata.tags, null, 2)}</textarea
 									>
 								{/snippet}
@@ -161,6 +224,28 @@
 		width: 100%;
 		gap: var(--spacing-medium);
 		border-radius: var(--border-radius);
+	}
+
+	#searchBar {
+		width: 100%;
+		max-width: 770px;
+		background: var(--b2);
+		padding: var(--spacing-small) var(--spacing-medium);
+		border-radius: var(--border-radius);
+		border: var(--border-width-medium) solid var(--b3);
+	}
+	#searchBar::placeholder {
+		color: var(--t1);
+		opacity: 0.5;
+	}
+
+	#searchBarIcoGlyphsContainer {
+		display: flex;
+		flex-wrap: wrap;
+		overflow-y: auto;
+		height: 60px;
+
+		gap: var(--spacing-medium);
 	}
 
 	#left-part {
