@@ -4,63 +4,85 @@
 	import icoGlyphs from '$lib/index.js';
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import { searchBarIcoglyphs } from '$lib/app/core/utils/searchBarIcoglyphs.svelte.js';
+	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
+
+	if (!dev) {
+		throw error(404, 'Not found');
+	}
 
 	let filteredIcoGlyphs = $state([]);
+
+	let actualState = $state({
+		key: '',
+		aliases: ['dd', 'dss'],
+		path: 'eye',
+		metadata: {
+			categories: null,
+			tags: null
+		}
+	});
+
+	let originalState = $state({
+		key: '',
+		aliases: null,
+		path: '',
+		metadata: {
+			categories: null,
+			tags: null
+		}
+	});
+
+	let changeDetected = $state(false);
+
+	$effect(() => {
+		const original = JSON.stringify(originalState);
+		const current = JSON.stringify(actualState);
+		changeDetected = original !== current;
+	});
 
 	function handleSearch() {
 		const query = appState.searchBarValue;
 		filteredIcoGlyphs = query.trim() === '' ? '' : searchBarIcoglyphs(query);
 	}
 
-	if (!dev) {
-		throw error(404, 'Not found');
+	// Binding functions
+
+	function setNestedValue(obj, path, value) {
+		const keys = path.split('.');
+		let current = obj;
+		for (let i = 0; i < keys.length - 1; i++) {
+			if (!current[keys[i]]) current[keys[i]] = {};
+			current = current[keys[i]];
+		}
+		current[keys[keys.length - 1]] = value;
 	}
 
-	let objj = $state({
-		key: 'eeeee',
-		aliases: ['alss'],
-		path: 'M -35 0 Q 0 -30 35 0 Q 0 30 -35 0 Z M 0 -10 A 1 1 0 0 0 0 10 A 1 1 0 0 0 0 -10 M -20 22 L -25 30 M 0 25 L 0 35 M 20 22 L 25 30',
-		metadata: {
-			categories: ['Toggle'],
-			tags: [
-				'deactivated',
-				'disabled',
-				'cancel',
-				'false',
-				'inactive',
-				'state',
-				'unchecked',
-				'unselected',
-				'stopped'
-			]
-		}
-	});
-
-	function updateTextareaArray(e, setValue) {
-		try {
-			const parsed = JSON.parse(e.target.value);
-			if (Array.isArray(parsed)) {
-				setValue(parsed);
-			}
-		} catch (err) {
-			console.error('JSON invalide');
-		}
+	function updateSetterValue(v, path) {
+		setNestedValue(actualState, path, JSON.parse(v));
 	}
 
 	function loadIg(igName) {
-		// console.log(icoGlyphs.searchIcoGlyph(igName).categories);
 		const result = icoGlyphs.searchIcoGlyph(igName);
 		if (!result) return;
 
-		objj.key = result.key;
-		objj.aliases = result.aliases ?? null;
-		objj.path = result.path;
+		actualState.key = result.key;
+		actualState.aliases = result.aliases ?? null;
+		actualState.path = result.path;
 
-		objj.metadata.categories = result.metadata?.categories ?? null;
-		objj.metadata.tags = result.metadata?.tags ?? null;
+		actualState.metadata.categories = result.metadata?.categories ?? null;
+		actualState.metadata.tags = result.metadata?.tags ?? null;
+
+		originalState.key = result.key;
+		originalState.aliases = result.aliases ?? null;
+		originalState.path = result.path;
+
+		originalState.metadata.categories = result.metadata?.categories ?? null;
+		originalState.metadata.tags = result.metadata?.tags ?? null;
 	}
 
-	$inspect(objj.key);
+	let textUpdateBtn = $state('button');
+
+	$inspect(textUpdateBtn);
 </script>
 
 {#if dev}
@@ -97,106 +119,101 @@
 				</div>{/snippet}
 		</BasicBlock>
 	</header>
+
 	<main>
 		<div id="left-part">
 			<BasicBlock>
+				{#snippet title()}
+					<h3>SVG Preview</h3>
+				{/snippet}
 				{#snippet el()}
-					<BasicBlock>
-						{#snippet title()}
-							<h3>SVG Preview</h3>
-						{/snippet}
-						{#snippet el()}
-							<div id="svg-preview-container">
-								<svg
-									id="svg-preview-el"
-									{...appState.icoGlyphUserSettings.style}
-									{...icoGlyphs.getSvgAttributes()}
-									><title id="icon-title">dark-mode icon</title><path
-										d={icoGlyphs.getPath(objj.path)}
-									></path>
-								</svg>
-							</div>
-						{/snippet}
-					</BasicBlock>
+					<div id="svg-preview-container">
+						<svg
+							id="svg-preview-el"
+							{...appState.icoGlyphUserSettings.style}
+							{...icoGlyphs.getSvgAttributes()}
+							><title id="icon-title">dark-mode icon</title><path
+								d={icoGlyphs.getPath(actualState.path)}
+							></path>
+						</svg>
+					</div>
 				{/snippet}
 			</BasicBlock>
+			<button class="button-default update-button" onclick={() => console.log('ss')}>
+				<span>{textUpdateBtn}</span>
+				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+					<MorphingPath IGName={'eye'} />
+				</svg>
+			</button>
 		</div>
+
 		<div id="right-part">
 			<BasicBlock>
+				{#snippet title()}
+					<h3>Key</h3>
+				{/snippet}
 				{#snippet el()}
-					<BasicBlock>
-						{#snippet title()}
-							<h3>Key</h3>
-						{/snippet}
-						{#snippet el()}
-							<textarea id="input-key" bind:value={objj.key}></textarea>
-						{/snippet}
-					</BasicBlock>
+					<textarea
+						id="input-key"
+						bind:value={() => JSON.stringify(actualState.key, null, 2),
+						(v) => updateSetterValue(v, 'key')}
+					></textarea>
 				{/snippet}
 			</BasicBlock>
+
 			<BasicBlock>
+				{#snippet title()}
+					<h3>Aliases</h3>
+				{/snippet}
+				{#snippet el()}
+					<textarea
+						id="input-aliases"
+						bind:value={() => JSON.stringify(actualState.aliases, null, 2),
+						(v) => updateSetterValue(v, 'aliases')}
+					></textarea>
+				{/snippet}
+			</BasicBlock>
+
+			<BasicBlock>
+				{#snippet title()}
+					<h3>Path</h3>
+				{/snippet}
+				{#snippet el()}
+					<textarea
+						id="input-path"
+						bind:value={() => JSON.stringify(actualState.path, null, 2),
+						(v) => updateSetterValue(v, 'path')}
+					></textarea>
+				{/snippet}
+			</BasicBlock>
+
+			<BasicBlock>
+				{#snippet title()}
+					<h3>Metadata</h3>
+				{/snippet}
 				{#snippet el()}
 					<BasicBlock>
 						{#snippet title()}
-							<h3>Aliases</h3>
+							<h3>Categories</h3>
 						{/snippet}
 						{#snippet el()}
 							<textarea
-								id="input-aliases"
-								oninput={(e) => updateTextareaArray(e, (v) => (objj.categories = v))}
-								>{JSON.stringify(objj.aliases, null, 2)}</textarea
-							>
+								id="input-categories"
+								bind:value={() => JSON.stringify(actualState.metadata.categories, null, 2),
+								(v) => updateSetterValue(v, 'metadata.categories')}
+							></textarea>
 						{/snippet}
 					</BasicBlock>
-				{/snippet}
-			</BasicBlock>
-			<BasicBlock>
-				{#snippet el()}
 					<BasicBlock>
 						{#snippet title()}
-							<h3>Path</h3>
+							<h3>Tags</h3>
 						{/snippet}
 						{#snippet el()}
 							<textarea
-								id="input-path"
-								oninput={(e) => updateTextareaArray(e, (v) => (objj.path = v))}
-								>{JSON.stringify(objj.path, null, 2)}</textarea
-							>
-						{/snippet}
-					</BasicBlock>
-				{/snippet}
-			</BasicBlock>
-			<BasicBlock>
-				{#snippet el()}
-					<BasicBlock>
-						{#snippet title()}
-							<h3>Metadata</h3>
-						{/snippet}
-						{#snippet el()}
-							<BasicBlock>
-								{#snippet title()}
-									<h3>Categories</h3>
-								{/snippet}
-								{#snippet el()}
-									<textarea
-										id="input-categories"
-										oninput={(e) => updateTextareaArray(e, (v) => (objj.metadata.categories = v))}
-										>{JSON.stringify(objj.metadata.categories, null, 2)}</textarea
-									>
-								{/snippet}
-							</BasicBlock>
-							<BasicBlock>
-								{#snippet title()}
-									<h3>Tags</h3>
-								{/snippet}
-								{#snippet el()}
-									<textarea
-										id="input-tags"
-										oninput={(e) => updateTextareaArray(e, (v) => (objj.metadata.tags = v))}
-										>{JSON.stringify(objj.metadata.tags, null, 2)}</textarea
-									>
-								{/snippet}
-							</BasicBlock>
+								id="input-tags"
+								bind:value={() => JSON.stringify(actualState.metadata.tags, null, 2),
+								(v) => updateSetterValue(v, 'metadata.tags')}
+							></textarea>
 						{/snippet}
 					</BasicBlock>
 				{/snippet}
@@ -206,10 +223,14 @@
 {/if}
 
 <style>
+	.update-button {
+		width: 100%;
+	}
+
 	textarea {
 		resize: vertical;
 		padding: var(--spacing-medium);
-		height: 40px;
+		height: 100px;
 		width: 100%;
 		background: var(--b2) !important;
 		color: var(--t1);
