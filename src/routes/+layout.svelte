@@ -24,7 +24,7 @@
 <svelte:window bind:innerWidth={windowWidth} />
 
 {#if readyToDisplay}
-	<div class="app" style="margin: 0 {sideMargin};" id="page-wrapper">
+	<div style="margin: 0 {sideMargin};" id="page-wrapper">
 		<NavBar />
 
 		{@render children?.()}

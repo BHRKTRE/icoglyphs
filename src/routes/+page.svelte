@@ -5,37 +5,18 @@
 	import HomePageHeader from './HomePageHeader.svelte';
 	import Metadata from './Metadata.svelte';
 	import { getDefaultHomepageIcons } from '$lib/app/core/utils/homePageData.svelte.js';
+	import { searchIcoglyphs } from '$lib/app/core/utils/searchIcoglyphs.svelte.js';
 
 	let filteredIcoGlyphs = $state([]);
 
-	const search = () => {
-		const lowerQuery = appState.searchBarValue.trim().toLowerCase();
-		const queryWords = lowerQuery.split(/\s+/);
-
-		filteredIcoGlyphs = lowerQuery
-			? Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
-					const icoData = icoGlyphs.library().svgData[icoGlyphName];
-					const { metadata } = icoData;
-					const aliases = (icoData.aliases || []).map((alias) => alias.toLowerCase());
-					const iconText = icoGlyphName.toLowerCase();
-					const iconTags = (metadata?.tags ?? []).map((tag) => tag.toLowerCase());
-					const iconCategories = (metadata?.categories ?? []).map((cat) => cat.toLowerCase());
-
-					// Filter icons by name, aliases, tags, and categories
-					return queryWords.every(
-						(word) =>
-							iconText.includes(word) ||
-							aliases.some((alias) => alias.includes(word)) ||
-							iconTags.some((tag) => tag.includes(word)) ||
-							iconCategories.some((category) => category.includes(word))
-					);
-				})
-			: getDefaultHomepageIcons();
-	};
+	function handleSearch() {
+		const query = appState.searchBarValue;
+		filteredIcoGlyphs = query.trim() === '' ? getDefaultHomepageIcons() : searchIcoglyphs(query);
+	}
 
 	filteredIcoGlyphs = getDefaultHomepageIcons();
 
-	// $inspect(getDefaultHomepageIconsWithAliases());
+	// $inspect(getDefaultHomepageIcons());
 </script>
 
 <Metadata />
@@ -48,7 +29,7 @@
 		type="text"
 		bind:value={appState.searchBarValue}
 		placeholder="Type what you wish to express..."
-		oninput={search}
+		oninput={handleSearch}
 	/>
 
 	<div id="icoGlyphsContainer">
