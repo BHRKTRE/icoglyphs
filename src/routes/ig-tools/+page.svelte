@@ -5,6 +5,7 @@
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import { searchBarIcoglyphs } from '$lib/app/core/utils/searchBarIcoglyphs.svelte.js';
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
+	import anime from 'animejs';
 
 	if (!dev) {
 		throw error(404, 'Not found');
@@ -37,7 +38,7 @@
 	$effect(() => {
 		const original = JSON.stringify(originalState);
 		const current = JSON.stringify(actualState);
-		changeDetected = original !== current;
+		changeDetected = original === current;
 	});
 
 	function handleSearch() {
@@ -56,9 +57,27 @@
 		}
 		current[keys[keys.length - 1]] = value;
 	}
-
 	function updateSetterValue(v, path) {
 		setNestedValue(actualState, path, JSON.parse(v));
+	}
+
+	// Main iG animation
+	const animeDuration = 1000;
+	function animationOnMouseEnter(d) {
+		anime({
+			targets: '#main-svg-preview',
+			d: icoGlyphs.getPath(d),
+			duration: animeDuration,
+			easing: 'easeInOutQuad'
+		});
+	}
+	function animationOnMouseLeave() {
+		anime({
+			targets: '#main-svg-preview',
+			d: icoGlyphs.getPath(actualState.path),
+			duration: animeDuration,
+			easing: 'easeInOutQuad'
+		});
 	}
 
 	function loadIg(igName) {
@@ -80,9 +99,7 @@
 		originalState.metadata.tags = result.metadata?.tags ?? null;
 	}
 
-	let textUpdateBtn = $state('button');
-
-	$inspect(textUpdateBtn);
+	// $inspect();
 </script>
 
 {#if dev}
@@ -100,6 +117,8 @@
 				<div id="searchBarIcoGlyphsContainer">
 					{#each filteredIcoGlyphs as icoGlyphName}
 						<button
+							onmouseenter={() => animationOnMouseEnter(icoGlyphName)}
+							onmouseleave={animationOnMouseLeave}
 							onclick={() => loadIg(icoGlyphName)}
 							class="icoglyphContainer button-svg-only"
 							style:width="60px"
@@ -133,6 +152,7 @@
 							{...appState.icoGlyphUserSettings.style}
 							{...icoGlyphs.getSvgAttributes()}
 							><title id="icon-title">dark-mode icon</title><path
+								id="main-svg-preview"
 								d={icoGlyphs.getPath(actualState.path)}
 							></path>
 						</svg>
@@ -140,11 +160,15 @@
 				{/snippet}
 			</BasicBlock>
 			<button class="button-default update-button" onclick={() => console.log('ss')}>
-				<span>{textUpdateBtn}</span>
-				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
-					<MorphingPath IGName={'eye'} />
-				</svg>
+				<span>Create new icoGlyph</span>
+				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
 			</button>
+			{#if changeDetected}
+				<button class="button-default update-button" onclick={() => console.log('ss')}>
+					<span>Update this one</span>
+					<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
+				</button>
+			{/if}
 		</div>
 
 		<div id="right-part">
