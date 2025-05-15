@@ -13,32 +13,29 @@
 
 	let filteredIcoGlyphs = $state([]);
 
-	let actualState = $state({
+	const startingValue = {
 		key: '',
-		aliases: ['dd', 'dss'],
+		aliases: null,
 		path: 'eye',
 		metadata: {
 			categories: null,
 			tags: null
 		}
-	});
+	};
 
-	let originalState = $state({
-		key: '',
-		aliases: null,
-		path: '',
-		metadata: {
-			categories: null,
-			tags: null
+	let actualStateObj = $state(startingValue);
+
+	let originalStateObj = $state(startingValue);
+
+	let actualStateJson = $derived(JSON.stringify(actualStateObj));
+	let originalStateJson = $derived(JSON.stringify(originalStateObj));
+
+	let changeDetected = $derived.by(() => {
+		if (actualStateJson == originalStateJson) {
+			return false;
+		} else {
+			return true;
 		}
-	});
-
-	let changeDetected = $state(false);
-
-	$effect(() => {
-		const original = JSON.stringify(originalState);
-		const current = JSON.stringify(actualState);
-		changeDetected = original === current;
 	});
 
 	function handleSearch() {
@@ -58,7 +55,7 @@
 		current[keys[keys.length - 1]] = value;
 	}
 	function updateSetterValue(v, path) {
-		setNestedValue(actualState, path, JSON.parse(v));
+		setNestedValue(actualStateObj, path, JSON.parse(v));
 	}
 
 	// Main iG animation
@@ -74,7 +71,7 @@
 	function animationOnMouseLeave() {
 		anime({
 			targets: '#main-svg-preview',
-			d: icoGlyphs.getPath(actualState.path),
+			d: icoGlyphs.getPath(actualStateObj.path),
 			duration: animeDuration,
 			easing: 'easeInOutQuad'
 		});
@@ -84,19 +81,19 @@
 		const result = icoGlyphs.searchIcoGlyph(igName);
 		if (!result) return;
 
-		actualState.key = result.key;
-		actualState.aliases = result.aliases ?? null;
-		actualState.path = result.path;
+		const { key, aliases = null, path, metadata = {} } = result;
+		const { categories = null, tags = null } = metadata;
 
-		actualState.metadata.categories = result.metadata?.categories ?? null;
-		actualState.metadata.tags = result.metadata?.tags ?? null;
+		const updateState = (stateObj) => {
+			stateObj.key = key;
+			stateObj.aliases = aliases;
+			stateObj.path = path;
+			stateObj.metadata.categories = categories;
+			stateObj.metadata.tags = tags;
+		};
 
-		originalState.key = result.key;
-		originalState.aliases = result.aliases ?? null;
-		originalState.path = result.path;
-
-		originalState.metadata.categories = result.metadata?.categories ?? null;
-		originalState.metadata.tags = result.metadata?.tags ?? null;
+		updateState(actualStateObj);
+		updateState(originalStateObj);
 	}
 
 	// $inspect();
@@ -153,7 +150,7 @@
 							{...icoGlyphs.getSvgAttributes()}
 							><title id="icon-title">dark-mode icon</title><path
 								id="main-svg-preview"
-								d={icoGlyphs.getPath(actualState.path)}
+								d={icoGlyphs.getPath(actualStateObj.path)}
 							></path>
 						</svg>
 					</div>
@@ -179,7 +176,7 @@
 				{#snippet el()}
 					<textarea
 						id="input-key"
-						bind:value={() => JSON.stringify(actualState.key, null, 2),
+						bind:value={() => JSON.stringify(actualStateObj.key, null, 2),
 						(v) => updateSetterValue(v, 'key')}
 					></textarea>
 				{/snippet}
@@ -192,7 +189,7 @@
 				{#snippet el()}
 					<textarea
 						id="input-aliases"
-						bind:value={() => JSON.stringify(actualState.aliases, null, 2),
+						bind:value={() => JSON.stringify(actualStateObj.aliases, null, 2),
 						(v) => updateSetterValue(v, 'aliases')}
 					></textarea>
 				{/snippet}
@@ -205,7 +202,7 @@
 				{#snippet el()}
 					<textarea
 						id="input-path"
-						bind:value={() => JSON.stringify(actualState.path, null, 2),
+						bind:value={() => JSON.stringify(actualStateObj.path, null, 2),
 						(v) => updateSetterValue(v, 'path')}
 					></textarea>
 				{/snippet}
@@ -223,7 +220,7 @@
 						{#snippet el()}
 							<textarea
 								id="input-categories"
-								bind:value={() => JSON.stringify(actualState.metadata.categories, null, 2),
+								bind:value={() => JSON.stringify(actualStateObj.metadata.categories, null, 2),
 								(v) => updateSetterValue(v, 'metadata.categories')}
 							></textarea>
 						{/snippet}
@@ -235,7 +232,7 @@
 						{#snippet el()}
 							<textarea
 								id="input-tags"
-								bind:value={() => JSON.stringify(actualState.metadata.tags, null, 2),
+								bind:value={() => JSON.stringify(actualStateObj.metadata.tags, null, 2),
 								(v) => updateSetterValue(v, 'metadata.tags')}
 							></textarea>
 						{/snippet}
@@ -288,7 +285,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		overflow-y: auto;
-		height: 60px;
+		height: 120px;
 
 		gap: var(--spacing-medium);
 	}
