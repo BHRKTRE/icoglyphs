@@ -6,6 +6,7 @@
 	import { searchBarIcoglyphs } from '$lib/app/core/utils/searchBarIcoglyphs.svelte.js';
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
 	import anime from 'animejs';
+	import { createNewIg, updateIg } from './writeJSON.svelte.js';
 
 	if (!dev) {
 		throw error(404, 'Not found');
@@ -156,12 +157,12 @@
 					</div>
 				{/snippet}
 			</BasicBlock>
-			<button class="button-default update-button" onclick={() => console.log('ss')}>
+			<button class="button-default update-button" onclick={createNewIg}>
 				<span>Create new icoGlyph</span>
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
 			</button>
 			{#if changeDetected}
-				<button class="button-default update-button" onclick={() => console.log('ss')}>
+				<button class="button-default update-button" onclick={updateIg}>
 					<span>Update this one</span>
 					<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
 				</button>

@@ -1,5 +1,7 @@
 import icoGlyphs from '$lib/index.js';
 
+// TODO use import { json } from '@sveltejs/kit';
+
 export async function GET({ url }) {
 	const name = url.searchParams.get('name');
 	const get = url.searchParams.get('get');
