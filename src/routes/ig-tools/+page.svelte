@@ -5,7 +5,7 @@
 	import appState from '$lib/app/core/stores/appState.svelte.js';
 	import { searchBarIcoglyphs } from '$lib/app/core/utils/searchBarIcoglyphs.svelte.js';
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
-	import anime from 'animejs';
+	import { animate } from 'animejs';
 	import { createNewIg, updateIg } from './writeJSON.svelte.js';
 
 	if (!dev) {
@@ -62,19 +62,17 @@
 	// Main iG animation
 	const animeDuration = 1000;
 	function animationOnMouseEnter(d) {
-		anime({
-			targets: '#main-svg-preview',
+		animate('#main-svg-preview', {
 			d: icoGlyphs.getPath(d),
 			duration: animeDuration,
-			easing: 'easeInOutQuad'
+			ease: 'easeInOutQuad'
 		});
 	}
 	function animationOnMouseLeave() {
-		anime({
-			targets: '#main-svg-preview',
+		animate('#main-svg-preview', {
 			d: icoGlyphs.getPath(actualStateObj.path),
 			duration: animeDuration,
-			easing: 'easeInOutQuad'
+			ease: 'easeInOutQuad'
 		});
 	}
 

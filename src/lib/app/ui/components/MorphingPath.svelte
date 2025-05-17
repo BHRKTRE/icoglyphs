@@ -1,6 +1,10 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
-	import anime from 'animejs';
+	import { animate } from 'animejs';
+
+	// Using morphTo() from animejs ?
+	// Using more this component
+	// https://animejs.com/documentation/svg/morphto
 
 	let { IGName = $bindable(), animeDuration = 500 } = $props();
 	let isAnimating = $state(false);
@@ -32,11 +36,10 @@
 		if (isAnimating) return;
 		isAnimating = true;
 
-		anime({
-			targets: `#${uid}`,
+		animate(`#${uid}`, {
 			d: newPath,
 			direction: 'normal',
-			easing: 'easeInOutQuad',
+			ease: 'easeInOutQuad',
 			duration: animeDuration,
 			complete: () => {
 				currentPath = newPath;

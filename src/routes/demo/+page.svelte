@@ -21,7 +21,7 @@
 		selectedButton1 = 'arrow-right';
 	}
 
-	let animeDurationButton1 = $state(500);
+	// let animeDurationButton1 = $state(500);
 
 	function changeDuration() {
 		animeDurationButton1 = 2000;

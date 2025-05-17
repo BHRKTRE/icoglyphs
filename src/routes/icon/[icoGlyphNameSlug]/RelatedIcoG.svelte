@@ -2,7 +2,7 @@
 	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
 	import icoGlyphs from '$lib/index.js';
 	import IcoGlyphLinked from '$lib/app/ui/components/IcoGlyphLinked.svelte';
-	import anime from 'animejs';
+	import { animate, svg } from 'animejs';
 
 	let { data } = $props();
 
@@ -23,10 +23,12 @@
 		}
 	});
 
+	// Using morphTo() from animejs ?
+	// https://animejs.com/documentation/svg/morphto
+
 	function animationOnMouseEnter(d) {
 		if (readyToAnimate) {
-			anime({
-				targets: '#icoglyph-container path',
+			animate('#icoglyph-container path', {
 				d: icoGlyphs.getPath(d),
 				duration: 700,
 				easing: 'easeInOutQuad'
@@ -35,8 +37,7 @@
 	}
 
 	function animationOnMouseLeave() {
-		anime({
-			targets: '#icoglyph-container path',
+		animate('#icoglyph-container path', {
 			d: icoGlyphs.getPath(data.name),
 			duration: 700,
 			easing: 'easeInOutQuad'
