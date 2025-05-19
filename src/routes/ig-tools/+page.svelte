@@ -6,7 +6,29 @@
 	import { searchBarIcoglyphs } from '$lib/app/core/utils/searchBarIcoglyphs.svelte.js';
 	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
 	import { animate } from 'animejs';
-	import { createNewIg, updateIg } from './writeJSON.svelte.js';
+	import { json } from '@sveltejs/kit';
+
+	// import { createNewIg } from '$lib/library/newIg.js';
+
+	let msg = { txt: 'abc', array: [1, 2, 3] };
+
+	async function createNewIg(msg) {
+		const res = await fetch('/ig-tools', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(msg)
+		});
+		const data = await res.json();
+		console.log('Ajouté:', data);
+	}
+
+	function updateIg() {
+		console.log('update');
+	}
+
+	//--------------------------------
 
 	if (!dev) {
 		throw error(404, 'Not found');
@@ -155,7 +177,7 @@
 					</div>
 				{/snippet}
 			</BasicBlock>
-			<button class="button-default update-button" onclick={createNewIg}>
+			<button class="button-default update-button" onclick={() => createNewIg(msg)}>
 				<span>Create new icoGlyph</span>
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
 			</button>
