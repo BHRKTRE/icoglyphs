@@ -1,5 +1,5 @@
 <script>
-	import externalLinks from '$lib/app/core/utils/externalLinks.js';
+	import externalLinks from '$lib/app/utils/externalLinks.js';
 
 	// $inspect(discordButton);
 </script>

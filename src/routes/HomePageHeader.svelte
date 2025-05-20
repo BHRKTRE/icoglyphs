@@ -1,5 +1,5 @@
 <script>
-	import psi from '$lib/app/ui/utils/psi.js';
+	import psi from '$lib/app/utils/psi.js';
 
 	let innerWidth = $state(0);
 

@@ -1,7 +1,7 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
 	import { goto } from '$app/navigation';
-	import appState from '$lib/app/core/stores/appState.svelte.js';
+	import appState from '$lib/app/appState.svelte.js';
 
 	let { icoGlyphName, size = 'medium' } = $props();
 

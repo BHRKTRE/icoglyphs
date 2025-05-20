@@ -1,13 +1,13 @@
 <script>
-	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
-	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
+	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
+	import appState from '$lib/app/appState.svelte.js';
+	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
 	import icoGlyphs from '$lib/index.js';
 	import {
 		downloadPng,
 		copySvgToClipBoard,
 		downloadSvg
-	} from '$lib/app/core/utils/export-tools.svelte.js';
+	} from '$lib/app/utils/export-tools.svelte.js';
 
 	let { data } = $props();
 

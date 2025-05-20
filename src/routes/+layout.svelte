@@ -1,7 +1,7 @@
 <script>
 	import Footer from './_layoutComponents/Footer.svelte';
 	import NavBar from './_layoutComponents/navBar/NavBar.svelte';
-	import psi from '$lib/app/ui/utils/psi.js';
+	import psi from '$lib/app/utils/psi.js';
 	import '../app.css';
 
 	let readyToDisplay = $state(false);

@@ -1,10 +1,10 @@
 <script>
 	import { dev } from '$app/environment';
-	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
+	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 	import icoGlyphs from '$lib/index.js';
-	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import { searchBarIcoglyphs } from '$lib/app/core/utils/searchBarIcoglyphs.svelte.js';
-	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
+	import appState from '$lib/app/appState.svelte.js';
+	import { searchBarIcoglyphs } from '$lib/app/utils/searchBarIcoglyphs.svelte.js';
+	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
 	import { animate } from 'animejs';
 	import { json } from '@sveltejs/kit';
 

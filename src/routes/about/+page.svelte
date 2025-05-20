@@ -2,7 +2,7 @@
 	import Hero from './Hero.svelte';
 	import HowtoUse from './HowtoUse.svelte';
 	import LinguisticDemo from './LinguisticDemo.svelte';
-	import psi from '$lib/app/ui/utils/psi.js';
+	import psi from '$lib/app/utils/psi.js';
 	import Tech from './Tech.svelte';
 	import ContactUs from './ContactUs.svelte';
 

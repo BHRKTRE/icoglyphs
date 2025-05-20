@@ -1,7 +1,7 @@
 <script>
-	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
+	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 	import icoGlyphs from '$lib/index.js';
-	import IcoGlyphLinked from '$lib/app/ui/components/IcoGlyphLinked.svelte';
+	import IcoGlyphLinked from '$lib/app/components/IcoGlyphLinked.svelte';
 	import { animate, svg } from 'animejs';
 
 	let { data } = $props();

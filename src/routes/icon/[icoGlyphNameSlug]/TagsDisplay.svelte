@@ -1,6 +1,6 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
-	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
+	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 
 	let { icoGlyphName } = $props();
 

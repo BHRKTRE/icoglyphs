@@ -1,8 +1,8 @@
 <script>
-	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
+	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 	import icoGlyphs from '$lib/index.js';
-	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
-	import appState from '$lib/app/core/stores/appState.svelte.js';
+	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
+	import appState from '$lib/app/appState.svelte.js';
 
 	let { data } = $props();
 

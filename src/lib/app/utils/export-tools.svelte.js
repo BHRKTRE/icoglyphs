@@ -1,5 +1,5 @@
 import icoGlyphs from '$lib/index.js';
-import appState from '$lib/app/core/stores/appState.svelte.js';
+import appState from '$lib/app/appState.svelte.js';
 
 const defaultStyleForUserExport = {
 	fill: 'none',

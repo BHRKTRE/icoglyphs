@@ -1,4 +1,4 @@
-import { getDefaultHomepageIconsWithAliases } from '$lib/app/core/utils/homePageData.svelte.js';
+import { getDefaultHomepageIconsWithAliases } from '$lib/app/utils/homePageData.svelte.js';
 
 /**
  * 	xmlns:xhtml="https://www.w3.org/1999/xhtml"

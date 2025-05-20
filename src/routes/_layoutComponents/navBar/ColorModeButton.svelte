@@ -1,9 +1,9 @@
 <script>
-	import appState from '$lib/app/core/stores/appState.svelte.js';
+	import appState from '$lib/app/appState.svelte.js';
 
-	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
+	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
 	import icoGlyphs from '$lib/index.js';
-	import { resetStyle } from '$lib/app/ui/utils/resetStyle.svelte.js';
+	import { resetStyle } from '$lib/app/utils/resetStyle.svelte.js';
 
 	$effect(() => {
 		const modesValues = Object.fromEntries(

@@ -1,11 +1,11 @@
 <script>
 	import icoGlyphs from '$lib/index.js';
-	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import psi from '$lib/app/ui/utils/psi.js';
-	import MorphingPath from '$lib/app/ui/components/MorphingPath.svelte';
-	import Tooltip from '$lib/app/ui/components/Tooltip.svelte';
-	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
-	import TabInterface from '$lib/app/ui/components/TabInterface.svelte';
+	import appState from '$lib/app/appState.svelte.js';
+	import psi from '$lib/app/utils/psi.js';
+	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
+	import Tooltip from '$lib/app/components/Tooltip.svelte';
+	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
+	import TabInterface from '$lib/app/components/TabInterface.svelte';
 
 	const styleyy = {
 		// background: 'var(--b2)',

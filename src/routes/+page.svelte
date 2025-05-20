@@ -1,10 +1,10 @@
 <script>
-	import IcoGlyphLinked from '$lib/app/ui/components/IcoGlyphLinked.svelte';
-	import appState from '$lib/app/core/stores/appState.svelte.js';
+	import IcoGlyphLinked from '$lib/app/components/IcoGlyphLinked.svelte';
+	import appState from '$lib/app/appState.svelte.js';
 	import HomePageHeader from './HomePageHeader.svelte';
 	import Metadata from './Metadata.svelte';
-	import { getDefaultHomepageIcons } from '$lib/app/core/utils/homePageData.svelte.js';
-	import { searchBarIcoglyphs } from '$lib/app/core/utils/searchBarIcoglyphs.svelte.js';
+	import { getDefaultHomepageIcons } from '$lib/app/utils/homePageData.svelte.js';
+	import { searchBarIcoglyphs } from '$lib/app/utils/searchBarIcoglyphs.svelte.js';
 
 	let filteredIcoGlyphs = $state([]);
 
