@@ -8,11 +8,10 @@ export const searchBarIcoglyphs = (query) => {
 
 	return Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
 		const icoData = icoGlyphs.library().svgData[icoGlyphName];
-		const { metadata } = icoData;
 		const aliases = (icoData.aliases || []).map((alias) => alias.toLowerCase());
 		const iconText = icoGlyphName.toLowerCase();
-		const iconTags = (metadata?.tags ?? []).map((tag) => tag.toLowerCase());
-		const iconCategories = (metadata?.categories ?? []).map((cat) => cat.toLowerCase());
+		const iconTags = (icoData.tags ?? []).map((tag) => tag.toLowerCase());
+		const iconCategories = (icoData.categories ?? []).map((cat) => cat.toLowerCase());
 
 		return queryWords.every(
 			(word) =>

@@ -1,3 +1,6 @@
+//
+// May be removed
+
 class icoGlyphConstructor {
 	constructor({ name = 'default-name', path = {}, aliases = [], metadata = {}, spec = {} } = {}) {
 		this.name = name;

@@ -85,15 +85,14 @@
 		const result = icoGlyphs.searchIcoGlyph(igName);
 		if (!result) return;
 
-		const { key, aliases = null, path, metadata = {} } = result;
-		const { categories = null, tags = null } = metadata;
+		const { key, aliases = null, path, categories = null, tags = null } = result;
 
 		const updateState = (stateObj) => {
 			stateObj.key = key;
 			stateObj.aliases = aliases;
 			stateObj.path = path;
-			stateObj.metadata.categories = categories;
-			stateObj.metadata.tags = tags;
+			stateObj.categories = categories;
+			stateObj.tags = tags;
 		};
 
 		updateState(actualStateObj);
