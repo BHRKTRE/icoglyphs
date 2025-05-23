@@ -9,40 +9,40 @@ import searchIcoGlyph from '../searchIcoGlyph';
  * @returns {string | undefined} The resolved SVG path string, or undefined if not found.
  *
  * @example
- * getPath('arrow-right');
+ * getPath(['arrow-right']);
  * getPath(['arrow-left', '_internal-part'], { simplified: true });
  * getPath(['arrow-left', 'M 0 0 0 0', '_M 1 21 1'], { simplified: true });
  */
-function processGlyph(el, simplified) {
-	if (typeof el === 'string') {
-		let value = el.trim();
+function getPath(glyph, { simplified = false } = {}) {
+	// Always normalize input to an array
+	const items = Array.isArray(glyph) ? glyph : [glyph];
 
-		// handle simplified
-		if (value.startsWith('_')) {
-			if (simplified) return null;
-			value = value.slice(1);
-		}
+	const result = items
+		.map((item) => {
+			if (typeof item !== 'string') return null;
 
-		if (value.startsWith('M')) return value;
+			let value = item.trim();
 
-		const found = searchIcoGlyph(value);
-		if (!found) return null;
+			// Skip if simplified and starts with '_'
+			if (value.startsWith('_')) {
+				if (simplified) return null;
+				value = value.slice(1);
+			}
 
-		return processGlyph(found.path, simplified);
-	}
+			// If it's a raw SVG path
+			if (value.startsWith('M')) return value;
 
-	if (Array.isArray(el)) {
-		return el
-			.map((item) => processGlyph(item, simplified))
-			.filter(Boolean) // remove falsy values (null/undefined)
-			.join(' ');
-	}
+			// If it's a named glyph
+			const found = searchIcoGlyph(value);
+			if (!found || !found.path) return null;
 
-	return null;
-}
+			// Recursively process resolved path
+			return getPath(found.path, { simplified });
+		})
+		.filter(Boolean) // remove null/undefined
+		.join(' ');
 
-function getPath(pathData, { simplified = false } = {}) {
-	return processGlyph(pathData, simplified);
+	return result;
 }
 
 export default getPath;

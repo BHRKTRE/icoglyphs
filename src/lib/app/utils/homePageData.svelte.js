@@ -22,7 +22,6 @@ export const getDefaultHomepageIcons = () => {
 		defaultIcons.push(randomIcon);
 	});
 
-	$inspect(icoGlyphsLibrary);
 	return reverseArray(defaultIcons);
 };
 
