@@ -25,7 +25,7 @@
 			.join(' ');
 	}
 
-	$inspect(data);
+	// $inspect(data);
 </script>
 
 <Metadata {data} {capitalizeTitle} />

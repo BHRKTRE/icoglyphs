@@ -4,22 +4,16 @@ import icoGlyphs from '$lib/index.js';
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
 	const { icoGlyphNameSlug } = params;
-	const library = icoGlyphs.library;
 
-	if (library[icoGlyphNameSlug]) {
+	const found = icoGlyphs.library.find(
+		(item) => item.aliases && item.aliases.includes(icoGlyphNameSlug)
+	);
+
+	if (found) {
 		return {
 			name: icoGlyphNameSlug,
-			...library[icoGlyphNameSlug]
+			...found
 		};
-	}
-
-	for (const [key, value] of Object.entries(library)) {
-		if (value.aliases && value.aliases.includes(icoGlyphNameSlug)) {
-			return {
-				name: key,
-				...value
-			};
-		}
 	}
 
 	throw error(404, 'IcoGlyph not found');

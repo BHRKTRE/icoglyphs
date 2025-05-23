@@ -10,25 +10,17 @@
 		medium: 130
 	};
 
-	function getIcoGlyphSlug() {
-		if (icoGlyphs.library[icoGlyphName].aliases) {
-			return icoGlyphs.library[icoGlyphName].aliases[0];
-		} else {
-			return icoGlyphName;
-		}
-	}
-
-	// $inspect(appState.icoGlyphUserSettings.style);
+	// $inspect(getIcoGlyphSlug());
 </script>
 
 <button
-	onclick={() => goto(`/icon/${getIcoGlyphSlug()}`)}
-	aria-label={`Navigate to '${getIcoGlyphSlug()}' icon page`}
+	onclick={() => goto(`/icon/${icoGlyphName}`)}
+	aria-label={`Navigate to '${icoGlyphName}' icon page`}
 	class="icoglyphContainer button-svg-only"
 	style:width={`${dimensions[size]}px`}
 	style:height={`${dimensions[size]}px`}
 >
-	<title id="icon-title">{getIcoGlyphSlug()} icon</title>
+	<title id="icon-title">{icoGlyphName} icon</title>
 	<svg
 		role="img"
 		aria-labelledby="icon-title"
