@@ -67,7 +67,7 @@ export function downloadPng(icoGlyphName) {
 			const pngUrl = URL.createObjectURL(blob);
 			const a = document.createElement('a');
 			a.href = pngUrl;
-			a.download = `${icoGlyphName}.png`;
+			a.download = `${icoGlyphName}_icoglyph.png`;
 			document.body.appendChild(a);
 			a.click();
 			document.body.removeChild(a);
@@ -86,7 +86,7 @@ export function downloadSvg(icoGlyphName) {
 	const url = URL.createObjectURL(blob);
 	const a = document.createElement('a');
 	a.href = url;
-	a.download = `${icoGlyphName}.svg`;
+	a.download = `${icoGlyphName}_icoglyph.svg`;
 	document.body.appendChild(a);
 	a.click();
 
