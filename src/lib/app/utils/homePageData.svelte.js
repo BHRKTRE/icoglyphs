@@ -1,4 +1,5 @@
 import icoGlyphs from '$lib/index.js';
+import icoGlyphsLibrary from '$lib/library/icoGlyphsLibrary.json';
 
 // Function to reverse an array
 const reverseArray = (array) => {
@@ -8,8 +9,8 @@ const reverseArray = (array) => {
 export const getDefaultHomepageIcons = () => {
 	const categoriesUsed = new Map();
 
-	const defaultIcons = Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
-		const icoData = icoGlyphs.library().svgData[icoGlyphName];
+	const defaultIcons = Object.keys(icoGlyphs.library).filter((icoGlyphName) => {
+		const icoData = icoGlyphs.library[icoGlyphName];
 		const aliases = icoData.aliases || [];
 		if (aliases.length === 0) return false;
 
@@ -21,6 +22,7 @@ export const getDefaultHomepageIcons = () => {
 		defaultIcons.push(randomIcon);
 	});
 
+	$inspect(icoGlyphsLibrary);
 	return reverseArray(defaultIcons);
 };
 
@@ -28,8 +30,8 @@ export const getDefaultHomepageIconsWithAliases = () => {
 	const categoriesUsed = new Map();
 	const defaultIconsWithAliases = [];
 
-	Object.keys(icoGlyphs.library().svgData).forEach((icoGlyphName) => {
-		const icoData = icoGlyphs.library().svgData[icoGlyphName];
+	Object.keys(icoGlyphs.library).forEach((icoGlyphName) => {
+		const icoData = icoGlyphs.library[icoGlyphName];
 		const aliases = icoData.aliases || [];
 
 		if (aliases.length > 0) {
@@ -44,3 +46,26 @@ export const getDefaultHomepageIconsWithAliases = () => {
 
 	return reverseArray(defaultIconsWithAliases);
 };
+
+// >>
+
+// import icoGlyphs from '$lib/index.js';
+
+// // Function to reverse an array
+// const reverseArray = (array) => array.reverse();
+
+// export const getDefaultHomepageIcons = () => {
+// 	const defaultIcons = icoGlyphs.library
+// 		.filter(ico => ico.aliases?.length)
+// 		.map(ico => ico.name); // ou un autre champ pertinent
+
+// 	return reverseArray(defaultIcons);
+// };
+
+// export const getDefaultHomepageIconsWithAliases = () => {
+// 	const defaultIconsWithAliases = icoGlyphs.library
+// 		.filter(ico => ico.aliases?.length)
+// 		.map(ico => ico.aliases[0]);
+
+// 	return reverseArray(defaultIconsWithAliases);
+// };

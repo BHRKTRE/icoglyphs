@@ -20,9 +20,8 @@ const icoGlyphs = {
 	searchIcoGlyph: (icoGlyphName) => {
 		return searchIcoGlyph(icoGlyphName);
 	},
-	library() {
-		return icoGlyphsLibrary;
-	}
+
+	library: icoGlyphsLibrary.svgData
 };
 
 export default icoGlyphs;

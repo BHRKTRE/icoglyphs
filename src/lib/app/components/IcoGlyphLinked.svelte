@@ -11,8 +11,8 @@
 	};
 
 	function getIcoGlyphSlug() {
-		if (icoGlyphs.library().svgData[icoGlyphName].aliases) {
-			return icoGlyphs.library().svgData[icoGlyphName].aliases[0];
+		if (icoGlyphs.library[icoGlyphName].aliases) {
+			return icoGlyphs.library[icoGlyphName].aliases[0];
 		} else {
 			return icoGlyphName;
 		}

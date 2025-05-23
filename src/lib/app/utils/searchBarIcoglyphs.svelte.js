@@ -6,8 +6,8 @@ export const searchBarIcoglyphs = (query) => {
 
 	const queryWords = lowerQuery.split(/\s+/);
 
-	return Object.keys(icoGlyphs.library().svgData).filter((icoGlyphName) => {
-		const icoData = icoGlyphs.library().svgData[icoGlyphName];
+	return Object.keys(icoGlyphs.library).filter((icoGlyphName) => {
+		const icoData = icoGlyphs.library[icoGlyphName];
 		const aliases = (icoData.aliases || []).map((alias) => alias.toLowerCase());
 		const iconText = icoGlyphName.toLowerCase();
 		const iconTags = (icoData.tags ?? []).map((tag) => tag.toLowerCase());
