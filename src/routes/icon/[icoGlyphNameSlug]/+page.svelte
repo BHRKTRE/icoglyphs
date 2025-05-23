@@ -25,7 +25,7 @@
 			.join(' ');
 	}
 
-	// $inspect(icoGlyphs.getSvg(data.name, { simplified: true }));
+	$inspect(data);
 </script>
 
 <Metadata {data} {capitalizeTitle} />
