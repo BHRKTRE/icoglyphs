@@ -8,7 +8,10 @@
 
 	let filteredIcoGlyphs = $state([]);
 
-	const getDefaultHomepageIcons = icoGlyphs.library.map((ig) => ig.aliases[0]).reverse();
+	const getDefaultHomepageIcons = icoGlyphs.library
+		.filter((ig) => ig.is_public)
+		.map((ig) => ig.aliases[0])
+		.reverse();
 
 	function handleSearch() {
 		const query = appState.searchBarValue;
