@@ -1,4 +1,4 @@
-import searchIcoGlyph from '../searchIcoGlyph';
+import searchIcoGlyph from './searchIcoGlyph';
 
 /**
  * Retrieves the final SVG path for an icoglyph or a list of glyphs / path.

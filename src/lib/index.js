@@ -1,7 +1,7 @@
-import icoGlyphsLibrary from './library/icoGlyphsLibrary.json';
-import getSvg from './library/external/getSvgData/getSvg.svelte.js';
-import getPath from './library/external/getSvgData/getPath';
-import getSvgAttributes from './library/external/getSvgData/getSvgAttributes';
+import icoglyphsDB from './library/icoglyphsDB.json';
+import getSvg from './library/external/getSvg.svelte.js';
+import getPath from './library/external/getPath';
+import getSvgAttributes from './library/external/getSvgAttributes';
 import searchIcoGlyph from './library/external/searchIcoGlyph';
 
 const icoGlyphs = {
@@ -21,7 +21,7 @@ const icoGlyphs = {
 		return searchIcoGlyph(icoGlyphName);
 	},
 
-	library: icoGlyphsLibrary.svgData
+	library: icoglyphsDB.svgData
 };
 
 export default icoGlyphs;
