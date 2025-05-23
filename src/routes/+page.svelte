@@ -14,8 +14,10 @@
 		.reverse();
 
 	function handleSearch() {
-		const query = appState.searchBarValue;
-		filteredIcoGlyphs = query.trim() === '' ? getDefaultHomepageIcons : searchBarIcoglyphs(query);
+		const query = appState.searchBarValue.trim().toLowerCase();
+
+		filteredIcoGlyphs =
+			query === '' ? getDefaultHomepageIcons : icoGlyphs.library.map((ig) => ig.aliases[0]);
 	}
 
 	filteredIcoGlyphs = getDefaultHomepageIcons;
