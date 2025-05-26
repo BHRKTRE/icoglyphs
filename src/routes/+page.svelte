@@ -4,7 +4,6 @@
 	import appState from '$lib/app/appState.svelte.js';
 	import HomePageHeader from './HomePageHeader.svelte';
 	import Metadata from './Metadata.svelte';
-	import { searchBarIcoglyphs } from '$lib/app/utils/searchBarIcoglyphs.svelte.js';
 
 	let filteredIcoGlyphs = $state([]);
 
@@ -13,16 +12,33 @@
 		.map((ig) => ig.aliases[0])
 		.reverse();
 
+	function search(query) {
+		const lowerQuery = query.trim().toLowerCase();
+		if (!lowerQuery) return [];
+
+		const queryWords = lowerQuery.split(/\s+/);
+		return icoGlyphs.library
+			.filter((item) => {
+				const fieldsToSearch = [
+					...(item.aliases || []),
+					...(item.tags || []),
+					...(item.categories || [])
+				].map((str) => str.toLowerCase());
+
+				return queryWords.some((word) => fieldsToSearch.some((field) => field.includes(word)));
+			})
+			.map((item) => item.aliases[0]);
+	}
+
 	function handleSearch() {
 		const query = appState.searchBarValue.trim().toLowerCase();
 
-		filteredIcoGlyphs =
-			query === '' ? getDefaultHomepageIcons : icoGlyphs.library.map((ig) => ig.aliases[0]);
+		filteredIcoGlyphs = query === '' ? getDefaultHomepageIcons : search(query);
 	}
 
 	filteredIcoGlyphs = getDefaultHomepageIcons;
 
-	// $inspect(filteredIcoGlyphs);
+	$inspect(search(appState.searchBarValue));
 </script>
 
 <Metadata />

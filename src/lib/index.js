@@ -21,6 +21,7 @@ const icoGlyphs = {
 		return searchIcoGlyph(icoGlyphName);
 	},
 
+	// rename library to db
 	library: icoglyphsDB.svgData
 };
 
