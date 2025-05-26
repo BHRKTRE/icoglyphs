@@ -16,13 +16,13 @@
 
 	// Display all the icoGlyphs that have the same categories as the current icoGlyph
 	const allPathKeys = [];
-	icoGlyphs.library.forEach((icon) => {
+	icoGlyphs.db.forEach((icon) => {
 		if (icon?.categories?.some((category) => data?.categories?.includes(category))) {
 			allPathKeys.push(icon.aliases[0]);
 		}
 	});
 
-	$inspect(allPathKeys);
+	// $inspect(allPathKeys);
 
 	// Using morphTo() from animejs ?
 	// https://animejs.com/documentation/svg/morphto

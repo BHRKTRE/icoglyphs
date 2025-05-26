@@ -11,8 +11,8 @@
 
 	// Display all the icoGlyphs that have the same categories as the current icoGlyph
 	const allPathKeys = [];
-	Object.keys(icoGlyphs.library).forEach((key) => {
-		const icon = icoGlyphs.library[key];
+	Object.keys(icoGlyphs.db).forEach((key) => {
+		const icon = icoGlyphs.db[key];
 		if (icon?.categories?.some((category) => data?.categories?.includes(category))) {
 			allPathKeys.push(key);
 		}

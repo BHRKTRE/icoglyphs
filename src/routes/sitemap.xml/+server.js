@@ -4,7 +4,7 @@ const mainUrl = 'https://icoglyphs.com/';
 const lastModDate = '2025-04-25';
 
 const homePageIcons = () =>
-	icoGlyphs.library
+	icoGlyphs.db
 		.filter((ig) => ig.is_public)
 		.map((ig) => ig.aliases[0])
 		.reverse()

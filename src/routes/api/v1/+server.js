@@ -60,7 +60,7 @@ export async function GET({ url }) {
 			path: icoGlyphs.getPath,
 			attributes: icoGlyphs.getSvgAttributes,
 			svg: icoGlyphs.getSvg,
-			default: icoGlyphs.library
+			default: icoGlyphs.db
 		};
 
 		if (get === 'path') {

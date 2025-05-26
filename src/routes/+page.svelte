@@ -7,7 +7,7 @@
 
 	let filteredIcoGlyphs = $state([]);
 
-	const getDefaultHomepageIcons = icoGlyphs.library
+	const getDefaultHomepageIcons = icoGlyphs.db
 		.filter((ig) => ig.is_public)
 		.map((ig) => ig.aliases[0])
 		.reverse();
@@ -17,7 +17,7 @@
 		if (!lowerQuery) return [];
 
 		const queryWords = lowerQuery.split(/\s+/);
-		return icoGlyphs.library
+		return icoGlyphs.db
 			.filter((item) => {
 				const fieldsToSearch = [
 					...(item.aliases || []),
@@ -38,7 +38,7 @@
 
 	filteredIcoGlyphs = getDefaultHomepageIcons;
 
-	$inspect(search(appState.searchBarValue));
+	// $inspect(search(appState.searchBarValue));
 </script>
 
 <Metadata />

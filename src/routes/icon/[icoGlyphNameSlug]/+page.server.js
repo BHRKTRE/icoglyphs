@@ -5,7 +5,7 @@ import icoGlyphs from '$lib/index.js';
 export async function load({ params }) {
 	const { icoGlyphNameSlug } = params;
 
-	const found = icoGlyphs.library.find(
+	const found = icoGlyphs.db.find(
 		(item) => item.aliases && item.aliases.includes(icoGlyphNameSlug)
 	);
 
