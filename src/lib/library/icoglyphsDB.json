@@ -284,11 +284,7 @@
 			"is_public": true
 		},
 		{
-			"aliases": [
-				"grey-mode",
-				"grey",
-				"v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2___x___l__d_c_bl__p_c_bl__s_0_1___x___l__d_b_t__p_t__s_0_1___x___l__d_c_br__p_c_br__s_0_1"
-			],
+			"aliases": ["grey-mode", "grey"],
 			"path": ["eye", "_M -20 22 L -25 30", "M 0 -25 L 0 -35", "M 20 22 L 25 30"],
 			"tags": ["gray", "grey", "ashen"],
 			"categories": ["Color-mode"],
@@ -296,11 +292,7 @@
 			"is_public": true
 		},
 		{
-			"aliases": [
-				"light-mode",
-				"light",
-				"v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2___x___l__d_c_tl__p_c_tl__s_0_1___x___l__d_b_t__p_t__s_0_1___x___l__d_c_tr__p_c_tr__s_0_1"
-			],
+			"aliases": ["light-mode", "light"],
 			"path": ["eye", "M -20 -22 L -25 -30", "M 0 -25 L 0 -35", "M 20 -22 L 25 -30"],
 			"tags": ["light", "day", "bright", "clear"],
 			"categories": ["Color-mode"],
@@ -308,11 +300,7 @@
 			"is_public": true
 		},
 		{
-			"aliases": [
-				"dark-mode",
-				"dark",
-				"v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2___x___l__d_c_bl__p_c_bl__s_0_1___x___l__d_t_b__p_b__s_0_1___x___l__d_c_br__p_c_br__s_0_1"
-			],
+			"aliases": ["dark-mode", "dark"],
 			"path": ["eye", "M -20 22 L -25 30", "M 0 25 L 0 35", "M 20 22 L 25 30"],
 			"tags": ["dark", "night", "dim", "moonlight", "nocture"],
 			"categories": ["Color-mode"],

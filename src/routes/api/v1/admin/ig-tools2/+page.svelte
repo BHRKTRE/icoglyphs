@@ -3,7 +3,7 @@
 	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 	import icoGlyphs from '$lib/index.js';
 	import appState from '$lib/app/appState.svelte.js';
-	import { searchBarIcoglyphs } from '$lib/app/utils/searchBarIcoglyphs.svelte.js';
+	// import { searchBarIcoglyphs } from '$lib/app/utils/searchBarIcoglyphs.svelte.js';
 	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
 	import { animate } from 'animejs';
 	import { json } from '@sveltejs/kit';
@@ -13,7 +13,7 @@
 	let msg = { txt: 'abc', array: [1, 2, 3] };
 
 	async function createNewIg(msg) {
-		const res = await fetch('/ig-tools', {
+		const res = await fetch('/ig-tools2', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -59,9 +59,10 @@
 		}
 	});
 
+	// to rework until sesearchBarIcoglyphs don't exist anymore
 	function handleSearch() {
-		const query = appState.searchBarValue;
-		filteredIcoGlyphs = query.trim() === '' ? '' : searchBarIcoglyphs(query);
+		// 	const query = appState.searchBarValue;
+		// 	filteredIcoGlyphs = query.trim() === '' ? '' : searchBarIcoglyphs(query);
 	}
 
 	// Main iG animation
@@ -99,7 +100,7 @@
 		updateState(originalStateObj);
 	}
 
-	$inspect(actualStateObj);
+	// $inspect(actualStateObj);
 </script>
 
 {#if dev}

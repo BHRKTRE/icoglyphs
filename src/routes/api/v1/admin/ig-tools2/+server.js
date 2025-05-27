@@ -6,7 +6,7 @@ const defaultData = { igs: [] };
 export async function POST({ request }) {
 	const newIcon = await request.json();
 
-	const db = await JSONFilePreset('./src/lib/library/libr2.json', defaultData);
+	const db = await JSONFilePreset('./src/lib/library/DBtest.json', defaultData);
 
 	// Alternatively you can call db.write() explicitely later
 	// to write to db.json
