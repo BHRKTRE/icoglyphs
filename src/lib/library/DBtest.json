@@ -1,0 +1,22 @@
+{
+  "svgData": [
+    {
+      "txt": "nouveau texte",
+      "array": [
+        1,
+        2,
+        3
+      ],
+      "id": "1a"
+    },
+    {
+      "txt": "abc",
+      "array": [
+        1,
+        2,
+        3
+      ],
+      "id": "1a"
+    }
+  ]
+}

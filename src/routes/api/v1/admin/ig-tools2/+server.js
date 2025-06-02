@@ -1,17 +1,28 @@
-import { JSONFilePreset } from 'lowdb/node';
 import { json } from '@sveltejs/kit';
-
-const defaultData = { igs: [] };
+import { JSONFilePreset } from 'lowdb/node';
 
 export async function POST({ request }) {
-	const newIcon = await request.json();
+	const obj = await request.json();
+	const defaultData = { svgData: [] };
+	const db = await JSONFilePreset('src/lib/library/DBtest.json', defaultData);
 
-	const db = await JSONFilePreset('./src/lib/library/DBtest.json', defaultData);
+	await db.update(({ svgData }) => {
+		svgData.push(obj);
+	});
 
-	// Alternatively you can call db.write() explicitely later
-	// to write to db.json
-	db.data.igs.push(newIcon);
-	await db.write();
+	return json({ success: true });
+}
 
-	return json({ success: true, added: newIcon });
+export async function PATCH({ request }) {
+	const updated = await request.json();
+	const db = await JSONFilePreset('src/lib/library/DBtest.json', { svgData: [] });
+
+	await db.update(({ svgData }) => {
+		const item = svgData.find((entry) => entry.id === updated.id);
+		if (item) {
+			if (updated.txt !== undefined) item.txt = updated.txt;
+		}
+	});
+
+	return json({ success: true });
 }

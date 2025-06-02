@@ -3,29 +3,46 @@
 	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 	import icoGlyphs from '$lib/index.js';
 	import appState from '$lib/app/appState.svelte.js';
-	// import { searchBarIcoglyphs } from '$lib/app/utils/searchBarIcoglyphs.svelte.js';
 	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
 	import { animate } from 'animejs';
-	import { json } from '@sveltejs/kit';
 
-	// import { createNewIg } from '$lib/library/newIg.js';
+	let msg = { txt: 'abc', array: [1, 2, 3], id: '1a' };
 
-	let msg = { txt: 'abc', array: [1, 2, 3] };
-
-	async function createNewIg(msg) {
-		const res = await fetch('/ig-tools2', {
+	async function createNewIg() {
+		const res = await fetch('/api/v1/admin/ig-tools2', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(msg)
 		});
-		const data = await res.json();
-		console.log('Ajouté:', data);
+
+		if (res.ok) {
+			console.log(':)');
+		} else {
+			console.log(':(');
+		}
 	}
 
-	function updateIg() {
-		console.log('update');
+	async function updateIg() {
+		const updatedData = {
+			id: '1a',
+			txt: 'nouveau texte'
+		};
+
+		const res = await fetch('/api/v1/admin/ig-tools2', {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(updatedData)
+		});
+
+		if (res.ok) {
+			console.log(':)');
+		} else {
+			console.log(':(');
+		}
 	}
 
 	//--------------------------------
@@ -164,12 +181,12 @@
 				<span>Create new icoGlyph</span>
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
 			</button>
-			{#if changeDetected}
-				<button class="button-default update-button" onclick={updateIg}>
-					<span>Update this one</span>
-					<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
-				</button>
-			{/if}
+			<!-- {#if changeDetected} -->
+			<button class="button-default update-button" onclick={updateIg}>
+				<span>Update this one</span>
+				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
+			</button>
+			<!-- {/if} -->
 		</div>
 
 		<div id="right-part">
