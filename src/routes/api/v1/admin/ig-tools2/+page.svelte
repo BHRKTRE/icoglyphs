@@ -5,43 +5,61 @@
 	import appState from '$lib/app/appState.svelte.js';
 	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
 	import { animate } from 'animejs';
+	import { v4 as uuidv4 } from 'uuid';
 
-	let msg = { txt: 'abc', array: [1, 2, 3], id: '1a' };
+	//--------------------------------
+
+	let newIg = {
+		aliases: ['a', 'b', 'c'],
+		path: ['M -20 -15 L 0 -35 L 20 -15'],
+		aliases: ['a', 'b', 'c'],
+		is_public: false
+	};
+
+	let updatedIg = {
+		aliases: ['b', 'c', 'd'],
+		tags: ['cap', 'foo', 'bar'],
+		id: '569ff752-cc21-420e-a26a-f51a1ca525af'
+	};
+
+	//--------------------------------
 
 	async function createNewIg() {
+		// Create new id for the new icoglyph
+		newIg.id = uuidv4();
+
 		const res = await fetch('/api/v1/admin/ig-tools2', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(msg)
+			body: JSON.stringify(newIg)
 		});
 
+		const data = await res.json();
+
 		if (res.ok) {
-			console.log(':)');
+			console.log(':)', data);
 		} else {
-			console.log(':(');
+			console.error(':(', data.error);
 		}
 	}
 
 	async function updateIg() {
-		const updatedData = {
-			id: '1a',
-			txt: 'nouveau texte'
-		};
-
 		const res = await fetch('/api/v1/admin/ig-tools2', {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(updatedData)
+			body: JSON.stringify(updatedIg)
 		});
 
+		const data = await res.json();
+
 		if (res.ok) {
-			console.log(':)');
+			console.log(':)', data);
 		} else {
-			console.log(':(');
+			console.error(':(', data.error);
 		}
 	}
 
@@ -177,7 +195,7 @@
 					</div>
 				{/snippet}
 			</BasicBlock>
-			<button class="button-default update-button" onclick={() => createNewIg(msg)}>
+			<button class="button-default update-button" onclick={() => createNewIg(newIg)}>
 				<span>Create new icoGlyph</span>
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
 			</button>

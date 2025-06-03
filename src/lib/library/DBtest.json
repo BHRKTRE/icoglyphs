@@ -1,22 +1,21 @@
 {
   "svgData": [
     {
-      "txt": "nouveau texte",
-      "array": [
-        1,
-        2,
-        3
+      "aliases": [
+        "b",
+        "c",
+        "d"
       ],
-      "id": "1a"
-    },
-    {
-      "txt": "abc",
-      "array": [
-        1,
-        2,
-        3
+      "path": [
+        "M -20 -15 L 0 -35 L 20 -15"
       ],
-      "id": "1a"
+      "is_public": false,
+      "id": "569ff752-cc21-420e-a26a-f51a1ca525af",
+      "tags": [
+        "cap",
+        "foo",
+        "bar"
+      ]
     }
   ]
 }
