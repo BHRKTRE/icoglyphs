@@ -1,21 +1,11 @@
 {
-  "svgData": [
-    {
-      "aliases": [
-        "b",
-        "c",
-        "d"
-      ],
-      "path": [
-        "M -20 -15 L 0 -35 L 20 -15"
-      ],
-      "is_public": false,
-      "id": "569ff752-cc21-420e-a26a-f51a1ca525af",
-      "tags": [
-        "cap",
-        "foo",
-        "bar"
-      ]
-    }
-  ]
+	"svgData": [
+		{
+			"aliases": ["b", "c", "d"],
+			"path": ["M -20 -15 L 0 -35 L 20 -15"],
+			"is_public": false,
+			"id": "569ff752-cc21-420e-a26a-f51a1ca525af",
+			"tags": ["cap", "foo", "bar"]
+		}
+	]
 }

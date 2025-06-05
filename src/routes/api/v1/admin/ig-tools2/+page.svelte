@@ -9,13 +9,6 @@
 
 	//--------------------------------
 
-	let newIg = {
-		aliases: ['a', 'b', 'c'],
-		path: ['M -20 -15 L 0 -35 L 20 -15'],
-		aliases: ['a', 'b', 'c'],
-		is_public: false
-	};
-
 	let updatedIg = {
 		aliases: ['b', 'c', 'd'],
 		tags: ['cap', 'foo', 'bar'],
@@ -26,14 +19,17 @@
 
 	async function createNewIg() {
 		// Create new id for the new icoglyph
-		newIg.id = uuidv4();
+		actualStateObj.id = uuidv4();
+
+		// Need to fix it
+		actualStateObj.is_public = false;
 
 		const res = await fetch('/api/v1/admin/ig-tools2', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(newIg)
+			body: JSON.stringify(actualStateObj)
 		});
 
 		const data = await res.json();
@@ -72,11 +68,12 @@
 	let filteredIcoGlyphs = $state([]);
 
 	const startingValue = {
-		aliases: [],
+		aliases: ['al1', 'al2'],
 		path: ['eye'],
-
-		categories: [],
-		tags: []
+		categories: ['cat1', 'cat2', 'cat3'],
+		tags: ['tag1', 'tag2'],
+		id: '7d09ab6d-5bc1-4c3b-926d-06d6594a95ad',
+		is_public: false
 	};
 
 	let actualStateObj = $state(startingValue);
@@ -135,7 +132,23 @@
 		updateState(originalStateObj);
 	}
 
-	// $inspect(actualStateObj);
+	let newAlias = $state('');
+	let newPath = $state('');
+	let newCategory = $state('');
+	let newTag = $state('');
+
+	function pushElToArray(array, el) {
+		if (el.trim() !== '') {
+			array.push(el);
+			el = '';
+		}
+	}
+
+	function deleteEl(array, index) {
+		array.splice(index, 1);
+	}
+
+	$inspect(actualStateObj);
 </script>
 
 {#if dev}
@@ -195,7 +208,7 @@
 					</div>
 				{/snippet}
 			</BasicBlock>
-			<button class="button-default update-button" onclick={() => createNewIg(newIg)}>
+			<button class="button-default update-button" onclick={() => createNewIg(actualStateObj)}>
 				<span>Create new icoGlyph</span>
 				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
 			</button>
@@ -212,8 +225,26 @@
 				{#snippet title()}
 					<h3>Aliases</h3>
 				{/snippet}
+				{#snippet text()}
+					<input
+						type="text"
+						onkeydown={(event) => {
+							if (event.key === 'Enter') {
+								pushElToArray(actualStateObj.aliases, newAlias);
+							}
+						}}
+						bind:value={newAlias}
+					/>
+				{/snippet}
 				{#snippet el()}
-					<textarea id="input-aliases" bind:value={actualStateObj.aliases}></textarea>
+					<div class="array-container">
+						{#each actualStateObj.aliases as alias, index}
+							<div class="el-container">
+								<p>{alias}</p>
+								<button onclick={() => deleteEl(actualStateObj.aliases, index)}>D</button>
+							</div>
+						{/each}
+					</div>
 				{/snippet}
 			</BasicBlock>
 
@@ -221,8 +252,26 @@
 				{#snippet title()}
 					<h3>Path</h3>
 				{/snippet}
+				{#snippet text()}
+					<input
+						type="text"
+						onkeydown={(event) => {
+							if (event.key === 'Enter') {
+								pushElToArray(actualStateObj.path, newAlias);
+							}
+						}}
+						bind:value={newPath}
+					/>
+				{/snippet}
 				{#snippet el()}
-					<textarea id="input-path" bind:value={actualStateObj.path}></textarea>
+					<div class="array-container">
+						{#each actualStateObj.path as path, index}
+							<div class="el-container">
+								<p>{path}</p>
+								<button onclick={() => deleteEl(actualStateObj.path, index)}>D</button>
+							</div>
+						{/each}
+					</div>
 				{/snippet}
 			</BasicBlock>
 
@@ -230,16 +279,68 @@
 				{#snippet title()}
 					<h3>Categories</h3>
 				{/snippet}
+				{#snippet text()}
+					<input
+						type="text"
+						onkeydown={(event) => {
+							if (event.key === 'Enter') {
+								pushElToArray(actualStateObj.categories, newAlias);
+							}
+						}}
+						bind:value={newCategory}
+					/>
+				{/snippet}
 				{#snippet el()}
-					<textarea id="input-categories" bind:value={actualStateObj.categories}></textarea>
+					<div class="array-container">
+						{#each actualStateObj.categories as category, index}
+							<div class="el-container">
+								<p>{category}</p>
+								<button onclick={() => deleteEl(actualStateObj.categories, index)}>D</button>
+							</div>
+						{/each}
+					</div>
 				{/snippet}
 			</BasicBlock>
 			<BasicBlock>
 				{#snippet title()}
 					<h3>Tags</h3>
 				{/snippet}
+				{#snippet text()}
+					<input
+						type="text"
+						onkeydown={(event) => {
+							if (event.key === 'Enter') {
+								pushElToArray(actualStateObj.tags, newAlias);
+							}
+						}}
+						bind:value={newTag}
+					/>
+				{/snippet}
 				{#snippet el()}
-					<textarea id="input-tags" bind:value={actualStateObj.tags}></textarea>
+					<div class="array-container">
+						{#each actualStateObj.tags as tag, index}
+							<div class="el-container">
+								<p>{tag}</p>
+								<button onclick={() => deleteEl(actualStateObj.tags, index)}>D</button>
+							</div>
+						{/each}
+					</div>
+				{/snippet}
+			</BasicBlock>
+			<BasicBlock>
+				{#snippet title()}
+					<label>
+						is_public
+						<input type="checkbox" bind:checked={actualStateObj.is_public} />
+					</label>
+				{/snippet}
+			</BasicBlock>
+			<BasicBlock>
+				{#snippet title()}
+					<h3>id</h3>
+				{/snippet}
+				{#snippet el()}
+					<p>{actualStateObj.id}</p>
 				{/snippet}
 			</BasicBlock>
 		</div>
@@ -251,14 +352,23 @@
 		width: 100%;
 	}
 
-	textarea {
-		resize: vertical;
-		padding: var(--spacing-medium);
-		height: 100px;
+	.array-container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
 		width: 100%;
-		background: var(--b2) !important;
-		color: var(--t1);
+		gap: var(--spacing-medium);
 	}
+
+	.el-container {
+		display: flex;
+		gap: var(--spacing-medium);
+		align-items: center;
+		background: var(--b2);
+		padding: var(--spacing-small) var(--spacing-medium);
+		border-radius: var(--border-radius);
+	}
+
 	header {
 		width: 100%;
 		margin-bottom: var(--spacing-medium);
@@ -271,7 +381,7 @@
 		border-radius: var(--border-radius);
 	}
 
-	#searchBar {
+	input[type='text'] {
 		width: 100%;
 		max-width: 770px;
 		background: var(--b2);
@@ -279,7 +389,7 @@
 		border-radius: var(--border-radius);
 		border: var(--border-width-medium) solid var(--b3);
 	}
-	#searchBar::placeholder {
+	input[type='text']::placeholder {
 		color: var(--t1);
 		opacity: 0.5;
 	}
