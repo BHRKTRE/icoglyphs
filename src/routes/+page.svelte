@@ -22,7 +22,8 @@
 				const fieldsToSearch = [
 					...(item.aliases || []),
 					...(item.tags || []),
-					...(item.categories || [])
+					...(item.categories || []),
+					...(item.id ? [item.id] : [])
 				].map((str) => str.toLowerCase());
 
 				return queryWords.some((word) => fieldsToSearch.some((field) => field.includes(word)));

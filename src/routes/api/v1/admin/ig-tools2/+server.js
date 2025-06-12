@@ -114,6 +114,7 @@ export async function PATCH({ request }) {
 			if (updated.aliases !== undefined) item.aliases = updated.aliases;
 			if (updated.path !== undefined) item.path = updated.path;
 			if (updated.tags !== undefined) item.tags = updated.tags;
+			if (updated.categories !== undefined) item.categories = updated.categories;
 			if (updated.is_public !== undefined) item.is_public = updated.is_public;
 		}
 	});

@@ -7,18 +7,38 @@
 	import { animate } from 'animejs';
 	import { v4 as uuidv4 } from 'uuid';
 
-	//--------------------------------
-
-	let updatedIg = {
-		aliases: ['b', 'c', 'd'],
-		tags: ['cap', 'foo', 'bar'],
-		id: '569ff752-cc21-420e-a26a-f51a1ca525af'
-	};
+	if (!dev) {
+		throw error(404, 'Not found');
+	}
 
 	//--------------------------------
+
+	// var
+	let animationTesterArray = $state([]);
+	let filteredIcoGlyphs = $state([]);
+
+	let actualStateObj = $state({
+		aliases: [],
+		path: [],
+		categories: [],
+		tags: [],
+		id: uuidv4(),
+		is_public: false
+	});
+
+	let newAlias = $state('');
+	let newPath = $state('');
+	let newCategory = $state('');
+	let newTag = $state('');
+
+	let preIgSelected = $state(null);
+
+	let willCreateNewIg = $state(true);
+
+	// CRUD functions
 
 	async function createNewIg() {
-		// Create new id for the new icoglyph
+		// Create new ID for the new icoglyph
 		actualStateObj.id = uuidv4();
 
 		// Need to fix it
@@ -47,7 +67,7 @@
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify(updatedIg)
+			body: JSON.stringify(actualStateObj)
 		});
 
 		const data = await res.json();
@@ -61,41 +81,31 @@
 
 	//--------------------------------
 
-	if (!dev) {
-		throw error(404, 'Not found');
+	function search(query) {
+		const lowerQuery = query.trim().toLowerCase();
+		if (!lowerQuery) return [];
+
+		const queryWords = lowerQuery.split(/\s+/);
+		return icoGlyphs.db
+			.filter((item) => {
+				const fieldsToSearch = [
+					...(item.aliases || []),
+					...(item.tags || []),
+					...(item.categories || []),
+					...(item.id ? [item.id] : [])
+				].map((str) => str.toLowerCase());
+
+				return queryWords.some((word) => fieldsToSearch.some((field) => field.includes(word)));
+			})
+			.map((item) => item.aliases[0]);
 	}
 
-	let filteredIcoGlyphs = $state([]);
-
-	const startingValue = {
-		aliases: ['al1', 'al2'],
-		path: ['eye'],
-		categories: ['cat1', 'cat2', 'cat3'],
-		tags: ['tag1', 'tag2'],
-		id: '7d09ab6d-5bc1-4c3b-926d-06d6594a95ad',
-		is_public: false
-	};
-
-	let actualStateObj = $state(startingValue);
-
-	let originalStateObj = $state(startingValue);
-
-	let actualStateJson = $derived(JSON.stringify(actualStateObj));
-	let originalStateJson = $derived(JSON.stringify(originalStateObj));
-
-	let changeDetected = $derived.by(() => {
-		if (actualStateJson == originalStateJson) {
-			return false;
-		} else {
-			return true;
-		}
-	});
-
-	// to rework until sesearchBarIcoglyphs don't exist anymore
 	function handleSearch() {
-		// 	const query = appState.searchBarValue;
-		// 	filteredIcoGlyphs = query.trim() === '' ? '' : searchBarIcoglyphs(query);
+		const query = appState.searchBarValue.trim().toLowerCase();
+
+		filteredIcoGlyphs = search(query);
 	}
+	//--
 
 	// Main iG animation
 	const animeDuration = 1000;
@@ -114,28 +124,41 @@
 		});
 	}
 
-	function loadIg(igName) {
-		const result = icoGlyphs.searchIcoGlyph(igName);
-		if (!result) return;
+	// Top buttons functions
 
-		const { key, aliases = null, path, categories = null, tags = null } = result;
+	function actualiseAnimationTesterArray() {
+		let testAr = [];
 
-		const updateState = (stateObj) => {
-			stateObj.key = key;
-			stateObj.aliases = aliases;
-			stateObj.path = path;
-			stateObj.categories = categories;
-			stateObj.tags = tags;
-		};
+		icoGlyphs.db.forEach((icon) => {
+			if (icon?.categories?.some((category) => preIgSelected?.categories?.includes(category))) {
+				testAr.push(icon);
+			}
+		});
 
-		updateState(actualStateObj);
-		updateState(originalStateObj);
+		animationTesterArray = testAr;
+		console.log(testAr);
 	}
 
-	let newAlias = $state('');
-	let newPath = $state('');
-	let newCategory = $state('');
-	let newTag = $state('');
+	function loadIg() {
+		willCreateNewIg = false;
+
+		actualStateObj = preIgSelected;
+
+		actualiseAnimationTesterArray();
+	}
+
+	function duplicateIg() {
+		willCreateNewIg = true;
+
+		actualStateObj.aliases = preIgSelected.aliases;
+		actualStateObj.path = preIgSelected.path;
+		actualStateObj.categories = preIgSelected.categories;
+		actualStateObj.tags = preIgSelected.tags;
+		actualStateObj.id = uuidv4();
+		actualStateObj.is_public = preIgSelected.is_public;
+
+		actualiseAnimationTesterArray();
+	}
 
 	function pushElToArray(array, el) {
 		if (el.trim() !== '') {
@@ -148,13 +171,74 @@
 		array.splice(index, 1);
 	}
 
-	$inspect(actualStateObj);
+	function preIgIsSelected(icoGlyphName) {
+		preIgSelected = icoGlyphs.searchIcoGlyph(icoGlyphName);
+	}
+
+	function addToAnimationTester() {
+		animationTesterArray.push(preIgSelected);
+	}
+
+	//----------------
+
+	let aliasesAlreadyUsed = $derived.by(() => {
+		const existingAliases = new Set();
+
+		for (const entry of icoGlyphs.db) {
+			for (const alias of entry.aliases) {
+				existingAliases.add(alias);
+			}
+		}
+
+		return actualStateObj.aliases
+			? actualStateObj.aliases.filter((alias) => existingAliases.has(alias))
+			: [];
+	});
+
+	let pathAlreadyUsed = $derived.by(() => {
+		if (!actualStateObj.path || actualStateObj.path.length === 0) {
+			return false;
+		}
+
+		const normalize = (arr) => [...arr].sort();
+		const currentPathSorted = normalize(actualStateObj.path);
+
+		for (const entry of icoGlyphs.db) {
+			if (!entry.path) continue;
+
+			const entryPathSorted = normalize(entry.path);
+
+			if (
+				currentPathSorted.length === entryPathSorted.length &&
+				currentPathSorted.every((val, idx) => val === entryPathSorted[idx])
+			) {
+				return entry.id;
+			}
+		}
+
+		return false;
+	});
+	$inspect(aliasesAlreadyUsed);
 </script>
 
 {#if dev}
 	<header>
 		<BasicBlock>
 			{#snippet el()}
+				<div class="buttons-container">
+					<button class="button-default header-button" onclick={addToAnimationTester}>
+						<span>Add To Animation Test</span>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
+					</button>
+					<button class="button-default header-button" onclick={loadIg}>
+						<span>Load</span>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
+					</button>
+					<button class="button-default header-button" onclick={duplicateIg}>
+						<span>Duplicate</span>
+						<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
+					</button>
+				</div>
 				<input
 					id="searchBar"
 					autocomplete="off"
@@ -166,10 +250,10 @@
 				<div id="searchBarIcoGlyphsContainer">
 					{#each filteredIcoGlyphs as icoGlyphName}
 						<button
-							onmouseenter={() => animationOnMouseEnter(icoGlyphName)}
-							onmouseleave={animationOnMouseLeave}
-							onclick={() => loadIg(icoGlyphName)}
-							class="icoglyphContainer button-svg-only"
+							onclick={() => preIgIsSelected(icoGlyphName)}
+							class="icoglyphContainer button-svg-only {preIgSelected?.aliases[0] === icoGlyphName
+								? 'pre-ig-is-selected'
+								: ''}"
 							style:width="60px"
 							style:height="60px"
 						>
@@ -208,16 +292,46 @@
 					</div>
 				{/snippet}
 			</BasicBlock>
-			<button class="button-default update-button" onclick={() => createNewIg(actualStateObj)}>
-				<span>Create new icoGlyph</span>
-				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
-			</button>
-			<!-- {#if changeDetected} -->
-			<button class="button-default update-button" onclick={updateIg}>
-				<span>Update this one</span>
-				<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
-			</button>
-			<!-- {/if} -->
+			{#if willCreateNewIg}
+				<button class="button-default update-button" onclick={() => createNewIg(actualStateObj)}>
+					<span>Create new icoGlyph</span>
+					<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
+				</button>
+			{:else}
+				<button class="button-default update-button" onclick={updateIg}>
+					<span>Update this one</span>
+					<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}> </svg>
+				</button>
+			{/if}
+
+			<BasicBlock>
+				{#snippet title()}
+					<h3>Animation Tester</h3>
+				{/snippet}
+				{#snippet el()}
+					<div class="animation-tester-container">
+						{#each animationTesterArray as ig}
+							<button
+								onmouseenter={() => animationOnMouseEnter(ig.aliases[0])}
+								onmouseleave={animationOnMouseLeave}
+								class="icoglyphContainer button-svg-only"
+								style:width="60px"
+								style:height="60px"
+							>
+								<title id="icon-title">{ig.aliases[0]} icon</title>
+								<svg
+									role="img"
+									aria-labelledby="icon-title"
+									{...appState.icoGlyphUserSettings.style}
+									{...icoGlyphs.getSvgAttributes()}
+								>
+									<path d={icoGlyphs.getPath(ig.aliases[0])} />
+								</svg>
+							</button>
+						{/each}
+					</div>
+				{/snippet}
+			</BasicBlock>
 		</div>
 
 		<div id="right-part">
@@ -235,6 +349,9 @@
 						}}
 						bind:value={newAlias}
 					/>
+					{#if aliasesAlreadyUsed.length > 0 && willCreateNewIg}
+						<p class="warning-txt">"{aliasesAlreadyUsed}" are already used</p>
+					{/if}
 				{/snippet}
 				{#snippet el()}
 					<div class="array-container">
@@ -257,11 +374,17 @@
 						type="text"
 						onkeydown={(event) => {
 							if (event.key === 'Enter') {
-								pushElToArray(actualStateObj.path, newAlias);
+								pushElToArray(actualStateObj.path, newPath);
 							}
 						}}
 						bind:value={newPath}
 					/>
+					{#if pathAlreadyUsed && willCreateNewIg}
+						<p class="warning-txt">
+							This path is already used in IG with ID: <br />
+							{pathAlreadyUsed}
+						</p>
+					{/if}
 				{/snippet}
 				{#snippet el()}
 					<div class="array-container">
@@ -348,6 +471,31 @@
 {/if}
 
 <style>
+	.warning-txt {
+		padding: var(--spacing-small) var(--spacing-medium);
+		background: var(--b4);
+		margin-top: var(--spacing-medium);
+		border-radius: var(--border-radius);
+	}
+
+	.buttons-container {
+		display: flex;
+		gap: var(--spacing-medium);
+	}
+
+	.animation-tester-container {
+		display: flex;
+		align-content: flex-start;
+		flex-wrap: wrap;
+		overflow-y: auto;
+
+		gap: var(--spacing-medium);
+	}
+
+	.pre-ig-is-selected {
+		border: var(--border-width-medium) solid var(--t1);
+	}
+
 	.update-button {
 		width: 100%;
 	}
@@ -396,9 +544,10 @@
 
 	#searchBarIcoGlyphsContainer {
 		display: flex;
+		align-content: flex-start;
 		flex-wrap: wrap;
 		overflow-y: auto;
-		height: 120px;
+		height: 200px;
 
 		gap: var(--spacing-medium);
 	}
