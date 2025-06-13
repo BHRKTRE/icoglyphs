@@ -36,14 +36,7 @@
 	let willCreateNewIg = $state(true);
 
 	// CRUD functions
-
 	async function createNewIg() {
-		// Create new ID for the new icoglyph
-		actualStateObj.id = uuidv4();
-
-		// Need to fix it
-		actualStateObj.is_public = false;
-
 		const res = await fetch('/api/v1/admin/ig-tools2', {
 			method: 'POST',
 			headers: {
@@ -79,8 +72,7 @@
 		}
 	}
 
-	//--------------------------------
-
+	// Search Bar
 	function search(query) {
 		const lowerQuery = query.trim().toLowerCase();
 		if (!lowerQuery) return [];
@@ -105,7 +97,6 @@
 
 		filteredIcoGlyphs = search(query);
 	}
-	//--
 
 	// Main iG animation
 	const animeDuration = 1000;
@@ -125,7 +116,6 @@
 	}
 
 	// Top buttons functions
-
 	function actualiseAnimationTesterArray() {
 		let testAr = [];
 
@@ -160,6 +150,7 @@
 		actualiseAnimationTesterArray();
 	}
 
+	// Increment IG functions
 	function pushElToArray(array, el) {
 		if (el.trim() !== '') {
 			array.push(el);
@@ -179,8 +170,7 @@
 		animationTesterArray.push(preIgSelected);
 	}
 
-	//----------------
-
+	// Warn
 	let aliasesAlreadyUsed = $derived.by(() => {
 		const existingAliases = new Set();
 
@@ -218,7 +208,9 @@
 
 		return false;
 	});
-	$inspect(aliasesAlreadyUsed);
+
+	//---
+	// $inspect(aliasesAlreadyUsed);
 </script>
 
 {#if dev}
@@ -407,7 +399,7 @@
 						type="text"
 						onkeydown={(event) => {
 							if (event.key === 'Enter') {
-								pushElToArray(actualStateObj.categories, newAlias);
+								pushElToArray(actualStateObj.categories, newCategory);
 							}
 						}}
 						bind:value={newCategory}
@@ -433,7 +425,7 @@
 						type="text"
 						onkeydown={(event) => {
 							if (event.key === 'Enter') {
-								pushElToArray(actualStateObj.tags, newAlias);
+								pushElToArray(actualStateObj.tags, newTag);
 							}
 						}}
 						bind:value={newTag}
@@ -547,9 +539,11 @@
 		align-content: flex-start;
 		flex-wrap: wrap;
 		overflow-y: auto;
-		height: 200px;
-
 		gap: var(--spacing-medium);
+		height: 200px;
+	}
+	#searchBar {
+		height: 30px;
 	}
 
 	#left-part {

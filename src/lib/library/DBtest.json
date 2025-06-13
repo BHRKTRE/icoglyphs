@@ -1,21 +1,11 @@
 {
   "svgData": [
     {
-      "aliases": [
-        "light-mode"
-      ],
-      "path": [
-        "eye",
-        "M -20 -22 L -25 -30"
-      ],
-      "tags": [
-        "light",
-        "day",
-        "bright",
-        "clear"
-      ],
-      "categories": [],
-      "id": "40677a85-b1fe-4050-bca4-3fc66b5d423c",
+      "aliases": ["dd"],
+      "path": ["eye", "M -20 -22 L -25 -30", "M 0 -25 L 0 -35", "M 20 -22 L 25 -30"],
+      "categories": ["Color-mode"],
+      "tags": ["light", "day", "bright", "clear"],
+      "id": "f73b69b7-b5ce-4e55-8fa8-12afc1d72481",
       "is_public": true
     }
   ]
