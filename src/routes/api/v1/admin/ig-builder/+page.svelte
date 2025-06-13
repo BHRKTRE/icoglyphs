@@ -3,7 +3,6 @@
 	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 	import icoGlyphs from '$lib/index.js';
 	import appState from '$lib/app/appState.svelte.js';
-	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
 	import { animate } from 'animejs';
 	import { v4 as uuidv4 } from 'uuid';
 
@@ -37,7 +36,7 @@
 
 	// CRUD functions
 	async function createNewIg() {
-		const res = await fetch('/api/v1/admin/ig-tools2', {
+		const res = await fetch('/api/v1/admin/ig-builder', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -55,7 +54,7 @@
 	}
 
 	async function updateIg() {
-		const res = await fetch('/api/v1/admin/ig-tools2', {
+		const res = await fetch('/api/v1/admin/ig-builder', {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json'
@@ -116,6 +115,11 @@
 	}
 
 	// Top buttons functions
+
+	function resetpreIgSelected() {
+		preIgSelected = null;
+	}
+
 	function actualiseAnimationTesterArray() {
 		let testAr = [];
 
@@ -126,28 +130,43 @@
 		});
 
 		animationTesterArray = testAr;
-		console.log(testAr);
+		resetpreIgSelected();
 	}
 
 	function loadIg() {
 		willCreateNewIg = false;
 
+		preIgSelected.aliases = preIgSelected.aliases || [];
+		preIgSelected.path = preIgSelected.path || [];
+		preIgSelected.categories = preIgSelected.categories || [];
+		preIgSelected.tags = preIgSelected.tags || [];
+		preIgSelected.is_public =
+			typeof preIgSelected.is_public === 'boolean' ? preIgSelected.is_public : false;
+
 		actualStateObj = preIgSelected;
 
 		actualiseAnimationTesterArray();
+		resetpreIgSelected();
 	}
 
 	function duplicateIg() {
 		willCreateNewIg = true;
 
-		actualStateObj.aliases = preIgSelected.aliases;
-		actualStateObj.path = preIgSelected.path;
-		actualStateObj.categories = preIgSelected.categories;
-		actualStateObj.tags = preIgSelected.tags;
+		const aliases = preIgSelected.aliases || [];
+		const path = preIgSelected.path || [];
+		const categories = preIgSelected.categories || [];
+		const tags = preIgSelected.tags || [];
+		const isPublic = typeof preIgSelected.is_public === 'boolean' ? preIgSelected.is_public : false;
+
+		actualStateObj.aliases = aliases;
+		actualStateObj.path = path;
+		actualStateObj.categories = categories;
+		actualStateObj.tags = tags;
 		actualStateObj.id = uuidv4();
-		actualStateObj.is_public = preIgSelected.is_public;
+		actualStateObj.is_public = isPublic;
 
 		actualiseAnimationTesterArray();
+		resetpreIgSelected();
 	}
 
 	// Increment IG functions
@@ -162,6 +181,7 @@
 		array.splice(index, 1);
 	}
 
+	//---
 	function preIgIsSelected(icoGlyphName) {
 		preIgSelected = icoGlyphs.searchIcoGlyph(icoGlyphName);
 	}
@@ -170,13 +190,14 @@
 		animationTesterArray.push(preIgSelected);
 	}
 
-	// Warn
 	let aliasesAlreadyUsed = $derived.by(() => {
 		const existingAliases = new Set();
 
 		for (const entry of icoGlyphs.db) {
-			for (const alias of entry.aliases) {
-				existingAliases.add(alias);
+			if (willCreateNewIg || entry.id !== actualStateObj.id) {
+				for (const alias of entry.aliases) {
+					existingAliases.add(alias);
+				}
 			}
 		}
 
@@ -186,6 +207,8 @@
 	});
 
 	let pathAlreadyUsed = $derived.by(() => {
+		// May add a warning if the path does not start with 'M ...' to avoid duplicates
+
 		if (!actualStateObj.path || actualStateObj.path.length === 0) {
 			return false;
 		}
@@ -195,6 +218,10 @@
 
 		for (const entry of icoGlyphs.db) {
 			if (!entry.path) continue;
+
+			if (!willCreateNewIg && entry.id === actualStateObj.id) {
+				continue;
+			}
 
 			const entryPathSorted = normalize(entry.path);
 
@@ -210,7 +237,7 @@
 	});
 
 	//---
-	// $inspect(aliasesAlreadyUsed);
+	$inspect(actualStateObj);
 </script>
 
 {#if dev}
@@ -341,7 +368,7 @@
 						}}
 						bind:value={newAlias}
 					/>
-					{#if aliasesAlreadyUsed.length > 0 && willCreateNewIg}
+					{#if aliasesAlreadyUsed.length > 0}
 						<p class="warning-txt">"{aliasesAlreadyUsed}" are already used</p>
 					{/if}
 				{/snippet}
@@ -371,7 +398,7 @@
 						}}
 						bind:value={newPath}
 					/>
-					{#if pathAlreadyUsed && willCreateNewIg}
+					{#if pathAlreadyUsed}
 						<p class="warning-txt">
 							This path is already used in IG with ID: <br />
 							{pathAlreadyUsed}
@@ -463,6 +490,64 @@
 {/if}
 
 <style>
+	main {
+		display: flex;
+		height: 100vh;
+		width: 100%;
+		gap: var(--spacing-medium);
+		border-radius: var(--border-radius);
+	}
+
+	header {
+		width: 100%;
+		margin-bottom: var(--spacing-medium);
+	}
+
+	#left-part {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: 100%;
+		gap: var(--spacing-medium);
+	}
+	#right-part {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: 100%;
+		gap: var(--spacing-medium);
+	}
+
+	#searchBar {
+		height: 30px;
+	}
+
+	#searchBarIcoGlyphsContainer {
+		display: flex;
+		align-content: flex-start;
+		flex-wrap: wrap;
+		overflow-y: auto;
+		gap: var(--spacing-medium);
+		height: 200px;
+	}
+
+	.array-container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+		gap: var(--spacing-medium);
+	}
+
+	.el-container {
+		display: flex;
+		gap: var(--spacing-medium);
+		align-items: center;
+		background: var(--b2);
+		padding: var(--spacing-small) var(--spacing-medium);
+		border-radius: var(--border-radius);
+	}
+
 	.warning-txt {
 		padding: var(--spacing-small) var(--spacing-medium);
 		background: var(--b4);
@@ -492,35 +577,6 @@
 		width: 100%;
 	}
 
-	.array-container {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		width: 100%;
-		gap: var(--spacing-medium);
-	}
-
-	.el-container {
-		display: flex;
-		gap: var(--spacing-medium);
-		align-items: center;
-		background: var(--b2);
-		padding: var(--spacing-small) var(--spacing-medium);
-		border-radius: var(--border-radius);
-	}
-
-	header {
-		width: 100%;
-		margin-bottom: var(--spacing-medium);
-	}
-	main {
-		display: flex;
-		height: 100vh;
-		width: 100%;
-		gap: var(--spacing-medium);
-		border-radius: var(--border-radius);
-	}
-
 	input[type='text'] {
 		width: 100%;
 		max-width: 770px;
@@ -532,33 +588,6 @@
 	input[type='text']::placeholder {
 		color: var(--t1);
 		opacity: 0.5;
-	}
-
-	#searchBarIcoGlyphsContainer {
-		display: flex;
-		align-content: flex-start;
-		flex-wrap: wrap;
-		overflow-y: auto;
-		gap: var(--spacing-medium);
-		height: 200px;
-	}
-	#searchBar {
-		height: 30px;
-	}
-
-	#left-part {
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		width: 100%;
-		gap: var(--spacing-medium);
-	}
-	#right-part {
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		width: 100%;
-		gap: var(--spacing-medium);
 	}
 
 	#svg-preview-container {

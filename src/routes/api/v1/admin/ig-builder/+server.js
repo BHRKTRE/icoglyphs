@@ -3,7 +3,7 @@ import { Low } from 'lowdb';
 import { CompactJSONFile } from './CompactJSONFile.js';
 import { validateIcoglyph } from './validateIcoglyph.js';
 
-const filePath = 'src/lib/library/DBtest.json';
+const filePath = 'src/lib/library/icoglyphsDB.json';
 
 export async function POST({ request }) {
 	const obj = await request.json();

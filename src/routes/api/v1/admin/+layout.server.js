@@ -1,2 +1,6 @@
-// use dev from import { dev } from '$app/environment'
-// to protect against usage in production
+import { dev } from '$app/environment';
+import { error } from '@sveltejs/kit';
+
+if (!dev) {
+	throw error(403, 'Access denied in production');
+}

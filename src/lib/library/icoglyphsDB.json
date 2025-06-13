@@ -1,503 +1,424 @@
 {
-	"svgData": [
-		{
-			"aliases": ["v1__p_r__d_r__s_2_4"],
-			"path": ["M 15 -20 L 35 0 L 15 20"],
-			"tags": ["cap"],
-			"id": "bfd8805d-0964-4b0c-ae9b-fe2d45bfd868",
-			"is_public": false
-		},
-		{
-			"aliases": ["v1__p_t__d_t__s_4_2"],
-			"path": ["M -20 -15 L 0 -35 L 20 -15"],
-			"tags": ["cap"],
-			"id": "c69e511d-28ab-45aa-80bc-8da81d7bc8e0",
-			"is_public": false
-		},
-		{
-			"aliases": ["v1__p_l__d_l__s_2_4"],
-			"path": ["M -15 -20 L -35 0 L -15 20"],
-			"tags": ["cap"],
-			"id": "bda0cc87-4c55-4a30-98e5-6c51a7223474",
-			"is_public": false
-		},
-		{
-			"aliases": ["v1__p_b__d_b__s_4_2"],
-			"path": ["M -20 15 L 0 35 L 20 15"],
-			"tags": ["cap"],
-			"id": "dd680279-d074-4839-a3a5-0c7a1cce284a",
-			"is_public": false
-		},
-		{
-			"aliases": ["v1__p_bl__d_bl__s_3_3"],
-			"path": ["M 5 25 L -25 25 L -25 -5"],
-			"tags": ["cap"],
-			"id": "3be829da-2147-4254-ae44-37f79af89827",
-			"is_public": false
-		},
-		{
-			"aliases": ["v1__p_br__d_br__s_3_3"],
-			"path": ["M -5 25 L 25 25 L 25 -5"],
-			"tags": ["cap"],
-			"id": "5f1df9c9-0d6e-4353-abf2-6a75a7b8ad5d",
-			"is_public": false
-		},
-		{
-			"aliases": ["v1__p_tl__d_tl__s_3_3"],
-			"path": ["M 5 -25 L -25 -25 L -25 5"],
-			"tags": ["cap"],
-			"id": "f1a20e56-a271-4a0e-8f01-b2c2654b62a9",
-			"is_public": false
-		},
-		{
-			"aliases": ["v1__p_tr__d_tr__s_3_3"],
-			"path": ["M -5 -25 L 25 -25 L 25 5"],
-			"tags": ["cap"],
-			"id": "b045a816-9c0b-41a6-887f-2e9495d7aac5",
-			"is_public": false
-		},
-		{
-			"aliases": ["v1__p_c_b__d_t__s_4_2"],
-			"path": ["M -20 20 L 0 0 L 20 20"],
-			"id": "f090cd01-20d7-4381-a8a6-d661c1cc2990",
-			"is_public": false
-		},
-		{
-			"aliases": ["no", "refuse", "l__d_r_l__s_7_0"],
-			"path": ["M 35 0 L -35 0"],
-			"tags": ["no", "denied"],
-			"categories": ["Validation"],
-			"id": "63526849-c42f-4bb8-9922-154ba1043f3f",
-			"is_public": true
-		},
-		{
-			"aliases": ["l__d_l_r__s_7_0"],
-			"path": ["M -35 0 L 35 0"],
-			"id": "039c9a8c-42de-48a3-a8be-206ceb84cbdf",
-			"is_public": false
-		},
-		{
-			"aliases": ["yes", "confirm", "l__d_t_b__s_0_7"],
-			"path": ["M 0 -35 L 0 35"],
-			"tags": ["confirm", "yes", "accept"],
-			"categories": ["Validation"],
-			"id": "f0039a8b-dacd-4c32-9e00-151380c364ca",
-			"is_public": true
-		},
-		{
-			"aliases": ["l__d_b_t__s_0_7"],
-			"path": ["M 0 35 L 0 -35"],
-			"tags": ["line"],
-			"id": "4cc6d354-d405-4ac6-b8ca-3c0200ba5f58",
-			"is_public": false
-		},
-		{
-			"aliases": ["l__d_tl_br__s_5_5"],
-			"path": ["M -25 -25 L 25 25"],
-			"tags": ["line"],
-			"id": "bcbb84c0-8f49-4bd7-a102-63f19f4a2405",
-			"is_public": false
-		},
-		{
-			"aliases": ["l__d_tr_bl__s_5_5"],
-			"path": ["M 25 -25 L -25 25"],
-			"tags": ["line"],
-			"id": "86c08ec5-69d0-4452-a57d-b4e400801bf9",
-			"is_public": false
-		},
-		{
-			"aliases": ["l__d_br_tl__s_5_5"],
-			"path": ["M 25 25 L -25 -25"],
-			"tags": ["line"],
-			"id": "b33571d4-136c-4b54-a395-023650442fdb",
-			"is_public": false
-		},
-		{
-			"aliases": ["l__d_bl_tr__s_5_5"],
-			"path": ["M -25 25 L 25 -25"],
-			"tags": ["line"],
-			"id": "cfa76843-8b25-4b28-9ae4-1f95a6bc8538",
-			"is_public": false
-		},
-		{
-			"aliases": ["o__s_2_2"],
-			"path": ["M 0 -10 A 1 1 0 0 0 0 10 A 1 1 0 0 0 0 -10"],
-			"tags": ["circle"],
-			"id": "5ebfb353-e182-4ebb-9a1e-d4c519c5c838",
-			"is_public": false
-		},
-		{
-			"aliases": ["o__p_t__s_2_2"],
-			"path": ["M 0 -35 A 1 1 0 0 0 0 -15 A 1 1 0 0 0 0 -35"],
-			"tags": ["circle"],
-			"id": "475af363-89d4-4895-84b8-e63fe4a2ca12",
-			"is_public": false
-		},
-		{
-			"aliases": ["o__p_tr__s_2_2"],
-			"path": ["M 25 -35 A 1 1 0 0 0 25 -15 A 1 1 0 0 0 25 -35"],
-			"id": "a523f080-0d4f-4370-8250-f162a2c2b5c9",
-			"is_public": false
-		},
-		{
-			"aliases": ["o__p_tl__s_2_2"],
-			"path": ["M -25 -35 A 1 1 0 0 0 -25 -15 A 1 1 0 0 0 -25 -35"],
-			"id": "7e60876f-f369-48c2-878d-0f8026ebfba7",
-			"is_public": false
-		},
-		{
-			"aliases": ["o__p_b__s_2_2"],
-			"path": ["M 0 15 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 15"],
-			"tags": ["circle"],
-			"id": "f31ba604-4cd0-4885-941c-5f790d4b8291",
-			"is_public": false
-		},
-		{
-			"aliases": ["o__s_7_7"],
-			"path": ["M 0 -35 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 -35"],
-			"tags": ["circle"],
-			"id": "a40f835c-8513-479a-bf3a-2a2643215afd",
-			"is_public": false
-		},
-		{
-			"aliases": ["arrow-right", "l__d_r_l__s_7_0___x___v1__p_r__d_r__s_2_4"],
-			"path": ["l__d_l_r__s_7_0", "v1__p_r__d_r__s_2_4"],
-			"tags": ["arrow", "right", "go"],
-			"categories": ["Arrow"],
-			"id": "555495eb-42d8-441f-ba0c-5f93d28fc0d0",
-			"is_public": true
-		},
-		{
-			"aliases": ["arrow-left", "l__d_r_l__s_7_0___x___v1__p_l__d_l__s_2_4"],
-			"path": ["l__d_r_l__s_7_0", "v1__p_l__d_l__s_2_4"],
-			"categories": ["Arrow"],
-			"tags": ["arrow", "left", "back"],
-			"id": "f738447e-af72-4d4f-a318-664fc60b121f",
-			"is_public": true
-		},
-		{
-			"aliases": ["arrow-up", "arrow-top", "l__d_b_t__s_0_7___x___v1__p_t__d_t__s_4_2"],
-			"path": ["l__d_b_t__s_0_7", "v1__p_t__d_t__s_4_2"],
-			"categories": ["Arrow"],
-			"tags": ["arrow", "up", "top"],
-			"id": "62860ff5-b97a-4286-aa85-52015eb5f405",
-			"is_public": true
-		},
-		{
-			"aliases": ["arrow-down", "arrow-bottom", "l__d_t_b__s_0_7___x___v1__p_b__d_b__s_4_2"],
-			"path": ["l__d_t_b__s_0_7", "v1__p_b__d_b__s_4_2"],
-			"categories": ["Arrow"],
-			"tags": ["arrow", "down", "bottom"],
-			"id": "1d584992-0a36-4dbd-9070-6dd58650b2a9",
-			"is_public": true
-		},
-		{
-			"aliases": [
-				"arrow-down-left",
-				"arrow-bottom-left",
-				"l__d_tr_bl__s_5_5___x___v1__p_bl__d_bl__s_3_3"
-			],
-			"path": ["l__d_tr_bl__s_5_5", "v1__p_bl__d_bl__s_3_3"],
-			"categories": ["Arrow"],
-			"tags": ["arrow", "down", "bottom", "left"],
-			"id": "1411689c-d987-4d83-9e5d-3812e28da168",
-			"is_public": true
-		},
-		{
-			"aliases": [
-				"arrow-up-left",
-				"arrow-top-left",
-				"l__d_br_tl__s_5_5___x___v1__p_tl__d_tl__s_3_3"
-			],
-			"path": ["l__d_br_tl__s_5_5", "v1__p_tl__d_tl__s_3_3"],
-			"categories": ["Arrow"],
-			"tags": ["arrow", "up", "top", "left"],
-			"id": "e36992f7-cff2-4921-be89-43b22b9a940b",
-			"is_public": true
-		},
-		{
-			"aliases": [
-				"arrow-up-right",
-				"arrow-top-right",
-				"l__d_bl_tr__s_5_5___x___v1__p_tr__d_tr__s_3_3"
-			],
-			"path": ["l__d_bl_tr__s_5_5", "v1__p_tr__d_tr__s_3_3"],
-			"categories": ["Arrow"],
-			"tags": ["arrow", "top", "up", "right"],
-			"id": "e983340e-dd49-4f2c-bc3e-ebe4444ed605",
-			"is_public": true
-		},
-		{
-			"aliases": [
-				"arrow-down-right",
-				"arrow-bottom-right",
-				"l__d_tl_br__s_5_5___x___v1__p_br__d_br__s_3_3"
-			],
-			"path": ["l__d_tl_br__s_5_5", "v1__p_br__d_br__s_3_3"],
-			"categories": ["Arrow"],
-			"tags": ["arrow", "down", "bottom", "right"],
-			"id": "9d594ac8-f8d6-46bd-a18a-fee021e8fe86",
-			"is_public": true
-		},
-		{
-			"aliases": ["under", "l__d_r_l__s_7_0___x___o__p_b__s_2_2"],
-			"path": ["l__d_r_l__s_7_0", "o__p_b__s_2_2"],
-			"categories": ["Position"],
-			"id": "c5c9648c-21b4-4657-a810-1aee068bc72d",
-			"is_public": true
-		},
-		{
-			"aliases": ["over", "l__d_r_l__s_7_0___x___o__p_t__s_2_2"],
-			"path": ["l__d_r_l__s_7_0", "o__p_t__s_2_2"],
-			"categories": ["Position"],
-			"id": "0ade22c1-cc19-4149-9839-328553ae68e7",
-			"is_public": true
-		},
-		{
-			"aliases": ["sky", "c1__d_t__s_7_2"],
-			"path": ["M -35 0 Q 0 -30 35 0"],
-			"tags": ["sky", "azure", "heavens"],
-			"categories": ["Cosmos"],
-			"id": "c3411ac2-ee0e-40c4-b156-6fc99acfc77a",
-			"is_public": true
-		},
-		{
-			"aliases": ["earth", "c1__d_b__s_7_2"],
-			"path": ["M -35 0 Q 0 30 35 0"],
-			"tags": ["earth", "terra", "soil", "ground", "gaia", "tellus"],
-			"categories": ["Cosmos"],
-			"id": "ae68ff3c-c5e6-4c29-ae5f-421a4ad50664",
-			"is_public": true
-		},
-		{
-			"aliases": ["eyelids", "v1c1v1c1x__d_l_r__s_7_3"],
-			"path": ["M -35 0 Q 0 -30 35 0 Q 0 30 -35 0 Z"],
-			"tags": ["eye", "gaze", "eyelids"],
-			"id": "c6972040-6d11-427d-aa7d-ab466a3679ab",
-			"is_public": true
-		},
-		{
-			"aliases": ["eye", "v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2"],
-			"path": ["eyelids", "o__s_2_2"],
-			"tags": ["eye", "optic", "oculus", "vision", "sight", "look", "view"],
-			"id": "3be3920b-1ea0-4aa1-bb76-f47fd1f25213",
-			"is_public": true
-		},
-		{
-			"aliases": ["grey-mode", "grey"],
-			"path": ["eye", "_M -20 22 L -25 30", "M 0 -25 L 0 -35", "M 20 22 L 25 30"],
-			"tags": ["gray", "grey", "ashen"],
-			"categories": ["Color-mode"],
-			"id": "564d39ad-0633-4084-8e28-d001f78bec5b",
-			"is_public": true
-		},
-		{
-			"aliases": ["light-mode", "light"],
-			"path": ["eye", "M -20 -22 L -25 -30", "M 0 -25 L 0 -35", "M 20 -22 L 25 -30"],
-			"tags": ["light", "day", "bright", "clear"],
-			"categories": ["Color-mode"],
-			"id": "9f6d0f63-98da-4dcc-bb86-6614993ca7ce",
-			"is_public": true
-		},
-		{
-			"aliases": ["dark-mode", "dark"],
-			"path": ["eye", "M -20 22 L -25 30", "M 0 25 L 0 35", "M 20 22 L 25 30"],
-			"tags": ["dark", "night", "dim", "moonlight", "nocture"],
-			"categories": ["Color-mode"],
-			"id": "2822512c-6482-4ed9-b274-6520c6b089d9",
-			"is_public": true
-		},
-		{
-			"aliases": ["o__s_7_7___x___v1__p_c_b__d_t__s_4_2___x___l__p_c_b__d_b_t__s_0_3"],
-			"path": ["o__s_7_7", "M -25 24 L 0 0 L 25 24", "M 0 35 L 0 0"],
-			"tags": ["?", "circle", "kinda peace"],
-			"id": "563ab42f-bc2b-4b0e-b5b9-cbefc4c2d802",
-			"is_public": false
-		},
-		{
-			"aliases": ["style", "c1e1c1__p_c_t__s_5_3"],
-			"path": [
-				"M -15 0 C -15 -30 -30 -30 -30 0 C -30 30 5 30 5 -5 C 5 -30 -5 -30 -5 -5 C -5 30 30 30 30 0 C 30 -30 15 -30 15 0"
-			],
-			"tags": ["style", "design", "designer"],
-			"id": "e435ae3d-91f2-4b84-a712-a01bd1d8f02d",
-			"is_public": false
-		},
-		{
-			"aliases": [
-				"drop-down",
-				"v1__p_c_b__d_b__s_7_3___x___o__p_tl__s_2_2___x___o__p_t__s_2_2___x___o__p_tr__s_2_2"
-			],
-			"path": ["v1__p_c_b__d_b__s_7_3", "o__p_tl__s_2_2", "o__p_t__s_2_2", "o__p_tr__s_2_2"],
-			"tags": ["deploy", "down", "bottom", "drop", "menu"],
-			"categories": ["menu interaction"],
-			"id": "e90c064f-b448-45d3-b742-cc2ce894bf26",
-			"is_public": true
-		},
-		{
-			"aliases": ["collapse-up", "v1__p_c_b__d_t__s_7_3___x___o__p_t__s_2_2"],
-			"path": ["v1__p_c_b__d_t__s_7_3", "o__p_t__s_2_2", "o__p_t__s_2_2", "o__p_t__s_2_2"],
-			"tags": ["fold", "up", "top", "collapse", "menu"],
-			"categories": ["menu interaction"],
-			"id": "c3a9b662-5db9-402c-97a3-469d5218dd0a",
-			"is_public": true
-		},
-		{
-			"aliases": ["v1__p_c_b__d_b__s_7_3"],
-			"path": ["M -35 5 L 0 35 L 35 5"],
-			"id": "c6f43fa2-7c70-4d02-8583-a9b1002c579b",
-			"is_public": false
-		},
-		{
-			"aliases": ["v1__p_c_b__d_t__s_7_3"],
-			"path": ["M -35 35 L 0 5 L 35 35"],
-			"id": "e45197a9-8601-4b46-b3a6-880086be68ba",
-			"is_public": false
-		},
-		{
-			"aliases": ["home-page", "o__s_7_7___x___o__p_c_b__s_3_3"],
-			"path": ["o__s_7_7", "o__p_c_b__s_3_3"],
-			"tags": [
-				"home",
-				"house",
-				"residence",
-				"haven",
-				"sanctuary",
-				"refuge",
-				"start page",
-				"main page",
-				"landing page",
-				"shelter",
-				"dwelling",
-				"startup"
-			],
-			"id": "fa475747-5f03-4f77-9439-f6f8662268a5",
-			"is_public": true
-		},
-		{
-			"aliases": ["o__p_c_b__s_3_3"],
-			"path": ["M 0 0 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 0"],
-			"id": "a3fa0082-8274-4758-9dd6-a24c0dfb58e2",
-			"is_public": false
-		},
-		{
-			"aliases": ["l__p_b__d_l_r__s_7_0"],
-			"path": ["M -35 35 L 35 35 L 35 35"],
-			"id": "a33de32c-140e-471c-8047-65805b7379af",
-			"is_public": false
-		},
-		{
-			"aliases": ["download"],
-			"path": ["arrow-down", "l__p_b__d_l_r__s_7_0"],
-			"id": "01511761-f62d-4f6a-bddc-eeab454bbf5a",
-			"is_public": true
-		},
-		{
-			"aliases": ["o__s_8_8"],
-			"path": ["M 0 -42 A 1 1 0 0 0 0 42 A 1 1 0 0 0 0 -42"],
-			"id": "3f907a56-acb6-4896-8dd3-d7682953b1f3",
-			"is_public": false
-		},
-		{
-			"aliases": ["o__s_15_15"],
-			"path": ["M 0 -75 A 1 1 0 0 0 0 75 A 1 1 0 0 0 0 -75 M 50 50"],
-			"id": "8cc5fac8-2834-46e9-a180-bb4a80afe466",
-			"is_public": false
-		},
-		{
-			"aliases": ["developper", "dev", "l__p_cl__d_bl_tr___x___l__p_cr__d_br_tr"],
-			"path": ["M -20 25 L 0 -25 M 0 25 L 20 -25"],
-			"tags": ["code", "dev", "developer"],
-			"id": "c3f5abf3-6f45-45e1-805c-5a4db5c3f4e2",
-			"is_public": true
-		},
-		{
-			"aliases": ["plurality", "o__p_b__s_2_2___x___o__s_2_2___x___o__p_t__s_2_2"],
-			"path": ["o__p_b__s_2_2", "o__s_2_2", "o__p_t__s_2_2"],
-			"tags": [
-				"several",
-				"many",
-				"multiple",
-				"few",
-				"multiplicity",
-				"diversity",
-				"variety",
-				"multitude"
-			],
-			"id": "c8853170-86fd-4c69-8490-0924fe4af0f7",
-			"is_public": true
-		},
-		{
-			"aliases": ["copy", "v4__p_r_b__s_5_4___x___v3__p_r_t__d_r_t__s_5_4"],
-			"path": [
-				"M -35 35 L 10 35 L 10 -20 L -35 -20 Z M 10 20 L 35 20 L 35 -35 L -10 -35 L -10 -20"
-			],
-			"tags": [
-				"copy",
-				"duplicate",
-				"clone",
-				"replicate",
-				"clipboard",
-				"reproduce",
-				"clipboard",
-				"multiplication",
-				"reuse",
-				"replication"
-			],
-			"id": "8c955e20-6305-489a-8991-dbac47527a04",
-			"is_public": true
-		},
-		{
-			"aliases": [
-				"off",
-				"false",
-				"c1__p_l__d_l__s_2_4___x___l__p_c__d_b_t__s_0_5___x___c1__p_r__d_r__s_2_4"
-			],
-			"path": [
-				"M 0 0 L 0 25 M 0 -25 L 0 0 M -15 -20 A 1 1 0 0 0 -15 20 M 15 20 A 1 1 0 0 0 15 -20"
-			],
-			"tags": [
-				"deactivated",
-				"disabled",
-				"cancel",
-				"false",
-				"inactive",
-				"state",
-				"unchecked",
-				"unselected",
-				"stopped"
-			],
-			"categories": ["Toggle"],
-			"id": "a0093300-c5e7-474e-851b-bd4467da73f2",
-			"is_public": true
-		},
-		{
-			"aliases": [
-				"on",
-				"true",
-				"l__p_l__d_r_l__s_2_0___x___o__p_c__s_4_4___x___l__p_r__d_r_l__s_2_0"
-			],
-			"path": ["M -20 0 L -35 0 M 35 0 L 20 0 M 20 0 A 1 1 0 0 0 -20 0 M -20 0 A 1 1 0 0 0 20 0"],
-			"tags": ["activated", "enabled", "true", "active", "checked", "running", "state", "selected"],
-			"categories": ["Toggle"],
-			"id": "4440604e-d88b-491e-880b-91a34a962c0b",
-			"is_public": true
-		},
-		{
-			"aliases": ["github_logo"],
-			"path": [
-				"M 0 -45 C -24.2693 -45 -43.8886 -25.236 -43.8886 -0.7852 C -43.8886 18.7596 -31.3178 35.3038 -13.8788 41.1593 C -11.6985 41.5995 -10.8998 40.2079 -10.8998 39.0374 C -10.8998 38.0124 -10.9716 34.4989 -10.9716 30.838 C -10.9993 31.0109 -10.9993 26.6257 -10.7542 24.6159 C -10.3912 21.7609 -9.2279 19.7845 -7.9926 18.6867 C -17.73 17.6618 -27.975 13.8554 -27.975 -3.1282 C -27.975 -7.9596 -26.2322 -11.9124 -23.4706 -14.9866 C -23.9063 -16.0844 -25.4327 -20.6238 -23.034 -26.6994 C -23.034 -26.6994 -19.3283 -27.8709 -10.9726 -22.1609 A 42.1961 42.1961 0 0 1 0 -23.6252 C 3.7057 -23.6252 7.4834 -23.1122 10.9717 -22.1609 C 19.3283 -27.8709 23.034 -26.6994 23.034 -26.6994 C 25.4326 -20.6238 23.9055 -16.0844 23.4697 -14.9866 C 26.304 -11.9124 27.975 -7.9596 27.975 -3.1282 C 27.975 13.8554 17.7301 17.5881 7.9199 18.6867 C 9.519 20.0774 10.8989 22.7122 10.8989 26.8851 C 10.8989 32.8143 10.8271 37.5729 10.8271 39.0364 C 10.8271 40.2079 11.6266 41.5995 13.8061 41.1602 C 31.2451 35.303 43.8159 18.7596 43.8159 -0.7852 C 43.8878 -25.2359 24.1966 -45 0 -45 Z"
-			],
-			"id": "627eb1b2-5ca6-4861-acad-e459ae719619",
-			"is_public": false
-		},
-		{
-			"aliases": ["discord_logo"],
-			"path": [
-				"M -13 21 l -4.59 6.52 c -3.37 -0.11 -15.54 -2.27 -20 -10 c 0 -16.48 6.49 -35.99 9.67 -38.9 c 6.59 -5.24 17.33 -6.1 17.33 -6.1 s 1.03 1.84 1.11 3.97 c 4.09 -0.8 7.57 -0.97 9.39 -0.97 c 1.84 0 5.37 0.17 9.51 1 c 0.06 -2.15 0.99 -4 0.99 -4 s 10.74 0.86 17.33 6.1 c 3.18 2.91 9.67 22.42 9.67 38.9 c -4.45 7.73 -16.63 9.89 -20 10 l -4.59 -6.52 c -3.53 0.88 -7.84 1.52 -12.91 1.52 s -9.38 -0.64 -12.91 -1.52 z M -13 -2 A 1 1 0 0 0 -13 10 A 1 1 0 0 0 -13 -2 M 13 -2 A 1 1 0 0 0 13 10 A 1 1 0 0 0 13 -2"
-			],
-			"id": "28bfd8d2-c806-412b-927f-a5dbc9969eb7",
-			"is_public": false
-		}
-	]
+  "svgData": [
+    {
+      "aliases": ["v1__p_r__d_r__s_2_4"],
+      "path": ["M 15 -20 L 35 0 L 15 20"],
+      "tags": ["cap"],
+      "id": "bfd8805d-0964-4b0c-ae9b-fe2d45bfd868",
+      "is_public": false,
+      "categories": []
+    },
+    {
+      "aliases": ["v1__p_t__d_t__s_4_2"],
+      "path": ["M -20 -15 L 0 -35 L 20 -15"],
+      "tags": ["cap"],
+      "id": "c69e511d-28ab-45aa-80bc-8da81d7bc8e0",
+      "is_public": false
+    },
+    {
+      "aliases": ["v1__p_l__d_l__s_2_4"],
+      "path": ["M -15 -20 L -35 0 L -15 20"],
+      "tags": ["cap"],
+      "id": "bda0cc87-4c55-4a30-98e5-6c51a7223474",
+      "is_public": false
+    },
+    {
+      "aliases": ["v1__p_b__d_b__s_4_2"],
+      "path": ["M -20 15 L 0 35 L 20 15"],
+      "tags": ["cap"],
+      "id": "dd680279-d074-4839-a3a5-0c7a1cce284a",
+      "is_public": false
+    },
+    {
+      "aliases": ["v1__p_bl__d_bl__s_3_3"],
+      "path": ["M 5 25 L -25 25 L -25 -5"],
+      "tags": ["cap"],
+      "id": "3be829da-2147-4254-ae44-37f79af89827",
+      "is_public": false
+    },
+    {
+      "aliases": ["v1__p_br__d_br__s_3_3"],
+      "path": ["M -5 25 L 25 25 L 25 -5"],
+      "tags": ["cap"],
+      "id": "5f1df9c9-0d6e-4353-abf2-6a75a7b8ad5d",
+      "is_public": false
+    },
+    {
+      "aliases": ["v1__p_tl__d_tl__s_3_3"],
+      "path": ["M 5 -25 L -25 -25 L -25 5"],
+      "tags": ["cap"],
+      "id": "f1a20e56-a271-4a0e-8f01-b2c2654b62a9",
+      "is_public": false
+    },
+    {
+      "aliases": ["v1__p_tr__d_tr__s_3_3"],
+      "path": ["M -5 -25 L 25 -25 L 25 5"],
+      "tags": ["cap"],
+      "id": "b045a816-9c0b-41a6-887f-2e9495d7aac5",
+      "is_public": false
+    },
+    {
+      "aliases": ["v1__p_c_b__d_t__s_4_2"],
+      "path": ["M -20 20 L 0 0 L 20 20"],
+      "id": "f090cd01-20d7-4381-a8a6-d661c1cc2990",
+      "is_public": false
+    },
+    {
+      "aliases": ["no", "refuse", "l__d_r_l__s_7_0"],
+      "path": ["M 35 0 L -35 0"],
+      "tags": ["no", "denied"],
+      "categories": ["Validation"],
+      "id": "63526849-c42f-4bb8-9922-154ba1043f3f",
+      "is_public": true
+    },
+    {
+      "aliases": ["l__d_l_r__s_7_0"],
+      "path": ["M -35 0 L 35 0"],
+      "id": "039c9a8c-42de-48a3-a8be-206ceb84cbdf",
+      "is_public": false
+    },
+    {
+      "aliases": ["yes", "confirm", "l__d_t_b__s_0_7"],
+      "path": ["M 0 -35 L 0 35"],
+      "tags": ["confirm", "yes", "accept"],
+      "categories": ["Validation"],
+      "id": "f0039a8b-dacd-4c32-9e00-151380c364ca",
+      "is_public": true
+    },
+    {
+      "aliases": ["l__d_b_t__s_0_7"],
+      "path": ["M 0 35 L 0 -35"],
+      "tags": ["line"],
+      "id": "4cc6d354-d405-4ac6-b8ca-3c0200ba5f58",
+      "is_public": false
+    },
+    {
+      "aliases": ["l__d_tl_br__s_5_5"],
+      "path": ["M -25 -25 L 25 25"],
+      "tags": ["line"],
+      "id": "bcbb84c0-8f49-4bd7-a102-63f19f4a2405",
+      "is_public": false
+    },
+    {
+      "aliases": ["l__d_tr_bl__s_5_5"],
+      "path": ["M 25 -25 L -25 25"],
+      "tags": ["line"],
+      "id": "86c08ec5-69d0-4452-a57d-b4e400801bf9",
+      "is_public": false
+    },
+    {
+      "aliases": ["l__d_br_tl__s_5_5"],
+      "path": ["M 25 25 L -25 -25"],
+      "tags": ["line"],
+      "id": "b33571d4-136c-4b54-a395-023650442fdb",
+      "is_public": false
+    },
+    {
+      "aliases": ["l__d_bl_tr__s_5_5"],
+      "path": ["M -25 25 L 25 -25"],
+      "tags": ["line"],
+      "id": "cfa76843-8b25-4b28-9ae4-1f95a6bc8538",
+      "is_public": false
+    },
+    {
+      "aliases": ["o__s_2_2"],
+      "path": ["M 0 -10 A 1 1 0 0 0 0 10 A 1 1 0 0 0 0 -10"],
+      "tags": ["circle"],
+      "id": "5ebfb353-e182-4ebb-9a1e-d4c519c5c838",
+      "is_public": false
+    },
+    {
+      "aliases": ["o__p_t__s_2_2"],
+      "path": ["M 0 -35 A 1 1 0 0 0 0 -15 A 1 1 0 0 0 0 -35"],
+      "tags": ["circle"],
+      "id": "475af363-89d4-4895-84b8-e63fe4a2ca12",
+      "is_public": false
+    },
+    {
+      "aliases": ["o__p_tr__s_2_2"],
+      "path": ["M 25 -35 A 1 1 0 0 0 25 -15 A 1 1 0 0 0 25 -35"],
+      "id": "a523f080-0d4f-4370-8250-f162a2c2b5c9",
+      "is_public": false
+    },
+    {
+      "aliases": ["o__p_tl__s_2_2"],
+      "path": ["M -25 -35 A 1 1 0 0 0 -25 -15 A 1 1 0 0 0 -25 -35"],
+      "id": "7e60876f-f369-48c2-878d-0f8026ebfba7",
+      "is_public": false
+    },
+    {
+      "aliases": ["o__p_b__s_2_2"],
+      "path": ["M 0 15 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 15"],
+      "tags": ["circle"],
+      "id": "f31ba604-4cd0-4885-941c-5f790d4b8291",
+      "is_public": false
+    },
+    {
+      "aliases": ["o__s_7_7"],
+      "path": ["M 0 -35 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 -35"],
+      "tags": ["circle"],
+      "id": "a40f835c-8513-479a-bf3a-2a2643215afd",
+      "is_public": false
+    },
+    {
+      "aliases": ["arrow-right", "l__d_r_l__s_7_0___x___v1__p_r__d_r__s_2_4"],
+      "path": ["l__d_l_r__s_7_0", "v1__p_r__d_r__s_2_4"],
+      "tags": ["arrow", "right", "go"],
+      "categories": ["Arrow"],
+      "id": "555495eb-42d8-441f-ba0c-5f93d28fc0d0",
+      "is_public": true
+    },
+    {
+      "aliases": ["arrow-left", "l__d_r_l__s_7_0___x___v1__p_l__d_l__s_2_4"],
+      "path": ["l__d_r_l__s_7_0", "v1__p_l__d_l__s_2_4"],
+      "categories": ["Arrow"],
+      "tags": ["arrow", "left", "back"],
+      "id": "f738447e-af72-4d4f-a318-664fc60b121f",
+      "is_public": true
+    },
+    {
+      "aliases": ["arrow-up", "arrow-top", "l__d_b_t__s_0_7___x___v1__p_t__d_t__s_4_2"],
+      "path": ["l__d_b_t__s_0_7", "v1__p_t__d_t__s_4_2"],
+      "categories": ["Arrow"],
+      "tags": ["arrow", "up", "top"],
+      "id": "62860ff5-b97a-4286-aa85-52015eb5f405",
+      "is_public": true
+    },
+    {
+      "aliases": ["arrow-down", "arrow-bottom", "l__d_t_b__s_0_7___x___v1__p_b__d_b__s_4_2"],
+      "path": ["l__d_t_b__s_0_7", "v1__p_b__d_b__s_4_2"],
+      "categories": ["Arrow"],
+      "tags": ["arrow", "down", "bottom"],
+      "id": "1d584992-0a36-4dbd-9070-6dd58650b2a9",
+      "is_public": true
+    },
+    {
+      "aliases": ["arrow-down-left", "arrow-bottom-left", "l__d_tr_bl__s_5_5___x___v1__p_bl__d_bl__s_3_3"],
+      "path": ["l__d_tr_bl__s_5_5", "v1__p_bl__d_bl__s_3_3"],
+      "categories": ["Arrow"],
+      "tags": ["arrow", "down", "bottom", "left"],
+      "id": "1411689c-d987-4d83-9e5d-3812e28da168",
+      "is_public": true
+    },
+    {
+      "aliases": ["arrow-up-left", "arrow-top-left", "l__d_br_tl__s_5_5___x___v1__p_tl__d_tl__s_3_3"],
+      "path": ["l__d_br_tl__s_5_5", "v1__p_tl__d_tl__s_3_3"],
+      "categories": ["Arrow"],
+      "tags": ["arrow", "up", "top", "left"],
+      "id": "e36992f7-cff2-4921-be89-43b22b9a940b",
+      "is_public": true
+    },
+    {
+      "aliases": ["arrow-up-right", "arrow-top-right", "l__d_bl_tr__s_5_5___x___v1__p_tr__d_tr__s_3_3"],
+      "path": ["l__d_bl_tr__s_5_5", "v1__p_tr__d_tr__s_3_3"],
+      "categories": ["Arrow"],
+      "tags": ["arrow", "top", "up", "right"],
+      "id": "e983340e-dd49-4f2c-bc3e-ebe4444ed605",
+      "is_public": true
+    },
+    {
+      "aliases": ["arrow-down-right", "arrow-bottom-right", "l__d_tl_br__s_5_5___x___v1__p_br__d_br__s_3_3"],
+      "path": ["l__d_tl_br__s_5_5", "v1__p_br__d_br__s_3_3"],
+      "categories": ["Arrow"],
+      "tags": ["arrow", "down", "bottom", "right"],
+      "id": "9d594ac8-f8d6-46bd-a18a-fee021e8fe86",
+      "is_public": true
+    },
+    {
+      "aliases": ["under", "l__d_r_l__s_7_0___x___o__p_b__s_2_2"],
+      "path": ["l__d_r_l__s_7_0", "o__p_b__s_2_2"],
+      "categories": ["Position"],
+      "id": "c5c9648c-21b4-4657-a810-1aee068bc72d",
+      "is_public": true
+    },
+    {
+      "aliases": ["over", "l__d_r_l__s_7_0___x___o__p_t__s_2_2"],
+      "path": ["l__d_r_l__s_7_0", "o__p_t__s_2_2"],
+      "categories": ["Position"],
+      "id": "0ade22c1-cc19-4149-9839-328553ae68e7",
+      "is_public": true
+    },
+    {
+      "aliases": ["sky", "c1__d_t__s_7_2"],
+      "path": ["M -35 0 Q 0 -30 35 0"],
+      "tags": ["sky", "azure", "heavens"],
+      "categories": ["Cosmos"],
+      "id": "c3411ac2-ee0e-40c4-b156-6fc99acfc77a",
+      "is_public": true
+    },
+    {
+      "aliases": ["earth", "c1__d_b__s_7_2"],
+      "path": ["M -35 0 Q 0 30 35 0"],
+      "tags": ["earth", "terra", "soil", "ground", "gaia", "tellus"],
+      "categories": ["Cosmos"],
+      "id": "ae68ff3c-c5e6-4c29-ae5f-421a4ad50664",
+      "is_public": true
+    },
+    {
+      "aliases": ["eyelids", "v1c1v1c1x__d_l_r__s_7_3"],
+      "path": ["M -35 0 Q 0 -30 35 0 Q 0 30 -35 0 Z"],
+      "tags": ["eye", "gaze", "eyelids"],
+      "id": "c6972040-6d11-427d-aa7d-ab466a3679ab",
+      "is_public": true
+    },
+    {
+      "aliases": ["eye", "v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2"],
+      "path": ["eyelids", "o__s_2_2"],
+      "tags": ["eye", "optic", "oculus", "vision", "sight", "look", "view"],
+      "id": "3be3920b-1ea0-4aa1-bb76-f47fd1f25213",
+      "is_public": true
+    },
+    {
+      "aliases": ["grey-mode", "grey"],
+      "path": ["eye", "_M -20 22 L -25 30", "M 0 -25 L 0 -35", "M 20 22 L 25 30"],
+      "tags": ["gray", "grey", "ashen"],
+      "categories": ["Color-mode"],
+      "id": "564d39ad-0633-4084-8e28-d001f78bec5b",
+      "is_public": true
+    },
+    {
+      "aliases": ["light-mode", "light"],
+      "path": ["eye", "M -20 -22 L -25 -30", "M 0 -25 L 0 -35", "M 20 -22 L 25 -30"],
+      "tags": ["light", "day", "bright", "clear"],
+      "categories": ["Color-mode"],
+      "id": "9f6d0f63-98da-4dcc-bb86-6614993ca7ce",
+      "is_public": true
+    },
+    {
+      "aliases": ["dark-mode", "dark"],
+      "path": ["eye", "M -20 22 L -25 30", "M 0 25 L 0 35", "M 20 22 L 25 30"],
+      "tags": ["dark", "night", "dim", "moonlight", "nocture"],
+      "categories": ["Color-mode"],
+      "id": "2822512c-6482-4ed9-b274-6520c6b089d9",
+      "is_public": true
+    },
+    {
+      "aliases": ["o__s_7_7___x___v1__p_c_b__d_t__s_4_2___x___l__p_c_b__d_b_t__s_0_3"],
+      "path": ["o__s_7_7", "M -25 24 L 0 0 L 25 24", "M 0 35 L 0 0"],
+      "tags": ["?", "circle", "kinda peace"],
+      "id": "563ab42f-bc2b-4b0e-b5b9-cbefc4c2d802",
+      "is_public": false
+    },
+    {
+      "aliases": ["style", "c1e1c1__p_c_t__s_5_3"],
+      "path": ["M -15 0 C -15 -30 -30 -30 -30 0 C -30 30 5 30 5 -5 C 5 -30 -5 -30 -5 -5 C -5 30 30 30 30 0 C 30 -30 15 -30 15 0"],
+      "tags": ["style", "design", "designer"],
+      "id": "e435ae3d-91f2-4b84-a712-a01bd1d8f02d",
+      "is_public": false
+    },
+    {
+      "aliases": ["drop-down", "v1__p_c_b__d_b__s_7_3___x___o__p_tl__s_2_2___x___o__p_t__s_2_2___x___o__p_tr__s_2_2"],
+      "path": ["v1__p_c_b__d_b__s_7_3", "o__p_tl__s_2_2", "o__p_t__s_2_2", "o__p_tr__s_2_2"],
+      "tags": ["deploy", "down", "bottom", "drop", "menu"],
+      "categories": ["menu interaction"],
+      "id": "e90c064f-b448-45d3-b742-cc2ce894bf26",
+      "is_public": true
+    },
+    {
+      "aliases": ["collapse-up", "v1__p_c_b__d_t__s_7_3___x___o__p_t__s_2_2"],
+      "path": ["v1__p_c_b__d_t__s_7_3", "o__p_t__s_2_2", "o__p_t__s_2_2", "o__p_t__s_2_2"],
+      "tags": ["fold", "up", "top", "collapse", "menu"],
+      "categories": ["menu interaction"],
+      "id": "c3a9b662-5db9-402c-97a3-469d5218dd0a",
+      "is_public": true
+    },
+    {
+      "aliases": ["v1__p_c_b__d_b__s_7_3"],
+      "path": ["M -35 5 L 0 35 L 35 5"],
+      "id": "c6f43fa2-7c70-4d02-8583-a9b1002c579b",
+      "is_public": false
+    },
+    {
+      "aliases": ["v1__p_c_b__d_t__s_7_3"],
+      "path": ["M -35 35 L 0 5 L 35 35"],
+      "id": "e45197a9-8601-4b46-b3a6-880086be68ba",
+      "is_public": false
+    },
+    {
+      "aliases": ["home-page", "o__s_7_7___x___o__p_c_b__s_3_3"],
+      "path": ["o__s_7_7", "o__p_c_b__s_3_3"],
+      "tags": ["home", "house", "residence", "haven", "sanctuary", "refuge", "start page", "main page", "landing page", "shelter", "dwelling", "startup"],
+      "id": "fa475747-5f03-4f77-9439-f6f8662268a5",
+      "is_public": true
+    },
+    {
+      "aliases": ["o__p_c_b__s_3_3"],
+      "path": ["M 0 0 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 0"],
+      "id": "a3fa0082-8274-4758-9dd6-a24c0dfb58e2",
+      "is_public": false
+    },
+    {
+      "aliases": ["l__p_b__d_l_r__s_7_0"],
+      "path": ["M -35 35 L 35 35 L 35 35"],
+      "id": "a33de32c-140e-471c-8047-65805b7379af",
+      "is_public": false
+    },
+    {
+      "aliases": ["download"],
+      "path": ["arrow-down", "l__p_b__d_l_r__s_7_0"],
+      "id": "01511761-f62d-4f6a-bddc-eeab454bbf5a",
+      "is_public": true
+    },
+    {
+      "aliases": ["o__s_8_8"],
+      "path": ["M 0 -42 A 1 1 0 0 0 0 42 A 1 1 0 0 0 0 -42"],
+      "id": "3f907a56-acb6-4896-8dd3-d7682953b1f3",
+      "is_public": false
+    },
+    {
+      "aliases": ["o__s_15_15"],
+      "path": ["M 0 -75 A 1 1 0 0 0 0 75 A 1 1 0 0 0 0 -75 M 50 50"],
+      "id": "8cc5fac8-2834-46e9-a180-bb4a80afe466",
+      "is_public": false
+    },
+    {
+      "aliases": ["developper", "dev", "l__p_cl__d_bl_tr___x___l__p_cr__d_br_tr"],
+      "path": ["M -20 25 L 0 -25 M 0 25 L 20 -25"],
+      "tags": ["code", "dev", "developer"],
+      "id": "c3f5abf3-6f45-45e1-805c-5a4db5c3f4e2",
+      "is_public": true
+    },
+    {
+      "aliases": ["plurality", "o__p_b__s_2_2___x___o__s_2_2___x___o__p_t__s_2_2"],
+      "path": ["o__p_b__s_2_2", "o__s_2_2", "o__p_t__s_2_2"],
+      "tags": ["several", "many", "multiple", "few", "multiplicity", "diversity", "variety", "multitude"],
+      "id": "c8853170-86fd-4c69-8490-0924fe4af0f7",
+      "is_public": true
+    },
+    {
+      "aliases": ["copy", "v4__p_r_b__s_5_4___x___v3__p_r_t__d_r_t__s_5_4"],
+      "path": ["M -35 35 L 10 35 L 10 -20 L -35 -20 Z M 10 20 L 35 20 L 35 -35 L -10 -35 L -10 -20"],
+      "tags": ["copy", "duplicate", "clone", "replicate", "clipboard", "reproduce", "clipboard", "multiplication", "reuse", "replication"],
+      "id": "8c955e20-6305-489a-8991-dbac47527a04",
+      "is_public": true
+    },
+    {
+      "aliases": ["off", "false", "c1__p_l__d_l__s_2_4___x___l__p_c__d_b_t__s_0_5___x___c1__p_r__d_r__s_2_4"],
+      "path": ["M 0 0 L 0 25 M 0 -25 L 0 0 M -15 -20 A 1 1 0 0 0 -15 20 M 15 20 A 1 1 0 0 0 15 -20"],
+      "tags": ["deactivated", "disabled", "cancel", "false", "inactive", "state", "unchecked", "unselected", "stopped"],
+      "categories": ["Toggle"],
+      "id": "a0093300-c5e7-474e-851b-bd4467da73f2",
+      "is_public": true
+    },
+    {
+      "aliases": ["on", "true", "l__p_l__d_r_l__s_2_0___x___o__p_c__s_4_4___x___l__p_r__d_r_l__s_2_0"],
+      "path": ["M -20 0 L -35 0 M 35 0 L 20 0 M 20 0 A 1 1 0 0 0 -20 0 M -20 0 A 1 1 0 0 0 20 0"],
+      "tags": ["activated", "enabled", "true", "active", "checked", "running", "state", "selected"],
+      "categories": ["Toggle"],
+      "id": "4440604e-d88b-491e-880b-91a34a962c0b",
+      "is_public": true
+    },
+    {
+      "aliases": ["github_logo"],
+      "path": ["M 0 -45 C -24.2693 -45 -43.8886 -25.236 -43.8886 -0.7852 C -43.8886 18.7596 -31.3178 35.3038 -13.8788 41.1593 C -11.6985 41.5995 -10.8998 40.2079 -10.8998 39.0374 C -10.8998 38.0124 -10.9716 34.4989 -10.9716 30.838 C -10.9993 31.0109 -10.9993 26.6257 -10.7542 24.6159 C -10.3912 21.7609 -9.2279 19.7845 -7.9926 18.6867 C -17.73 17.6618 -27.975 13.8554 -27.975 -3.1282 C -27.975 -7.9596 -26.2322 -11.9124 -23.4706 -14.9866 C -23.9063 -16.0844 -25.4327 -20.6238 -23.034 -26.6994 C -23.034 -26.6994 -19.3283 -27.8709 -10.9726 -22.1609 A 42.1961 42.1961 0 0 1 0 -23.6252 C 3.7057 -23.6252 7.4834 -23.1122 10.9717 -22.1609 C 19.3283 -27.8709 23.034 -26.6994 23.034 -26.6994 C 25.4326 -20.6238 23.9055 -16.0844 23.4697 -14.9866 C 26.304 -11.9124 27.975 -7.9596 27.975 -3.1282 C 27.975 13.8554 17.7301 17.5881 7.9199 18.6867 C 9.519 20.0774 10.8989 22.7122 10.8989 26.8851 C 10.8989 32.8143 10.8271 37.5729 10.8271 39.0364 C 10.8271 40.2079 11.6266 41.5995 13.8061 41.1602 C 31.2451 35.303 43.8159 18.7596 43.8159 -0.7852 C 43.8878 -25.2359 24.1966 -45 0 -45 Z"],
+      "id": "627eb1b2-5ca6-4861-acad-e459ae719619",
+      "is_public": false
+    },
+    {
+      "aliases": ["discord_logo"],
+      "path": ["M -13 21 l -4.59 6.52 c -3.37 -0.11 -15.54 -2.27 -20 -10 c 0 -16.48 6.49 -35.99 9.67 -38.9 c 6.59 -5.24 17.33 -6.1 17.33 -6.1 s 1.03 1.84 1.11 3.97 c 4.09 -0.8 7.57 -0.97 9.39 -0.97 c 1.84 0 5.37 0.17 9.51 1 c 0.06 -2.15 0.99 -4 0.99 -4 s 10.74 0.86 17.33 6.1 c 3.18 2.91 9.67 22.42 9.67 38.9 c -4.45 7.73 -16.63 9.89 -20 10 l -4.59 -6.52 c -3.53 0.88 -7.84 1.52 -12.91 1.52 s -9.38 -0.64 -12.91 -1.52 z M -13 -2 A 1 1 0 0 0 -13 10 A 1 1 0 0 0 -13 -2 M 13 -2 A 1 1 0 0 0 13 10 A 1 1 0 0 0 13 -2"],
+      "id": "28bfd8d2-c806-412b-927f-a5dbc9969eb7",
+      "is_public": false
+    }
+  ]
 }
