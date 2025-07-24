@@ -2,6 +2,12 @@ import { json } from '@sveltejs/kit';
 import { Low } from 'lowdb';
 import { CompactJSONFile } from './CompactJSONFile.js';
 import { validateIcoglyph } from './validateIcoglyph.js';
+import { dev } from '$app/environment';
+import { error } from '@sveltejs/kit';
+
+if (!dev) {
+	throw error(403, 'Access denied in production');
+}
 
 const filePath = 'src/lib/library/icoglyphsDB.json';
 

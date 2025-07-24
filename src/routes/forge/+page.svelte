@@ -36,7 +36,7 @@
 
 	// CRUD functions
 	async function createNewIg() {
-		const res = await fetch('/api/v1/admin/ig-builder', {
+		const res = await fetch('/forge', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -54,7 +54,7 @@
 	}
 
 	async function updateIg() {
-		const res = await fetch('/api/v1/admin/ig-builder', {
+		const res = await fetch('/forge', {
 			method: 'PATCH',
 			headers: {
 				'Content-Type': 'application/json'
@@ -237,7 +237,7 @@
 	});
 
 	//---
-	$inspect(actualStateObj);
+	// $inspect(actualStateObj);
 </script>
 
 {#if dev}
