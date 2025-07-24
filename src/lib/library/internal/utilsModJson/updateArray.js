@@ -31,9 +31,8 @@ async function updateArray(glyphName, array, type, action) {
 		}
 
 		let existingArray;
-		// If type is 'tags', use metadata, else use aliases directly
 		if (type === 'tags') {
-			existingArray = glyph.metadata?.tags || [];
+			existingArray = glyph.tags || [];
 		} else if (type === 'aliases') {
 			existingArray = glyph.aliases || [];
 		}
@@ -49,7 +48,6 @@ async function updateArray(glyphName, array, type, action) {
 
 		let updatedArray;
 
-		// Add or remove based on the action
 		if (action === 'add') {
 			updatedArray = [...new Set([...existingArray, ...array])];
 		} else if (action === 'remove') {
@@ -59,9 +57,8 @@ async function updateArray(glyphName, array, type, action) {
 			return;
 		}
 
-		// Update the array in the correct place (metadata or directly in aliases)
 		if (type === 'tags') {
-			glyph.metadata.tags = updatedArray;
+			glyph.tags = updatedArray;
 		} else if (type === 'aliases') {
 			glyph.aliases = updatedArray;
 		}

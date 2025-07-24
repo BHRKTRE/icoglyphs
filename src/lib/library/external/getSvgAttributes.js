@@ -1,4 +1,4 @@
-import searchIcoGlyph from '../searchIcoGlyph';
+import searchIcoGlyph from './searchIcoGlyph';
 
 /**
  * @dev In some cases, it is necessary to convert the object to a string.
@@ -13,14 +13,14 @@ function getSvgAttributes(icoGlyphName) {
 			focusable: false, // ?
 			// 'data-icoGlyph': icoGlyphName,
 			role: 'img'
-			// "aria-label": ariaLabel,
+			// "aria-label": icoGlyphName,
 		};
 
 	const icoGlyph = searchIcoGlyph(icoGlyphName);
 	if (!icoGlyph) return;
 
-	// const ariaLabel = icoGlyph.metadata.publicName
-	//   ? icoGlyph.metadata.publicName
+	// const ariaLabel = icoGlyph.publicName
+	//   ? icoGlyph.publicName
 	//   : icoGlyphName;
 
 	const viewBox =

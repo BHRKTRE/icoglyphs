@@ -35,51 +35,51 @@ async function updateString(glyphName, newNote, noteType, action) {
 
 		if (noteType === 'publicName') {
 			if (action === 'add') {
-				if (!glyph.metadata.publicName) {
-					glyph.metadata.publicName = newNote;
+				if (!glyph.publicName) {
+					glyph.publicName = newNote;
 					console.log('Public name replaced.');
 				} else {
 					console.error('The public name can only be replaced or deleted. No changes made.');
 				}
 			} else if (action === 'replace') {
-				glyph.metadata.publicName = newNote;
+				glyph.publicName = newNote;
 				console.log('Public name replaced.');
 			} else if (action === 'delete') {
-				delete glyph.metadata.publicName;
+				delete glyph.publicName;
 				console.log('Public name deleted.');
 			}
 		} else if (noteType === 'description') {
 			// Manage description
 			if (action === 'add') {
-				if (!glyph.metadata.description) {
-					glyph.metadata.description = newNote;
+				if (!glyph.description) {
+					glyph.description = newNote;
 					console.log('New description added.');
 				} else {
 					console.log('The description already exists. No changes made.');
 				}
 			} else if (action === 'replace') {
-				glyph.metadata.description = newNote;
+				glyph.description = newNote;
 				console.log('Description replaced.');
 			} else if (action === 'delete') {
-				delete glyph.metadata.description;
+				delete glyph.description;
 				console.log('Description deleted.');
 			}
 		} else {
 			// Manage other types of notes (devNote, userNote)
-			if (!glyph.metadata.notes) glyph.metadata.notes = {};
+			if (!glyph.notes) glyph.notes = {};
 
 			if (action === 'add') {
-				if (!glyph.metadata.notes[noteType]) {
-					glyph.metadata.notes[noteType] = newNote;
+				if (!glyph.notes[noteType]) {
+					glyph.notes[noteType] = newNote;
 					console.log(`New note added for "${noteType}".`);
 				} else {
 					console.log(`The note "${noteType}" already exists. No changes made.`);
 				}
 			} else if (action === 'replace') {
-				glyph.metadata.notes[noteType] = newNote;
+				glyph.notes[noteType] = newNote;
 				console.log(`Note "${noteType}" replaced.`);
 			} else if (action === 'delete') {
-				delete glyph.metadata.notes[noteType];
+				delete glyph.notes[noteType];
 				console.log(`Note "${noteType}" deleted.`);
 			}
 		}

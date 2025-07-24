@@ -1,7 +1,7 @@
 <script>
-	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
-	import icoGlyphs from '$lib/index.js';
-	import IcoGlyphLinked from '$lib/app/ui/components/IcoGlyphLinked.svelte';
+	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
+	import icoGlyphs from '$lib/icoglyphs.js';
+	import IcoGlyphLinked from '$lib/app/components/IcoGlyphLinked.svelte';
 	import { animate, svg } from 'animejs';
 
 	let { data } = $props();
@@ -16,12 +16,13 @@
 
 	// Display all the icoGlyphs that have the same categories as the current icoGlyph
 	const allPathKeys = [];
-	Object.keys(icoGlyphs.library().svgData).forEach((key) => {
-		const metadata = icoGlyphs.library().svgData[key].metadata;
-		if (metadata?.categories?.some((category) => data?.metadata?.categories?.includes(category))) {
-			allPathKeys.push(key);
+	icoGlyphs.db.forEach((icon) => {
+		if (icon?.categories?.some((category) => data?.categories?.includes(category))) {
+			allPathKeys.push(icon.aliases[0]);
 		}
 	});
+
+	// $inspect(allPathKeys);
 
 	// Using morphTo() from animejs ?
 	// https://animejs.com/documentation/svg/morphto
@@ -49,7 +50,7 @@
 	}
 </script>
 
-{#if data.metadata?.categories && data.metadata.categories.length > 0}
+{#if data.categories && data.categories.length > 0}
 	<BasicBlock>
 		{#snippet title()}
 			<h2>Related icoglyphs</h2>

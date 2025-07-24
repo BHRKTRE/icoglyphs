@@ -1,5 +1,5 @@
 <script>
-	import icoGlyphs from '$lib/index.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
 	import Tools from './Tools.svelte';
 	import MainIcoG from './mainIcoG.svelte';
 	import TagsDisplay from './TagsDisplay.svelte';
@@ -11,9 +11,9 @@
 
 	// Display all the icoGlyphs that have the same categories as the current icoGlyph
 	const allPathKeys = [];
-	Object.keys(icoGlyphs.library().svgData).forEach((key) => {
-		const metadata = icoGlyphs.library().svgData[key].metadata;
-		if (metadata?.categories?.some((category) => data?.metadata?.categories?.includes(category))) {
+	Object.keys(icoGlyphs.db).forEach((key) => {
+		const icon = icoGlyphs.db[key];
+		if (icon?.categories?.some((category) => data?.categories?.includes(category))) {
 			allPathKeys.push(key);
 		}
 	});
@@ -25,7 +25,7 @@
 			.join(' ');
 	}
 
-	// $inspect(icoGlyphs.getSvg(data.name, { simplified: true }));
+	// $inspect(data);
 </script>
 
 <Metadata {data} {capitalizeTitle} />

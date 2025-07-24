@@ -1,6 +1,6 @@
 <script>
-	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
+	import appState from '$lib/app/appState.svelte.js';
+	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 
 	function actualiseLocalStorage(storageName, key, value) {
 		let storedData = JSON.parse(localStorage.getItem(storageName)) || {};

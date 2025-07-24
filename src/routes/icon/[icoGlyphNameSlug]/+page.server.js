@@ -1,25 +1,19 @@
 import { error } from '@sveltejs/kit';
-import icoGlyphs from '$lib/index.js';
+import icoGlyphs from '$lib/icoglyphs.js';
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
 	const { icoGlyphNameSlug } = params;
-	const library = icoGlyphs.library().svgData;
 
-	if (library[icoGlyphNameSlug]) {
+	const found = icoGlyphs.db.find(
+		(item) => item.aliases && item.aliases.includes(icoGlyphNameSlug)
+	);
+
+	if (found) {
 		return {
 			name: icoGlyphNameSlug,
-			...library[icoGlyphNameSlug]
+			...found
 		};
-	}
-
-	for (const [key, value] of Object.entries(library)) {
-		if (value.aliases && value.aliases.includes(icoGlyphNameSlug)) {
-			return {
-				name: key,
-				...value
-			};
-		}
 	}
 
 	throw error(404, 'IcoGlyph not found');

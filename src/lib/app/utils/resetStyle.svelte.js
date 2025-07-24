@@ -1,4 +1,4 @@
-import appState from '$lib/app/core/stores/appState.svelte.js';
+import appState from '$lib/app/appState.svelte.js';
 
 // TODO: There are some duplications with appState. This should be fixed in the future.
 

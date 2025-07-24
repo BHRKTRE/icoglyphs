@@ -1,8 +1,8 @@
 <script>
-	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import psi from '$lib/app/ui/utils/psi.js';
-	import { resetStyle } from '$lib/app/ui/utils/resetStyle.svelte.js';
-	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
+	import appState from '$lib/app/appState.svelte.js';
+	import psi from '$lib/app/utils/psi.js';
+	import { resetStyle } from '$lib/app/utils/resetStyle.svelte.js';
+	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 
 	function actualiseLocalStorage(storageName, key, value) {
 		let storedData = JSON.parse(localStorage.getItem(storageName)) || {};

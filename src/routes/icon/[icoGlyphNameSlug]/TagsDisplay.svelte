@@ -1,10 +1,10 @@
 <script>
-	import icoGlyphs from '$lib/index.js';
-	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
+	import icoGlyphs from '$lib/icoglyphs.js';
+	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 
 	let { icoGlyphName } = $props();
 
-	let tags = $derived(icoGlyphs.searchIcoGlyph(icoGlyphName)?.metadata?.tags);
+	let tags = $derived(icoGlyphs.searchIcoGlyph(icoGlyphName)?.tags);
 
 	// $inspect(icoGlyphName);
 </script>

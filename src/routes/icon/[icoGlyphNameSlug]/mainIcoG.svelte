@@ -1,6 +1,6 @@
 <script>
-	import icoGlyphs from '$lib/index.js';
-	import appState from '$lib/app/core/stores/appState.svelte.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
+	import appState from '$lib/app/appState.svelte.js';
 
 	let { data } = $props();
 
@@ -31,7 +31,7 @@
 
 	.checkerboard {
 		--color1: hsl(0 0% 40%);
-		--color2: hsl(0 0% 50%);
+		--color2: hsl(0, 0%, 57%);
 		--size: 22px;
 
 		background-image: linear-gradient(

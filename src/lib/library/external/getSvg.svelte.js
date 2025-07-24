@@ -1,4 +1,4 @@
-import searchIcoGlyph from '../searchIcoGlyph';
+import searchIcoGlyph from './searchIcoGlyph';
 import getPath from './getPath';
 import getSvgAttributes from './getSvgAttributes';
 

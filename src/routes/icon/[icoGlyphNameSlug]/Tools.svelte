@@ -1,12 +1,12 @@
 <script>
-	import appState from '$lib/app/core/stores/appState.svelte.js';
-	import BasicBlock from '$lib/app/ui/components/BasicBlock.svelte';
+	import appState from '$lib/app/appState.svelte.js';
+	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 	import DesignerTools from './toolsComponents/DesignerTools.svelte';
 	import DeveloperTools from './toolsComponents/DeveloperTools.svelte';
 	import SvgExpertTools from './toolsComponents/SvgExpertTools.svelte';
-	import icoGlyphs from '$lib/index.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
 
-	import TabInterface from '$lib/app/ui/components/TabInterface.svelte';
+	import TabInterface from '$lib/app/components/TabInterface.svelte';
 
 	let { data } = $props();
 
