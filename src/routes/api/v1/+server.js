@@ -1,4 +1,4 @@
-import icoGlyphs from '$lib/index.js';
+import icoGlyphs from '$lib/icoglyphs.js';
 
 // TODO use import { json } from '@sveltejs/kit';
 

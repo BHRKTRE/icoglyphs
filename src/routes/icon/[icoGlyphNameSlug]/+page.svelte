@@ -1,5 +1,5 @@
 <script>
-	import icoGlyphs from '$lib/index.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
 	import Tools from './Tools.svelte';
 	import MainIcoG from './mainIcoG.svelte';
 	import TagsDisplay from './TagsDisplay.svelte';

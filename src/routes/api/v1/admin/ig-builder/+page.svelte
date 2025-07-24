@@ -1,7 +1,7 @@
 <script>
 	import { dev } from '$app/environment';
 	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
-	import icoGlyphs from '$lib/index.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
 	import appState from '$lib/app/appState.svelte.js';
 	import { animate } from 'animejs';
 	import { v4 as uuidv4 } from 'uuid';

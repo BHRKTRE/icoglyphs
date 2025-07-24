@@ -1,4 +1,4 @@
-import icoGlyphs from '$lib/index.js';
+import icoGlyphs from '$lib/icoglyphs.js';
 
 const mainUrl = 'https://icoglyphs.com/';
 const lastModDate = '2025-04-25';

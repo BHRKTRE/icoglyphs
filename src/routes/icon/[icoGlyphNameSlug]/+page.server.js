@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import icoGlyphs from '$lib/index.js';
+import icoGlyphs from '$lib/icoglyphs.js';
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {

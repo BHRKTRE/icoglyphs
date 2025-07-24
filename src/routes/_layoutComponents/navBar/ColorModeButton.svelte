@@ -2,7 +2,7 @@
 	import appState from '$lib/app/appState.svelte.js';
 
 	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
-	import icoGlyphs from '$lib/index.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
 	import { resetStyle } from '$lib/app/utils/resetStyle.svelte.js';
 
 	$effect(() => {

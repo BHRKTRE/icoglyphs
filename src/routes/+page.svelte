@@ -1,6 +1,6 @@
 <script>
 	import IcoGlyphLinked from '$lib/app/components/IcoGlyphLinked.svelte';
-	import icoGlyphs from '$lib/index.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
 	import appState from '$lib/app/appState.svelte.js';
 	import HomePageHeader from './HomePageHeader.svelte';
 	import Metadata from './Metadata.svelte';

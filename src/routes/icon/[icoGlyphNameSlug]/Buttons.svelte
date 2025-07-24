@@ -2,7 +2,7 @@
 	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
 	import appState from '$lib/app/appState.svelte.js';
 	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
-	import icoGlyphs from '$lib/index.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
 	import {
 		downloadPng,
 		copySvgToClipBoard,

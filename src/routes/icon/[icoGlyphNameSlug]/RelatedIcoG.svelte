@@ -1,6 +1,6 @@
 <script>
 	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
-	import icoGlyphs from '$lib/index.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
 	import IcoGlyphLinked from '$lib/app/components/IcoGlyphLinked.svelte';
 	import { animate, svg } from 'animejs';
 

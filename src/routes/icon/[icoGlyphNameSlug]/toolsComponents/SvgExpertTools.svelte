@@ -1,6 +1,6 @@
 <script>
 	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
-	import icoGlyphs from '$lib/index.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
 	import MorphingPath from '$lib/app/components/MorphingPath.svelte';
 	import appState from '$lib/app/appState.svelte.js';
 

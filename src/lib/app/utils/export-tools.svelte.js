@@ -1,4 +1,4 @@
-import icoGlyphs from '$lib/index.js';
+import icoGlyphs from '$lib/icoglyphs.js';
 import appState from '$lib/app/appState.svelte.js';
 
 const defaultStyleForUserExport = {

@@ -1,5 +1,5 @@
 <script>
-	import icoGlyphs from '$lib/index.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
 	import { animate } from 'animejs';
 
 	// Using morphTo() from animejs ?

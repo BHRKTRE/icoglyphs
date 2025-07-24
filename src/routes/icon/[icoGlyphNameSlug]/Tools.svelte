@@ -4,7 +4,7 @@
 	import DesignerTools from './toolsComponents/DesignerTools.svelte';
 	import DeveloperTools from './toolsComponents/DeveloperTools.svelte';
 	import SvgExpertTools from './toolsComponents/SvgExpertTools.svelte';
-	import icoGlyphs from '$lib/index.js';
+	import icoGlyphs from '$lib/icoglyphs.js';
 
 	import TabInterface from '$lib/app/components/TabInterface.svelte';
 
