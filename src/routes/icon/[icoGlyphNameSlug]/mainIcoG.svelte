@@ -31,7 +31,7 @@
 
 	.checkerboard {
 		--color1: hsl(0 0% 40%);
-		--color2: hsl(0 0% 50%);
+		--color2: hsl(0, 0%, 57%);
 		--size: 22px;
 
 		background-image: linear-gradient(
