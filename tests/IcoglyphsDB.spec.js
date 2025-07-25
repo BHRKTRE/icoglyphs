@@ -1,9 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import fs from 'fs';
-import path from 'path';
-
-const dbPath = path.resolve(__dirname, '../src/lib/library/icoglyphsDB.json');
-const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+import db from '../src/lib/library/icoglyphsDB.json';
 
 const ids = new Set();
 const allAliases = new Set();
