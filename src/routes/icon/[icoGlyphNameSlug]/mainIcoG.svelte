@@ -27,6 +27,7 @@
 		aspect-ratio: 1 / 1;
 		border: var(--b2) var(--border-width-medium) solid;
 		border-radius: var(--border-radius);
+		display: flex;
 	}
 
 	.checkerboard {

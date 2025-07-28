@@ -78,10 +78,8 @@
 	}
 
 	#icoGlyphsContainer {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
 		height: 100%;
 		width: 100%;
 		gap: var(--spacing-medium);

@@ -3,12 +3,7 @@
 	import { goto } from '$app/navigation';
 	import appState from '$lib/app/appState.svelte.js';
 
-	let { icoGlyphName, size = 'medium' } = $props();
-
-	const dimensions = {
-		small: 60,
-		medium: 130
-	};
+	let { icoGlyphName } = $props();
 
 	// $inspect(getIcoGlyphSlug());
 </script>
@@ -17,8 +12,6 @@
 	onclick={() => goto(`/icon/${icoGlyphName}`)}
 	aria-label={`Navigate to '${icoGlyphName}' icon page`}
 	class="icoglyphContainer button-svg-only"
-	style:width={`${dimensions[size]}px`}
-	style:height={`${dimensions[size]}px`}
 >
 	<title id="icon-title">{icoGlyphName} icon</title>
 	<svg
@@ -32,6 +25,9 @@
 </button>
 
 <style>
+	button {
+		aspect-ratio: 1/1;
+	}
 	svg {
 		height: 100%;
 		width: 100%;

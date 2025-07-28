@@ -71,7 +71,7 @@
 							class="animableSet"
 							onclick={() => (readyToAnimate = false)}
 						>
-							<IcoGlyphLinked icoGlyphName={pathKeys} size="small" />
+							<IcoGlyphLinked icoGlyphName={pathKeys} />
 						</div>
 					{/if}
 				{/each}
@@ -83,9 +83,11 @@
 <style>
 	#sub-icoglyphs-display {
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
 
 		gap: var(--spacing-medium);
+	}
+
+	.animableSet {
+		width: 60px;
 	}
 </style>
