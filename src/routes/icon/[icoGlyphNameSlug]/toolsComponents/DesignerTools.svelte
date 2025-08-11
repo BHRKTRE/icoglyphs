@@ -65,7 +65,7 @@
 							appState.icoGlyphUserSettings.style['stroke-width']
 						)}
 					min="0.3"
-					max="9"
+					max="8"
 					step="0.1"
 					type="range"
 				/>
