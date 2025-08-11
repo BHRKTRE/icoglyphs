@@ -73,6 +73,9 @@ export function validateIcoglyph(obj, existingData, { isUpdate = false } = {}) {
 			if (typeof category !== 'string') {
 				throw new Error('Each category must be a string');
 			}
+			if (category !== category.toLowerCase()) {
+				throw new Error('Each category must be in lowercase');
+			}
 		}
 	}
 }
