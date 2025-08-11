@@ -67,7 +67,7 @@
       "aliases": ["no", "refuse", "l__d_r_l__s_7_0"],
       "path": ["M 35 0 L -35 0"],
       "tags": ["no", "denied"],
-      "categories": ["Validation"],
+      "categories": ["validations"],
       "id": "63526849-c42f-4bb8-9922-154ba1043f3f",
       "is_public": true
     },
@@ -81,7 +81,7 @@
       "aliases": ["yes", "confirm", "l__d_t_b__s_0_7"],
       "path": ["M 0 -35 L 0 35"],
       "tags": ["confirm", "yes", "accept"],
-      "categories": ["Validation"],
+      "categories": ["validations"],
       "id": "f0039a8b-dacd-4c32-9e00-151380c364ca",
       "is_public": true
     },
@@ -164,14 +164,14 @@
       "aliases": ["arrow-right", "l__d_r_l__s_7_0___x___v1__p_r__d_r__s_2_4"],
       "path": ["l__d_l_r__s_7_0", "v1__p_r__d_r__s_2_4"],
       "tags": ["arrow", "right", "go"],
-      "categories": ["Arrow"],
+      "categories": ["arrows"],
       "id": "555495eb-42d8-441f-ba0c-5f93d28fc0d0",
       "is_public": true
     },
     {
       "aliases": ["arrow-left", "l__d_r_l__s_7_0___x___v1__p_l__d_l__s_2_4"],
       "path": ["l__d_r_l__s_7_0", "v1__p_l__d_l__s_2_4"],
-      "categories": ["Arrow"],
+      "categories": ["arrows"],
       "tags": ["arrow", "left", "back"],
       "id": "f738447e-af72-4d4f-a318-664fc60b121f",
       "is_public": true
@@ -179,7 +179,7 @@
     {
       "aliases": ["arrow-up", "arrow-top", "l__d_b_t__s_0_7___x___v1__p_t__d_t__s_4_2"],
       "path": ["l__d_b_t__s_0_7", "v1__p_t__d_t__s_4_2"],
-      "categories": ["Arrow"],
+      "categories": ["arrows"],
       "tags": ["arrow", "up", "top"],
       "id": "62860ff5-b97a-4286-aa85-52015eb5f405",
       "is_public": true
@@ -187,7 +187,7 @@
     {
       "aliases": ["arrow-down", "arrow-bottom", "l__d_t_b__s_0_7___x___v1__p_b__d_b__s_4_2"],
       "path": ["l__d_t_b__s_0_7", "v1__p_b__d_b__s_4_2"],
-      "categories": ["Arrow"],
+      "categories": ["arrows"],
       "tags": ["arrow", "down", "bottom"],
       "id": "1d584992-0a36-4dbd-9070-6dd58650b2a9",
       "is_public": true
@@ -195,7 +195,7 @@
     {
       "aliases": ["arrow-down-left", "arrow-bottom-left", "l__d_tr_bl__s_5_5___x___v1__p_bl__d_bl__s_3_3"],
       "path": ["l__d_tr_bl__s_5_5", "v1__p_bl__d_bl__s_3_3"],
-      "categories": ["Arrow"],
+      "categories": ["arrows"],
       "tags": ["arrow", "down", "bottom", "left"],
       "id": "1411689c-d987-4d83-9e5d-3812e28da168",
       "is_public": true
@@ -203,7 +203,7 @@
     {
       "aliases": ["arrow-up-left", "arrow-top-left", "l__d_br_tl__s_5_5___x___v1__p_tl__d_tl__s_3_3"],
       "path": ["l__d_br_tl__s_5_5", "v1__p_tl__d_tl__s_3_3"],
-      "categories": ["Arrow"],
+      "categories": ["arrows"],
       "tags": ["arrow", "up", "top", "left"],
       "id": "e36992f7-cff2-4921-be89-43b22b9a940b",
       "is_public": true
@@ -211,7 +211,7 @@
     {
       "aliases": ["arrow-up-right", "arrow-top-right", "l__d_bl_tr__s_5_5___x___v1__p_tr__d_tr__s_3_3"],
       "path": ["l__d_bl_tr__s_5_5", "v1__p_tr__d_tr__s_3_3"],
-      "categories": ["Arrow"],
+      "categories": ["arrows"],
       "tags": ["arrow", "top", "up", "right"],
       "id": "e983340e-dd49-4f2c-bc3e-ebe4444ed605",
       "is_public": true
@@ -219,7 +219,7 @@
     {
       "aliases": ["arrow-down-right", "arrow-bottom-right", "l__d_tl_br__s_5_5___x___v1__p_br__d_br__s_3_3"],
       "path": ["l__d_tl_br__s_5_5", "v1__p_br__d_br__s_3_3"],
-      "categories": ["Arrow"],
+      "categories": ["arrows"],
       "tags": ["arrow", "down", "bottom", "right"],
       "id": "9d594ac8-f8d6-46bd-a18a-fee021e8fe86",
       "is_public": true
@@ -227,14 +227,14 @@
     {
       "aliases": ["under", "l__d_r_l__s_7_0___x___o__p_b__s_2_2"],
       "path": ["l__d_r_l__s_7_0", "o__p_b__s_2_2"],
-      "categories": ["Position"],
+      "categories": ["positions"],
       "id": "c5c9648c-21b4-4657-a810-1aee068bc72d",
       "is_public": true
     },
     {
       "aliases": ["over", "l__d_r_l__s_7_0___x___o__p_t__s_2_2"],
       "path": ["l__d_r_l__s_7_0", "o__p_t__s_2_2"],
-      "categories": ["Position"],
+      "categories": ["positions"],
       "id": "0ade22c1-cc19-4149-9839-328553ae68e7",
       "is_public": true
     },
@@ -242,15 +242,15 @@
       "aliases": ["sky", "c1__d_t__s_7_2"],
       "path": ["M -35 0 Q 0 -30 35 0"],
       "tags": ["sky", "azure", "heavens"],
-      "categories": ["Cosmos"],
+      "categories": ["cosmos"],
       "id": "c3411ac2-ee0e-40c4-b156-6fc99acfc77a",
       "is_public": true
     },
     {
-      "aliases": ["earth", "c1__d_b__s_7_2"],
+      "aliases": ["c1__d_b__s_7_2", "land"],
       "path": ["M -35 0 Q 0 30 35 0"],
       "tags": ["earth", "terra", "soil", "ground", "gaia", "tellus"],
-      "categories": ["Cosmos"],
+      "categories": ["cosmos"],
       "id": "ae68ff3c-c5e6-4c29-ae5f-421a4ad50664",
       "is_public": true
     },
@@ -272,7 +272,7 @@
       "aliases": ["grey-mode", "grey"],
       "path": ["eye", "_M -20 22 L -25 30", "M 0 -25 L 0 -35", "M 20 22 L 25 30"],
       "tags": ["gray", "grey", "ashen"],
-      "categories": ["Color-mode"],
+      "categories": ["color-mode"],
       "id": "564d39ad-0633-4084-8e28-d001f78bec5b",
       "is_public": true
     },
@@ -280,7 +280,7 @@
       "aliases": ["light-mode", "light"],
       "path": ["eye", "M -20 -22 L -25 -30", "M 0 -25 L 0 -35", "M 20 -22 L 25 -30"],
       "tags": ["light", "day", "bright", "clear"],
-      "categories": ["Color-mode"],
+      "categories": ["color-mode"],
       "id": "9f6d0f63-98da-4dcc-bb86-6614993ca7ce",
       "is_public": true
     },
@@ -288,7 +288,7 @@
       "aliases": ["dark-mode", "dark"],
       "path": ["eye", "M -20 22 L -25 30", "M 0 25 L 0 35", "M 20 22 L 25 30"],
       "tags": ["dark", "night", "dim", "moonlight", "nocture"],
-      "categories": ["Color-mode"],
+      "categories": ["color-mode"],
       "id": "2822512c-6482-4ed9-b274-6520c6b089d9",
       "is_public": true
     },
@@ -396,7 +396,7 @@
       "aliases": ["off", "false", "c1__p_l__d_l__s_2_4___x___l__p_c__d_b_t__s_0_5___x___c1__p_r__d_r__s_2_4"],
       "path": ["M 0 0 L 0 25 M 0 -25 L 0 0 M -15 -20 A 1 1 0 0 0 -15 20 M 15 20 A 1 1 0 0 0 15 -20"],
       "tags": ["deactivated", "disabled", "cancel", "false", "inactive", "state", "unchecked", "unselected", "stopped"],
-      "categories": ["Toggle"],
+      "categories": ["toggle"],
       "id": "a0093300-c5e7-474e-851b-bd4467da73f2",
       "is_public": true
     },
@@ -404,7 +404,7 @@
       "aliases": ["on", "true", "l__p_l__d_r_l__s_2_0___x___o__p_c__s_4_4___x___l__p_r__d_r_l__s_2_0"],
       "path": ["M -20 0 L -35 0 M 35 0 L 20 0 M 20 0 A 1 1 0 0 0 -20 0 M -20 0 A 1 1 0 0 0 20 0"],
       "tags": ["activated", "enabled", "true", "active", "checked", "running", "state", "selected"],
-      "categories": ["Toggle"],
+      "categories": ["toggle"],
       "id": "4440604e-d88b-491e-880b-91a34a962c0b",
       "is_public": true
     },
@@ -419,6 +419,62 @@
       "path": ["M -13 21 l -4.59 6.52 c -3.37 -0.11 -15.54 -2.27 -20 -10 c 0 -16.48 6.49 -35.99 9.67 -38.9 c 6.59 -5.24 17.33 -6.1 17.33 -6.1 s 1.03 1.84 1.11 3.97 c 4.09 -0.8 7.57 -0.97 9.39 -0.97 c 1.84 0 5.37 0.17 9.51 1 c 0.06 -2.15 0.99 -4 0.99 -4 s 10.74 0.86 17.33 6.1 c 3.18 2.91 9.67 22.42 9.67 38.9 c -4.45 7.73 -16.63 9.89 -20 10 l -4.59 -6.52 c -3.53 0.88 -7.84 1.52 -12.91 1.52 s -9.38 -0.64 -12.91 -1.52 z M -13 -2 A 1 1 0 0 0 -13 10 A 1 1 0 0 0 -13 -2 M 13 -2 A 1 1 0 0 0 13 10 A 1 1 0 0 0 13 -2"],
       "id": "28bfd8d2-c806-412b-927f-a5dbc9969eb7",
       "is_public": false
+    },
+    {
+      "aliases": ["fire", "destruction"],
+      "path": ["M -35 30 L 0 -30 L 35 30", "M -35 30 L 35 30"],
+      "categories": ["elements"],
+      "tags": ["flame", "burn"],
+      "id": "ae7075db-27bf-40b4-a546-a25a85985e52",
+      "is_public": true
+    },
+    {
+      "aliases": ["air"],
+      "path": ["M -35 30 L 0 -30 L 35 30", " M -35 0 L 35 0"],
+      "categories": ["elements"],
+      "tags": [],
+      "id": "d8756ce6-eb77-4220-8fb0-317e7dfc9425",
+      "is_public": true
+    },
+    {
+      "aliases": ["water"],
+      "path": ["M -35 -30 L 0 30 L 35 -30", "M -35 -30 L 35 -30"],
+      "categories": ["elements"],
+      "tags": [],
+      "id": "a070811f-f7db-421d-8636-2ffc5f8914cc",
+      "is_public": true
+    },
+    {
+      "aliases": ["earth"],
+      "path": ["M -35 -30 L 0 30 L 35 -30", "M -35 0 L 35 0"],
+      "categories": ["elements"],
+      "tags": [],
+      "id": "1fba6a75-e67a-446f-aa79-ac1d157aab0f",
+      "is_public": true
+    },
+    {
+      "aliases": ["eather"],
+      "path": ["M -35 -35 L 35 -15 L -35 15", " M -35 15 L 35 35"],
+      "categories": ["elements"],
+      "tags": [],
+      "id": "e61199fb-3103-4fd6-81ec-3842681cb082",
+      "is_public": true
+    },
+    {
+      "aliases": ["fork", "choice"],
+      "path": ["M -25 -30 L 0 30 L 24 -30", "M -35 -30 L -10 30", "M 35 -30 L 10 30"],
+      "categories": ["roads"],
+      "tags": ["split", "alternative", "option", "divergence"],
+      "id": "7bfcb9c9-e891-417a-862a-4d8ed4b6bf41",
+      "is_public": true
+    },
+    {
+      "aliases": ["merge", "decision"],
+      "path": ["M -24 30 L 0 -30 L 25 30", "M -10 -30 L -35 30", "M 10 -30 L 35 30"],
+      "categories": ["roads"],
+      "tags": ["decision", "merge", "resolution", "convergence"],
+      "id": "941540e5-3acd-464a-a9d7-7422da781c73",
+      "is_public": true
     }
   ]
 }
