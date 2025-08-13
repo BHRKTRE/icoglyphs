@@ -181,6 +181,20 @@
 		array.splice(index, 1);
 	}
 
+	// Met l'élément à l'index donné avant (vers le début)
+	function moveBefore(array, index) {
+		if (index <= 0) return; // déjà au début
+		const [item] = array.splice(index, 1);
+		array.splice(index - 1, 0, item);
+	}
+
+	// Met l'élément à l'index donné après (vers la fin)
+	function moveAfter(array, index) {
+		if (index >= array.length - 1) return; // déjà à la fin
+		const [item] = array.splice(index, 1);
+		array.splice(index + 1, 0, item);
+	}
+
 	//---
 	function preIgIsSelected(icoGlyphName) {
 		preIgSelected = icoGlyphs.searchIcoGlyph(icoGlyphName);
@@ -237,7 +251,7 @@
 	});
 
 	//---
-	// $inspect(actualStateObj);
+	$inspect(actualStateObj);
 </script>
 
 {#if dev}
@@ -377,7 +391,31 @@
 						{#each actualStateObj.aliases as alias, index}
 							<div class="el-container">
 								<p>{alias}</p>
-								<button onclick={() => deleteEl(actualStateObj.aliases, index)}>D</button>
+								<button class="el-button" onclick={() => deleteEl(actualStateObj.aliases, index)}
+									>D</button
+								>
+								{#if index !== 0}
+									<!-- svelte-ignore a11y_consider_explicit_label -->
+									<button
+										class="el-button"
+										onclick={() => moveBefore(actualStateObj.aliases, index)}
+									>
+										<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+											<path d={icoGlyphs.getPath('arrow-up')}></path>
+										</svg>
+									</button>
+								{/if}
+								{#if index !== actualStateObj.aliases.length - 1}
+									<!-- svelte-ignore a11y_consider_explicit_label -->
+									<button
+										class="el-button"
+										onclick={() => moveAfter(actualStateObj.aliases, index)}
+									>
+										<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+											<path d={icoGlyphs.getPath('arrow-down')}></path>
+										</svg>
+									</button>
+								{/if}
 							</div>
 						{/each}
 					</div>
@@ -410,7 +448,25 @@
 						{#each actualStateObj.path as path, index}
 							<div class="el-container">
 								<p>{path}</p>
-								<button onclick={() => deleteEl(actualStateObj.path, index)}>D</button>
+								<button class="el-button" onclick={() => deleteEl(actualStateObj.path, index)}
+									>D</button
+								>
+								{#if index !== 0}
+									<!-- svelte-ignore a11y_consider_explicit_label -->
+									<button class="el-button" onclick={() => moveBefore(actualStateObj.path, index)}>
+										<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+											<path d={icoGlyphs.getPath('arrow-up')}></path>
+										</svg>
+									</button>
+								{/if}
+								{#if index !== actualStateObj.path.length - 1}
+									<!-- svelte-ignore a11y_consider_explicit_label -->
+									<button class="el-button" onclick={() => moveAfter(actualStateObj.path, index)}>
+										<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+											<path d={icoGlyphs.getPath('arrow-down')}></path>
+										</svg>
+									</button>
+								{/if}
 							</div>
 						{/each}
 					</div>
@@ -437,7 +493,31 @@
 						{#each actualStateObj.categories as category, index}
 							<div class="el-container">
 								<p>{category}</p>
-								<button onclick={() => deleteEl(actualStateObj.categories, index)}>D</button>
+								<button class="el-button" onclick={() => deleteEl(actualStateObj.categories, index)}
+									>D</button
+								>
+								{#if index !== 0}
+									<!-- svelte-ignore a11y_consider_explicit_label -->
+									<button
+										class="el-button"
+										onclick={() => moveBefore(actualStateObj.categories, index)}
+									>
+										<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+											<path d={icoGlyphs.getPath('arrow-up')}></path>
+										</svg>
+									</button>
+								{/if}
+								{#if index !== actualStateObj.categories.length - 1}
+									<!-- svelte-ignore a11y_consider_explicit_label -->
+									<button
+										class="el-button"
+										onclick={() => moveAfter(actualStateObj.categories, index)}
+									>
+										<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+											<path d={icoGlyphs.getPath('arrow-down')}></path>
+										</svg>
+									</button>
+								{/if}
 							</div>
 						{/each}
 					</div>
@@ -463,7 +543,25 @@
 						{#each actualStateObj.tags as tag, index}
 							<div class="el-container">
 								<p>{tag}</p>
-								<button onclick={() => deleteEl(actualStateObj.tags, index)}>D</button>
+								<button class="el-button" onclick={() => deleteEl(actualStateObj.tags, index)}
+									>D</button
+								>
+								{#if index !== 0}
+									<!-- svelte-ignore a11y_consider_explicit_label -->
+									<button class="el-button" onclick={() => moveBefore(actualStateObj.tags, index)}>
+										<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+											<path d={icoGlyphs.getPath('arrow-up')}></path>
+										</svg>
+									</button>
+								{/if}
+								{#if index !== actualStateObj.tags.length - 1}
+									<!-- svelte-ignore a11y_consider_explicit_label -->
+									<button class="el-button" onclick={() => moveAfter(actualStateObj.tags, index)}>
+										<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+											<path d={icoGlyphs.getPath('arrow-down')}></path>
+										</svg>
+									</button>
+								{/if}
 							</div>
 						{/each}
 					</div>
@@ -546,6 +644,12 @@
 		background: var(--b2);
 		padding: var(--spacing-small) var(--spacing-medium);
 		border-radius: var(--border-radius);
+	}
+
+	.el-button {
+		display: flex;
+		height: 100%;
+		max-height: 30px;
 	}
 
 	.warning-txt {
