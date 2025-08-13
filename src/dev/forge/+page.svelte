@@ -389,11 +389,14 @@
 				{#snippet el()}
 					<div class="array-container">
 						{#each actualStateObj.aliases as alias, index}
+							<!-- svelte-ignore a11y_consider_explicit_label -->
 							<div class="el-container">
 								<p>{alias}</p>
-								<button class="el-button" onclick={() => deleteEl(actualStateObj.aliases, index)}
-									>D</button
-								>
+								<button class="el-button" onclick={() => deleteEl(actualStateObj.aliases, index)}>
+									<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+										<path d={icoGlyphs.getPath('minus')}></path>
+									</svg>
+								</button>
 								{#if index !== 0}
 									<!-- svelte-ignore a11y_consider_explicit_label -->
 									<button
@@ -448,9 +451,12 @@
 						{#each actualStateObj.path as path, index}
 							<div class="el-container">
 								<p>{path}</p>
-								<button class="el-button" onclick={() => deleteEl(actualStateObj.path, index)}
-									>D</button
-								>
+								<!-- svelte-ignore a11y_consider_explicit_label -->
+								<button class="el-button" onclick={() => deleteEl(actualStateObj.path, index)}>
+									<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+										<path d={icoGlyphs.getPath('minus')}></path>
+									</svg>
+								</button>
 								{#if index !== 0}
 									<!-- svelte-ignore a11y_consider_explicit_label -->
 									<button class="el-button" onclick={() => moveBefore(actualStateObj.path, index)}>
@@ -493,9 +499,15 @@
 						{#each actualStateObj.categories as category, index}
 							<div class="el-container">
 								<p>{category}</p>
-								<button class="el-button" onclick={() => deleteEl(actualStateObj.categories, index)}
-									>D</button
+								<!-- svelte-ignore a11y_consider_explicit_label -->
+								<button
+									class="el-button"
+									onclick={() => deleteEl(actualStateObj.categories, index)}
 								>
+									<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+										<path d={icoGlyphs.getPath('minus')}></path>
+									</svg>
+								</button>
 								{#if index !== 0}
 									<!-- svelte-ignore a11y_consider_explicit_label -->
 									<button
@@ -543,9 +555,12 @@
 						{#each actualStateObj.tags as tag, index}
 							<div class="el-container">
 								<p>{tag}</p>
-								<button class="el-button" onclick={() => deleteEl(actualStateObj.tags, index)}
-									>D</button
-								>
+								<!-- svelte-ignore a11y_consider_explicit_label -->
+								<button class="el-button" onclick={() => deleteEl(actualStateObj.tags, index)}>
+									<svg class="svg-default" {...icoGlyphs.getSvgAttributes()}>
+										<path d={icoGlyphs.getPath('minus')}></path>
+									</svg>
+								</button>
 								{#if index !== 0}
 									<!-- svelte-ignore a11y_consider_explicit_label -->
 									<button class="el-button" onclick={() => moveBefore(actualStateObj.tags, index)}>
@@ -648,8 +663,11 @@
 
 	.el-button {
 		display: flex;
-		height: 100%;
-		max-height: 30px;
+		height: 30px;
+	}
+
+	.el-button svg {
+		stroke-width: 10px;
 	}
 
 	.warning-txt {
