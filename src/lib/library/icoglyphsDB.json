@@ -264,9 +264,10 @@
     {
       "aliases": ["eye", "v1c1v1c1x__d_l_r__s_7_3___x___o__s_2_2"],
       "path": ["eyelids", "o__s_2_2"],
-      "tags": ["eye", "optic", "oculus", "vision", "sight", "look", "view"],
+      "tags": ["eye", "optic", "oculus", "vision", "look", "view", "sight"],
       "id": "3be3920b-1ea0-4aa1-bb76-f47fd1f25213",
-      "is_public": true
+      "is_public": true,
+      "categories": []
     },
     {
       "aliases": ["grey-mode", "grey"],
@@ -474,6 +475,54 @@
       "categories": ["roads"],
       "tags": ["decision", "merge", "resolution", "convergence"],
       "id": "941540e5-3acd-464a-a9d7-7422da781c73",
+      "is_public": true
+    },
+    {
+      "aliases": ["o__s_5_5"],
+      "path": ["M 0 -24 A 1 1 0 0 0 0 24 A 1 1 0 0 0 0 -24"],
+      "categories": [],
+      "tags": [],
+      "id": "8dda8ce6-5dad-4b1c-bb83-166f0736ec51",
+      "is_public": false
+    },
+    {
+      "aliases": ["scale-up", "bigger"],
+      "path": ["o__s_5_5", "M -35 35 L -17 17 M -35 17 L -35 35 L -17 35 M 35 -35 L 17 -17 M 17 -35 L 35 -35 L 35 -17"],
+      "categories": ["scaling"],
+      "tags": ["zoom in", "enlarge", "increase size", "scale up", "grow"],
+      "id": "dd5ee30a-b624-495e-9107-da93dea9afc5",
+      "is_public": true
+    },
+    {
+      "aliases": ["scale-down", "smaller"],
+      "path": ["o__s_5_5", "M -35 35 L -17 17 M -35 17 L -17 17 L -17 35 M 35 -35 L 17 -17 M 17 -35 L 17 -17 L 35 -17"],
+      "categories": ["scaling"],
+      "tags": ["reduce", "shrink", "contract", "decrease size", "smaller"],
+      "id": "23ef8c7f-5d8f-4559-9a33-88bcbb2168f1",
+      "is_public": true
+    },
+    {
+      "aliases": ["no-scale"],
+      "path": ["o__s_5_5", "M -26 26 L -17 17 M -35 17 L -26 26 L -17 35 M 26 -26 L 17 -17 M 17 -35 L 26 -26 L 35 -17"],
+      "categories": ["scaling"],
+      "tags": ["static", "fixed size"],
+      "id": "09363128-be65-4500-8d29-ef530c3f5914",
+      "is_public": true
+    },
+    {
+      "aliases": ["enter-fullscreen", "fullscreen"],
+      "path": ["M -35 0 L -35 35 L 0 35 M 0 -35 L 35 -35 L 35 0 M -25 25 L 25 -25 M -25 7 L -25 25 L -7 25 M 7 -25 L 25 -25 L 25 -7"],
+      "categories": ["fullscreen"],
+      "tags": [],
+      "id": "f7e685a6-f881-4240-86dc-ab8198917bd4",
+      "is_public": true
+    },
+    {
+      "aliases": ["exit-fullscreen"],
+      "path": ["M -35 0 L -35 35 L 0 35 M 0 -35 L 35 -35 L 35 0 M -25 25 L 25 -25 M -23 5 L -5 5 L -5 23 M 5 -23 L 5 -5 L 23 -5"],
+      "categories": ["fullscreen"],
+      "tags": [],
+      "id": "b05c753f-fd04-42ae-a372-c733e2fc60d3",
       "is_public": true
     }
   ]
