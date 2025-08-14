@@ -6,10 +6,10 @@
 
 	let tags = $derived(icoGlyphs.searchIcoGlyph(icoGlyphName)?.tags);
 
-	// $inspect(icoGlyphName);
+	// $inspect(tags.length);
 </script>
 
-{#if tags !== undefined}
+{#if tags !== undefined && tags.length >= 1}
 	<BasicBlock>
 		{#snippet title()}
 			<h2>Tags</h2>
