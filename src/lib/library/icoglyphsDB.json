@@ -540,6 +540,14 @@
       "tags": ["remove", "minus", "delete", "decrease", "negative"],
       "id": "8554f4d0-f791-4660-90d0-911c41e70219",
       "is_public": true
+    },
+    {
+      "aliases": ["bodySwapTactics"],
+      "path": ["M 0 -15 A 1 1 0 0 0 0 35 A 1 1 0 0 0 0 -15 M 0 -35 A 1 1 0 0 0 0 15 A 1 1 0 0 0 0 -35", "M 0 -35 C -25 -35 -35 0 0 0 C 35 0 25 35 0 35"],
+      "categories": [],
+      "tags": [],
+      "id": "91730f6f-689b-49e4-8bf5-b22c12280998",
+      "is_public": false
     }
   ]
 }
