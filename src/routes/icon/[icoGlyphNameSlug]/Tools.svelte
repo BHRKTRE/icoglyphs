@@ -1,9 +1,9 @@
 <script>
 	import appState from '$lib/app/appState.svelte.js';
 	import BasicBlock from '$lib/app/components/BasicBlock.svelte';
-	import DesignerTools from './toolsComponents/DesignerTools.svelte';
-	import DeveloperTools from './toolsComponents/DeveloperTools.svelte';
-	import SvgExpertTools from './toolsComponents/SvgExpertTools.svelte';
+	import DesignerTools from './_toolsComponents/DesignerTools.svelte';
+	import DeveloperTools from './_toolsComponents/DeveloperTools.svelte';
+	import SvgExpertTools from './_toolsComponents/SvgExpertTools.svelte';
 	import icoGlyphs from '$lib/icoglyphs.js';
 
 	import TabInterface from '$lib/app/components/TabInterface.svelte';
