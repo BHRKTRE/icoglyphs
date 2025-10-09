@@ -26,6 +26,7 @@
 		"prettier-plugin-svelte": "^3.3.2",
 		"svelte": "^5.20.2",
 		"vite": "^6.0.3",
+		"vite-plugin-devtools-json": "^1.0.0",
 		"vitest": "^2.1.8",
 		"wrangler": "^3.96.0"
 	},
